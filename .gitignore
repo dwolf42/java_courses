@@ -27,9 +27,7 @@ hs_err_pid*
 # my ignore
 *.idea/
 *.iml
-out/
-*.class
-
+.out/
 grandle.xml
 *.iws
 workspace.xml
