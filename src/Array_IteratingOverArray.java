@@ -64,7 +64,4 @@ public class Array_IteratingOverArray {
             System.out.println("OK");
         }
     }
-
-
 }
-
