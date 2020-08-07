@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class ArrayForEach_DoesAnArrayNontainN {
+public class ArrayForEach_DoesAnArrayContainN {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -20,6 +20,7 @@ public class ArrayForEach_DoesAnArrayNontainN {
 
             if (x == n) {
                 containsN = true;
+                break;
             }
         }
 
