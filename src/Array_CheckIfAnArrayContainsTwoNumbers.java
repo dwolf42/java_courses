@@ -44,23 +44,19 @@ Output data format
 
 Only a single value: true or false.
 Sample Input 1:
-
 3
 1 3 2
 2 3
 
 Sample Output 1:
-
 true
 
 Sample Input 2:
-
 3
 1 2 3
 3 4
 
 Sample Output 2:
-
 false
 
 */
