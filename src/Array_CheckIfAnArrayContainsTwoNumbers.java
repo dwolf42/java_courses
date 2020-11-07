@@ -30,6 +30,7 @@ public class Array_CheckIfAnArrayContainsTwoNumbers {
 }
 
 /*
+
 Write a program that reads an unsorted array of integers and two numbers n and m.
 The program must check if n and m occur next to each other in the array (in any order).
 
