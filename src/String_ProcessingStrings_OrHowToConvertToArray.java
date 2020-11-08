@@ -16,5 +16,7 @@ public class String_ProcessingStrings_OrHowToConvertToArray {
         String text = "Hello";
         String[] parts = text.split("");
         System.out.println(Arrays.toString(parts));
+
+
     }
 }
