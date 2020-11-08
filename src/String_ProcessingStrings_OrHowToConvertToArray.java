@@ -13,7 +13,7 @@ public class String_ProcessingStrings_OrHowToConvertToArray {
         String theSameString = new String(charsFromString);
         System.out.println("theSameString: " + theSameString);
 
-        String text = "Hello";
+        String text = "Hellothere";
         String[] parts = text.split("");
         System.out.println(Arrays.toString(parts));
 
