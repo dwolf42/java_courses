@@ -1,18 +1,13 @@
+package Array;
+
 import java.util.Scanner;
 
-public class Array_ShiftArrayToRight2 {
+
+public class Array_ShiftArrayToRight {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
-        int length = scanner.nextInt();
-        int[] incomingArray = new int[length];
-
-        for (int i = 0; i < incomingArray.length - 1; i++) {
-            incomingArray[i] = scanner.nextInt();
-        }
-
-
-        int[] newArray = shiftMultiple(incomingArray, scanner.nextInt());
+        int[] oldArray = {5, 3, 7, 9};
+        int[] newArray = shiftMultiple(oldArray, scanner.nextInt());
         printArray(newArray);
     }
 
