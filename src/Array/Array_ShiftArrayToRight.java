@@ -2,45 +2,45 @@ package Array;
 
 import java.util.Scanner;
 
-
 public class Array_ShiftArrayToRight {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int[] oldArray = {5, 3, 7, 9};
-        int[] newArray = shiftMultiple(oldArray, scanner.nextInt());
-        printArray(newArray);
-    }
 
-    //Pushes the array the desired amount of times through the sifter.
-    public static int[] shiftMultiple(int[] arr, int count) {
-        for (int i = 0; i < count; i++) {
-            shiftArrayRight(arr);
+        String getNumOfArray = scanner.nextLine(); // 1 2 3 4 5
+        int times = scanner.nextInt() % getNumOfArray.length();                                 // 0  1  2  3  4
+        String[] stringInputToArray = getNumOfArray.split(" "); // [ 1, 2, 3, 4, 5 ]
+        int[] actualArray = new int [stringInputToArray.length]; // 12345
+
+        for (int i = 0; i < stringInputToArray.length; i++) {
+            String partOfString = stringInputToArray[i];
+            int convert = Integer.parseInt(partOfString);
+            actualArray[i] = convert;
         }
-        return arr;
+
+        int[] rotatedArray = shiftArrayTimes(actualArray, times);
+        printIt(rotatedArray);
     }
 
-    //Takes in an array of integers then returns a new array
-    //with all the values shifted right.
-    public static int[] shiftArrayRight(int[] array1) {
-        //Saves the last position of the array in a temporary variable
-        int tempVariable = array1[array1.length - 1];
-        //Loop starts at the 2nd-last pos. of array1 (number 7).
-        for (int i = array1.length - 2; i > -1; i--) {
-            //At each iteration of the loop copy the element of position i to position i + 1.
-            array1[i + 1] = array1[i];
+    public static int[] shiftArrayTimes(int[] arrayFromActualArray, int times) {
+        for (int i = 0; i < times; i++) {
+            shiftArrayToRight(arrayFromActualArray);
         }
-        //Finally copy value of tempVariable to first position of the array1 and return the array.1
-        array1[0] = tempVariable;
-        return array1;
+        return arrayFromActualArray;
     }
 
-    //Takes an array of integers and prints it to console
-    public static void printArray(int[] arrr) {
-        for (int x : arrr)
-            System.out.print(x + ",");
+    public static int[] shiftArrayToRight(int[] arrayFromShiftArrayTimes) {
+        int saveLastIndex = arrayFromShiftArrayTimes[arrayFromShiftArrayTimes.length - 1];
+
+        for (int i = arrayFromShiftArrayTimes.length - 2; i > -1; i--) {
+            arrayFromShiftArrayTimes[i + 1] = arrayFromShiftArrayTimes[i];
+        }
+        arrayFromShiftArrayTimes[0] = saveLastIndex;
+        return arrayFromShiftArrayTimes;
+    }
+
+    public static void printIt(int[] arrayFromRotatedArray) {
+        for (int enorila : arrayFromRotatedArray) {
+            System.out.print(enorila + " ");
+        }
     }
 }
-
-
-
-
