@@ -13,7 +13,6 @@ public class Array_ShiftArrayToRight2 {
             incomingArray[i] = scanner.nextInt();
         }
 
-
         int[] newArray = shiftMultiple(incomingArray, scanner.nextInt());
         printArray(newArray);
     }
