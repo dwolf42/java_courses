@@ -4,11 +4,17 @@ public class String_ProcessingString_ParseUrl {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        String getUrl = scanner.next();
-        String[] urlArray = getUrl.split("=");
+        String getUrl = "https://target.com/index.html?pass=12345&port=8080&cookie=&host=localhost";
+        String[] split1 = getUrl.split("=");
+        String[] split2 = split1[1].split("\\&");
 
-        for (int i = 0; i < urlArray.length; i++) {
-            System.out.print(urlArray[i]);
+
+        for (int i = 0; i < split1.length; i++) {
+            System.out.print(split1[i]);
+        }
+        System.out.println();
+        for (int i = 0; i < split2.length; i++) {
+            System.out.print(split2[i]);
         }
     }
 }
