@@ -6,17 +6,21 @@ public class String_ProcessingString_ParseUrl {
         Scanner scanner = new Scanner(System.in);
 
         String getUrl = "https://target.com/index.html?port=8080&cookie=&host=localhost";
-        String[] split1 = getUrl.split("\\?");
-        String splitUrl1 = String.join("", split1[1]);
-        System.out.println(getUrl.indexOf("pass")); // 30
-        System.out.println(getUrl.indexOf("port")); // 41
-        System.out.println(getUrl.indexOf("cookie")); // 51
-        System.out.println(getUrl.indexOf("host")); // 59
+        String[] split1 = getUrl.split("https://target.com/index.html");
+        String[] split2 = split1[1].split("\\?");
+        String[] split3 = split2[1].split("&");
 
-        String pass = getUrl.substring(getUrl.indexOf("p"), getUrl.indexOf("&"));
-        System.out.println(pass);
+
+       // String splittedUrl1 = String.join("", split1[1]);
+//        System.out.println(getUrl.indexOf("pass")); // 30
+//        System.out.println(getUrl.indexOf("port")); // 41
+//        System.out.println(getUrl.indexOf("cookie")); // 51
+//        System.out.println(getUrl.indexOf("host")); // 59
+//
+//        String pass = getUrl.substring(getUrl.indexOf("p"), getUrl.indexOf("&"));
+//        System.out.println(pass);
         System.out.println(Arrays.toString(split1));
-        System.out.println(splitUrl1);
+        System.out.println(Arrays.toString(split2));
     }
 }
  /*
