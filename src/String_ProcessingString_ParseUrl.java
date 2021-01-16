@@ -10,17 +10,30 @@ public class String_ProcessingString_ParseUrl {
         String[] split2 = split1[1].split("\\?");
         String[] split3 = split2[1].split("&");
 
-
-       // String splittedUrl1 = String.join("", split1[1]);
-//        System.out.println(getUrl.indexOf("pass")); // 30
-//        System.out.println(getUrl.indexOf("port")); // 41
-//        System.out.println(getUrl.indexOf("cookie")); // 51
-//        System.out.println(getUrl.indexOf("host")); // 59
-//
-//        String pass = getUrl.substring(getUrl.indexOf("p"), getUrl.indexOf("&"));
-//        System.out.println(pass);
         System.out.println(Arrays.toString(split1));
         System.out.println(Arrays.toString(split2));
+        System.out.println(Arrays.toString(split3));
+
+//        String section1 = split3[0].repalceAll("=", " : ");
+
+        String section0 = String.join("", split3[0]);
+        String section1 = String.join("", split3[1]);
+        String section2 = String.join("", split3[2]);
+
+        String[] split4 = section0.split("=");
+        String[] split5 = section1.split("=");
+        String[] split6 = section2.split("=");
+
+//        String section3 = String.join("", split3[3]);
+        String sectionPass = "-";
+
+        System.out.println();
+
+        if (!sectionPass.equals("-")){
+            System.out.println("pass :" + sectionPass);
+
+        }
+        
     }
 }
  /*
