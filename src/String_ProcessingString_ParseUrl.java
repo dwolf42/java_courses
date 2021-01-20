@@ -10,19 +10,38 @@ public class String_ProcessingString_ParseUrl {
         String[] split2 = split1[1].split("\\?");
         String[] split3 = split2[1].split("&");
 
-        String section0 = String.join("", split3[0]);
-        String section1 = String.join("", split3[1]);
-        String section2 = String.join("", split3[2]);
+//        String section0 = String.join("", split3[0]);
+//        String section1 = String.join("", split3[1]);
+//        String section2 = String.join("", split3[2]);
 
         System.out.println(Arrays.toString(split1));
         System.out.println(Arrays.toString(split2));
         System.out.println(Arrays.toString(split3));
 
         for (int i = 0; i < split3.length; i++) {
-            if (split3[i].contains("pass")) {
-                section1[] = split3[i].replaceAll("=", " : ");
+            if (split3[i].contains("pass") && split3[i].length > 5) {
+                split3[i].replaceAll("=", " : ");
             }
         }
+
+
+//package stackoverflow.q_24933319;
+//
+//        public class FindLength {
+//            public static void main(String[] args) {
+//                String[] arr = {"abc","bgfgh","gtddsffg"};
+//                System.out.println("Array size is: " + arr.length);
+//                for(String s : arr) {
+//                    System.out.println("Value is " + s + ", length is " + s.length());
+//                }
+//            }
+//        }
+//
+////Output:
+////Array size is: 3
+////Value is abc, length is 3
+////Value is bgfgh, length is 5
+////Value is gtddsffg, length is 8
 
 //        String section1 = split3[0].repalceAll("=", " : ");
 
