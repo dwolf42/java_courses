@@ -10,16 +10,23 @@ public class String_ProcessingString_ParseUrl {
         String[] split2 = split1[1].split("\\?");
         String[] split3 = split2[1].split("&");
 
-//        String section0 = String.join("", split3[0]);
-//        String section1 = String.join("", split3[1]);
-//        String section2 = String.join("", split3[2]);
+        String section0;
+        String section1;
+        String section2;
 
         System.out.println(Arrays.toString(split1));
         System.out.println(Arrays.toString(split2));
         System.out.println(Arrays.toString(split3));
 
+        for (String part : split3) {
+            if (part.contains("pass") && part.length() > 5){
+                section0 = part.replaceAll("=", " : ");
+            }
+        }
+
+        split3[i].replaceAll("=", " : ");
         for (int i = 0; i < split3.length; i++) {
-            if (split3[i].contains("pass") && split3[i].length > 5) {
+            if (split3[i].contains("pass") && (split3[i].length > 5)) {
                 split3[i].replaceAll("=", " : ");
             }
         }
