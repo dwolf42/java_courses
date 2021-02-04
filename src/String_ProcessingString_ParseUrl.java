@@ -30,7 +30,6 @@ public class String_ProcessingString_ParseUrl {
                 split3[i].replaceAll("=", " : ");
             }
         }
-
 //package stackoverflow.q_24933319;
 //
 //        public class FindLength {
