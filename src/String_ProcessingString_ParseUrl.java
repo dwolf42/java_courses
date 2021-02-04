@@ -7,31 +7,21 @@ public class String_ProcessingString_ParseUrl {
 
         String getUrl = "https://target.com/index.html?port=8080&cookie=&host=localhost";
         String[] split1 = getUrl.split("https://target.com/index.html\\?");
-        String[] split2 = split1[1].split("\\?");
-        String[] split3 = split2[1].split("\\n");
-        String[] split4 = split3[0].split("&", -1);
-
-        String cleanedLast = String.join("",split4);
-
-        // become true if there is a value between
-        boolean passIsGiven = !cleanedLast.contains("pass=&");
-        boolean portIsGiven = !cleanedLast.contains("port=&");
-        boolean cookieIsGiven = !cleanedLast.contains("cookie=&");
-        boolean hostIsGiven = !cleanedLast.contains("host=&");
-
-        String section0;
-        String section1;
-        String section2;
-
-        System.out.println(Arrays.toString(split1));
-        // [, ?port=8080&cookie=&host=localhost]
-        System.out.println(Arrays.toString(split2));
+        System.out.println("s1: " + Arrays.toString(split1));
         // [, port=8080&cookie=&host=localhost]
-        System.out.println(Arrays.toString(split3));
-        // [port=8080&cookie=&host=localhost]
-        System.out.println(Arrays.toString(split4));
-        System.out.println(cleanedLast);
+
+        String cleaned1 = String.join("", split1);
+        System.out.println("c1: " + cleaned1);
+        // port=8080&cookie=&host=localhost
+
+        String[] split2 = cleaned1.split("&");
+        System.out.println("s2: " + Arrays.toString(split2));
+        // [port=8080, cookie=, host=localhost]
+
+        String cleaned2 = String.join("", split2[0]);
+        System.out.println("c2: " + cleaned2);
         // port=8080cookie=host=localhost
+
 //
 //        for (String part : split3) {
 //            if (part.contains("pass") && part.length() > 5){
