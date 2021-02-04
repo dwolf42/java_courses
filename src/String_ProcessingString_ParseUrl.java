@@ -15,8 +15,11 @@ public class String_ProcessingString_ParseUrl {
         String section2;
 
         System.out.println(Arrays.toString(split1));
+        // [, ?port=8080&cookie=&host=localhost]
         System.out.println(Arrays.toString(split2));
+        // [, port=8080&cookie=&host=localhost]
         System.out.println(Arrays.toString(split3));
+        // [port=8080, cookie=, host=localhost]
 
         for (String part : split3) {
             if (part.contains("pass") && part.length() > 5){
@@ -24,12 +27,12 @@ public class String_ProcessingString_ParseUrl {
             }
         }
 
-        split3[i].replaceAll("=", " : ");
-        for (int i = 0; i < split3.length; i++) {
-            if (split3[i].contains("pass") && (split3[i].length > 5)) {
-                split3[i].replaceAll("=", " : ");
-            }
-        }
+//        split3[i].replaceAll("=", " : ");
+//        for (int i = 0; i < split3.length; i++) {
+//            if (split3[i].contains("pass") && (split3[i].length > 5)) {
+//                split3[i].replaceAll("=", " : ");
+//            }
+//        }
 
 //package stackoverflow.q_24933319;
 //
@@ -52,9 +55,9 @@ public class String_ProcessingString_ParseUrl {
 //        String section1 = split3[0].repalceAll("=", " : ");
 
 
-        String[] split4 = section0.split("=");
-        String[] split5 = section1.split("=");
-        String[] split6 = section2.split("=");
+//        String[] split4 = section0.split("=");
+//        String[] split5 = section1.split("=");
+//        String[] split6 = section2.split("=");
 
 //        String section3 = String.join("", split3[3]);
         String sectionPass = "-";
