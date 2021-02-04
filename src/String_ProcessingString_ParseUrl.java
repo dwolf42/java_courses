@@ -6,9 +6,18 @@ public class String_ProcessingString_ParseUrl {
         Scanner scanner = new Scanner(System.in);
 
         String getUrl = "https://target.com/index.html?port=8080&cookie=&host=localhost";
-        String[] split1 = getUrl.split("https://target.com/index.html");
+        String[] split1 = getUrl.split("https://target.com/index.html\\?");
         String[] split2 = split1[1].split("\\?");
-        String[] split3 = split2[1].split("&");
+        String[] split3 = split2[1].split("\\n");
+        String[] split4 = split3[0].split("&", -1);
+
+        String cleanedLast = String.join("",split4);
+
+        // become true if there is a value between
+        boolean passIsGiven = !cleanedLast.contains("pass=&");
+        boolean portIsGiven = !cleanedLast.contains("port=&");
+        boolean cookieIsGiven = !cleanedLast.contains("cookie=&");
+        boolean hostIsGiven = !cleanedLast.contains("host=&");
 
         String section0;
         String section1;
@@ -19,13 +28,16 @@ public class String_ProcessingString_ParseUrl {
         System.out.println(Arrays.toString(split2));
         // [, port=8080&cookie=&host=localhost]
         System.out.println(Arrays.toString(split3));
-        // [port=8080, cookie=, host=localhost]
-
-        for (String part : split3) {
-            if (part.contains("pass") && part.length() > 5){
-                section0 = part.replaceAll("=", " : ");
-            }
-        }
+        // [port=8080&cookie=&host=localhost]
+        System.out.println(Arrays.toString(split4));
+        System.out.println(cleanedLast);
+        // port=8080cookie=host=localhost
+//
+//        for (String part : split3) {
+//            if (part.contains("pass") && part.length() > 5){
+//                section0 = part.replaceAll("=", " : ");
+//            }
+//        }
 
 //        split3[i].replaceAll("=", " : ");
 //        for (int i = 0; i < split3.length; i++) {
@@ -45,12 +57,7 @@ public class String_ProcessingString_ParseUrl {
 //                }
 //            }
 //        }
-//
-////Output:
-////Array size is: 3
-////Value is abc, length is 3
-////Value is bgfgh, length is 5
-////Value is gtddsffg, length is 8
+
 
 //        String section1 = split3[0].repalceAll("=", " : ");
 
