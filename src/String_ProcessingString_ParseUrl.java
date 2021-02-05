@@ -18,6 +18,51 @@ public class String_ProcessingString_ParseUrl {
         System.out.println("s2: " + Arrays.toString(split2));
         // [port=8080, cookie=, host=localhost]
 
+        boolean hasPass = cleaned1.contains("pass=") && !cleaned1.contains("pass=&");
+        boolean hasPort = cleaned1.contains("port=") && !cleaned1.contains("port=&");
+        boolean hasCookie = cleaned1.contains("cookie=") && !cleaned1.contains("cookie=&");
+
+        boolean hasHost = false;
+
+        char[] ofHost = {};
+        for (int i = 0; i < split2.length; i++) {
+            if (split2[i].contains("host=")) {
+                ofHost = split2[i].toCharArray();
+                break;
+            }
+        }
+        /*
+        Gedankenstütze:
+        mit ofHost[] soll gecheckt werden, ob "host=" an der Indexposition split[i] enthalten ist. Falls ja, dann wird
+        ofHost[] = split[i]
+        Ich muss noch einen Test einbauen, ob nach dem "=" ein "&" kommt, falls dem so ist, hasHost = false;
+        dann Code fertig entwickeln. Es ist unklar ob in der URL auch "host=" stehen kann, also ohne einen Value.
+        ggf. muss ich später meinen Code entsprechend anpassen.
+        */
+        System.out.println(Arrays.toString(ofHost));
+
+
+        String part1 = "-1";
+        String part2 = "-1";
+        String part3 = "-1";
+        String part4 = "-1";
+
+
+        if (split2.length >= 1) {
+        }
+
+        if (split2.length >= 2) {
+
+        }
+
+        if (split2.length >= 3) {
+
+        }
+
+        if (split2.length >= 4) {
+
+        }
+
         String cleaned2 = String.join("", split2[0]);
         System.out.println("c2: " + cleaned2);
         // port=8080cookie=host=localhost
@@ -56,7 +101,7 @@ public class String_ProcessingString_ParseUrl {
 //        String[] split5 = section1.split("=");
 //        String[] split6 = section2.split("=");
 
-//        String section3 = String.join("", split3[3]);
+        //        String section3 = String.join("", split3[3]);
         String sectionPass = "-";
 
         System.out.println();
