@@ -6,66 +6,46 @@ public class String_ProcessingString_ParseUrl {
         Scanner scanner = new Scanner(System.in);
 
         String getUrl = "https://target.com/index.html?port=8080&cookie=&host=localhost";
-        String[] split1 = getUrl.split("https://target.com/index.html\\?");
+        String[] split1 = getUrl.split("[=?&]");
         System.out.println("s1: " + Arrays.toString(split1));
-        // [, port=8080&cookie=&host=localhost]
+        // [https://target.com/index.html, port, 8080, cookie, , host, localhost]
 
-        String cleaned1 = String.join("", split1);
-        System.out.println("c1: " + cleaned1);
-        // port=8080&cookie=&host=localhost
+        boolean hasPass = split1[1].contains("pass") && !split1[2].contains("");
+        boolean hasPort = split1[3].contains("port") && !split1[4].contains("");
+        boolean hasCookie = split1[5].contains("cookie") && !split1[6].contains("");
+        boolean hasHost = split1[7].contains("host") && !split1[8].contains("");
 
-        String[] split2 = cleaned1.split("&");
-        System.out.println("s2: " + Arrays.toString(split2));
-        // [port=8080, cookie=, host=localhost]
 
-        boolean hasPass = cleaned1.contains("pass=") && !cleaned1.contains("pass=&");
-        boolean hasPort = cleaned1.contains("port=") && !cleaned1.contains("port=&");
-        boolean hasCookie = cleaned1.contains("cookie=") && !cleaned1.contains("cookie=&");
 
-        boolean hasHost = false;
+        for (int i = 0; i < split1.length; i++){
+            if (i % 2 == 0) {
+                continue;
+            }
+            if (!split1[i + 1].contains("")){
+                System.out.println(split1[i] + " : " + split1[i + 1]);
+            } else if (split1[i].contains("pass") && split1[i + 1].contains("")) {
+                continue;
+            }
 
-        char[] ofHost = {};
-        for (int i = 0; i < split2.length; i++) {
-            if (split2[i].contains("host=")) {
-                ofHost = split2[i].toCharArray();
-                break;
+            }
+            if (i > split1.length -1 && ) {
             }
         }
+
+
+
+
+//        String cleaned1 = String.join("", split1);
+//        System.out.println("c1: " + cleaned1);
+//        // port=8080&cookie=&host=localhost
+
+//        String[] split2 = cleaned1.split("&", -1);
+//        System.out.println("s2: " + Arrays.toString(split2));
+        // [port=8080, cookie=, host=localhost]
+
+
         /*
-        Gedankenstütze:
-        mit ofHost[] soll gecheckt werden, ob "host=" an der Indexposition split[i] enthalten ist. Falls ja, dann wird
-        ofHost[] = split[i]
-        Ich muss noch einen Test einbauen, ob nach dem "=" ein "&" kommt, falls dem so ist, hasHost = false;
-        dann Code fertig entwickeln. Es ist unklar ob in der URL auch "host=" stehen kann, also ohne einen Value.
-        ggf. muss ich später meinen Code entsprechend anpassen.
-        */
-        System.out.println(Arrays.toString(ofHost));
 
-
-        String part1 = "-1";
-        String part2 = "-1";
-        String part3 = "-1";
-        String part4 = "-1";
-
-
-        if (split2.length >= 1) {
-        }
-
-        if (split2.length >= 2) {
-
-        }
-
-        if (split2.length >= 3) {
-
-        }
-
-        if (split2.length >= 4) {
-
-        }
-
-        String cleaned2 = String.join("", split2[0]);
-        System.out.println("c2: " + cleaned2);
-        // port=8080cookie=host=localhost
 
 //
 //        for (String part : split3) {
@@ -102,14 +82,7 @@ public class String_ProcessingString_ParseUrl {
 //        String[] split6 = section2.split("=");
 
         //        String section3 = String.join("", split3[3]);
-        String sectionPass = "-";
 
-        System.out.println();
-
-        if (!sectionPass.equals("-")) {
-            System.out.println("pass :" + sectionPass);
-
-        }
 
     }
 }
