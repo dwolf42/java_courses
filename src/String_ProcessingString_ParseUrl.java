@@ -10,30 +10,35 @@ public class String_ProcessingString_ParseUrl {
         System.out.println("s1: " + Arrays.toString(split1));
         // [https://target.com/index.html, port, 8080, cookie, , host, localhost]
 
-        boolean hasPass = split1[1].contains("pass") && !split1[2].contains("");
-        boolean hasPort = split1[3].contains("port") && !split1[4].contains("");
-        boolean hasCookie = split1[5].contains("cookie") && !split1[6].contains("");
-        boolean hasHost = split1[7].contains("host") && !split1[8].contains("");
+        int lengthOfSplit1 = split1.length;
+
+        boolean existPass = false;
+        boolean existPort = false;
+        boolean existCookie = false;
+        boolean exitHost = false;
+
+        boolean hasPass = false;
+        boolean hasPort = false;
+        boolean hasCookie = false;
+        boolean hasHost = false;
+
+        for (int i = 1; i <= split1.length; i++) {
+
+        }
+
+        split1[1].contains("pass") && !split1[2].contains("");
+        split1[3].contains("port") && !split1[4].contains("");
+        split1[5].contains("cookie") && !split1[6].contains("");
+        split1[7] && split1[7].contains("host") && !split1[8].contains("");
 
 
-
-        for (int i = 0; i < split1.length; i++){
-            if (i % 2 == 0) {
-                continue;
-            }
-            if (!split1[i + 1].contains("")){
-                System.out.println(split1[i] + " : " + split1[i + 1]);
-            } else if (split1[i].contains("pass") && split1[i + 1].contains("")) {
-                continue;
-            }
-
-            }
-            if (i > split1.length -1 && ) {
-            }
+        if (hasPass) {
+            System.out.println(split1[1] + " : " + split1[2]);
         }
 
 
-
+    }
+}
 
 //        String cleaned1 = String.join("", split1);
 //        System.out.println("c1: " + cleaned1);
