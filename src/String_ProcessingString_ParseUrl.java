@@ -23,13 +23,16 @@ public class String_ProcessingString_ParseUrl {
         boolean hasHost = false;
 
         for (int i = 1; i <= split1.length; i++) {
-
+            if (split1[1].contains("pass")) {
+                existPass = true;
+            }
+            if (split1[1].contains("pass") && !split1[2].contains("")) {}
         }
 
-        split1[1].contains("pass") && !split1[2].contains("");
-        split1[3].contains("port") && !split1[4].contains("");
-        split1[5].contains("cookie") && !split1[6].contains("");
-        split1[7] && split1[7].contains("host") && !split1[8].contains("");
+//        split1[1].contains("pass") && !split1[2].contains("");
+//        split1[3].contains("port") && !split1[4].contains("");
+//        split1[5].contains("cookie") && !split1[6].contains("");
+//        split1[7] && split1[7].contains("host") && !split1[8].contains("");
 
 
         if (hasPass) {
