@@ -10,18 +10,18 @@ public class String_ProcessingString_ParseUrl {
         // [https://target.com/index.html, port, 8080, cookie, , host, localhost]
         // String[] split1 = getUrl.split("[?]");
         System.out.println("s1: " + Arrays.toString(split1));
-
-        // Check whether parameter is given
-        boolean existPass = String.join("", split1).contains("pass");
-        boolean existPort = String.join("", split1).contains("port");
-        boolean existCookie = String.join("", split1).contains("cookie");
-        boolean exitHost = String.join("", split1).contains("host");
-
-        // Index location of parameters value. If -1, than no value is available
-        int hasPass = -1;
-        int hasPort = -1;
-        int hasCookie = -1;
-        int hasHost = -1;
+//
+//        // Check whether parameter is given
+//        boolean existPass = String.join("", split1).contains("pass");
+//        boolean existPort = String.join("", split1).contains("port");
+//        boolean existCookie = String.join("", split1).contains("cookie");
+//        boolean exitHost = String.join("", split1).contains("host");
+//
+//        // Index location of parameters value. If -1, than no value is available
+//        int hasPass = -1;
+//        int hasPort = -1;
+//        int hasCookie = -1;
+//        int hasHost = -1;
 
         int indexPass = -1;
 
@@ -29,15 +29,18 @@ public class String_ProcessingString_ParseUrl {
         // no value I will get "out of bounds".
         // THIS!!! -> if (split1[i].contains("pass") && i < split1.length)
         for (int i = 1; i < split1.length; i++) {
-            if (split1[i].contains("pass") && i != split1.length - 1) {
+            if (split1[i].contains("pass") | split1[i].contains("port") | split1[i].contains("cookie") | split1[i].contains("host")) {
+                continue;
+            }
+            if (split1[i].contains("pass") & i != split1.length - 1) {
                 indexPass = i + 1;
             }
-            if (i != split1.length - 1 && !split1[i + 1].contains("")) {
+            if (i != split1.length - 1 & !split1[i + 1].contains("")) {
                 System.out.println(split1[i] + " : " + split1[i + 1]);
-            } else if (!split1[i].contains("pass") && i < split1.length) {
+            } else if (!split1[i].contains("pass") & i < split1.length) {
                 System.out.println(split1[i] + " : " + "not found");
             }
-            if (i == split1.length - 1 && indexPass != -1) {
+            if (i == split1.length - 1 & (indexPass != -1)) {
                 System.out.println("password : " + split1[indexPass]);
             }
         }
