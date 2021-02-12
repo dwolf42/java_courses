@@ -5,7 +5,7 @@ public class String_ProcessingString_ParseUrl {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        String getUrl = "https://target.com/index.html?port=8080&cookie=&host=localhost";
+        String getUrl = "https://target.com/index.html?port=&cookie=&host=localhost";
          String[] split1 = getUrl.split("[=?&]");
         // [https://target.com/index.html, port, 8080, cookie, , host, localhost]
         // String[] split1 = getUrl.split("[?]");
@@ -29,17 +29,19 @@ public class String_ProcessingString_ParseUrl {
         // no value I will get "out of bounds".
         // THIS!!! -> if (split1[i].contains("pass") && i < split1.length)
         for (int i = 1; i < split1.length; i++) {
-            if (split1[i].contains("pass") | split1[i].contains("port") | split1[i].contains("cookie") | split1[i].contains("host")) {
-                continue;
-            }
-            if (split1[i].contains("pass") & i != split1.length - 1) {
+            if (split1[i].contains("pass") & i < split1.length) {
                 indexPass = i + 1;
             }
-            if (i != split1.length - 1 & !split1[i + 1].contains("")) {
+            if (split1[i].contains("pass")) {
                 System.out.println(split1[i] + " : " + split1[i + 1]);
-            } else if (!split1[i].contains("pass") & i < split1.length) {
-                System.out.println(split1[i] + " : " + "not found");
             }
+            if (split1[i].contains("port") & i < split1.length & !split1[i + 1].contains("")) {
+                System.out.println(split1[i] + " : " + split1[i + 1]);
+            }
+            if (split1[i].contains("port")) {
+
+            }
+
             if (i == split1.length - 1 & (indexPass != -1)) {
                 System.out.println("password : " + split1[indexPass]);
             }
