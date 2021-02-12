@@ -6,27 +6,34 @@ public class String_ProcessingString_ParseUrl {
         Scanner scanner = new Scanner(System.in);
 
         String getUrl = "https://target.com/index.html?port=8080&cookie=&host=localhost";
-        String[] split1 = getUrl.split("[=?&]");
-        System.out.println("s1: " + Arrays.toString(split1));
+        // String[] split1 = getUrl.split("[=?&]");
         // [https://target.com/index.html, port, 8080, cookie, , host, localhost]
+        String[] split1 = getUrl.split("[?]");
+        System.out.println("s1: " + Arrays.toString(split1));
+        String[] split2 = split1[1].split("\\&");
+        System.out.println("s2: " + Arrays.toString(split2));
+
+        String value1 = "";
 
         int lengthOfSplit1 = split1.length;
 
-        boolean existPass = false;
-        boolean existPort = false;
-        boolean existCookie = false;
-        boolean exitHost = false;
+        // Check whether parameter is given
+        boolean existPass = String.join("", split1).contains("pass");
+        boolean existPort = String.join("", split1).contains("port");
+        boolean existCookie = String.join("", split1).contains("cookie");
+        boolean exitHost = String.join("", split1).contains("host");
 
-        boolean hasPass = false;
-        boolean hasPort = false;
-        boolean hasCookie = false;
-        boolean hasHost = false;
+        // Index location of parameters value. If -1, than no value is available
+        int hasPass = -1;
+        int hasPort = -1;
+        int hasCookie = -1;
+        int hasHost = -1;
 
-        for (int i = 1; i <= split1.length; i++) {
-            if (split1[1].contains("pass")) {
-                existPass = true;
+        // How do I solve to check if the last parameter in array has a value? If I just iterate over the array and e.g. host has
+        // no value I will get "out of bounds".
+        for (int i = 1; i < split1.length; i++) {
+            if (split1[i].contains("pass")) {
             }
-            if (split1[1].contains("pass") && !split1[2].contains("")) {}
         }
 
 //        split1[1].contains("pass") && !split1[2].contains("");
@@ -34,10 +41,6 @@ public class String_ProcessingString_ParseUrl {
 //        split1[5].contains("cookie") && !split1[6].contains("");
 //        split1[7] && split1[7].contains("host") && !split1[8].contains("");
 
-
-        if (hasPass) {
-            System.out.println(split1[1] + " : " + split1[2]);
-        }
 
 
     }
