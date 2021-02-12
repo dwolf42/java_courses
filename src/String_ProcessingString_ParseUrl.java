@@ -31,8 +31,9 @@ public class String_ProcessingString_ParseUrl {
 
         // How do I solve to check if the last parameter in array has a value? If I just iterate over the array and e.g. host has
         // no value I will get "out of bounds".
+        // THIS!!! -> if (split1[i].contains("pass") && i < split1.length)
         for (int i = 1; i < split1.length; i++) {
-            if (split1[i].contains("pass")) {
+            if (split1[i].contains("pass") && i < split1.length) {
             }
         }
 
