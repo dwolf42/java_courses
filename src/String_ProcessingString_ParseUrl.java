@@ -4,7 +4,8 @@ public class String_ProcessingString_ParseUrl {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        String getUrl = "https://target.com/index.html?port=8080&cookie=&host=localhost";
+        String getUrl = "https://target.com/index.html?port=8080&name=Bob&cookie=&host=localhost";
+        //               https://target.com/index.html?pass=12345&port=8080&cookie=&host=localhost
         String[] split1 = getUrl.split("[=?&]");
 
         int indexPass = -1;
