@@ -4,18 +4,29 @@ import java.util.Scanner;
 public class Array_FillMatrix_UsingArray {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int defineLength = scanner.nextInt();
+        int defineLength = 5;
         int[][] matrix = new int[defineLength][defineLength];
 
-        for (int i = 0; i < defineLength; i++) {
-            for (int j = i; j > 0; j--) {
-                // System.out.print(j + " ");
-                matrix[j][] = j;
+        int i = 0;
+        int j = i;
+        int k = 1;
+        for (i = 0; i < matrix.length; i++) {
+
+            for (j = i; j >= 0; j--) {
+//                System.out.print(j + " ");
+                matrix[i][k] = j;
             }
-            for (int k = 0; k < defineLength - i; k++) {
-                System.out.print(k + " ");
+
+            for (k = 1; k < matrix.length - i; k++) {
+//                System.out.print(k + " ");
+                matrix[i][k] = k;
             }
-            System.out.println("");
+//            System.out.println();
+        }
+        for (int n = 0; n < matrix.length; n++) {
+            for (int m = 0; m < matrix.length; m++) {
+                System.out.print(matrix[n][m]);
+            }
         }
     }
 }
@@ -31,11 +42,45 @@ Sample Input 1:
 5
 
 Sample Output 1:
+       [j]->
+   [i] 0 1 2 3 4
+    |  1 0 1 2 3
+    V  2 1 0 1 2
+       3 2 1 0 1
+       4 3 2 1 0
 
-0 1 2 3 4
-1 0 1 2 3
-2 1 0 1 2
-3 2 1 0 1
-4 3 2 1 0
+import java.util.Scanner;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int target = scanner.nextInt();
+
+        for (int i = 0; i < target; i++) {
+            int j = i;
+            for (j = i; j >= 0; j--) {
+                System.out.print(j + " ");
+            }
+            for (int k = j + 2; k < target - i; k++) {
+                System.out.print(k + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+
+-------------
+        for (int i = 0; i < defineLength; i++) {
+            for (int j = i; j > 0; j--) {
+                System.out.print(j + " ");
+
+            }
+            for (int k = 0; k < defineLength - i; k++) {
+                System.out.print(k + " ");
+            }
+            System.out.println("");
+        }
 
  */
