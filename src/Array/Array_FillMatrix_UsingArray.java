@@ -7,26 +7,15 @@ public class Array_FillMatrix_UsingArray {
         int defineLength = 5;
         int[][] matrix = new int[defineLength][defineLength];
 
-        int i = 0;
-        int j = i;
-        int k = 1;
-        for (i = 0; i < matrix.length; i++) {
-
+         for (int i = 0; i < matrix.length; i++) {
+            int j = i;
             for (j = i; j >= 0; j--) {
-//                System.out.print(j + " ");
-                matrix[i][k] = j;
+                System.out.print(j + " ");
             }
-
-            for (k = 1; k < matrix.length - i; k++) {
-//                System.out.print(k + " ");
-                matrix[i][k] = k;
+            for (int k = j + 2; k < matrix.length - i; k++) {
+                System.out.print(k + " ");
             }
-//            System.out.println();
-        }
-        for (int n = 0; n < matrix.length; n++) {
-            for (int m = 0; m < matrix.length; m++) {
-                System.out.print(matrix[n][m]);
-            }
+            System.out.println();
         }
     }
 }
