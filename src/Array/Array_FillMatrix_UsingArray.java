@@ -5,22 +5,19 @@ import java.util.Scanner;
 public class Array_FillMatrix_UsingArray {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int defineLength = 10;
+        int defineLength = scanner.nextInt();
         int[][] matrix = new int[defineLength][defineLength];
-
 
         for (int i = 0; i < matrix.length; i++) {
             int m = 0;
-            int j = i;
-            for (; j >= 0; j--) {
+            for (int j = i; j >= 0; j--) {
                 matrix[i][m] = j;
                 m++;
             }
-            for (int k = j + 2; k < matrix.length - i; k++) {
+            for (int k = 1; k < matrix.length - i; k++) {
                 matrix[i][m] = k;
                 m++;
             }
-            System.out.println();
         }
         for (int p = 0; p < matrix.length; p++) {
             for (int q = 0; q < matrix.length; q++) {

@@ -4,7 +4,6 @@ import java.util.Scanner;
 public class Array_FillMatrix_LoopsOnly {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
         int defineLength = scanner.nextInt();
 
         for (int i = 0; i < defineLength; i++) {
