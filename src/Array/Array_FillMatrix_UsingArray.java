@@ -9,7 +9,7 @@ public class Array_FillMatrix_UsingArray {
 
          for (int i = 0; i < matrix.length; i++) {
             int j = i;
-            for (j = i; j >= 0; j--) {
+            for (; j >= 0; j--) {
                 System.out.print(j + " ");
             }
             for (int k = j + 2; k < matrix.length - i; k++) {
@@ -20,6 +20,18 @@ public class Array_FillMatrix_UsingArray {
     }
 }
 /*
+j loop:     k loop:
+0        1 2 3 4
+1 0        1 2 3
+2 1 0        1 2
+3 2 1 0        1
+4 3 2 1 0
+
+k loop:
+  1 2 3 4
+    1 2 3
+      1 2
+        1
 Given the number n, not greater than 100, create the matrix of size n×n and fill it using the following rule.
 Numbers 0 should be stored on the primary (main) diagonal. The two diagonals, adjacent to the primary one,
 should contain numbers 1. The next two diagonals should contain numbers 2; etc.
