@@ -1,19 +1,35 @@
 package Array;
 
+import java.util.Scanner;
+
 public class ArrayTwoDimensional_RotateRectangleArray {
     public static void main(String[] args) {
-//        int depth = 3;
-//        int width = 4;
-//        int[][] matrixHorizon = new int[depth][width];
-//        int[][] matrixVerti = new int[width][depth];
-        int[][] matrixHorizon = {
-                {11, 12, 13, 14},
-                {21, 22, 23, 24},
-                {31, 32, 33, 34}
-        };
-        int[][] matrixVerti = new int[4][3];
+        Scanner scanner = new Scanner(System.in);
 
-        for ( int i = 0; i < )
+        int depth = scanner.nextInt();
+        int width = scanner.nextInt();
+
+        int[][] matrixHorizon = new int[depth][width];
+
+        for (int i = 0; i < matrixHorizon.length; i++) {
+            for (int j = 0; j < matrixHorizon[0].length; j++) {
+                matrixHorizon[i][j] = scanner.nextInt();
+            }
+        }
+
+        int[][] matrixVertical = new int[width][depth];
+
+        for (int i = 0; i < matrixVertical.length; i++) {
+            for (int j = 0; j < matrixVertical[i].length; j++) {
+                matrixVertical[i][j] = matrixHorizon[matrixHorizon.length - j - 1][i];
+            }
+        }
+        for (int[] row : matrixVertical) {
+            for (int column : row) {
+                System.out.print(column + " ");
+            }
+            System.out.println();
+        }
     }
 }
 /*
@@ -40,4 +56,24 @@ Sample Output 1:
 32 22 12
 33 23 13
 34 24 14
+ */
+/*
+|-> Ready to run version <-|
+        int[][] matrixHorizon = {
+                {11, 12, 13, 14},
+                {21, 22, 23, 24},
+                {31, 32, 33, 34}
+        };
+        int[][] matrixVerti = new int[4][3];
+        for (int i = 0; i < matrixVerti.length; i++) {
+            for (int j = 0; j < matrixVerti[i].length; j++) {
+                matrixVerti[i][j] = matrixHorizon[matrixHorizon.length - j - 1][i];
+            }
+        }
+        for (int[] ints : matrixVerti) {
+            for (int anInt : ints) {
+                System.out.print(anInt + " ");
+            }
+            System.out.println("");
+        }
  */
