@@ -1,3 +1,5 @@
+package String;
+
 import java.util.Arrays;
 
 public class String_ProcessingStrings_OrHowToConvertToArrayAndSplitStings {
