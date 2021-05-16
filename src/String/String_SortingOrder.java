@@ -5,17 +5,20 @@ import java.util.Scanner;
 public class String_SortingOrder {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        // Getting user input, split it to array
-        String[] input = scanner.nextLine().split(" ");
-        if (input == null || input.length == 0) {
-            System.out.print(" ");
+        String getInput = scanner.nextLine();
+        // If input is null print empty string
+        if (getInput.length() == 0) {
+            System.out.print("");
         } else {
+            // Split input into an array
+            String[] inputSplit = getInput.split(" ");
             // Creating second array to sort input
-            String[] sortingInput = new String[input.length];
-
-            for (String sting : input) {
+            String[] sortingInput = new String[inputSplit.length];
+            // Iterate through each element of the array
+            for (String sting : inputSplit) {
+                // Iterate through each individual string of the array
                 for (int i = 0; i < sting.length(); i++) {
-                    // Checks if character is digit
+                    // Checks if character of the string is digit
                     if (Character.isDigit(sting.charAt(i))) {
                         // Gets int-value of the character, puts it at the correct index of 2nd array
                         sortingInput[Character.getNumericValue(sting.charAt(i)) - 1] = sting;
