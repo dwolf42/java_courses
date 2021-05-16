@@ -10,10 +10,10 @@
 *.ctxt
 
 # Mobile Tools for Java (J2ME)
-.mtj.tmp/
+.mtj.tmp/**
 
 # Package Files #
-#*.jar
+*.jar
 *.war
 *.nar
 *.ear
@@ -25,9 +25,19 @@
 hs_err_pid*
 
 # my ignore
-*.idea/
+.idea/*
+.out/*
+.test/*
+.gradle/*
 *.iml
-.out/
-grandle.xml
+*.xml
 *.iws
-workspace.xml
+*.html
+*.xhtml
+*.yaml
+*.build
+*.bat
+*.json
+*.properties
+*.bin
+*.lock
