@@ -5,13 +5,17 @@ import java.util.Scanner;
 public class String_SortingOrder {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        String getInput = scanner.nextLine();
+        System.out.println(order(scanner.nextLine()));
+    }
+
+    public static String order(String words) {
+        String output = "";
         // If input is null print empty string
-        if (getInput.length() == 0) {
-            System.out.print("");
+        if (words.length() == 0) {
+            return output;
         } else {
             // Split input into an array
-            String[] inputSplit = getInput.split(" ");
+            String[] inputSplit = words.split(" ");
             // Creating second array to sort input
             String[] sortingInput = new String[inputSplit.length];
             // Iterate through each element of the array
@@ -26,9 +30,11 @@ public class String_SortingOrder {
                 }
             }
             for (String kabraxis : sortingInput) {
-                System.out.print(kabraxis + " ");
+                // Puts every string of sortingInput[] together to form a new string
+                output = output.concat(kabraxis + " ");
             }
         }
+        return output;
     }
 }
 /*
