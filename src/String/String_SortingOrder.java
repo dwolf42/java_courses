@@ -29,9 +29,13 @@ public class String_SortingOrder {
                     }
                 }
             }
-            for (String kabraxis : sortingInput) {
+            for (int i = 0; i < sortingInput.length; i++) {
                 // Puts every string of sortingInput[] together to form a new string
-                output = output.concat(kabraxis + " ");
+                // Adds whitespace to string if it isn't the last string
+                output = output.concat(sortingInput[i]);
+                if (i != sortingInput.length - 1) {
+                    output += " ";
+                }
             }
         }
         return output;
