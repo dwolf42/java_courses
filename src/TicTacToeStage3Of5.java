@@ -41,38 +41,38 @@ public class TicTacToeStage3Of5 {
 
         // True if the indexes that are building the diagonal line from top left to bottom right
         // or from top right to bottom left are "X"
-        boolean xWinLeftDiagonal = board[0][0].equals("X") &
-                board[1][1].equals("X") &
+        boolean xWinLeftDiagonal = board[0][0].equals("X") &&
+                board[1][1].equals("X") &&
                 board[2][2].equals("X");
 
-        boolean xWinRightDiagonal = board[0][2].equals("X") &
-                board[1][1].equals("X") &
+        boolean xWinRightDiagonal = board[0][2].equals("X") &&
+                board[1][1].equals("X") &&
                 board[2][0].equals("X");
 
         // True if the indexes that are building horizontal lines left to right are "X"
-        boolean xWinHorizontal1 = board[0][0].equals("X") &
-                board[0][1].equals("X") &
+        boolean xWinHorizontal1 = board[0][0].equals("X") &&
+                board[0][1].equals("X") &&
                 board[0][2].equals("X");
 
-        boolean xWinHorizontal2 = board[1][0].equals("X") &
-                board[1][1].equals("X") &
+        boolean xWinHorizontal2 = board[1][0].equals("X") &&
+                board[1][1].equals("X") &&
                 board[1][2].equals("X");
 
-        boolean xWinHorizontal3 = board[2][0].equals("X") &
-                board[2][1].equals("X") &
+        boolean xWinHorizontal3 = board[2][0].equals("X") &&
+                board[2][1].equals("X") &&
                 board[2][2].equals("X");
 
         // True if the indexes that are building vertical lines top to bottom are "X"
-        boolean xWinVertical1 = board[0][0].equals("X") &
-                board[1][0].equals("X") &
+        boolean xWinVertical1 = board[0][0].equals("X") &&
+                board[1][0].equals("X") &&
                 board[2][0].equals("X");
 
-        boolean xWinVertical2 = board[0][1].equals("X") &
-                board[1][1].equals("X") &
+        boolean xWinVertical2 = board[0][1].equals("X") &&
+                board[1][1].equals("X") &&
                 board[2][1].equals("X");
 
-        boolean xWinVertical3 = board[0][2].equals("X") &
-                board[1][2].equals("X") &
+        boolean xWinVertical3 = board[0][2].equals("X") &&
+                board[1][2].equals("X") &&
                 board[2][2].equals("X");
 
 
@@ -80,38 +80,38 @@ public class TicTacToeStage3Of5 {
 
         // True if the indexes that are building the diagonal line from top left to bottom right
         // or from top right to bottom left are "O"
-        boolean oWinLeftDiagonal = board[0][0].equals("O") &
-                board[1][1].equals("O") &
+        boolean oWinLeftDiagonal = board[0][0].equals("O") &&
+                board[1][1].equals("O") &&
                 board[2][2].equals("O");
 
-        boolean oWinRightDiagonal = board[0][2].equals("O") &
-                board[1][1].equals("O") &
+        boolean oWinRightDiagonal = board[0][2].equals("O") &&
+                board[1][1].equals("O") &&
                 board[2][0].equals("O");
 
         // True if the indexes that are building horizontal lines left to right are "O"
-        boolean oWinHorizontal1 = board[0][0].equals("O") &
-                board[0][1].equals("O") &
+        boolean oWinHorizontal1 = board[0][0].equals("O") &&
+                board[0][1].equals("O") &&
                 board[0][2].equals("O");
 
-        boolean oWinHorizontal2 = board[1][0].equals("O") &
-                board[1][1].equals("O") &
+        boolean oWinHorizontal2 = board[1][0].equals("O") &&
+                board[1][1].equals("O") &&
                 board[1][2].equals("O");
 
-        boolean oWinHorizontal3 = board[2][0].equals("O") &
-                board[2][1].equals("O") &
+        boolean oWinHorizontal3 = board[2][0].equals("O") &&
+                board[2][1].equals("O") &&
                 board[2][2].equals("O");
 
         // True if the indexes that are building vertical lines top to bottom are "O"
-        boolean oWinVertical1 = board[0][0].equals("O") &
-                board[1][0].equals("O") &
+        boolean oWinVertical1 = board[0][0].equals("O") &&
+                board[1][0].equals("O") &&
                 board[2][0].equals("O");
 
-        boolean oWinVertical2 = board[0][1].equals("O") &
-                board[1][1].equals("O") &
+        boolean oWinVertical2 = board[0][1].equals("O") &&
+                board[1][1].equals("O") &&
                 board[2][1].equals("O");
 
-        boolean oWinVertical3 = board[0][2].equals("O") &
-                board[1][2].equals("O") &
+        boolean oWinVertical3 = board[0][2].equals("O") &&
+                board[1][2].equals("O") &&
                 board[2][2].equals("O");
 
         // --- Impossible conditions ---
