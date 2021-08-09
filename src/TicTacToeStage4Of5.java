@@ -1,3 +1,19 @@
+/*
+Analysis of Firelord's code:
+- Main method gets user input as string stored in "cells".
+- Method call printRes sends string "cells" to printRes by printRes(cells).
+- In printRes the cellsArr[] is filled by "cells".toCharArray().
+- In the print statement the method call stateRes sends string "cells"
+  to stateRes by stateRes(cells)
+
+- In stateRes the cellsArr[] is filled by "cells".toCharArray().
+- The variable count[] is filled by the values coming fom countXO(cellsArr),
+  here the method call countXO sends the cellsArr[]
+
+
+*/
+
+
 import java.util.Scanner;
 
 public class TicTacToeStage4Of5 {
@@ -5,9 +21,21 @@ public class TicTacToeStage4Of5 {
         Scanner scanner = new Scanner(System.in);
 
         String[] partsOfInput = scanner.nextLine().toUpperCase().split("");
+//        XXXOO__O_
         board(partsOfInput);
+        printBoard(board(partsOfInput));
 
 
+    }
+
+    public static void printBoard(String[][] board) {
+
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[1].length; j++) {
+                System.out.print(board[i][j] + " ");
+            }
+            System.out.println("");
+        }
     }
 
     public static String[][] board(String[] partsOfInput) {
@@ -16,8 +44,8 @@ public class TicTacToeStage4Of5 {
                 {" ", " ", " "}
         };
 
-        // indexOnPartOfInput; is to count which index (token) of partsOfInput[] should be put into
-        // which position of the board[][]
+        // indexOnPartOfInput; is to count which index of partsOfInput[] should be put into
+        // the position board[i][j]
         int indexOnPartOfInput = 0;
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[1].length; j++) {
@@ -36,68 +64,7 @@ public class TicTacToeStage4Of5 {
 
     }
 }
-/*
-Was möchte ich tun:
-Für jede mögliche Win Kondition, Impossible Kondition,
-eine Draw Kondition und eventuelle Game not finished Kondition,
-möchte ich eine eigene boolean retrun value Methode schreiben.
 
-Eine Methode prüft, ob drei X in der ersten, zweiten, dritten
-Reihe vorhanden sind und soll in diesem Fall true zurückgeben.
-Das Gleiche möchte ich dann auch für O schreiben.
-
-Mein Problem ist, ich weiß nicht, wie ich den aktuellen Inhalt
-von board[][] in die jeweiligen Methoden bekomme, um dort mit einem Loop
-durch das Array zu iterieren.
-
-*/
-
-
-
-/* import java.util.Scanner;
-
-public class scratch_1 {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        String[] partsOfInput = scanner.nextLine().toUpperCase().split("");
-
-        scanner.close();
-
-        String[][] boardI = board(partsOfInput);
-
-        xIsWinningDiagonalLeft(boardI);
-        boolean x = xIsWinningDiagonalLeft(boardI);
-
-        System.out.println(x);
-    }
-
-    public static String[][] board(String[] partsOfInput) {
-        String[][] board = {{" ", " ", " "},
-                {" ", " ", " "},
-                {" ", " ", " "}
-        };
-
-        // indexOnPartOfInput; is to count which index (token) of partsOfInput[] should be put into
-        // which position of the board[][]
-        int indexOnPartOfInput = 0;
-        for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board[1].length; j++) {
-                board[i][j] = partsOfInput[indexOnPartOfInput];
-                indexOnPartOfInput++;
-            }
-        }
-        return board;
-    }
-
-    public static boolean xIsWinningDiagonalLeft(String[][] board) {
-
-        return board[0][0].equals("X") &&
-                board[1][1].equals("X") &&
-                board[2][2].equals("X");
-
-    }
-}
 /*
 Was möchte ich tun:
 Für jede mögliche Win Kondition, Impossible Kondition,
@@ -266,6 +233,79 @@ Enter the coordinates: 1 1
 | O X   |
 ---------
 
+/////// Old states of board
+Example 1:
+
+Enter cells: XXXOO__O_
+---------
+| X X X |
+| O O _ |
+| _ O _ |
+---------
+X wins
+Example 2:
+
+Enter cells: XOXOXOXXO
+---------
+| X O X |
+| O X O |
+| X X O |
+---------
+X wins
+Example 3:
+
+Enter cells: XOOOXOXXO
+---------
+| X O O |
+| O X O |
+| X X O |
+---------
+O wins
+Example 4:
+
+Enter cells: XOXOOXXXO
+---------
+| X O X |
+| O O X |
+| X X O |
+---------
+Draw
+Example 5:
+
+Enter cells: XO_OOX_X_
+---------
+| X O   |
+| O O X |
+|   X   |
+---------
+Game not finished
+Example 6:
+
+Enter cells: XO_XO_XOX
+---------
+| X O _ |
+| X O _ |
+| X O X |
+---------
+Impossible
+Example 7:
+
+Enter cells: _O_X__X_X
+---------
+|   O   |
+| X     |
+| X   X |
+---------
+Impossible
+Example 8:
+
+Enter cells: _OOOO_X_X
+---------
+|   O O |
+| O O   |
+| X   X |
+---------
+Impossible
 
 
 */
