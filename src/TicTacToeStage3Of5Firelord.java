@@ -122,4 +122,3 @@ public class TicTacToeStage3Of5Firelord {
         System.out.println(stateRes(cells)); // to analyze the game state
     }
 }
-}
