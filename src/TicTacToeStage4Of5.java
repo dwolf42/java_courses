@@ -1,89 +1,60 @@
-/*
-Analysis of Firelord's code:
-- Main method gets user input as string stored in "cells".
-- Method call printRes sends string "cells" to printRes by printRes(cells).
-- In printRes the cellsArr[] is filled by "cells".toCharArray().
-- In the print statement the method call stateRes sends string "cells"
-  to stateRes by stateRes(cells)
-
-- In stateRes the cellsArr[] is filled by "cells".toCharArray().
-- The variable count[] is filled by the values coming fom countXO(cellsArr),
-  here the method call countXO sends the cellsArr[]
-
-
-*/
-
-
 import java.util.Scanner;
 
 public class TicTacToeStage4Of5 {
     public static void main(String[] args) {
+
+        while (checkSlots()) {
+
+        }
         Scanner scanner = new Scanner(System.in);
 
-        String[] partsOfInput = scanner.nextLine().toUpperCase().split("");
+        String userInput = scanner.nextLine().toUpperCase();
 //        XXXOO__O_
-        board(partsOfInput);
-        printBoard(board(partsOfInput));
 
 
     }
 
-    public static void printBoard(String[][] board) {
-
-        for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board[1].length; j++) {
-                System.out.print(board[i][j] + " ");
-            }
-            System.out.println("");
-        }
+    public static boolean checkSlots() {
+        return false;
     }
 
-    public static String[][] board(String[] partsOfInput) {
-        String[][] board = {{" ", " ", " "},
-                {" ", " ", " "},
-                {" ", " ", " "}
-        };
-
-        // indexOnPartOfInput; is to count which index of partsOfInput[] should be put into
-        // the position board[i][j]
-        int indexOnPartOfInput = 0;
-        for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board[1].length; j++) {
-                board[i][j] = partsOfInput[indexOnPartOfInput];
-                indexOnPartOfInput++;
-            }
-        }
-        return board;
-    }
-
-    public static boolean xIsWinningDiagonalLeft(String[][] board) {
-
-        return board[0][0].equals("X") &&
-                board[1][1].equals("X") &&
-                board[2][2].equals("X");
+    public static void printBoard() {
 
     }
 }
-
 /*
-Was möchte ich tun:
-Für jede mögliche Win Kondition, Impossible Kondition,
-eine Draw Kondition und eventuelle Game not finished Kondition,
-möchte ich eine eigene boolean retrun value Methode schreiben.
+printBoard():
+- zeigt den aktuellen Status des Boards
+- bekommt den aktuellen Status vom Board[][]
+- wird immer dann aufgerufen, wenn der aktuelle Spielstand benötigt wird
 
-Eine Methode prüft, ob drei X in der ersten, zweiten, dritten
-Reihe vorhanden sind und soll in diesem Fall true zurückgeben.
-Das Gleiche möchte ich dann auch für O schreiben.
+Create 2d array 3x3:
 
-Mein Problem ist, ich weiß nicht, wie ich den aktuellen Inhalt
-von board[][] in die jeweiligen Methoden bekomme, um dort mit einem Loop
-durch das Array zu iterieren.
+(1, 1) (1, 2) (1, 3)
+(2, 1) (2, 2) (2, 3)
+(3, 1) (3, 2) (3, 3)
+- Ask user to enter coordinates:
+1, 1, or 2, 3 etc.
+1. Coordinate is top to bottom (i)
+2. Coordinate is left to right (j)
+Coordinates range 1-3(i), 1-3(j)
+- Player is always X
+
+- wrong coordinates gridAnalyzer():
+while-loop
+3, 4 = error message: Coordinates should be from 1 to 3!
+occupied cell = error message: This cell is occupied! Choose another one!
+input != numbers = error message: You should enter numbers!
+
+Prompt the user to make a move.
+the field will be the first line of input, and the 2 coordinate numbers will be the second line of input
+print grid after every move
+output the field 2 times: once before the user’s move, and once  after the user has entered a legal move.
+
 
 */
+
 /*
- *
- Stage 4/5: First move!
-Description
 It’s time to make our game interactive! Now we’re going to add the ability for a user to make a move.
 
 To do this, we need to divide the grid into cells.
@@ -96,9 +67,12 @@ Suppose the top left cell has the coordinates (1, 1) and the bottom right cell h
 
 The program should ask the user to enter the coordinates of the cell where they want to make a move.
 
-In this stage, the user plays as X, not O. Keep in mind that the first coordinate goes from top to bottom and the second coordinate goes from left to right. Also note that coordinates start with 1 and can be 1, 2, or 3.
+In this stage, the user plays as X, not O. Keep in mind that the first coordinate goes from top to bottom and the second
+coordinate goes from left to right. Also note that coordinates start with 1 and can be 1, 2, or 3.
 
-What happens if the user enters incorrect coordinates? The user could enter symbols instead of numbers, or enter coordinates representing occupied cells or cells that aren’t even on the grid. You need to check the user's input and catch possible exceptions.
+What happens if the user enters incorrect coordinates? The user could enter symbols instead of numbers, or enter
+coordinates representing occupied cells or cells that aren’t even on the grid. You need to check the user's input and
+catch possible exceptions.
 
 Objectives
 The program should work as follows:
@@ -106,15 +80,20 @@ The program should work as follows:
 Get the 3x3 grid from the input as in the previous stages.
 Output this 3x3 grid as in the previous stages.
 Prompt the user to make a move.
-The user should input 2 numbers that represent the cell where they want to place their X. (the 9 symbols representing the field will be the first line of input, and the 2 coordinate numbers will be the second line of input)
+The user should input 2 numbers that represent the cell where they want to place their X. (the 9 symbols representing
+the field will be the first line of input, and the 2 coordinate numbers will be the second line of input)
 Analyze user input and show messages in the following situations:
 This cell is occupied! Choose another one! if the cell is not empty.
 You should enter numbers! if the user enters non-numeric symbols in the coordinates input.
 Coordinates should be from 1 to 3! if the user enters coordinates outside the game grid.
 Update the grid to include the user's move and print the updated grid to the console.
-The program should also check the user’s input. If the input is unsuitable, the program should tell the user why their input was wrong, and prompt them to enter coordinates again.
+The program should also check the user’s input. If the input is unsuitable, the program should tell the user why their
+input was wrong, and prompt them to enter coordinates again.
 
-To summarize, you need to output the game grid based on the first line of input, and then ask the user to enter a move. Keep asking until the user enters coordinates that represent an empty cell on the grid, update the grid to include that move, and then output it to the console. You should output the field only 2 times: once before the user’s move, and once after the user has entered a legal move.
+To summarize, you need to output the game grid based on the first line of input, and then ask the user to enter a move.
+Keep asking until the user enters coordinates that represent an empty cell on the grid, update the grid to include that
+move, and then output it to the console. You should output the field only 2 times: once before the user’s move, and once
+ after the user has entered a legal move.
 
 Do not delete the code you already wrote that analyzes the game state; you will need it in the final step of this project.
 
@@ -138,6 +117,7 @@ Enter the coordinates: 3 1
 |   O   |
 | X     |
 ---------
+
 Example 2:
 
 Enter cells: _XXOO_OX_
