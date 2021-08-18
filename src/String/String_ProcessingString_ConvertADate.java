@@ -15,11 +15,9 @@ public class String_ProcessingString_ConvertADate {
     }
 
     public static String[] swapParts(String[] splitInput) {
-        String[] blah = splitInput[];
         String[] reversed = new String[splitInput.length];
-        String[] temp = splitInput[1];
+        String temp = splitInput[0];
         for (int i = 0; i < splitInput.length; i++) {
-            temp[i] = splitInput[i];
             reversed[i] = splitInput[i];
         }
         return reversed;
