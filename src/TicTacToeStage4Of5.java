@@ -13,7 +13,27 @@ public class TicTacToeStage4Of5 {
 
 
     }
+    public static String getInput() {
+        Scanner scanner = new Scanner(System.in);
 
+        return scanner.nextLine();
+    }
+    public static String[][] generateBoard() {
+        String[][] board = {
+                           // 1,1   1,2  1,3
+                           // 0,0   0,1  0,2
+                              {"_", "_", "_"},
+                           // 2,1   2,2  2,3
+                           // 1,0   1,1  1,2
+                              {"_", "_", "_"},
+                           // 3,1   3,2  3,3
+                           // 2,0   2,1  2,2
+                              {"_", "_", "_"},
+        };
+
+
+        return board;
+    }
     public static boolean checkSlots() {
         return false;
     }
