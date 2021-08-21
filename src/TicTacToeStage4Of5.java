@@ -3,21 +3,21 @@ import java.util.Scanner;
 public class TicTacToeStage4Of5 {
     public static void main(String[] args) {
 
-        while (checkSlots()) {
+//        while (checkSlots()) {
+//
+//        }
 
-        }
-        Scanner scanner = new Scanner(System.in);
 
-        String userInput = scanner.nextLine().toUpperCase();
+
 //        XXXOO__O_
-
-
     }
-    public static String getInput() {
-        Scanner scanner = new Scanner(System.in);
-        return scanner.nextLine();
-    }
+
     public static String[][] generateBoard() {
+        char[] initialBoard = getInitialBoard();
+        int coordinate1 = getCoordinate();
+        int coordinate2 = getCoordinate();
+
+
         String[][] board = {
                            // 1,1   1,2  1,3
                            // 0,0   0,1  0,2
@@ -30,9 +30,19 @@ public class TicTacToeStage4Of5 {
                               {"_", "_", "_"},
         };
 
-
         return board;
     }
+
+    public static char[] getInitialBoard() {
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextLine().toUpperCase().toCharArray();
+    }
+
+    public static int getCoordinate() {
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextInt();
+    }
+
     public static boolean checkSlots() {
         return false;
     }
