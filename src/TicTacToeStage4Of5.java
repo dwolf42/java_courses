@@ -3,20 +3,28 @@ import java.util.Scanner;
 public class TicTacToeStage4Of5 {
     public static void main(String[] args) {
 
-        while (checkSlots()) {
+//        while (checkSlots()) {
+//
+//        }
+        String initialBoard = getInitialBoard();
+        int userInputCoordinate1 = getUserInput();
+        int userInputCoordinate2 = getUserInput();
 
-        }
-        Scanner scanner = new Scanner(System.in);
-
-        String userInput = scanner.nextLine().toUpperCase();
+//        System.out.println("uIC1: " + userInputCoordinate1);
+//        System.out.println("uTC2: " + userInputCoordinate2);
 //        XXXOO__O_
 
 
     }
-    public static String getInput() {
-        Scanner scanner = new Scanner(System.in);
 
-        return scanner.nextLine();
+    public static String getInitialBoard() {
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextLine().toUpperCase();
+    }
+
+    public static int getUserInput() {
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextInt();
     }
     public static String[][] generateBoard() {
         String[][] board = {
