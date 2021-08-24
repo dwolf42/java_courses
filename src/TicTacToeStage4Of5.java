@@ -3,32 +3,40 @@ import java.util.Scanner;
 public class TicTacToeStage4Of5 {
     public static void main(String[] args) {
 
-        while (checkSlots()) {
+    inputBasicBoard();
 
-        }
-        Scanner scanner = new Scanner(System.in);
-
-        String userInput = scanner.nextLine().toUpperCase();
 //        XXXOO__O_
 
-
     }
-    public static String getInput() {
+
+    public static void inputBasicBoard() {
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter cells: ");
 
-        return scanner.nextLine();
+        char[] enteredBoard = scanner.nextLine().toUpperCase().toCharArray();
+
+        char[][] board = new char[3][3];
+        int k = 0;
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[1].length; j++) {
+                board[i][j] = enteredBoard[k];
+                k++;
+            }
+        }
+        printIt(board);
     }
-    public static String[][] generateBoard() {
-        String[][] board = {
+
+    public static char[][] generateBoard() {
+        char[][] board = {
                            // 1,1   1,2  1,3
                            // 0,0   0,1  0,2
-                              {"_", "_", "_"},
+                              {'_', '_', '_'},
                            // 2,1   2,2  2,3
                            // 1,0   1,1  1,2
-                              {"_", "_", "_"},
+                              {'_', '_', '_'},
                            // 3,1   3,2  3,3
                            // 2,0   2,1  2,2
-                              {"_", "_", "_"},
+                              {'_', '_', '_'},
         };
 
 
@@ -38,8 +46,16 @@ public class TicTacToeStage4Of5 {
         return false;
     }
 
-    public static void printBoard() {
-
+    public static void printIt(char[][] board) {
+        System.out.println("---------"); // Top board line
+        for (char[] ch : board) {
+            System.out.print("| "); // Leading vertical bar
+            for (char cha : ch) {
+                System.out.print(cha + " ");
+            }
+            System.out.print("|" + '\n'); // Tailing vertical bar
+        }
+        System.out.println("---------"); // Lower board line
     }
 }
 /*
