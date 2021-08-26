@@ -1,10 +1,10 @@
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class TicTacToeStage4Of5 {
     public static void main(String[] args) {
         char[][] board = generateBoard(inputBasicBoard());
         printIt(board);
-
 
 //        XXXOO__O_
 
@@ -49,6 +49,20 @@ public class TicTacToeStage4Of5 {
     }
     public static boolean checkSlots() {
         return false;
+    }
+
+    /*
+    * User is asked to enter coordinated where they want to place their symbol.
+    * As the task says the numbers are separated by a white space the input is stored into
+    * a string array which is then parsed to the corresponding integers and stored as array.
+    * */
+
+    public static int[] getCoordinates() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the coordinates: ");
+        String[] coordinates = scanner.nextLine().split(" ");
+
+        return new int[]{Integer.parseInt(coordinates[0]), Integer.parseInt(coordinates[1])};
     }
 
     public static void printIt(char[][] board) {
