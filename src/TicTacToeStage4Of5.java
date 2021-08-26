@@ -2,31 +2,21 @@ import java.util.Scanner;
 
 public class TicTacToeStage4Of5 {
     public static void main(String[] args) {
-
-    inputBasicBoard();
+        char[][] board = generateBoard(inputBasicBoard());
+        printIt(board);
 
 //        XXXOO__O_
 
     }
 
-    public static void inputBasicBoard() {
+    public static char[] inputBasicBoard() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter cells: ");
 
-        char[] enteredBoard = scanner.nextLine().toUpperCase().toCharArray();
-
-        char[][] board = new char[3][3];
-        int k = 0;
-        for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board[1].length; j++) {
-                board[i][j] = enteredBoard[k];
-                k++;
-            }
-        }
-        printIt(board);
+        return scanner.nextLine().toUpperCase().toCharArray();
     }
 
-    public static char[][] generateBoard() {
+    public static char[][] generateBoard(char[] inputBasicBoard) {
         char[][] board = {
                            // 1,1   1,2  1,3
                            // 0,0   0,1  0,2
@@ -39,6 +29,13 @@ public class TicTacToeStage4Of5 {
                               {'_', '_', '_'},
         };
 
+        int k = 0;
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[1].length; j++) {
+                board[i][j] = inputBasicBoard[k];
+                k++;
+            }
+        }
 
         return board;
     }
@@ -58,11 +55,8 @@ public class TicTacToeStage4Of5 {
         System.out.println("---------"); // Lower board line
     }
 }
+
 /*
-printBoard():
-- zeigt den aktuellen Status des Boards
-- bekommt den aktuellen Status vom Board[][]
-- wird immer dann aufgerufen, wenn der aktuelle Spielstand benötigt wird
 
 Create 2d array 3x3:
 
