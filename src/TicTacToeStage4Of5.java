@@ -5,7 +5,8 @@ public class TicTacToeStage4Of5 {
     public static void main(String[] args) {
         char[][] board = generateBoard(inputBasicBoard());
         printIt(board);
-
+        getCoordinates();
+        verifyTurn();
 //        XXXOO__O_
 
     }
