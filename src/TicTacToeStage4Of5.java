@@ -6,7 +6,11 @@ public class TicTacToeStage4Of5 {
         char[][] board = generateBoard(inputBasicBoard());
         printIt(board);
         getCoordinates();
-        isValidTurn();
+        // must correct loop config. Must keep looping until valid user input
+        while(isValidTurn(board,getCoordinates())) {
+            getCoordinates();
+        }
+
 //        XXXOO__O_
 
     }
@@ -66,8 +70,13 @@ public class TicTacToeStage4Of5 {
         return new int[]{Integer.parseInt(coordinates[0]), Integer.parseInt(coordinates[1])};
     }
 
-    public static boolean isValidTurn() {
+    public static boolean isValidTurn(char[][] board, int[] getCoordinates) {
+        // must get the current board and user coordinates
+        // must check if cell is already occupied
+        // must check if there's still unoccupied cells
+        // must terminate game if no more moves possible? - check description
 
+        return false; // placeholder
     }
 
     public static void printIt(char[][] board) {
