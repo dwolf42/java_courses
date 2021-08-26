@@ -6,7 +6,7 @@ public class TicTacToeStage4Of5 {
         char[][] board = generateBoard(inputBasicBoard());
         printIt(board);
         getCoordinates();
-        verifyTurn();
+        isValidTurn();
 //        XXXOO__O_
 
     }
@@ -64,6 +64,10 @@ public class TicTacToeStage4Of5 {
         String[] coordinates = scanner.nextLine().split(" ");
 
         return new int[]{Integer.parseInt(coordinates[0]), Integer.parseInt(coordinates[1])};
+    }
+
+    public static boolean isValidTurn() {
+
     }
 
     public static void printIt(char[][] board) {
