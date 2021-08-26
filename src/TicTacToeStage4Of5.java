@@ -5,16 +5,24 @@ public class TicTacToeStage4Of5 {
         char[][] board = generateBoard(inputBasicBoard());
         printIt(board);
 
+
 //        XXXOO__O_
 
     }
-
+    /*
+     * In this method the user is asked to enter the basic / starter game board.
+     * Input is cast to upper case and a char array is created out of it.
+     */
     public static char[] inputBasicBoard() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter cells: ");
 
         return scanner.nextLine().toUpperCase().toCharArray();
     }
+
+    /*
+    * Creates and updates a 2-dimensional board which represents the game board.
+    **/
 
     public static char[][] generateBoard(char[] inputBasicBoard) {
         char[][] board = {
