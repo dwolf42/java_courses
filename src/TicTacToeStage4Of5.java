@@ -2,11 +2,28 @@ import java.util.Scanner;
 
 public class TicTacToeStage4Of5 {
     public static void main(String[] args) {
-        char[][] board = generateBoard(inputBasicBoard());
-        printIt(board);
+        TicTacToeStage4Of5 game = new TicTacToeStage4Of5();
+
+        game.play();
+
+        // char[][] board = generateBoard(inputBasicBoard());
+        // printIt(board);
 
 //        XXXOO__O_
 
+    }
+
+    private void play() {
+        Board board = new Board();
+        board.showBoard();
+        board.makeMove(Player.O, new Cell(1,1));
+        board.showBoard();
+        board.makeMove(Player.X, new Cell(2,3));
+        board.showBoard();
+        board.makeMove(Player.O, new Cell(1,2));
+        board.showBoard();
+        board.makeMove(Player.X, new Cell(2,1));
+        board.showBoard();
     }
 
     public static char[] inputBasicBoard() {
@@ -53,6 +70,79 @@ public class TicTacToeStage4Of5 {
             System.out.print("|" + '\n'); // Tailing vertical bar
         }
         System.out.println("---------"); // Lower board line
+    }
+}
+
+interface Player {
+    public static final char X = 'X';
+    public static final char O = 'O';
+}
+
+class Cell {
+    private int row,  col;
+
+    public int row() { return row; } 
+    public int col() { return col; }
+
+    Cell(int row, int col) {
+        if(row > 3 || row < 1 || col > 3 || col < 1) {
+            throw new IllegalArgumentException("oh nose! row or col are invalid arguments, available options are: 1, 2 or 3 only");
+        }
+
+        this.row = row - 1;
+        this.col = col - 1;
+    }
+}
+
+class Board {
+    public static final char Empty = '_';
+    private char[][] board = {{Empty, Empty, Empty}, {Empty, Empty, Empty}, {Empty, Empty, Empty}};
+    private String horizontalBorder = "---------";
+    private String verticalBar = "| ";
+
+    public void showBoard() {
+        // Top board line
+        System.out.println(horizontalBorder);
+
+        for (char[] row : board) {
+            // Leading vertical bar
+            System.out.print(verticalBar);
+
+            for (char cell : row) {
+                System.out.print(cell + " ");
+            }
+
+            // Tailing vertical bar
+            System.out.print("|" + '\n');
+        }
+
+        // Lower board line
+        System.out.println(horizontalBorder);
+    }
+
+    public void makeMove(char p, Cell c) {
+        if(!isCellEmpty(c)) {
+            throw new RuntimeException("Cell is not empty, choose another cell for your move");
+        }
+
+        this.commitMove(p, c);
+    }
+
+    private void commitMove(char p, Cell c) {
+        int row = c.row();
+        int col = c.col();
+
+        board[row][col] = p;
+    }
+
+    private boolean isCellEmpty(Cell c) {
+        char cell = board[c.row()][c.col()];
+
+        if(cell != Empty) {
+            return false;
+        }
+
+        return true;
     }
 }
 
