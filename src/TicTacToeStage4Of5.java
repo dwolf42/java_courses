@@ -3,15 +3,37 @@ import java.util.Arrays;
 
 public class TicTacToeStage4Of5 {
     public static void main(String[] args) {
-        char[][] board = generateBoard(inputBasicBoard());
-        printIt(board);
-        getCoordinates();
-        // must correct loop config. Must keep looping until valid user input
-        while(isValidTurn(board,getCoordinates())) {
-            getCoordinates();
+
+        char[] basicBoard = inputBasicBoard();
+        char[][] board = {
+                // 1,1   1,2  1,3
+                // 0,0   0,1  0,2
+                {'_', '_', '_'},
+                // 2,1   2,2  2,3
+                // 1,0   1,1  1,2
+                {'_', '_', '_'},
+                // 3,1   3,2  3,3
+                // 2,0   2,1  2,2
+                {'_', '_', '_'},
+        };
+
+        int k = 0;
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[1].length; j++) {
+                board[i][j] = basicBoard[k];
+                k++;
+            }
         }
 
-//        XXXOO__O_
+
+        printIt(board);
+//        getCoordinates();
+        // must correct loop config. Must keep looping until valid user input
+//        while(isValidTurn(board,getCoordinates())) {
+//            getCoordinates();
+//        }
+
+//        _XXOO_OX_
 
     }
     /*
@@ -29,29 +51,7 @@ public class TicTacToeStage4Of5 {
     * Creates and updates a 2-dimensional board which represents the game board.
     **/
 
-    public static char[][] generateBoard(char[] inputBasicBoard) {
-        char[][] board = {
-                           // 1,1   1,2  1,3
-                           // 0,0   0,1  0,2
-                              {'_', '_', '_'},
-                           // 2,1   2,2  2,3
-                           // 1,0   1,1  1,2
-                              {'_', '_', '_'},
-                           // 3,1   3,2  3,3
-                           // 2,0   2,1  2,2
-                              {'_', '_', '_'},
-        };
 
-        int k = 0;
-        for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board[1].length; j++) {
-                board[i][j] = inputBasicBoard[k];
-                k++;
-            }
-        }
-
-        return board;
-    }
     public static boolean checkSlots() {
         return false;
     }
