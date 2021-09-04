@@ -25,8 +25,14 @@ public class TicTacToeStage4Of5 {
         }
 
         printIt(board);
-        isValidTurn(board, getValidCoordinates());
+        int[] validCoordinates = getValidCoordinates();
+        while (!isValidTurn(board, getValidCoordinates())) {
+            isValidTurn(board, getValidCoordinates());
+        }
 
+            board[getValidCoordinates()[0]][getValidCoordinates()[1]] = 'X';
+
+        printIt(board);
 
 //        _XXOO_OX_
 
