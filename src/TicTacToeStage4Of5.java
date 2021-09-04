@@ -25,16 +25,13 @@ public class TicTacToeStage4Of5 {
         }
 
         printIt(board);
-        getValidCoordinates();
+        isValidTurn(board, getValidCoordinates());
 
 
 //        _XXOO_OX_
 
     }
-    /*
-     * In this method the user is asked to enter the basic / starter game board.
-     * Input is cast to upper case and a char array is created out of it.
-     */
+
     public static char[] inputTemplateBoard() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter cells: ");
@@ -44,7 +41,7 @@ public class TicTacToeStage4Of5 {
 
     public static int[] getValidCoordinates() {
         Scanner scanner = new Scanner(System.in);
-        String pattern = "(-|\\+)?\\d+";
+        String pattern = "([-+])?\\d+";
         System.out.println("Enter the coordinates: ");
         String[] coordinates = scanner.nextLine().split(" ");
 
@@ -63,31 +60,13 @@ public class TicTacToeStage4Of5 {
         return numCoordinates;
     }
 
-
-
-    public static boolean isValidTurn(char[][] board, int[] getCoordinates) {
-        // we have the board[][] and coordinates, lets check if they are valid
-        // int[] getCoordinates = [0][1]
-        // check if coordinate is occupied
-
-//        if(board[getCoordinates[0] - 1][getCoordinates[1] -1 ] != '_') {
-//            System.out.println("This cell is occupied! Choose another one!");
-//
-//        }
-
-        /*
-        * while (
-        * while (board[][] != '_')
-        *   Print "Cell not empty"
-        *   getCoordinates
-        *
-        * */
-        // must get the current board and user coordinates
-        // must check if cell is already occupied
-        // must check if there's still unoccupied cells
-        // must terminate game if no more moves possible? - check description
-
-        return false; // placeholder
+    public static boolean isValidTurn(char[][] board, int[] getValidCoordinates) {
+        if(board[getValidCoordinates[0] - 1][getValidCoordinates[1] -1 ] == '_') {
+            return true;
+        } else {
+            System.out.println("This cell is occupied! Choose another one!");
+            return true;
+        }
     }
 
     public static void printIt(char[][] board) {
