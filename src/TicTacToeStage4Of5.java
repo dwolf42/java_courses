@@ -26,7 +26,7 @@ public class TicTacToeStage4Of5 {
 
         printIt(board);
 
-        getCoordinates();
+        getValidCoordinates();
 
         /*
         * loop soll nach der Playereingabe fragen und feststellen, ob sie gültig ist.
@@ -51,20 +51,42 @@ public class TicTacToeStage4Of5 {
         return scanner.nextLine().toUpperCase().toCharArray();
     }
 
-    public static int[] getCoordinates() {
+    public static int[] getValidCoordinates() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter the coordinates: ");
         String[] coordinates = scanner.nextLine().split(" ");
+
+        if (!coordinates[0].matches("(-|\\+)?\\d+") || !coordinates[1].matches("(-|\\+)?\\d+")) {
+            System.out.println("You should enter numbers!");
+            getValidCoordinates();
+        }
 
         int[] numCoordinates = {Integer.parseInt(coordinates[0]), Integer.parseInt(coordinates[1])};
 
         if (numCoordinates[0] > 3 || numCoordinates[0] < 1 || numCoordinates[1] > 3 || numCoordinates[1] < 1) {
             System.out.println("Coordinates should be from 1 to 3!");
-            getCoordinates();
+            getValidCoordinates();
 
         }
         return numCoordinates;
     }
+
+
+
+//    public static int[] getCoordinates() {
+//        Scanner scanner = new Scanner(System.in);
+//        System.out.println("Enter the coordinates: ");
+//        String[] coordinates = scanner.nextLine().split(" ");
+//
+//        int[] numCoordinates = {Integer.parseInt(coordinates[0]), Integer.parseInt(coordinates[1])};
+//
+//        if (numCoordinates[0] > 3 || numCoordinates[0] < 1 || numCoordinates[1] > 3 || numCoordinates[1] < 1) {
+//            System.out.println("Coordinates should be from 1 to 3!");
+//            getCoordinates();
+//
+//        }
+//        return numCoordinates;
+//    }
 
     public static boolean isValidTurn(char[][] board, int[] getCoordinates) {
         // we have the board[][] and coordinates, lets check if they are valid
