@@ -2,7 +2,8 @@ import java.util.Scanner;
 
 public class TicTacToeStage4Of5 {
     public static void main(String[] args) {
-
+        getValidCoordinates();
+      /*
         char[] templateBoard = inputTemplateBoard();
         char[][] board = {
                 // 1,1   1,2  1,3
@@ -25,8 +26,8 @@ public class TicTacToeStage4Of5 {
         }
 
         printIt(board);
+*/
 
-        getValidCoordinates();
 
         /*
         * loop soll nach der Playereingabe fragen und feststellen, ob sie gültig ist.
@@ -58,16 +59,16 @@ public class TicTacToeStage4Of5 {
 
         if (!coordinates[0].matches("(-|\\+)?\\d+") || !coordinates[1].matches("(-|\\+)?\\d+")) {
             System.out.println("You should enter numbers!");
-            getValidCoordinates();
+            return getValidCoordinates();
         }
 
         int[] numCoordinates = {Integer.parseInt(coordinates[0]), Integer.parseInt(coordinates[1])};
 
         if (numCoordinates[0] > 3 || numCoordinates[0] < 1 || numCoordinates[1] > 3 || numCoordinates[1] < 1) {
             System.out.println("Coordinates should be from 1 to 3!");
-            getValidCoordinates();
-
+            return getValidCoordinates();
         }
+
         return numCoordinates;
     }
 
