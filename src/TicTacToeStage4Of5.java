@@ -2,8 +2,7 @@ import java.util.Scanner;
 
 public class TicTacToeStage4Of5 {
     public static void main(String[] args) {
-        getValidCoordinates();
-      /*
+
         char[] templateBoard = inputTemplateBoard();
         char[][] board = {
                 // 1,1   1,2  1,3
@@ -26,17 +25,8 @@ public class TicTacToeStage4Of5 {
         }
 
         printIt(board);
-*/
+        getValidCoordinates();
 
-
-        /*
-        * loop soll nach der Playereingabe fragen und feststellen, ob sie gültig ist.
-        * Bei ungültiger Eingabe soll der Loop wieder von vorn beginnen
-        *
-        * */
-//        while(!isValidTurn(board, getCoordinates())) {
-//            getCoordinates();
-//        }
 
 //        _XXOO_OX_
 
@@ -54,10 +44,11 @@ public class TicTacToeStage4Of5 {
 
     public static int[] getValidCoordinates() {
         Scanner scanner = new Scanner(System.in);
+        String pattern = "(-|\\+)?\\d+";
         System.out.println("Enter the coordinates: ");
         String[] coordinates = scanner.nextLine().split(" ");
 
-        if (!coordinates[0].matches("(-|\\+)?\\d+") || !coordinates[1].matches("(-|\\+)?\\d+")) {
+        if (!coordinates[0].matches(pattern) || !coordinates[1].matches(pattern)) {
             System.out.println("You should enter numbers!");
             return getValidCoordinates();
         }
@@ -73,21 +64,6 @@ public class TicTacToeStage4Of5 {
     }
 
 
-
-//    public static int[] getCoordinates() {
-//        Scanner scanner = new Scanner(System.in);
-//        System.out.println("Enter the coordinates: ");
-//        String[] coordinates = scanner.nextLine().split(" ");
-//
-//        int[] numCoordinates = {Integer.parseInt(coordinates[0]), Integer.parseInt(coordinates[1])};
-//
-//        if (numCoordinates[0] > 3 || numCoordinates[0] < 1 || numCoordinates[1] > 3 || numCoordinates[1] < 1) {
-//            System.out.println("Coordinates should be from 1 to 3!");
-//            getCoordinates();
-//
-//        }
-//        return numCoordinates;
-//    }
 
     public static boolean isValidTurn(char[][] board, int[] getCoordinates) {
         // we have the board[][] and coordinates, lets check if they are valid
