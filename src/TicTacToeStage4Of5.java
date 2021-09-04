@@ -26,6 +26,8 @@ public class TicTacToeStage4Of5 {
 
         printIt(board);
 
+        getCoordinates();
+
         /*
         * loop soll nach der Playereingabe fragen und feststellen, ob sie gültig ist.
         * Bei ungültiger Eingabe soll der Loop wieder von vorn beginnen
@@ -54,10 +56,33 @@ public class TicTacToeStage4Of5 {
         System.out.println("Enter the coordinates: ");
         String[] coordinates = scanner.nextLine().split(" ");
 
-        return new int[]{Integer.parseInt(coordinates[0]), Integer.parseInt(coordinates[1])};
+        int[] numCoordinates = {Integer.parseInt(coordinates[0]), Integer.parseInt(coordinates[1])};
+
+        if (numCoordinates[0] > 3 || numCoordinates[0] < 1 || numCoordinates[1] > 3 || numCoordinates[1] < 1) {
+            System.out.println("Coordinates should be from 1 to 3!");
+            getCoordinates();
+
+        }
+        return numCoordinates;
     }
 
     public static boolean isValidTurn(char[][] board, int[] getCoordinates) {
+        // we have the board[][] and coordinates, lets check if they are valid
+        // int[] getCoordinates = [0][1]
+        // check if coordinate is occupied
+
+//        if(board[getCoordinates[0] - 1][getCoordinates[1] -1 ] != '_') {
+//            System.out.println("This cell is occupied! Choose another one!");
+//
+//        }
+
+        /*
+        * while (
+        * while (board[][] != '_')
+        *   Print "Cell not empty"
+        *   getCoordinates
+        *
+        * */
         // must get the current board and user coordinates
         // must check if cell is already occupied
         // must check if there's still unoccupied cells
