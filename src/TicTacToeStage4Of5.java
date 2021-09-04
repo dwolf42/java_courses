@@ -1,10 +1,9 @@
 import java.util.Scanner;
-import java.util.Arrays;
 
 public class TicTacToeStage4Of5 {
     public static void main(String[] args) {
 
-        char[] basicBoard = inputBasicBoard();
+        char[] templateBoard = inputTemplateBoard();
         char[][] board = {
                 // 1,1   1,2  1,3
                 // 0,0   0,1  0,2
@@ -20,16 +19,19 @@ public class TicTacToeStage4Of5 {
         int k = 0;
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[1].length; j++) {
-                board[i][j] = basicBoard[k];
+                board[i][j] = templateBoard[k];
                 k++;
             }
         }
 
-
         printIt(board);
-//        getCoordinates();
-        // must correct loop config. Must keep looping until valid user input
-//        while(isValidTurn(board,getCoordinates())) {
+
+        /*
+        * loop soll nach der Playereingabe fragen und feststellen, ob sie gültig ist.
+        * Bei ungültiger Eingabe soll der Loop wieder von vorn beginnen
+        *
+        * */
+//        while(!isValidTurn(board, getCoordinates())) {
 //            getCoordinates();
 //        }
 
@@ -40,27 +42,12 @@ public class TicTacToeStage4Of5 {
      * In this method the user is asked to enter the basic / starter game board.
      * Input is cast to upper case and a char array is created out of it.
      */
-    public static char[] inputBasicBoard() {
+    public static char[] inputTemplateBoard() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter cells: ");
 
         return scanner.nextLine().toUpperCase().toCharArray();
     }
-
-    /*
-    * Creates and updates a 2-dimensional board which represents the game board.
-    **/
-
-
-    public static boolean checkSlots() {
-        return false;
-    }
-
-    /*
-    * User is asked to enter coordinated where they want to place their symbol.
-    * As the task says the numbers are separated by a white space the input is stored into
-    * a string array which is then parsed to the corresponding integers and stored as array.
-    * */
 
     public static int[] getCoordinates() {
         Scanner scanner = new Scanner(System.in);
