@@ -38,6 +38,8 @@ public class TicTacToeStage4Of5 {
 
     }
 
+     // As the task requires to input a template or starting situation of the game,
+     // this will be asked from the user here.
     public static char[] inputTemplateBoard() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter cells: ");
@@ -45,19 +47,27 @@ public class TicTacToeStage4Of5 {
         return scanner.nextLine().toUpperCase().toCharArray();
     }
 
+    // Users input of coordinates is a string that will be checked if it contains
+    // numbers and then the numbers will be translated to integers.
+    // Keeps asking for the correct input.
     public static int[] getValidCoordinates() {
         Scanner scanner = new Scanner(System.in);
+        // Only positive numbers are allowed.
         String pattern = "([-+])?\\d+";
         System.out.println("Enter the coordinates: ");
         String[] coordinates = scanner.nextLine().split(" ");
 
+        // Loops as long as the input doesn't match the patten of only positive integers.
         if (!coordinates[0].matches(pattern) || !coordinates[1].matches(pattern)) {
             System.out.println("You should enter numbers!");
             return getValidCoordinates();
         }
 
+        // Translates string numbers into integers.
         int[] numCoordinates = {Integer.parseInt(coordinates[0]), Integer.parseInt(coordinates[1])};
 
+        // In case the user enters coordinates bigger than 3 or smaller than 0 an error will be shown and
+        // the method will be reset and restarted.
         if (numCoordinates[0] > 3 || numCoordinates[0] < 1 || numCoordinates[1] > 3 || numCoordinates[1] < 1) {
             System.out.println("Coordinates should be from 1 to 3!");
             return getValidCoordinates();
@@ -66,6 +76,8 @@ public class TicTacToeStage4Of5 {
         return numCoordinates;
     }
 
+    // Coordinates provided by the user are start counting form 1-3,
+    // while the counting in arrays start fom 0-2.
     public static boolean isValidTurn(char[][] board, int[] getValidCoordinates) {
         if(board[getValidCoordinates[0] - 1][getValidCoordinates[1] -1 ] == '_') {
             return true;
