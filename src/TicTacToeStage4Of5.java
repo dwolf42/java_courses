@@ -87,16 +87,20 @@ public class TicTacToeStage4Of5 {
         }
     }
 
+    // Prints the board
     public static void printIt(char[][] board) {
-        System.out.println("---------"); // Top board line
+        String horizontalBorder = "---------";
+        String verticalBar = "|";
+
+        System.out.println(horizontalBorder);
         for (char[] ch : board) {
-            System.out.print("| "); // Leading vertical bar
+            System.out.print(verticalBar);
             for (char cha : ch) {
                 System.out.print(cha + " ");
             }
-            System.out.print("|" + '\n'); // Tailing vertical bar
+            System.out.println(verticalBar);
         }
-        System.out.println("---------"); // Lower board line
+        System.out.println(horizontalBorder);
     }
 }
 
