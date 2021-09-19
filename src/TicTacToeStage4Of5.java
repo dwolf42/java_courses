@@ -83,7 +83,7 @@ public class TicTacToeStage4Of5 {
             return true;
         } else {
             System.out.println("This cell is occupied! Choose another one!");
-            return true;
+            return false;
         }
     }
 
