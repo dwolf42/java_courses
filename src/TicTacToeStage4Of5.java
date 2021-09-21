@@ -27,10 +27,11 @@ public class TicTacToeStage4Of5 {
         printIt(board);
         int[] validCoordinates = getValidCoordinates();
         while (!isValidTurn(board, getValidCoordinates())) {
-            isValidTurn(board, getValidCoordinates());
+//            isValidTurn(board, getValidCoordinates());
+            validCoordinates = getValidCoordinates();
         }
 
-            board[getValidCoordinates()[0]][getValidCoordinates()[1]] = 'X';
+            board[validCoordinates[0]][validCoordinates[1]] = 'X';
 
         printIt(board);
 
@@ -76,7 +77,7 @@ public class TicTacToeStage4Of5 {
         return numCoordinates;
     }
 
-    // Coordinates provided by the user are start counting form 1-3,
+    // Coordinates provided by the user start counting form 1-3,
     // while the counting in arrays start fom 0-2.
     public static boolean isValidTurn(char[][] board, int[] getValidCoordinates) {
         if(board[getValidCoordinates[0] - 1][getValidCoordinates[1] -1 ] == '_') {
