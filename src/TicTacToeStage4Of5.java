@@ -24,6 +24,21 @@ public class TicTacToeStage4Of5 {
             }
         }
 
+        /*
+        * coordinates are read properly and work as intended as actual coordinates.
+        * Task: When entered invalid turn user is prompted to enter valid coordinates again,
+        * when user now enters valid coordinates the user is prompted once again to enter coordinates.
+        *
+        * Enter the coordinates:
+        * 1 2
+        * This cell is occupied! Choose another one!
+        * Enter the coordinates:
+        * 1 1
+        * Enter the coordinates:
+        *
+        * need to find suiting loop for this.
+        * */
+
         printIt(board);
         int[] validCoordinates = new int[2];
         while (!isValidTurn(board, getValidCoordinates())) {
