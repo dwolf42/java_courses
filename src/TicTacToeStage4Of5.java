@@ -40,15 +40,7 @@ public class TicTacToeStage4Of5 {
         * */
 
         printIt(board);
-//        int[] validCoordinates = new int[2];
         getValidCoordinates(board);
-//        while (!isValidTurn(board, getValidCoordinates())) {
-//
-//            validCoordinates = getValidCoordinates();
-//        }
-//
-//            board[validCoordinates[0]][validCoordinates[1]] = 'X';
-
         printIt(board);
 
 //        _XXOO_OX_
@@ -90,7 +82,7 @@ public class TicTacToeStage4Of5 {
             return getValidCoordinates(board);
         }
 
-        //
+        // When user input is in range and a number, this checks whether it's valid or not.
         if (!isValidTurn(board, numCoordinates)) {
             return getValidCoordinates(board);
         }
