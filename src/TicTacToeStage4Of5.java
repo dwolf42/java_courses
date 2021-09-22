@@ -40,13 +40,14 @@ public class TicTacToeStage4Of5 {
         * */
 
         printIt(board);
-        int[] validCoordinates = new int[2];
-        while (!isValidTurn(board, getValidCoordinates())) {
-//            isValidTurn(board, getValidCoordinates());
-            validCoordinates = getValidCoordinates();
-        }
-
-            board[validCoordinates[0]][validCoordinates[1]] = 'X';
+//        int[] validCoordinates = new int[2];
+        getValidCoordinates(board);
+//        while (!isValidTurn(board, getValidCoordinates())) {
+//
+//            validCoordinates = getValidCoordinates();
+//        }
+//
+//            board[validCoordinates[0]][validCoordinates[1]] = 'X';
 
         printIt(board);
 
@@ -66,7 +67,7 @@ public class TicTacToeStage4Of5 {
     // Users input of coordinates is a string that will be checked if it contains
     // numbers and then the numbers will be translated to integers.
     // Keeps asking for the correct input.
-    public static int[] getValidCoordinates() {
+    public static int[] getValidCoordinates(char[][] board) {
         Scanner scanner = new Scanner(System.in);
         // Only positive numbers are allowed.
         String pattern = "([-+])?\\d+";
@@ -76,7 +77,7 @@ public class TicTacToeStage4Of5 {
         // Loops as long as the input doesn't match the patten of only positive integers.
         if (!coordinates[0].matches(pattern) || !coordinates[1].matches(pattern)) {
             System.out.println("You should enter numbers!");
-            return getValidCoordinates();
+            return getValidCoordinates(board);
         }
 
         // Translates string numbers into integers.
@@ -86,7 +87,12 @@ public class TicTacToeStage4Of5 {
         // the method will be reset and restarted.
         if (numCoordinates[0] > 3 || numCoordinates[0] < 1 || numCoordinates[1] > 3 || numCoordinates[1] < 1) {
             System.out.println("Coordinates should be from 1 to 3!");
-            return getValidCoordinates();
+            return getValidCoordinates(board);
+        }
+
+        //
+        if (!isValidTurn(board, numCoordinates)) {
+            return getValidCoordinates(board);
         }
 
         return numCoordinates;
@@ -95,7 +101,7 @@ public class TicTacToeStage4Of5 {
     // Coordinates provided by the user start counting form 1-3,
     // while the counting in arrays start fom 0-2.
     public static boolean isValidTurn(char[][] board, int[] getValidCoordinates) {
-        if(board[getValidCoordinates[0] - 1][getValidCoordinates[1] -1 ] == '_') {
+        if (board[getValidCoordinates[0] - 1][getValidCoordinates[1] -1 ] == '_') {
             return true;
         } else {
             System.out.println("This cell is occupied! Choose another one!");
