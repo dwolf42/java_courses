@@ -102,7 +102,7 @@ public class TicTacToeStage4Of5 {
 
         System.out.println(horizontalBorder);
         for (char[] ch : board) {
-            System.out.print(verticalBar);
+            System.out.print(verticalBar + " ");
             for (char cha : ch) {
                 System.out.print(cha + " ");
             }
