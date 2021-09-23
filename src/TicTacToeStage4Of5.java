@@ -26,20 +26,17 @@ public class TicTacToeStage4Of5 {
 
         printIt(board);
 
-        int[] validCoordinates = getValidCoordinates(board);
+            int[] validCoordinates = getValidCoordinates(board);
 
-        // Coordinates provided by the user start counting form 1-3,
-        // while the counting in arrays start fom 0-2.
-        // So the position on the board where the user wants to place their symbol has to be
-        // the user's entered coordinate - 1, like: input = 1 1 -> position = 0 0 on the board.
-        // That's why I subtract 1 in the final coordinates here.
-        board[validCoordinates[0] - 1][validCoordinates[1] - 1] = 'X';
+            // Coordinates provided by the user start counting form 1-3,
+            // while the counting in arrays start fom 0-2.
+            // So the position on the board where the user wants to place their symbol has to be
+            // the user's entered coordinate - 1, like: input = 1 1 -> position = 0 0 on the board.
+            // That's why I subtract 1 in the final coordinates here.
+            board[validCoordinates[0] - 1][validCoordinates[1] - 1] = 'X';
 
-        printIt(board);
-
-//        _XXOO_OX_
-
-    }
+            printIt(board);
+        }
 
      // As the task requires to input a template or starting situation of the game,
      // this will be asked from the user here.
