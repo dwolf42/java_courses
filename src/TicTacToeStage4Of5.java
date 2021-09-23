@@ -81,8 +81,8 @@ public class TicTacToeStage4Of5 {
         return numCoordinates;
     }
 
-    // Coordinates provided by the user start counting form 1-3,
-    // while the counting in arrays start fom 0-2.
+    // Coordinates provided by the user start counting from 1-3,
+    // while the counting in arrays start from 0-2.
     // So the position on the board where the user wants to place their symbol has to be
     // the user's entered coordinate - 1, like: input = 1 1 -> position = 0 0 on the board.
     // That's why I subtract 1 in the if-condition here.
