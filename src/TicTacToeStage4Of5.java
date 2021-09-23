@@ -25,17 +25,17 @@ public class TicTacToeStage4Of5 {
         }
 
         printIt(board);
+
         int[] validCoordinates = getValidCoordinates(board);
-        board[validCoordinates[0]][validCoordinates[1]] = 'X';
 
-        for (char[] ch : board) {
-            for (char cha : ch) {
-                System.out.print(cha + " ");
-            }
-            System.out.println("");
-        }
+        // Coordinates provided by the user start counting form 1-3,
+        // while the counting in arrays start fom 0-2.
+        // So the position on the board where the user wants to place their symbol has to be
+        // the user's entered coordinate - 1, like: input = 1 1 -> position = 0 0 on the board.
+        // That's why I subtract 1 in the final coordinates here.
+        board[validCoordinates[0] - 1][validCoordinates[1] - 1] = 'X';
 
-        //printIt(board);
+        printIt(board);
 
 //        _XXOO_OX_
 
@@ -86,6 +86,9 @@ public class TicTacToeStage4Of5 {
 
     // Coordinates provided by the user start counting form 1-3,
     // while the counting in arrays start fom 0-2.
+    // So the position on the board where the user wants to place their symbol has to be
+    // the user's entered coordinate - 1, like: input = 1 1 -> position = 0 0 on the board.
+    // That's why I subtract 1 in the if-condition here.
     public static boolean isValidTurn(char[][] board, int[] getValidCoordinates) {
         if (board[getValidCoordinates[0] - 1][getValidCoordinates[1] -1 ] == '_') {
             return true;
