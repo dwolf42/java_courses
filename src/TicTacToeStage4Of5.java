@@ -26,8 +26,16 @@ public class TicTacToeStage4Of5 {
 
         printIt(board);
         int[] validCoordinates = getValidCoordinates(board);
+        board[validCoordinates[0]][validCoordinates[1]] = 'X';
 
-        printIt(board);
+        for (char[] ch : board) {
+            for (char cha : ch) {
+                System.out.print(cha + " ");
+            }
+            System.out.println("");
+        }
+
+        //printIt(board);
 
 //        _XXOO_OX_
 
