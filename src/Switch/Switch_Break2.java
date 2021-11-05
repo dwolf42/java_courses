@@ -43,6 +43,7 @@ public class Switch_Break2 {
                 break;
             default:
                 System.out.println("0");
+                break;
         }
     }
 }
