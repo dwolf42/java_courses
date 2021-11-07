@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class TicTacToeStage5Of5 {
 
     static String hostName = "Host: ";
+    static String currentPlayer = "";
 
     public static void main(String[] args) {
         printWelcomeMessage();
@@ -19,7 +20,9 @@ public class TicTacToeStage5Of5 {
                 {'_', '_', '_'},
         };
 
-        printArray(board);
+        printArrayBoard(board);
+        printTurnMessage();
+        int[] validateCoordinates = getValidCoordinates(board);
     }
 
     public static void printWelcomeMessage() {
@@ -28,8 +31,7 @@ public class TicTacToeStage5Of5 {
         System.out.println(hostName + "Have fun :)");
     }
 
-    // Prints the board
-    public static void printArray(char[][] board) {
+    public static void printArrayBoard(char[][] board) {
         String horizontalBorder = "---------";
         String verticalBar = "|";
 
@@ -42,6 +44,17 @@ public class TicTacToeStage5Of5 {
             System.out.println(verticalBar);
         }
         System.out.println(horizontalBorder);
+    }
+
+    public static int[] getValidCoordinates(char[][] board) {
+        Scanner scanner = new Scanner(System.in);
+        String pattern = "([-+])?\\d+";
+        printTurnMessage();
+
+    }
+
+    public static void printTurnMessage() {
+        System.out.println(hostName + currentPlayer + "Enter the coordinates:");
     }
 }
 /*
