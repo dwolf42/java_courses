@@ -47,7 +47,7 @@ public class TicTacToeStage4Of5 {
         return scanner.nextLine().toUpperCase().toCharArray();
     }
 
-    // Users input of coordinates is a string that will be checked if it contains
+    // User's input of coordinates is a string that will be checked if it contains
     // numbers and then the numbers will be translated to integers.
     // Keeps asking for the correct input.
     public static int[] getValidCoordinates(char[][] board) {
