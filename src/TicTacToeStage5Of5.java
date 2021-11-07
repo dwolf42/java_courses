@@ -18,11 +18,29 @@ public class TicTacToeStage5Of5 {
                 // 2,0   2,1  2,2
                 {'_', '_', '_'},
         };
+
+        printArray(board);
     }
 
     public static void printWelcomeMessage() {
         System.out.println(hostName + "Welcome players to TicTacToe!");
         System.out.println(hostName + "Player 1 will be playing as X, player 2 will be playing as O.");
         System.out.println(hostName + "Have fun :)");
+    }
+
+    // Prints the board
+    public static void printArray(char[][] board) {
+        String horizontalBorder = "---------";
+        String verticalBar = "|";
+
+        System.out.println(horizontalBorder);
+        for (char[] ch : board) {
+            System.out.print(verticalBar + " ");
+            for (char cha : ch) {
+                System.out.print(cha + " ");
+            }
+            System.out.println(verticalBar);
+        }
+        System.out.println(horizontalBorder);
     }
 }
