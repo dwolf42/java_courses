@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class TicTacToeStage5Of5 {
 
     static String hostName = "Host: ";
-    static String currentPlayer = "X";
+    static char currentPlayer = 'X';
 
     public static void main(String[] args) {
         printWelcomeMessage();
@@ -111,12 +111,12 @@ public class TicTacToeStage5Of5 {
     }
 
     public static void changePlayer() {
-        swtich(currentPlayer) {
-            case "X":
-                currentPlayer = "O";
+        switch(currentPlayer) {
+            case 'X':
+                currentPlayer = 'O';
                 break;
             default:
-                currentPlayer = "X";
+                currentPlayer = 'X';
                 break;
         }
     }
