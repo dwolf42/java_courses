@@ -23,6 +23,18 @@ public class TicTacToeStage5Of5 {
         printArrayBoard(board);
         printTurnMessage();
         int[] validateCoordinates = getValidCoordinates(board);
+
+        // Coordinates provided by the user start counting form 1-3,
+        // while the counting in arrays start fom 0-2.
+        // So the position on the board where the user wants to place their symbol has to be
+        // the user's entered coordinate - 1, like: input = 1 1 -> position = 0 0 on the board.
+        // That's why I subtract 1 in the final coordinates here.
+        board[validCoordinates[0] - 1][validCoordinates[1] - 1] = currentPlayer;
+
+        changePlayer();
+
+        printArrayBoard(board);
+
     }
 
     public static void printWelcomeMessage() {
@@ -56,13 +68,13 @@ public class TicTacToeStage5Of5 {
         System.out.println("Enter the coordinates: ");
         String[] coordinates = scanner.nextLine().split(" ");
 
-        // Loops as long as the input doesn't match the patten of only positive integers.
+        // Loops as long as the input doesn't match the pattern of only positive integers.
         if (!coordinates[0].matches(pattern) || !coordinates[1].matches(pattern)) {
             System.out.println("You should enter numbers!");
             return getValidCoordinates(board);
         }
 
-        // Translates string numbers into integers.
+        // Translates string numbers to integers.
         int[] numCoordinates = {Integer.parseInt(coordinates[0]), Integer.parseInt(coordinates[1])};
 
         // In case the user enters coordinates bigger than 3 or smaller than 0 an error will be shown and
