@@ -109,6 +109,19 @@ public class TicTacToeStage5Of5 {
     public static void printTurnMessage() {
         System.out.println(hostName + currentPlayer + "Enter the coordinates:");
     }
+
+    public static void changePlayer() {
+        swtich(currentPlayer) {
+            case "X":
+                currentPlayer = "O";
+                break;
+            default:
+                currentPlayer = "X";
+                break;
+        }
+    }
+
+
 }
 /*
 Stage 5/5: Fight!
