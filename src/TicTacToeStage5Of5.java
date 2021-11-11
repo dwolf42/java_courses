@@ -35,6 +35,11 @@ public class TicTacToeStage5Of5 {
 
         printArrayBoard(board);
 
+        // check winconditioins
+        // print winner/draw
+
+        checkWinconditions(Board);
+
     }
 
     public static void printWelcomeMessage() {
@@ -121,6 +126,137 @@ public class TicTacToeStage5Of5 {
         }
     }
 
+    public static char checkWinconditions(char[][] board) {
+         /* Iterate through board to determine:
+
+         * -> O wins: three O's in a row
+         * -> X wins: three X's in a row
+         * -> Impossible: three X's and three O's in a row,
+         * or more X's than O's or vice versa - ratio should be 1 or 0, 2 or more is impossible
+         // Both states are determined at the end of the code
+         * -> Game not finished: neither side wins and empty cells
+         * -> Draw: neither side wins, no more empty cells
+         * */
+
+        // --- Win conditions ---
+
+        // >>> X win conditions <<<
+
+        // True if the indexes that are building the diagonal line from top left to bottom right
+        // or from top right to bottom left are "X"
+
+        switch(board) {
+            case
+
+        }
+        boolean xWinLeftDiagonal = board[0][0] == ('X') &&
+                board[1][1] == ('X') &&
+                board[2][2] == ('X');
+
+        boolean xWinRightDiagonal = board[0][2] == ('X') &&
+                board[1][1] == ('X') &&
+                board[2][0] == ('X');
+
+        // True if the indexes that are building horizontal lines left to right are "X'
+        boolean xWinHorizontal1 = board[0][0] == ('X') &&
+                board[0][1] == ('X') &&
+                board[0][2] == ('X');
+
+        boolean xWinHorizontal2 = board[1][0] == ('X') &&
+                board[1][1] == ('X') &&
+                board[1][2] == ('X');
+
+        boolean xWinHorizontal3 = board[2][0] == ('X') &&
+                board[2][1] == ('X') &&
+                board[2][2] == ('X');
+
+        // True if the indexes that are building vertical lines top to bottom are "X"
+        boolean xWinVertical1 = board[0][0] == ('X') &&
+                board[1][0] == ('X') &&
+                board[2][0] == ('X');
+
+        boolean xWinVertical2 = board[0][1] == ('X') &&
+                board[1][1] == ('X') &&
+                board[2][1] == ('X');
+
+        boolean xWinVertical3 = board[0][2] == ('X') &&
+                board[1][2] == ('X') &&
+                board[2][2] == ('X');
+
+
+        // >>> O win conditions <<<
+
+        // True if the indexes that are building the diagonal line from top left to bottom right
+        // or from top right to bottom left are "O"
+        boolean oWinLeftDiagonal = board[0][0] == ('O') &&
+                board[1][1] == ('O') &&
+                board[2][2] == ('O');
+
+        boolean oWinRightDiagonal = board[0][2] == ('O') &&
+                board[1][1] == ('O') &&
+                board[2][0] == ('O');
+
+        // True if the indexes that are building horizontal lines left to right are "O"
+        boolean oWinHorizontal1 = board[0][0] == ('O') &&
+                board[0][1] == ('O') &&
+                board[0][2] == ('O');
+
+        boolean oWinHorizontal2 = board[1][0] == ('O') &&
+                board[1][1] == ('O') &&
+                board[1][2] == ('O');
+
+        boolean oWinHorizontal3 = board[2][0] == ('O') &&
+                board[2][1] == ('O') &&
+                board[2][2] == ('O');
+
+        // True if the indexes that are building vertical lines top to bottom are "O"
+        boolean oWinVertical1 = board[0][0] == ('O') &&
+                board[1][0] == ('O') &&
+                board[2][0] == ('O');
+
+        boolean oWinVertical2 = board[0][1] == ('O') &&
+                board[1][1] == ('O') &&
+                board[2][1] == ('O');
+
+        boolean oWinVertical3 = board[0][2] == ('O') &&
+                board[1][2] == ('O') &&
+                board[2][2] == ('O');
+
+        // --- Impossible conditions ---
+
+        // >>> Impossible horizontal <<<
+        boolean impossibleHorizontal = xWinHorizontal1 && oWinHorizontal2 ||
+                xWinHorizontal1 && oWinHorizontal3 ||
+                xWinHorizontal2 && oWinHorizontal3 ||
+                oWinHorizontal1 && xWinHorizontal2 ||
+                oWinHorizontal2 && xWinHorizontal3 ||
+                oWinHorizontal1 && xWinHorizontal3;
+
+        // >>> Impossible vertical <<<
+        boolean impossibleVertical = xWinVertical1 && oWinVertical2 ||
+                xWinVertical1 && oWinVertical3 ||
+                xWinVertical2 && oWinVertical3 ||
+                oWinVertical1 && xWinVertical2 ||
+                oWinVertical2 && xWinVertical3 ||
+                oWinVertical1 && xWinVertical3;
+
+        // >>> Impossible ratio <<<
+        int X = 0;
+        int O = 0;
+
+        for (String s : partsOfInput) {
+            if (s.equals("X")) {
+                X++;
+            } else if (s.equals("O")) {
+                O++;
+            }
+        }
+        // If you subtract X by O and the result is > 1 there are
+        // impossible/invalid moves. The Math.abs function is to
+        // "turn" a negative result of this calculation to a positive.
+        int ratioXtoO = Math.abs(X - O);
+
+    }
 
 }
 /*
