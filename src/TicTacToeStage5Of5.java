@@ -38,7 +38,7 @@ public class TicTacToeStage5Of5 {
         // check winconditioins
         // print winner/draw
 
-        checkWinconditions(Board);
+        checkWinconditions(board);
 
     }
 
@@ -146,12 +146,13 @@ public class TicTacToeStage5Of5 {
         // or from top right to bottom left are "X"
 
         switch(board) {
-            case
+            case board[0][0] == ('X') &&
+                 board[1][1] == ('X') &&
+                 board[2][2] == ('X');
+            break;
 
         }
-        boolean xWinLeftDiagonal = board[0][0] == ('X') &&
-                board[1][1] == ('X') &&
-                board[2][2] == ('X');
+        boolean xWinLeftDiagonal =
 
         boolean xWinRightDiagonal = board[0][2] == ('X') &&
                 board[1][1] == ('X') &&
