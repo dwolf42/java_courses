@@ -126,7 +126,7 @@ public class TicTacToeStage5Of5 {
         }
     }
 
-    public static char checkWinconditions(char[][] board) {
+    public static String checkWinconditions(char[][] board) {
          /* Iterate through board to determine:
 
          * -> O wins: three O's in a row
@@ -145,14 +145,10 @@ public class TicTacToeStage5Of5 {
         // True if the indexes that are building the diagonal line from top left to bottom right
         // or from top right to bottom left are "X"
 
-        switch(board) {
-            case board[0][0] == ('X') &&
-                 board[1][1] == ('X') &&
-                 board[2][2] == ('X');
-            break;
 
-        }
-        boolean xWinLeftDiagonal =
+        boolean xWinLeftDiagonal = board[0][0] == ('X') &&
+                board[1][1] == ('X') &&
+                board[2][2] == ('X');
 
         boolean xWinRightDiagonal = board[0][2] == ('X') &&
                 board[1][1] == ('X') &&
@@ -245,7 +241,7 @@ public class TicTacToeStage5Of5 {
         int X = 0;
         int O = 0;
 
-        for (String s : partsOfInput) {
+        for (char[] s : board) {
             if (s.equals("X")) {
                 X++;
             } else if (s.equals("O")) {
