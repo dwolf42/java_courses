@@ -35,9 +35,6 @@ public class TicTacToeStage5Of5 {
 
         printArrayBoard(board);
 
-        // check winconditioins
-        // print winner/draw
-
         checkWinconditions(board);
 
     }
@@ -237,11 +234,18 @@ public class TicTacToeStage5Of5 {
                 oWinVertical2 && xWinVertical3 ||
                 oWinVertical1 && xWinVertical3;
 
+        boolean isImpossibleRatio = impossibleRatioXO(board);
+
+
+
+    }
+
+    public static boolean impossibleRatioXO(char[][] boardFromWinconditions) {
         // >>> Impossible ratio <<<
         int X = 0;
         int O = 0;
 
-        for (char[] s : board) {
+        for (char[] s : boardFromWinconditions) {
             if (s.equals("X")) {
                 X++;
             } else if (s.equals("O")) {
@@ -253,8 +257,8 @@ public class TicTacToeStage5Of5 {
         // "turn" a negative result of this calculation to a positive.
         int ratioXtoO = Math.abs(X - O);
 
+        return ratioXtoO > 1;
     }
-
 }
 /*
 Stage 5/5: Fight!
