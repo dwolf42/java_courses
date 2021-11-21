@@ -251,6 +251,20 @@ public class TicTacToeStage5Of5 {
         // impossible/invalid moves. The Math.abs function is to
         // "turn" a negative result of this calculation to a positive.
         int ratioXtoO = Math.abs(X - O);
+        if (ratioXtoO > 1 ||
+            impossibleHorizontal ||
+            impossibleVertical) {
+
+            return "impossible";
+        }
+
+        if (xWinLeftDiagonal || xWinRightDiagonal ||
+            xWinHorizontal1 || xWinHorizontal2 ||
+            xWinHorizontal3 || xWinVertical1 ||
+            xWinVertical2 || xWinVertical3) {
+
+            return "X wins";
+        }
 
         boolean impossible = ratioXtoO > 1 || impossibleHorizontal || impossibleVertical;
 
