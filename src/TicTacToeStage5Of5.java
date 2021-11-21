@@ -113,7 +113,7 @@ public class TicTacToeStage5Of5 {
     }
 
     public static void changePlayer() {
-        switch(currentPlayer) {
+        switch (currentPlayer) {
             case 'X':
                 currentPlayer = 'O';
                 break;
@@ -238,11 +238,13 @@ public class TicTacToeStage5Of5 {
         int X = 0;
         int O = 0;
 
-        for (char[] s : board) {
-            if (s.equals("X")) {
-                X++;
-            } else if (s.equals("O")) {
-                O++;
+        for (char[] c : board) {
+            for (char ch : c) {
+                if (ch == 'X') {
+                    X++;
+                } else if (ch == 'O') {
+                    O++;
+                }
             }
         }
         // If you subtract X by O and the result is > 1 there are
