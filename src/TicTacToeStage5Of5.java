@@ -273,8 +273,16 @@ public class TicTacToeStage5Of5 {
             return "O wins";
         }
 
-        if ()
+        if (X + O == 9) {
+            return "Draw";
+        }
+
+        // Otherwise nobody has won yet
+        return "_";
     }
+
+
+}
 
 /*
 Stage 5/5: Fight!
