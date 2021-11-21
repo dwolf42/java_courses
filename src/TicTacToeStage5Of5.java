@@ -266,7 +266,12 @@ public class TicTacToeStage5Of5 {
             return "X wins";
         }
 
-        boolean impossible = ratioXtoO > 1 || impossibleHorizontal || impossibleVertical;
+        if (oWinLeftDiagonal || oWinRightDiagonal ||
+                oWinHorizontal1 || oWinHorizontal2 ||
+                oWinHorizontal3 || oWinVertical1 ||
+                oWinVertical2 || oWinVertical3) {
+            return "O wins";
+        }
 
         if ()
     }
