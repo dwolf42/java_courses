@@ -22,7 +22,8 @@ public class TicTacToeStage5Of5 {
 
         char winner = checkWinconditions(board);
 
-        printArrayBoard(board);
+        while (winner == '_') {
+            printArrayBoard(board);
 
         // Coordinates provided by the user start counting form 1-3,
         // while the counting in arrays start fom 0-2.
@@ -32,9 +33,10 @@ public class TicTacToeStage5Of5 {
         board[validCoordinates[0] - 1][validCoordinates[1] - 1] = currentPlayer;
 
 
-        changePlayer();
+            changePlayer();
+        }
 
-
+        System.out.println("Winner is: " + winner);
 
     }
 
