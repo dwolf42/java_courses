@@ -140,8 +140,6 @@ public class TicTacToeStage5Of5 {
         // True if the indexes that are building the diagonal line from top left to bottom right
         // or from top right to bottom left are "X"
 
-
-
         boolean xWinLeftDiagonal = board[0][0] == ('X') &&
                 board[1][1] == ('X') &&
                 board[2][2] == ('X');
