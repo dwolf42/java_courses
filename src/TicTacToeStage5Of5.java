@@ -215,29 +215,6 @@ public class TicTacToeStage5Of5 {
                 board[1][2] == ('O') &&
                 board[2][2] == ('O');
 
-        // >>> Impossible ratio <<<
-        int X = 0;
-        int O = 0;
-
-        for (char[] c : board) {
-            for (char ch : c) {
-                if (ch == 'X') {
-                    X++;
-                } else if (ch == 'O') {
-                    O++;
-                }
-            }
-        }
-        // If you subtract X by O and the result is > 1 there are
-        // impossible/invalid moves. The Math.abs function is to
-        // "turn" a negative result of this calculation to a positive.
-        int ratioXtoO = Math.abs(X - O);
-        if (ratioXtoO > 1 ||
-            impossibleHorizontal ||
-            impossibleVertical) {
-
-            return 'i';
-        }
 
         if (xWinLeftDiagonal || xWinRightDiagonal ||
             xWinHorizontal1 || xWinHorizontal2 ||
@@ -254,6 +231,18 @@ public class TicTacToeStage5Of5 {
             return 'O';
         }
 
+        int X = 0;
+        int O = 0;
+
+        for (char[] c : board) {
+            for (char ch : c) {
+                if (ch == 'X') {
+                    X++;
+                } else if (ch == 'O') {
+                    O++;
+                }
+            }
+        }
         if (X + O == 9) {
             return 'd';
         }
