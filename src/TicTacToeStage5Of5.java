@@ -130,10 +130,6 @@ public class TicTacToeStage5Of5 {
 
          * -> O wins: three O's in a row
          * -> X wins: three X's in a row
-         * -> Impossible: three X's and three O's in a row,
-         * or more X's than O's or vice versa - ratio should be 1 or 0, 2 or more is impossible
-         // Both states are determined at the end of the code
-         * -> Game not finished: neither side wins and empty cells
          * -> Draw: neither side wins, no more empty cells
          * */
 
@@ -143,6 +139,7 @@ public class TicTacToeStage5Of5 {
 
         // True if the indexes that are building the diagonal line from top left to bottom right
         // or from top right to bottom left are "X"
+
 
 
         boolean xWinLeftDiagonal = board[0][0] == ('X') &&
