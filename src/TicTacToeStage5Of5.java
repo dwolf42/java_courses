@@ -20,9 +20,9 @@ public class TicTacToeStage5Of5 {
                 {'_', '_', '_'},
         };
 
+        char winner = checkWinconditions(board);
+
         printArrayBoard(board);
-        printTurnMessage();
-        int[] validateCoordinates = getValidCoordinates(board);
 
         // Coordinates provided by the user start counting form 1-3,
         // while the counting in arrays start fom 0-2.
@@ -31,7 +31,6 @@ public class TicTacToeStage5Of5 {
         // That's why I subtract 1 in the final coordinates here.
         board[validCoordinates[0] - 1][validCoordinates[1] - 1] = currentPlayer;
 
-        char winner = checkWinconditions(board);
 
         changePlayer();
 
