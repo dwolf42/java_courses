@@ -36,8 +36,6 @@ public class TicTacToeStage5Of5 {
         changePlayer();
 
 
-        printArrayBoard(board);
-
 
     }
 
