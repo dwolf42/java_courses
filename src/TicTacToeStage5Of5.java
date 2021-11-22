@@ -26,23 +26,25 @@ public class TicTacToeStage5Of5 {
 
         // Coordinates provided by the user start counting form 1-3,
         // while the counting in arrays start fom 0-2.
-        // So the position on the board where the user wants to place their symbol has to be
+        // So, the position on the board where the user wants to place their symbol has to be
         // the user's entered coordinate - 1, like: input = 1 1 -> position = 0 0 on the board.
         // That's why I subtract 1 in the final coordinates here.
         board[validCoordinates[0] - 1][validCoordinates[1] - 1] = currentPlayer;
 
+        checkWinconditions(board);
+
         changePlayer();
+
 
         printArrayBoard(board);
 
-        checkWinconditions(board);
 
     }
 
     public static void printWelcomeMessage() {
         System.out.println(hostName + "Welcome players to TicTacToe!");
         System.out.println(hostName + "Player 1 will be playing as X, player 2 will be playing as O.");
-        System.out.println(hostName + "Have fun :)");
+        System.out.println(hostName + "Have fun :)\n");
     }
 
     public static void printArrayBoard(char[][] board) {
