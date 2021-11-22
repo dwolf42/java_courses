@@ -231,6 +231,7 @@ public class TicTacToeStage5Of5 {
             return 'O';
         }
 
+        // --- Draw condition ---
         int X = 0;
         int O = 0;
 
@@ -247,7 +248,7 @@ public class TicTacToeStage5Of5 {
             return 'd';
         }
 
-        // Otherwise nobody has won yet
+        // --- Game goes on condition ---
         return '_';
     }
 
