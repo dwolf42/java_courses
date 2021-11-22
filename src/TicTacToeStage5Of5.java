@@ -215,24 +215,6 @@ public class TicTacToeStage5Of5 {
                 board[1][2] == ('O') &&
                 board[2][2] == ('O');
 
-        // --- Impossible conditions ---
-
-        // >>> Impossible horizontal <<<
-        boolean impossibleHorizontal = xWinHorizontal1 && oWinHorizontal2 ||
-                xWinHorizontal1 && oWinHorizontal3 ||
-                xWinHorizontal2 && oWinHorizontal3 ||
-                oWinHorizontal1 && xWinHorizontal2 ||
-                oWinHorizontal2 && xWinHorizontal3 ||
-                oWinHorizontal1 && xWinHorizontal3;
-
-        // >>> Impossible vertical <<<
-        boolean impossibleVertical = xWinVertical1 && oWinVertical2 ||
-                xWinVertical1 && oWinVertical3 ||
-                xWinVertical2 && oWinVertical3 ||
-                oWinVertical1 && xWinVertical2 ||
-                oWinVertical2 && xWinVertical3 ||
-                oWinVertical1 && xWinVertical3;
-
         // >>> Impossible ratio <<<
         int X = 0;
         int O = 0;
