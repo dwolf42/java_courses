@@ -34,9 +34,11 @@ public class TicTacToeStage5Of5 {
 
 
             changePlayer();
+
+            winner = checkWinconditions(board);
         }
 
-        System.out.println("Winner is: " + winner);
+        System.out.println(winner + " wins");
 
     }
 
