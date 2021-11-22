@@ -31,7 +31,7 @@ public class TicTacToeStage5Of5 {
         // That's why I subtract 1 in the final coordinates here.
         board[validCoordinates[0] - 1][validCoordinates[1] - 1] = currentPlayer;
 
-        checkWinconditions(board);
+        char winner = checkWinconditions(board);
 
         changePlayer();
 
@@ -125,7 +125,7 @@ public class TicTacToeStage5Of5 {
         }
     }
 
-    public static String checkWinconditions(char[][] board) {
+    public static char checkWinconditions(char[][] board) {
          /* Iterate through board to determine:
 
          * -> O wins: three O's in a row
@@ -257,7 +257,7 @@ public class TicTacToeStage5Of5 {
             impossibleHorizontal ||
             impossibleVertical) {
 
-            return "impossible";
+            return 'i';
         }
 
         if (xWinLeftDiagonal || xWinRightDiagonal ||
@@ -265,22 +265,22 @@ public class TicTacToeStage5Of5 {
             xWinHorizontal3 || xWinVertical1 ||
             xWinVertical2 || xWinVertical3) {
 
-            return "X wins";
+            return 'X';
         }
 
         if (oWinLeftDiagonal || oWinRightDiagonal ||
                 oWinHorizontal1 || oWinHorizontal2 ||
                 oWinHorizontal3 || oWinVertical1 ||
                 oWinVertical2 || oWinVertical3) {
-            return "O wins";
+            return 'O';
         }
 
         if (X + O == 9) {
-            return "Draw";
+            return 'd';
         }
 
         // Otherwise nobody has won yet
-        return "_";
+        return '_';
     }
 
 
