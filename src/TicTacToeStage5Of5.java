@@ -43,10 +43,7 @@ public class TicTacToeStage5Of5 {
                 System.out.println(winner + " wins");
                 break;
             }
-
         }
-
-
     }
 
     public static void printArrayBoard(char[][] board) {
