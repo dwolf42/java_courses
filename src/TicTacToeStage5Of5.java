@@ -9,27 +9,27 @@ public class TicTacToeStage5Of5 {
         char[][] board = {
                 // 1,1   1,2  1,3
                 // 0,0   0,1  0,2
-                {'_', '_', '_'},
+                {' ', ' ', ' '},
                 // 2,1   2,2  2,3
                 // 1,0   1,1  1,2
-                {'_', '_', '_'},
+                {' ', ' ', ' '},
                 // 3,1   3,2  3,3
                 // 2,0   2,1  2,2
-                {'_', '_', '_'},
+                {' ', ' ', ' '},
         };
 
         char winner = checkWinconditions(board);
 
-        while (winner == '_') {
+        while (winner == ' ') {
             printArrayBoard(board);
 
-        // Coordinates provided by the user start counting form 1-3,
-        // while the counting in arrays start fom 0-2.
-        // So, the position on the board where the user wants to place their symbol has to be
-        // the user's entered coordinate - 1, like: input = 1 1 -> position = 0 0 on the board.
-        // That's why I subtract 1 in the final coordinates here.
-        board[validCoordinates[0] - 1][validCoordinates[1] - 1] = currentPlayer;
-
+            int[] validatedCoordinates = getValidCoordinates(board);
+            // Coordinates provided by the user start counting form 1-3,
+            // while the counting in arrays start fom 0-2.
+            // So, the position on the board where the user wants to place their symbol has to be
+            // the user's entered coordinate - 1, like: input = 1 1 -> position = 0 0 on the board.
+            // That's why I subtract 1 in the final coordinates here.
+            board[validatedCoordinates[0] - 1][validatedCoordinates[1] - 1] = currentPlayer;
 
             changePlayer();
 
@@ -243,9 +243,8 @@ public class TicTacToeStage5Of5 {
         }
 
         // --- Game goes on condition ---
-        return '_';
+        return ' ';
     }
-
 
 }
 
