@@ -126,7 +126,7 @@ public class TicTacToeStage5Of5 {
     }
 
     public static char checkWinconditions(char[][] board) {
-         /* Iterate through board to determine:
+        /* Iterate through board to determine:
 
          * -> O wins: three O's in a row
          * -> X wins: three X's in a row
