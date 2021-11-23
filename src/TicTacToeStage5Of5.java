@@ -5,7 +5,6 @@ public class TicTacToeStage5Of5 {
     static char currentPlayer = 'X';
 
     public static void main(String[] args) {
-        printWelcomeMessage();
 
         char[][] board = {
                 // 1,1   1,2  1,3
@@ -41,10 +40,7 @@ public class TicTacToeStage5Of5 {
 
     }
 
-    public static void printWelcomeMessage() {
-        System.out.println(hostName + "Welcome players to TicTacToe!");
-        System.out.println(hostName + "Player 1 will be playing as X, player 2 will be playing as O.");
-        System.out.println(hostName + "Have fun :)\n");
+
     }
 
     public static void printArrayBoard(char[][] board) {
