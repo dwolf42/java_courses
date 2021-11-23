@@ -69,7 +69,7 @@ public class TicTacToeStage5Of5 {
         Scanner scanner = new Scanner(System.in);
         // Only positive numbers are allowed.
         String pattern = "([-+])?\\d+";
-        System.out.println("Enter the coordinates: ");
+        printTurnMessage();
         String[] coordinates = scanner.nextLine().split(" ");
 
         // Loops as long as the input doesn't match the pattern of only positive integers.
@@ -102,7 +102,7 @@ public class TicTacToeStage5Of5 {
     // the user's entered coordinate - 1, like: input = 1 1 -> position = 0 0 on the board.
     // That's why I subtract 1 in the if-condition here.
     public static boolean isValidTurn(char[][] board, int[] getValidCoordinates) {
-        if (board[getValidCoordinates[0] - 1][getValidCoordinates[1] - 1] == '_') {
+        if (board[getValidCoordinates[0] - 1][getValidCoordinates[1] - 1] == ' ') {
             return true;
         } else {
             System.out.println("This cell is occupied! Choose another one!");
@@ -111,7 +111,7 @@ public class TicTacToeStage5Of5 {
     }
 
     public static void printTurnMessage() {
-        System.out.println(hostName + currentPlayer + "Enter the coordinates:");
+        System.out.println("Enter the coordinates:");
     }
 
     public static void changePlayer() {
