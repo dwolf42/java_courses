@@ -37,9 +37,11 @@ public class TicTacToeStage5Of5 {
 
             if (winner == 'd') {
                 System.out.println("Draw");
+                break;
             }
             if (winner == 'X' || winner == 'O') {
                 System.out.println(winner + " wins");
+                break;
             }
 
         }
