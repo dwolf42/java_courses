@@ -18,32 +18,38 @@ public class TicTacToeStage5Of5 {
                 {' ', ' ', ' '},
         };
 
+        gameLoop(board);
+    }
+
+    public static void gameLoop(char[][] board) {
         char winner = checkWinconditions(board);
 
-        while (winner == ' ') {
             printArrayBoard(board);
 
-            int[] validatedCoordinates = getValidCoordinates(board);
-            // Coordinates provided by the user start counting form 1-3,
-            // while the counting in arrays start fom 0-2.
-            // So, the position on the board where the user wants to place their symbol has to be
-            // the user's entered coordinate - 1, like: input = 1 1 -> position = 0 0 on the board.
-            // That's why I subtract 1 in the final coordinates here.
-            board[validatedCoordinates[0] - 1][validatedCoordinates[1] - 1] = currentPlayer;
-
-            changePlayer();
-
-            winner = checkWinconditions(board);
-
-            if (winner == 'd') {
-                System.out.println("Draw");
-                break;
-            }
-            if (winner == 'X' || winner == 'O') {
-                System.out.println(winner + " wins");
-                break;
-            }
+        if (winner == 'd') {
+            printWinner("Draw");
+            return;
         }
+        if (winner == 'X') {
+            printWinner("X wins");
+            return;
+        }
+        if (winner == 'O') {
+            printWinner("X wins");
+            return;
+        }
+
+        int[] validatedCoordinates = getValidCoordinates(board);
+        // Coordinates provided by the user start counting form 1-3,
+        // while the counting in arrays start fom 0-2.
+        // So, the position on the board where the user wants to place their symbol has to be
+        // the user's entered coordinate - 1, like: input = 1 1 -> position = 0 0 on the board.
+        // That's why I subtract 1 in the final coordinates here.
+        board[validatedCoordinates[0] - 1][validatedCoordinates[1] - 1] = currentPlayer;
+
+        changePlayer();
+
+        gameLoop(board);
     }
 
     public static void printArrayBoard(char[][] board) {
@@ -249,6 +255,9 @@ public class TicTacToeStage5Of5 {
         return ' ';
     }
 
+    public static void printWinner(String gameLoopWinner) {
+        System.out.println(gameLoopWinner);
+    }
 }
 
 /*
