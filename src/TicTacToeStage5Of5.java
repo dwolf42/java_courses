@@ -262,6 +262,7 @@ public class TicTacToeStage5Of5 {
 
 /*
 Stage 5/5: Fight!
+
         Description
         Our game is almost ready! Now let's combine what we’ve learned in the previous stages to make a game of tic-tac-toe that two players can play from the beginning (with an empty grid) through to the end (until there is a draw, or one of the players wins).
 
