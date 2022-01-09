@@ -2,13 +2,14 @@ import java.util.Scanner;
 
 public class TicTacToeStage5Of5 {
 
+    // Game always starts with player X
     static char currentPlayer = 'X';
 
     public static void main(String[] args) {
 
         char[][] board = {
-                // 1,1   1,2  1,3
-                // 0,0   0,1  0,2
+                // 1,1   1,2  1,3 <- locations entered by user
+                // 0,0   0,1  0,2 <- locations by index counting of an array
                 {' ', ' ', ' '},
                 // 2,1   2,2  2,3
                 // 1,0   1,1  1,2
@@ -35,7 +36,7 @@ public class TicTacToeStage5Of5 {
             return;
         }
         if (winner == 'O') {
-            printWinner("X wins");
+            printWinner("O wins");
             return;
         }
 
@@ -218,7 +219,8 @@ public class TicTacToeStage5Of5 {
                 board[1][2] == ('O') &&
                 board[2][2] == ('O');
 
-
+        // Returns the letter of the winner, depending on the previous
+        // boolean conditions.
         if (xWinLeftDiagonal || xWinRightDiagonal ||
                 xWinHorizontal1 || xWinHorizontal2 ||
                 xWinHorizontal3 || xWinVertical1 ||
