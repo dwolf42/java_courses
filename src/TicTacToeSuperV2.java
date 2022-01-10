@@ -14,13 +14,13 @@ public class TicTacToeSuperV2 {
         char[][] board = {
                 // 1,1   1,2  1,3 <- locations entered by user
                 // 0,0   0,1  0,2 <- locations by index counting of an array
-                {' ', ' ', ' '},
+                {'_', '_', '_'},
                 // 2,1   2,2  2,3
                 // 1,0   1,1  1,2
-                {' ', ' ', ' '},
+                {'_', '_', '_'},
                 // 3,1   3,2  3,3
                 // 2,0   2,1  2,2
-                {' ', ' ', ' '},
+                {'_', '_', '_'},
         };
 
         gameLoop(board);
@@ -58,18 +58,71 @@ public class TicTacToeSuperV2 {
     }
 
     public static void printArrayBoard(char[][] board) {
-        String horizontalBorder = "---------";
-        String verticalBar = "|";
 
-        System.out.println(horizontalBorder);
-        for (char[] ch : board) {
-            System.out.print(verticalBar + " ");
-            for (char cha : ch) {
-                System.out.print(cha + " ");
-            }
-            System.out.println(verticalBar);
+        String[] upperCastleArt = {
+                /*00*/ "         ___",
+                /*01*/ "      __(_  )___",
+                /*02*/ "    _(          )",
+                /*03*/ "   (     )-----`        |----______________,",
+                /*04*/ "    `---'               |    Kabraxis '22 /",
+                /*05*/ "                        |---____________/",
+                /*06*/ "                        |",
+                /*07*/ "                        X                     \\,/",
+                /*08*/ "                       /~\\",
+                /*09*/ "                      /~~~\\                         /`\\",
+                /*10*/ "                     /~~~~~\\",
+                /*11*/ "      |---____,     /~~~~~~~\\             |---____,",
+                /*12*/ "      |--____/     /~~~~~~~~~\\            |--____/",
+                /*13*/ "      |           /~~~~~~~~~~~\\           |",
+                /*14*/ "      X           |     .   .:|           X",
+                /*15*/ "     /~\\          |   _   _   |          /~\\",
+                /*16*/ "    /~~~\\         |  |+| |+|  |         /~~~\\",
+                /*17*/ "   /~~~~~\\        |  |_| |_|  |        /~~~~~\\",
+                /*18*/ "   | :   |      __|           |__      | :   |",
+                /*19*/ "   |.:   |____| ; .           . ; |____|.:   |",
+                /*20*/ "   |  _    .        __________       .    _  |",
+                /*21*/ "   | |+| |.  ==   /            \\  ==  .| |+| |",
+                /*22*/ "   | |_|   .     /              \\    .   |_| |",
+                /*23*/ "   |     |:  ,  |    * 1 2 3 *   | ,  :|     |",
+                /*24*/ "   | .   |  |   |    ---------   |  |  |   . |"
+
+        };
+
+        String[] leftOfBoardCastleArt = {
+                /*25 1/2*/ "   |     |  |   |  >1| ",
+                /*26 1/2*/ "   |-    |  |   |  >2| ",
+                /*27 1/2*/ "   _ _   |  |   |  >3| "
+        };
+
+        String[] rightOfBoardCastleArt = {
+                /*25 2/2*/ "|   |  |  |     |",
+                /*26 2/2*/ "|   |  |  |    -|",
+                /*27 2/2*/ "|   |  |  |  _  |"
+        };
+
+        String[] lowerCastleArt = {
+                /*28*/ "    '--~~__ |   |    ---------   |  | _|_    |",
+                /*29*/ "           ~---___________________---~   ~`---,",
+                /*30*/ "                                               ~~----____-~"
+        };
+
+        for (String s : upperCastleArt) {
+            System.out.println(s);
         }
-        System.out.println(horizontalBorder);
+
+        for (int i = 0; i < board.length; i++) {
+            System.out.print(leftOfBoardCastleArt[i]);
+            for (int j = 0; j < board[1].length; j++) {
+                System.out.print(board[i][j] + " ");
+            }
+            System.out.print(rightOfBoardCastleArt[i]);
+            System.out.println();
+        }
+
+        for (String s: lowerCastleArt) {
+            System.out.println(s);
+        }
+
     }
 
     // User's input of coordinates is a string that will be checked if it contains
@@ -112,7 +165,7 @@ public class TicTacToeSuperV2 {
     // the user's entered coordinate - 1, like: input = 1 1 -> position = 0 0 on the board.
     // That's why I subtract 1 in the if-condition here.
     public static boolean isValidTurn(char[][] board, int[] getValidCoordinates) {
-        if (board[getValidCoordinates[0] - 1][getValidCoordinates[1] - 1] == ' ') {
+        if (board[getValidCoordinates[0] - 1][getValidCoordinates[1] - 1] == '_') {
             return true;
         } else {
             System.out.println("This cell is occupied! Choose another one!");
@@ -266,71 +319,35 @@ public class TicTacToeSuperV2 {
     }
 }
 /*
-      ___
-   __(_  )___
- _(          )
-(     )-----`        |----______________,
- `---'               |    Kabraxis '22 /
-                     |---____________/
-                     |
-                     X                     \,/
-                    /~\
-                   /~~~\                         /`\
-                  /~~~~~\
-   |---____,     /~~~~~~~\             |---____,
-   |--____/     /~~~~~~~~~\            |--____/
-   |           /~~~~~~~~~~~\           |
-   X           |     .   .:|           X
-  /~\          |   _   _   |          /~\
- /~~~\         |  |+| |+|  |         /~~~\
-/~~~~~\        |  |_| |_|  |        /~~~~~\
-| :   |      __|           |__      | :   |
-|.:   |____| ; .           . ; |____|.:   |
-|  _    .        __________       .    _  |
-| |+| |.  ==   /            \  ==  .| |+| |
-| |_|   .     /              \    .   |_| |
-|     |:  ,  |    * 1 2 3 *   | ,  :|     |
-| .   |  |   |    ---------   |  |  |   . |
-|     |  |   |  >1| _ _ _ |   |  |  |     |
-|-    |  |   |  >2| _ _ _ |   |  |  |    -|
-_ _   |  |   |  >3| _ _ _ |   |  |  |  _  |
- '--~~__ |   |    ---------   |  | _|_    |
-        ~---___________________---~   ~`---,
-                                            ~~----____-~
-
-
-
-
-
-
-
-   0 1 2
- ---------
-0| _ _ _ |
-1| _ _ _ |
-2| _ _ _ |
- ---------
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+00         ___
+01      __(_  )___
+02    _(          )
+03   (     )-----`        |----______________,
+04    `---'               |    Kabraxis '22 /
+05                        |---____________/
+06                        |
+07                        X                     \,/
+08                       /~\
+09                      /~~~\                         /`\
+10                     /~~~~~\
+11      |---____,     /~~~~~~~\             |---____,
+12      |--____/     /~~~~~~~~~\            |--____/
+13      |           /~~~~~~~~~~~\           |
+14      X           |     .   .:|           X
+15     /~\          |   _   _   |          /~\
+16    /~~~\         |  |+| |+|  |         /~~~\
+17   /~~~~~\        |  |_| |_|  |        /~~~~~\
+18   | :   |      __|           |__      | :   |
+19   |.:   |____| ; .           . ; |____|.:   |
+20   |  _    .        __________       .    _  |
+21   | |+| |.  ==   /            \  ==  .| |+| |
+22   | |_|   .     /              \    .   |_| |
+23   |     |:  ,  |    * 1 2 3 *   | ,  :|     |
+24   | .   |  |   |    ---------   |  |  |   . |
+25   |     |  |   |  >1| _ _ _ |   |  |  |     |
+26   |-    |  |   |  >2| _ _ _ |   |  |  |    -|
+27   _ _   |  |   |  >3| _ _ _ |   |  |  |  _  |
+28    '--~~__ |   |    ---------   |  | _|_    |
+29           ~---___________________---~   ~`---,
+30                                               ~~----____-~
 */
