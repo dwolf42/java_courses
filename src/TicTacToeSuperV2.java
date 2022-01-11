@@ -137,8 +137,8 @@ public class TicTacToeSuperV2 {
 
         // If the user's input contains only white space or no input at all, this will filter it out
         if (userInputToCheckBeforeSplit.length() < 3 || userInputToCheckBeforeSplit.charAt(0) == 0 ||
-                userInputToCheckBeforeSplit.charAt(0) == ' ' || userInputToCheckBeforeSplit.charAt(1) == 0 ||
-                userInputToCheckBeforeSplit.charAt(1) == ' ') {
+                userInputToCheckBeforeSplit.charAt(0) == ' ' || userInputToCheckBeforeSplit.charAt(2) == 0 ||
+                userInputToCheckBeforeSplit.charAt(2) == ' ') {
             System.out.println("You must enter two numbers, separated by a space!");
             return getValidCoordinates(board);
         }
