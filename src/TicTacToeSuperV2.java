@@ -133,8 +133,17 @@ public class TicTacToeSuperV2 {
         // Only positive numbers are allowed.
         String pattern = "([-+])?\\d+";
         printTurnMessage();
-        String[] coordinates = scanner.nextLine().split(" ");
+        String userInputToCheckBeforeSplit = scanner.nextLine();
 
+        // If the user's input contains only white space or no input at all, this will filter it out
+        if (userInputToCheckBeforeSplit.length() < 3 || userInputToCheckBeforeSplit.charAt(0) == 0 ||
+                userInputToCheckBeforeSplit.charAt(0) == ' ' || userInputToCheckBeforeSplit.charAt(1) == 0 ||
+                userInputToCheckBeforeSplit.charAt(1) == ' ') {
+            System.out.println("You must enter two numbers, separated by a space!");
+            return getValidCoordinates(board);
+        }
+
+        String[] coordinates = userInputToCheckBeforeSplit.split(" ");
         // Loops as long as the input doesn't match the pattern of only positive integers.
         if (!coordinates[0].matches(pattern) || !coordinates[1].matches(pattern)) {
             System.out.println("You should enter numbers!");
