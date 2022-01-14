@@ -4,7 +4,7 @@
 import
  java.util.Scanner;
 
-public class TicTacToeSuperV2 {
+public class TicTacToeSuperGT {
 
     // Game always starts with player X
     static char currentPlayer = 'X';
@@ -27,20 +27,25 @@ public class TicTacToeSuperV2 {
     }
 
     public static void gameLoop(char[][] board) {
+        Scanner pauseGame = new Scanner(System.in);
+
         char winner = checkWinconditions(board);
 
-        printArrayBoard(board);
+        printArrayBoardArt(board);
 
         if (winner == 'd') {
             printWinner("Draw");
+            pauseGame.nextLine();
             return;
         }
         if (winner == 'X') {
             printWinner("X wins");
+            pauseGame.nextLine();
             return;
         }
         if (winner == 'O') {
             printWinner("O wins");
+            pauseGame.nextLine();
             return;
         }
 
@@ -57,7 +62,7 @@ public class TicTacToeSuperV2 {
         gameLoop(board);
     }
 
-    public static void printArrayBoard(char[][] board) {
+    public static void printArrayBoardArt(char[][] board) {
 
         String[] upperCastleArt = {
                 /*00*/ "         ___",
@@ -122,7 +127,6 @@ public class TicTacToeSuperV2 {
         for (String s: lowerCastleArt) {
             System.out.println(s);
         }
-
     }
 
     // User's input of coordinates is a string that will be checked if it contains
@@ -199,7 +203,6 @@ public class TicTacToeSuperV2 {
 
     public static char checkWinconditions(char[][] board) {
         /* Iterate through board to determine:
-
          * -> O wins: three O's in a row
          * -> X wins: three X's in a row
          * -> Draw: neither side wins, no more empty cells
