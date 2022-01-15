@@ -1,5 +1,5 @@
 /*
- * 04.07.2020 - 11:02 p.m. - by Snitgit the Gitsnit
+ * 11.01.2022 - 1:13 p.m. - by Kabraxis Luvos
  */
 import
  java.util.Scanner;
