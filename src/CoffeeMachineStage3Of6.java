@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class CoffeeMachine {
+public class CoffeeMachineStage3Of6 {
     public static void main(String[] args) {
         int requiredWater = 200;
         int requiredMilk = 50;
