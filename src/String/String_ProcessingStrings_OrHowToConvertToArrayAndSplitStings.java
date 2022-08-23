@@ -18,7 +18,7 @@ public class String_ProcessingStrings_OrHowToConvertToArrayAndSplitStings {
 
         String text = "Hellothere";
         String[] parts = text.split("");
-        System.out.println(".splti(); sets a delimiter to determine where the string should be split into an array. " + Arrays.toString(parts) + '\n');
+        System.out.println(".split(); sets a delimiter to determine where the string should be split into an array. " + Arrays.toString(parts) + '\n');
 
         String sentence = "a long text";
         String[] words = sentence.split(" ");
