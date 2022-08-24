@@ -1,4 +1,4 @@
-// This code is not mine!
+package Project_TicTacToe;// This code is not mine!
 // Credits go to a guy from Hyperskill.org named Firelord.
 // His solution inspires me to improve my very own code.
 

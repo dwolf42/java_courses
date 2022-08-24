@@ -1,3 +1,5 @@
+package Project_TicTacToe;
+
 import java.util.Scanner;
 
 public class TicTacToeStage5Of5 {
