@@ -16,7 +16,7 @@ public class CoffeeMachineStage4Of6 {
         selectMenu();
     }
 
-    public static int getValidInteger() {
+    public static int getValidIntegerStock() {
         while (!scanner.hasNextInt()) {
             System.out.println("You should enter numbers");
             scanner.next(); // clears scanner
@@ -88,13 +88,13 @@ public class CoffeeMachineStage4Of6 {
 
     public static void fillStock() {
         System.out.println("Write how many ml of water you want to add:");
-        stockWater += getValidInteger();
+        stockWater += getValidIntegerStock();
         System.out.println("Write how many ml of milk you want to add:");
-        stockMilk += getValidInteger();
+        stockMilk += getValidIntegerStock();
         System.out.println("Write how many grams of coffee beans you want to add:");
-        stockCoffeeBeans += getValidInteger();
+        stockCoffeeBeans += getValidIntegerStock();
         System.out.println("Write how many disposable cups of coffee you want to add:");
-        stockCups += getValidInteger();
+        stockCups += getValidIntegerStock();
 
     }
 
@@ -116,7 +116,7 @@ public class CoffeeMachineStage4Of6 {
     public static void selectMenu() {
         System.out.println("Write action (buy, fill, take):");
 
-        switch (getValidAction()) {
+        switch (getValidMenuAction()) {
             case "buy":
                 selectDrink();
                 break;
