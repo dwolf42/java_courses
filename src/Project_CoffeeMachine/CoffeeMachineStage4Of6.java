@@ -143,6 +143,20 @@ public class CoffeeMachineStage4Of6 {
         return userInput;
     }
 
+    public static int getValidIntegerSelectDrink() {
+        int selection = 0;
+
+        while (!scanner.hasNextInt()) {
+            System.out.println("You should enter numbers");
+            scanner.next(); // clears scanner
+            while(!scanner.hasNextInt() > 3) {
+
+            }
+        }
+        return scanner.nextInt();
+    }
+
+
 }
 
 /*
