@@ -68,17 +68,17 @@ public class CoffeeMachineStage4Of6 {
         return validatedNum;
     }
 
-    public static void changeStockEspresso(int stockWater, int stockMilk, int stockCoffeeBeans, int stockCups, int stockMoney) {
+    public static void changeStockEspresso() {
         int costMoneyEspresso = 4;
 
     }
 
-    public static void changeStockLatte(int stockWater, int stockMilk, int stockCoffeeBeans, int stockCups, int stockMoney) {
+    public static void changeStockLatte() {
         int costMoneyLatte = 7;
 
     }
 
-    public static void changeStockCappuccino(int stockWater, int stockMilk, int stockCoffeeBeans, int stockCups, int stockMoney) {
+    public static void changeStockCappuccino() {
         int costMoneyCappuccino = 6;
     }
 
