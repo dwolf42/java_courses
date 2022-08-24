@@ -1,3 +1,5 @@
+package Project_SimpleChattyBot;
+
 import java.util.Scanner;
 
 public class EnorilaSuper {

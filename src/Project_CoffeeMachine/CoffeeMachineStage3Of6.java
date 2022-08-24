@@ -1,3 +1,5 @@
+package Project_CoffeeMachine;
+
 import java.util.Scanner;
 
 public class CoffeeMachineStage3Of6 {
