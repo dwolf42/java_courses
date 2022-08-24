@@ -3,100 +3,130 @@ package Project_CoffeeMachine;
 import java.util.Scanner;
 
 public class CoffeeMachineStage4Of6 {
+    static Scanner scanner = new Scanner(System.in);
 
-    static int stockWater;
-    static int stockMilk;
-    static int stockCoffeeBeans;
-    static int stockCups;
-    static int stockMoney;
-
+    static int stockWater = 400;
+    static int stockMilk = 540;
+    static int stockCoffeeBeans = 120;
+    static int stockCups = 9;
+    static int stockMoney = 550;
 
     public static void main(String[] args) {
 
-        System.out.println("Write how many ml of water the coffee machine has:");
-        availableWater = getValidInput();
-        System.out.println("Write how many ml of milk the coffee machine has:");
-        availableMilk = getValidInput();
-        System.out.println("Write how many grams of coffee beans the coffee machine has:");
-        availableCoffeeBeans = getValidInput();
-        System.out.println("Write how many cups of coffee you will need:");
-        requestedCups = getValidInput();
-
-        // Possible cups of coffee
-        int availableCupsBySupply;
-
-
-
     }
 
-    public static int getValidInput() {
-        Scanner scanner = new Scanner(System.in);
-
-        int validatedNum;
-
+    public static int getValidInteger() {
         while (!scanner.hasNextInt()) {
             System.out.println("You should enter numbers");
             scanner.next(); // clears scanner
         }
-        validatedNum = scanner.nextInt();
-
-        return validatedNum;
+        return scanner.nextInt();
     }
 
-    public static int changeStockEspresso(int orderedAmount) {
+    public static int processEspresso(int orderedAmount) {
         int costWater = 250;
         int costMilk = 0;
         int costCoffeeBeans = 16;
         int costCups = 1;
 
-        int chargeMoneyEspresso = 4;
+        int chargeMoney = 4;
 
         if (validateOrder(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups)) {
-            orderedAmount = 0;
+            return 0;
+        } else {
+            reduceStock(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups, chargeMoney);
             return orderedAmount;
         }
-
     }
 
-    public static int changeStockLatte(int orderedAmount) {
+    public static int processLatte(int orderedAmount) {
         int costWater = 350;
         int costMilk = 75;
         int costCoffeeBeans = 20;
         int costCups = 1;
 
-        int chargeMoneyLatte = 7;
+        int chargeMoney = 7;
 
+        if (validateOrder(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups)) {
+            return 0;
+        } else {
+            reduceStock(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups, chargeMoney);
+            return orderedAmount;
+        }
     }
 
-    public static int changeStockCappuccino(int orderedAmount) {
+    public static int processCappuccino(int orderedAmount) {
         int costWater = 200;
         int costMilk = 100;
         int costCoffeeBeans = 12;
         int costCups = 1;
 
-        int chargeMoneyCappuccino = 6;
+        int chargeMoney = 6;
 
+        if (validateOrder(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups)) {
+            return 0;
+        } else {
+            reduceStock(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups, chargeMoney);
+            return orderedAmount;
+        }
     }
 
     public static boolean validateOrder(int orderedAmount, int costWater, int costMilk, int costCoffeeBeans, int costCups) {
-//        int possibleCupsWater = stockWater - (orderedAmount * costWater);
-//        int possibleCupsMilk = stockMilk - (orderedAmount * costMilk);
-//        int possibleCupsCoffeeBeans = stockCoffeeBeans - (orderedAmount * costCoffeeBeans);
-        boolean possibleCupsWater = stockWater - (orderedAmount * costWater) >= orderedAmount * costWater;
-        boolean possibleCupsMilk = stockMilk - (orderedAmount * costMilk) >= orderedAmount * costMilk;
-        boolean possibleCupsCoffeeBeans = stockCoffeeBeans - (orderedAmount * costCoffeeBeans) >= orderedAmount * costCoffeeBeans;
-
-        return stockWater - (orderedAmount * costWater) >= orderedAmount * costWater &&
-                stockMilk - (orderedAmount * costMilk) >= orderedAmount * costMilk &&
-                stockCoffeeBeans - (orderedAmount * costCoffeeBeans) >= orderedAmount * costCoffeeBeans;
-
+        return orderedAmount * costWater <= stockWater &&
+                orderedAmount * costMilk <= stockMilk &&
+                orderedAmount * costCoffeeBeans <= stockCoffeeBeans;
     }
 
-    public static void fillSupplies() {
+    public static void reduceStock(int orderedAmount, int costWater, int costMilk, int costCoffeeBeans, int costCups, int chargeMoney) {
+        stockWater -= orderedAmount * costWater;
+        stockMilk -= orderedAmount * costMilk;
+        stockCoffeeBeans -= orderedAmount * costCoffeeBeans;
+        stockCups -= orderedAmount * costCups;
+        stockMoney += chargeMoney;
+    }
+
+    public static void fillStock() {
+        System.out.println("Write how many ml of water you want to add:");
+        stockWater += getValidInteger();
+        System.out.println("Write how many ml of milk you want to add:");
+        stockMilk += getValidInteger();
+        System.out.println("Write how many grams of coffee beans you want to add:");
+        stockCoffeeBeans += getValidInteger();
+        System.out.println("Write how many disposable cups of coffee you want to add:");
+        stockCups += getValidInteger();
 
     }
 
     public static void takeMoney() {
+        System.out.printf("I gave you $%d%n", stockMoney);
+        stockMoney -= stockMoney;
+    }
+
+    public static void displayMachineStatus() {
+        System.out.printf("The coffee machine has:%n" +
+                        "%d ml of water%n" +
+                        "%d ml of milk%n" +
+                        "%d g of coffee beans%n" +
+                        "%d disposable cups%n" +
+                        "$%d of money%n",
+                stockWater, stockMilk, stockCoffeeBeans, stockCups, stockMoney);
+    }
+
+    public static void selectMenu() {
+        System.out.println("Write action (buy, fill, take):");
+        getValidAction();
+    }
+
+    public static String getValidAction() {
+        String validInput1 = "buy";
+        String validInput2 = "fill";
+        String validInput3 = "take";
+
+        while (!scanner.hasNextLine().toLowerCase()) {
+            System.out.println("You should enter numbers");
+            scanner.next(); // clears scanner
+        }
+        return scanner.nextInt();
 
     }
 
@@ -150,6 +180,8 @@ The coffee machine has:
 108 g of coffee beans
 8 disposable cups
 $556 of money
+
+
 Example 2
 
 The coffee machine has:
@@ -176,6 +208,8 @@ The coffee machine has:
 220 g of coffee beans
 19 disposable cups
 $550 of money
+
+
 Example 3
 
 The coffee machine has:
