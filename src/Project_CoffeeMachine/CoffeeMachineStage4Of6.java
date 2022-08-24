@@ -128,7 +128,15 @@ public class CoffeeMachineStage4Of6 {
         }
     }
 
-    public static String getValidAction() {
+    public static void selectDrink() {
+        String displayedMessage = "What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino:";
+
+        System.out.println(displayedMessage);
+
+        getValidIntegerSelectDrink();
+    }
+
+    public static String getValidMenuAction() {
         String validInput1 = "buy";
         String validInput2 = "fill";
         String validInput3 = "take";
