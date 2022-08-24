@@ -12,7 +12,8 @@ public class CoffeeMachineStage4Of6 {
     static int stockMoney = 550;
 
     public static void main(String[] args) {
-
+        displayMachineStatus();
+        selectMenu();
     }
 
     public static int getValidInteger() {
@@ -114,7 +115,17 @@ public class CoffeeMachineStage4Of6 {
 
     public static void selectMenu() {
         System.out.println("Write action (buy, fill, take):");
-        getValidAction();
+
+        switch (getValidAction()) {
+            case "buy":
+                selectDrink();
+                break;
+            case "fill":
+                fillStock();
+                break;
+            case "take":
+                break;
+        }
     }
 
     public static String getValidAction() {
@@ -122,12 +133,14 @@ public class CoffeeMachineStage4Of6 {
         String validInput2 = "fill";
         String validInput3 = "take";
 
-        while (!scanner.hasNextLine().toLowerCase()) {
+        String userInput = scanner.nextLine().toLowerCase();
+        while (!(userInput.equals(validInput1) ||
+                userInput.equals(validInput2) ||
+                userInput.equals(validInput3))) {
             System.out.println("You should enter numbers");
-            scanner.next(); // clears scanner
+            userInput = scanner.nextLine().toLowerCase();
         }
-        return scanner.nextInt();
-
+        return userInput;
     }
 
 }
