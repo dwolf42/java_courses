@@ -13,13 +13,6 @@ public class CoffeeMachineStage4Of6 {
 
     public static void main(String[] args) {
 
-
-        int availableWater;
-        int availableMilk;
-        int availableCoffeeBeans;
-
-        int requestedCups;
-
         System.out.println("Write how many ml of water the coffee machine has:");
         availableWater = getValidInput();
         System.out.println("Write how many ml of milk the coffee machine has:");
@@ -32,25 +25,7 @@ public class CoffeeMachineStage4Of6 {
         // Possible cups of coffee
         int availableCupsBySupply;
 
-        int possibleCupsWater = availableWater / requiredWater;
-        int possibleCupsMilk = availableMilk / requiredMilk;
-        int possibleCupsCoffeeBeans = availableCoffeeBeans / requiredCoffeeBeans;
 
-        if (possibleCupsWater < possibleCupsMilk && possibleCupsWater < possibleCupsCoffeeBeans) {
-            availableCupsBySupply = possibleCupsWater;
-        } else if (possibleCupsMilk < possibleCupsCoffeeBeans) {
-            availableCupsBySupply = possibleCupsMilk;
-        } else {
-            availableCupsBySupply = possibleCupsCoffeeBeans;
-        }
-
-        if (availableCupsBySupply == requestedCups) {
-            System.out.println("Yes, I can make that amount of coffee");
-        } else if (availableCupsBySupply > requestedCups) {
-            System.out.printf("Yes, I can make that amount of coffee (and even %d more than that)%n", (availableCupsBySupply - requestedCups));
-        } else {
-            System.out.printf("No, I can make only %d cup(s) of coffee%n", (availableCupsBySupply));
-        }
 
     }
 
@@ -68,24 +43,62 @@ public class CoffeeMachineStage4Of6 {
         return validatedNum;
     }
 
-    public static void changeStockEspresso() {
-        int costMoneyEspresso = 4;
+    public static int changeStockEspresso(int orderedAmount) {
+        int costWater = 250;
+        int costMilk = 0;
+        int costCoffeeBeans = 16;
+        int costCups = 1;
+
+        int chargeMoneyEspresso = 4;
+
+        if (validateOrder(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups)) {
+            orderedAmount = 0;
+            return orderedAmount;
+        }
 
     }
 
-    public static void changeStockLatte() {
-        int costMoneyLatte = 7;
+    public static int changeStockLatte(int orderedAmount) {
+        int costWater = 350;
+        int costMilk = 75;
+        int costCoffeeBeans = 20;
+        int costCups = 1;
+
+        int chargeMoneyLatte = 7;
 
     }
 
-    public static void changeStockCappuccino() {
-        int costMoneyCappuccino = 6;
+    public static int changeStockCappuccino(int orderedAmount) {
+        int costWater = 200;
+        int costMilk = 100;
+        int costCoffeeBeans = 12;
+        int costCups = 1;
+
+        int chargeMoneyCappuccino = 6;
+
+    }
+
+    public static boolean validateOrder(int orderedAmount, int costWater, int costMilk, int costCoffeeBeans, int costCups) {
+//        int possibleCupsWater = stockWater - (orderedAmount * costWater);
+//        int possibleCupsMilk = stockMilk - (orderedAmount * costMilk);
+//        int possibleCupsCoffeeBeans = stockCoffeeBeans - (orderedAmount * costCoffeeBeans);
+        boolean possibleCupsWater = stockWater - (orderedAmount * costWater) >= orderedAmount * costWater;
+        boolean possibleCupsMilk = stockMilk - (orderedAmount * costMilk) >= orderedAmount * costMilk;
+        boolean possibleCupsCoffeeBeans = stockCoffeeBeans - (orderedAmount * costCoffeeBeans) >= orderedAmount * costCoffeeBeans;
+
+        return stockWater - (orderedAmount * costWater) >= orderedAmount * costWater &&
+                stockMilk - (orderedAmount * costMilk) >= orderedAmount * costMilk &&
+                stockCoffeeBeans - (orderedAmount * costCoffeeBeans) >= orderedAmount * costCoffeeBeans;
+
     }
 
     public static void fillSupplies() {
 
     }
 
+    public static void takeMoney() {
+
+    }
 
 }
 
