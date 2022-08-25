@@ -16,14 +16,6 @@ public class CoffeeMachineStage4Of6 {
         selectMenu();
     }
 
-    public static int getValidIntegerStock() {
-        while (!scanner.hasNextInt()) {
-            System.out.println("You should enter numbers");
-            scanner.next(); // clears scanner
-        }
-        return scanner.nextInt();
-    }
-
     public static int processEspresso(int orderedAmount) {
         int costWater = 250;
         int costMilk = 0;
@@ -125,6 +117,8 @@ public class CoffeeMachineStage4Of6 {
                 break;
             case "take":
                 break;
+            default:
+                selectMenu();
         }
     }
 
@@ -136,30 +130,26 @@ public class CoffeeMachineStage4Of6 {
         getValidIntegerSelectDrink();
     }
 
-    public static String getValidMenuAction() {
-        String validInput1 = "buy";
-        String validInput2 = "fill";
-        String validInput3 = "take";
-
-        String userInput = scanner.nextLine().toLowerCase();
-        while (!(userInput.equals(validInput1) ||
-                userInput.equals(validInput2) ||
-                userInput.equals(validInput3))) {
+    public static int getValidIntegerStock() {
+        while (!scanner.hasNextInt() || !scanner.hasNext("\\d+")) {
             System.out.println("You should enter numbers");
-            userInput = scanner.nextLine().toLowerCase();
+            scanner.next(); // clears scanner
         }
-        return userInput;
+        return scanner.nextInt();
+    }
+
+    public static String getValidMenuAction() {
+        while (!scanner.hasNext("(?i)buy|fill|take")) {
+            System.out.println("You should enter buy, fill or take");
+            scanner.next();
+        }
+        return scanner.nextLine().toLowerCase();
     }
 
     public static int getValidIntegerSelectDrink() {
-        int selection = 0;
-
-        while (!scanner.hasNextInt()) {
-            System.out.println("You should enter numbers");
+        while (!scanner.hasNextInt(1 | 2 | 3)) {
+            System.out.println("You should enter numbers 1, 2 or 3");
             scanner.next(); // clears scanner
-            while(!scanner.hasNextInt() > 3) {
-
-            }
         }
         return scanner.nextInt();
     }
