@@ -16,6 +16,52 @@ public class CoffeeMachineStage4Of6 {
         selectMenu();
     }
 
+    public static void displayMachineStatus() {
+        System.out.printf("The coffee machine has:%n" +
+                        "%d ml of water%n" +
+                        "%d ml of milk%n" +
+                        "%d g of coffee beans%n" +
+                        "%d disposable cups%n" +
+                        "$%d of money%n",
+                stockWater, stockMilk, stockCoffeeBeans, stockCups, stockMoney);
+    }
+
+    public static void selectMenu() {
+        System.out.println("Write action (buy, fill, take):");
+
+        switch (getValidMenuAction()) {
+            case "buy":
+                selectDrink();
+                break;
+            case "fill":
+                fillStock();
+                break;
+            case "take":
+                break;
+            default:
+                selectMenu();
+        }
+    }
+
+    public static void selectDrink() {
+        String displayedMessage = "What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino:";
+
+        System.out.println(displayedMessage);
+
+        switch (getValidIntegerSelectDrink()) {
+            case 1:
+                processEspresso();
+                break;
+            case 2:
+                fillStock();
+                break;
+            case 3:
+                break;
+            default:
+                selectDrink();
+        }
+    }
+
     public static int processEspresso(int orderedAmount) {
         int costWater = 250;
         int costMilk = 0;
@@ -93,41 +139,6 @@ public class CoffeeMachineStage4Of6 {
     public static void takeMoney() {
         System.out.printf("I gave you $%d%n", stockMoney);
         stockMoney -= stockMoney;
-    }
-
-    public static void displayMachineStatus() {
-        System.out.printf("The coffee machine has:%n" +
-                        "%d ml of water%n" +
-                        "%d ml of milk%n" +
-                        "%d g of coffee beans%n" +
-                        "%d disposable cups%n" +
-                        "$%d of money%n",
-                stockWater, stockMilk, stockCoffeeBeans, stockCups, stockMoney);
-    }
-
-    public static void selectMenu() {
-        System.out.println("Write action (buy, fill, take):");
-
-        switch (getValidMenuAction()) {
-            case "buy":
-                selectDrink();
-                break;
-            case "fill":
-                fillStock();
-                break;
-            case "take":
-                break;
-            default:
-                selectMenu();
-        }
-    }
-
-    public static void selectDrink() {
-        String displayedMessage = "What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino:";
-
-        System.out.println(displayedMessage);
-
-        getValidIntegerSelectDrink();
     }
 
     public static int getValidIntegerStock() {
