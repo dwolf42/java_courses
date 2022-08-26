@@ -14,6 +14,7 @@ public class CoffeeMachineStage4Of6 {
     public static void main(String[] args) {
         displayMachineStatus();
         selectMenu();
+        displayMachineStatus();
     }
 
     public static void displayMachineStatus() {
