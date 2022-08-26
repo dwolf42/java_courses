@@ -159,6 +159,14 @@ public class CoffeeMachineStage4Of6 {
         return scanner.nextInt();
     }
 
+    public static void confirmOrder(int orderedAmount) {
+        switch (orderedAmount) {
+            case 1 -> processEspresso(1);
+            case 2 -> processLatte(1);
+            case 3 -> processCappuccino(1);
+            default -> selectDrink();
+        }
+    }
 
 }
 
