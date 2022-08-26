@@ -10,7 +10,7 @@ public class CoffeeMachineStage4Of6 {
     static int stockMoney = 550;
 
     public static void main(String[] args) {
-        while(true) {
+        while (true) {
             displayMachineStatus();
             selectMenu();
             displayMachineStatus();
@@ -69,7 +69,7 @@ public class CoffeeMachineStage4Of6 {
         String itemSelected = "Espresso";
 
         if (!isInStock(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups)) {
-            confirmOrder(orderedAmount, itemSelected);
+            confirmOrder(0, itemSelected);
         } else {
             alterStock(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups, chargeMoney);
             confirmOrder(orderedAmount, itemSelected);
@@ -86,8 +86,8 @@ public class CoffeeMachineStage4Of6 {
 
         String itemSelected = "Latte";
 
-        if (isInStock(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups)) {
-            confirmOrder(orderedAmount, itemSelected);
+        if (!isInStock(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups)) {
+            confirmOrder(0, itemSelected);
         } else {
             alterStock(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups, chargeMoney);
             confirmOrder(orderedAmount, itemSelected);
@@ -105,7 +105,7 @@ public class CoffeeMachineStage4Of6 {
         String itemSelected = "Cappuccino";
 
         if (!isInStock(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups)) {
-            confirmOrder(orderedAmount, itemSelected);
+            confirmOrder(0, itemSelected);
         } else {
             alterStock(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups, chargeMoney);
             confirmOrder(orderedAmount, itemSelected);
