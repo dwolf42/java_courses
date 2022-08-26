@@ -49,16 +49,10 @@ public class CoffeeMachineStage4Of6 {
         System.out.println(displayedMessage);
 
         switch (getValidIntegerSelectDrink()) {
-            case 1:
-                processEspresso();
-                break;
-            case 2:
-                fillStock();
-                break;
-            case 3:
-                break;
-            default:
-                selectDrink();
+            case 1 -> processEspresso(1);
+            case 2 -> processLatte(1);
+            case 3 -> processCappuccino(1);
+            default -> selectDrink();
         }
     }
 
