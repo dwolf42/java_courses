@@ -10,9 +10,11 @@ public class CoffeeMachineStage4Of6 {
     static int stockMoney = 550;
 
     public static void main(String[] args) {
-        displayMachineStatus();
-        selectMenu();
-        displayMachineStatus();
+        while(true) {
+            displayMachineStatus();
+            selectMenu();
+            displayMachineStatus();
+        }
     }
 
     public static void displayMachineStatus() {
@@ -118,6 +120,7 @@ public class CoffeeMachineStage4Of6 {
     }
 
     public static void alterStock(int orderedAmount, int costWater, int costMilk, int costCoffeeBeans, int costCups, int chargeMoney) {
+        System.out.println("<<<<<<altering stock>>>>>");
         stockWater -= orderedAmount * costWater;
         stockMilk -= orderedAmount * costMilk;
         stockCoffeeBeans -= orderedAmount * costCoffeeBeans;
