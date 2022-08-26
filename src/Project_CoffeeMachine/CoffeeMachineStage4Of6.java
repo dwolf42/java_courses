@@ -86,7 +86,7 @@ public class CoffeeMachineStage4Of6 {
 
         String itemSelected = "Latte";
 
-        if (!isInStock(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups)) {
+        if (isInStock(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups)) {
             confirmOrder(orderedAmount, itemSelected);
         } else {
             alterStock(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups, chargeMoney);
@@ -120,7 +120,6 @@ public class CoffeeMachineStage4Of6 {
     }
 
     public static void alterStock(int orderedAmount, int costWater, int costMilk, int costCoffeeBeans, int costCups, int chargeMoney) {
-        System.out.println("<<<<<<altering stock>>>>>");
         stockWater -= orderedAmount * costWater;
         stockMilk -= orderedAmount * costMilk;
         stockCoffeeBeans -= orderedAmount * costCoffeeBeans;
