@@ -66,7 +66,7 @@ public class CoffeeMachineStage4Of6 {
 
         int itemSelected = 1;
 
-        if (isInStock(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups)) {
+        if (!isInStock(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups)) {
             return 0;
         } else {
             reduceStock(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups, chargeMoney);
@@ -84,7 +84,7 @@ public class CoffeeMachineStage4Of6 {
 
         int itemSelected = 2;
 
-        if (isInStock(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups)) {
+        if (!isInStock(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups)) {
             return 0;
         } else {
             reduceStock(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups, chargeMoney);
@@ -102,7 +102,7 @@ public class CoffeeMachineStage4Of6 {
 
         int itemSelected = 3;
 
-        if (isInStock(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups)) {
+        if (!isInStock(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups)) {
             return 0;
         } else {
             reduceStock(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups, chargeMoney);
