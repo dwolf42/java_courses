@@ -67,10 +67,10 @@ public class CoffeeMachineStage4Of6 {
         int itemSelected = 1;
 
         if (!isInStock(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups)) {
-            return 0;
+            confirmOrder(orderedAmount, itemSelected);
         } else {
             reduceStock(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups, chargeMoney);
-            return orderedAmount;
+            confirmOrder(orderedAmount, itemSelected);
         }
     }
 
@@ -85,10 +85,10 @@ public class CoffeeMachineStage4Of6 {
         int itemSelected = 2;
 
         if (!isInStock(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups)) {
-            return 0;
+            confirmOrder(orderedAmount, itemSelected);
         } else {
             reduceStock(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups, chargeMoney);
-            return orderedAmount;
+            confirmOrder(orderedAmount, itemSelected);
         }
     }
 
@@ -103,10 +103,10 @@ public class CoffeeMachineStage4Of6 {
         int itemSelected = 3;
 
         if (!isInStock(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups)) {
-            return 0;
+            confirmOrder(orderedAmount, itemSelected);
         } else {
             reduceStock(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups, chargeMoney);
-            return orderedAmount;
+            confirmOrder(orderedAmount, itemSelected);
         }
     }
 
@@ -165,7 +165,7 @@ public class CoffeeMachineStage4Of6 {
         return scanner.nextInt();
     }
 
-    public static void confirmOrder(int orderedAmount) {
+    public static void confirmOrder(int orderedAmount, int itemSelected) {
         switch (orderedAmount) {
             case 1 -> processEspresso(1);
             case 2 -> processLatte(1);
