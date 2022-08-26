@@ -64,7 +64,9 @@ public class CoffeeMachineStage4Of6 {
 
         int chargeMoney = 4;
 
-        if (validateOrder(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups)) {
+        int itemSelected = 1;
+
+        if (isInStock(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups)) {
             return 0;
         } else {
             reduceStock(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups, chargeMoney);
@@ -79,6 +81,8 @@ public class CoffeeMachineStage4Of6 {
         int costCups = 1;
 
         int chargeMoney = 7;
+
+        int itemSelected = 2;
 
         if (isInStock(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups)) {
             return 0;
@@ -95,6 +99,8 @@ public class CoffeeMachineStage4Of6 {
         int costCups = 1;
 
         int chargeMoney = 6;
+
+        int itemSelected = 3;
 
         if (isInStock(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups)) {
             return 0;
