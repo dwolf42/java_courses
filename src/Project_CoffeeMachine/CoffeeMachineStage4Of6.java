@@ -137,7 +137,7 @@ public class CoffeeMachineStage4Of6 {
     }
 
     public static void takeMoney() {
-        System.out.printf("I gave you $%d%n", stockMoney);
+        System.out.printf("I gave you $%d%n%n", stockMoney);
         stockMoney -= stockMoney;
     }
 
@@ -170,10 +170,10 @@ public class CoffeeMachineStage4Of6 {
 
     public static void confirmOrder(int orderedAmount, String itemSelected) {
         if (orderedAmount == 0) {
-            System.out.printf("Sorry we are out of stock, your order of %d %s/s is not possible%n",
+            System.out.printf("Sorry we are out of stock, your order of %d %s/s is not possible%n%n",
                     orderedAmount, itemSelected);
         }
-        System.out.printf("Thank you for your order, please enjoy your %d %s/s",
+        System.out.printf("Thank you for your order, please enjoy your %d %s/s%n%n",
                 orderedAmount, itemSelected);
     }
 
