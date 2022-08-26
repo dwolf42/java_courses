@@ -165,13 +165,13 @@ public class CoffeeMachineStage4Of6 {
         return scanner.nextInt();
     }
 
-    public static void confirmOrder(int orderedAmount, int itemSelected) {
-        switch (orderedAmount) {
-            case 1 -> processEspresso(1);
-            case 2 -> processLatte(1);
-            case 3 -> processCappuccino(1);
-            default -> selectDrink();
+    public static void confirmOrder(int orderedAmount, String itemSelected) {
+        if (orderedAmount == 0) {
+            System.out.printf("Sorry we are out of stock, your order of %d %s/s is not possible%n",
+                    orderedAmount, itemSelected);
         }
+        System.out.printf("Thank you for your order, please enjoy your %d %s/s",
+                orderedAmount, itemSelected);
     }
 
 }
