@@ -56,7 +56,7 @@ public class CoffeeMachineStage4Of6 {
         }
     }
 
-    public static int processEspresso(int orderedAmount) {
+    public static void processEspresso(int orderedAmount) {
         int costWater = 250;
         int costMilk = 0;
         int costCoffeeBeans = 16;
@@ -74,7 +74,7 @@ public class CoffeeMachineStage4Of6 {
         }
     }
 
-    public static int processLatte(int orderedAmount) {
+    public static void processLatte(int orderedAmount) {
         int costWater = 350;
         int costMilk = 75;
         int costCoffeeBeans = 20;
@@ -92,7 +92,7 @@ public class CoffeeMachineStage4Of6 {
         }
     }
 
-    public static int processCappuccino(int orderedAmount) {
+    public static void processCappuccino(int orderedAmount) {
         int costWater = 200;
         int costMilk = 100;
         int costCoffeeBeans = 12;
