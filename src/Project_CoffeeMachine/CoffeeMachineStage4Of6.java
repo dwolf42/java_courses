@@ -37,6 +37,7 @@ public class CoffeeMachineStage4Of6 {
                 fillStock();
                 break;
             case "take":
+                takeMoney();
                 break;
             default:
                 selectMenu();
