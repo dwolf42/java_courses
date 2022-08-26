@@ -3,8 +3,6 @@ package Project_CoffeeMachine;
 import java.util.Scanner;
 
 public class CoffeeMachineStage4Of6 {
-    static Scanner scanner = new Scanner(System.in);
-
     static int stockWater = 400;
     static int stockMilk = 540;
     static int stockCoffeeBeans = 120;
@@ -23,7 +21,7 @@ public class CoffeeMachineStage4Of6 {
                         "%d ml of milk%n" +
                         "%d g of coffee beans%n" +
                         "%d disposable cups%n" +
-                        "$%d of money%n",
+                        "$%d of money%n%n",
                 stockWater, stockMilk, stockCoffeeBeans, stockCups, stockMoney);
     }
 
@@ -71,7 +69,7 @@ public class CoffeeMachineStage4Of6 {
         if (!isInStock(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups)) {
             confirmOrder(orderedAmount, itemSelected);
         } else {
-            reduceStock(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups, chargeMoney);
+            alterStock(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups, chargeMoney);
             confirmOrder(orderedAmount, itemSelected);
         }
     }
@@ -89,7 +87,7 @@ public class CoffeeMachineStage4Of6 {
         if (!isInStock(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups)) {
             confirmOrder(orderedAmount, itemSelected);
         } else {
-            reduceStock(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups, chargeMoney);
+            alterStock(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups, chargeMoney);
             confirmOrder(orderedAmount, itemSelected);
         }
     }
@@ -107,7 +105,7 @@ public class CoffeeMachineStage4Of6 {
         if (!isInStock(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups)) {
             confirmOrder(orderedAmount, itemSelected);
         } else {
-            reduceStock(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups, chargeMoney);
+            alterStock(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups, chargeMoney);
             confirmOrder(orderedAmount, itemSelected);
         }
     }
@@ -119,7 +117,7 @@ public class CoffeeMachineStage4Of6 {
                 orderedAmount * costCups < stockCups;
     }
 
-    public static void reduceStock(int orderedAmount, int costWater, int costMilk, int costCoffeeBeans, int costCups, int chargeMoney) {
+    public static void alterStock(int orderedAmount, int costWater, int costMilk, int costCoffeeBeans, int costCups, int chargeMoney) {
         stockWater -= orderedAmount * costWater;
         stockMilk -= orderedAmount * costMilk;
         stockCoffeeBeans -= orderedAmount * costCoffeeBeans;
@@ -136,7 +134,6 @@ public class CoffeeMachineStage4Of6 {
         stockCoffeeBeans += getValidIntegerStock();
         System.out.println("Write how many disposable cups of coffee you want to add:");
         stockCups += getValidIntegerStock();
-
     }
 
     public static void takeMoney() {
@@ -145,6 +142,7 @@ public class CoffeeMachineStage4Of6 {
     }
 
     public static int getValidIntegerStock() {
+        Scanner scanner = new Scanner(System.in);
         while (!scanner.hasNextInt() || !scanner.hasNext("\\d+")) {
             System.out.println("You should enter numbers");
             scanner.next(); // clears scanner
@@ -153,6 +151,7 @@ public class CoffeeMachineStage4Of6 {
     }
 
     public static String getValidMenuAction() {
+        Scanner scanner = new Scanner(System.in);
         while (!scanner.hasNext("(?i)buy|fill|take")) {
             System.out.println("You should enter buy, fill or take");
             scanner.next();
@@ -161,6 +160,7 @@ public class CoffeeMachineStage4Of6 {
     }
 
     public static int getValidIntegerSelectDrink() {
+        Scanner scanner = new Scanner(System.in);
         while (!scanner.hasNextInt(1 | 2 | 3)) {
             System.out.println("You should enter numbers 1, 2 or 3");
             scanner.next(); // clears scanner
