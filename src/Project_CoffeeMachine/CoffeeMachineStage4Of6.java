@@ -111,9 +111,10 @@ public class CoffeeMachineStage4Of6 {
     }
 
     public static boolean isInStock(int orderedAmount, int costWater, int costMilk, int costCoffeeBeans, int costCups) {
-        return orderedAmount * costWater <= stockWater &&
-                orderedAmount * costMilk <= stockMilk &&
-                orderedAmount * costCoffeeBeans <= stockCoffeeBeans;
+        return orderedAmount * costWater < stockWater &&
+                orderedAmount * costMilk < stockMilk &&
+                orderedAmount * costCoffeeBeans < stockCoffeeBeans &&
+                orderedAmount * costCups < stockCups;
     }
 
     public static void reduceStock(int orderedAmount, int costWater, int costMilk, int costCoffeeBeans, int costCups, int chargeMoney) {
