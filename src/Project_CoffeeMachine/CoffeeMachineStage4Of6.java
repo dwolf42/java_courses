@@ -64,7 +64,7 @@ public class CoffeeMachineStage4Of6 {
 
         int chargeMoney = 4;
 
-        int itemSelected = 1;
+        String itemSelected = "Espresso";
 
         if (!isInStock(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups)) {
             confirmOrder(orderedAmount, itemSelected);
@@ -82,7 +82,7 @@ public class CoffeeMachineStage4Of6 {
 
         int chargeMoney = 7;
 
-        int itemSelected = 2;
+        String itemSelected = "Latte";
 
         if (!isInStock(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups)) {
             confirmOrder(orderedAmount, itemSelected);
@@ -100,7 +100,7 @@ public class CoffeeMachineStage4Of6 {
 
         int chargeMoney = 6;
 
-        int itemSelected = 3;
+        String itemSelected = "Cappuccino";
 
         if (!isInStock(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups)) {
             confirmOrder(orderedAmount, itemSelected);
