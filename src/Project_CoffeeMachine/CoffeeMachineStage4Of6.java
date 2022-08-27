@@ -10,11 +10,8 @@ public class CoffeeMachineStage4Of6 {
     static int stockMoney = 550;
 
     public static void main(String[] args) {
-        while (true) {
             displayMachineStatus();
             selectMenu();
-            displayMachineStatus();
-        }
     }
 
     public static void displayMachineStatus() {
@@ -28,8 +25,8 @@ public class CoffeeMachineStage4Of6 {
     }
 
     public static void selectMenu() {
-        System.out.println("Write action (buy, fill, take):");
-
+        String message = "Write action (buy, fill, take): ";
+        System.out.println(message);
         switch (getValidMenuAction()) {
             case "buy":
                 selectDrink();
@@ -47,14 +44,20 @@ public class CoffeeMachineStage4Of6 {
 
     public static void selectDrink() {
         String displayedMessage = "What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino:";
-
         System.out.println(displayedMessage);
-
         switch (getValidIntegerSelectDrink()) {
-            case 1 -> processEspresso(1);
-            case 2 -> processLatte(1);
-            case 3 -> processCappuccino(1);
-            default -> selectDrink();
+            case 1:
+                processEspresso(1);
+                break;
+            case 2:
+                processLatte(1);
+                break;
+            case 3:
+                processCappuccino(1);
+                break;
+            default:
+                selectDrink();
+                break;
         }
     }
 
@@ -128,34 +131,41 @@ public class CoffeeMachineStage4Of6 {
     }
 
     public static void fillStock() {
-        System.out.println("Write how many ml of water you want to add:");
+        String howMuchWater = "Write how many ml of water you want to add:";
+        String howMuchMilk = "Write how many ml of milk you want to add:";
+        String howMuchCoffeeBeans = "Write how many grams of coffee beans you want to add:";
+        String howMuchCups = "Write how many disposable cups of coffee you want to add:";
+        System.out.println(howMuchWater);
         stockWater += getValidIntegerStock();
-        System.out.println("Write how many ml of milk you want to add:");
+        System.out.println(howMuchMilk);
         stockMilk += getValidIntegerStock();
-        System.out.println("Write how many grams of coffee beans you want to add:");
+        System.out.println(howMuchCoffeeBeans);
         stockCoffeeBeans += getValidIntegerStock();
-        System.out.println("Write how many disposable cups of coffee you want to add:");
+        System.out.println(howMuchCups);
         stockCups += getValidIntegerStock();
     }
 
     public static void takeMoney() {
-        System.out.printf("I gave you $%d%n%n", stockMoney);
         stockMoney -= stockMoney;
+        System.out.printf("I gave you $%d%n%n", stockMoney);
     }
 
     public static int getValidIntegerStock() {
+        String errorMessage = "You may only add amounts of 0 and above";
         Scanner scanner = new Scanner(System.in);
-        while (!scanner.hasNextInt() || !scanner.hasNext("\\d+")) {
-            System.out.println("You should enter numbers");
-            scanner.next(); // clears scanner
+        int inputStock = scanner.nextInt();
+        while (inputStock < 0) {
+            System.out.println(errorMessage);
+            inputStock = scanner.nextInt();
         }
-        return scanner.nextInt();
+        return inputStock;
     }
 
     public static String getValidMenuAction() {
         Scanner scanner = new Scanner(System.in);
+        String errorMessage = "You should enter buy, fill or take";
         while (!scanner.hasNext("(?i)buy|fill|take")) {
-            System.out.println("You should enter buy, fill or take");
+            System.out.println(errorMessage);
             scanner.next();
         }
         return scanner.nextLine().toLowerCase();
@@ -163,11 +173,13 @@ public class CoffeeMachineStage4Of6 {
 
     public static int getValidIntegerSelectDrink() {
         Scanner scanner = new Scanner(System.in);
-        while (!scanner.hasNextInt(1 | 2 | 3)) {
-            System.out.println("You should enter numbers 1, 2 or 3");
-            scanner.next(); // clears scanner
+        String errorMessage = "You should enter numbers 1, 2 or 3";
+        int selectDrink = scanner.nextInt();
+        while (selectDrink < 0 || selectDrink > 3) {
+            System.out.println(errorMessage);
+            selectDrink = scanner.nextInt();
         }
-        return scanner.nextInt();
+        return selectDrink;
     }
 
     public static void confirmOrder(int orderedAmount, String itemSelected) {
