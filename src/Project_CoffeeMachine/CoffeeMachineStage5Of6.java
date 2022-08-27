@@ -11,7 +11,7 @@ public class CoffeeMachineStage5Of6 {
 
     public static void main(String[] args) {
             displayMachineStatus();
-            selectMenu();
+//            selectMenu();
     }
 
     public static void displayMachineStatus() {
@@ -40,6 +40,9 @@ public class CoffeeMachineStage5Of6 {
                 break;
             case "remaining":
                 displayMachineStatus();
+                break;
+            case "exit":
+                // in case there is rage against, this might terminate the machine
                 break;
             default:
                 selectMenu();
