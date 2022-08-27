@@ -191,7 +191,6 @@ public class CoffeeMachineStage4Of6 {
                     orderedAmount, itemSelected);
         }
     }
-
 }
 
 /*
