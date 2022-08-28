@@ -14,18 +14,18 @@ public class CoffeeMachineStage5Of6 {
     }
 
     public static void displayMachineStatus() {
-        System.out.printf("The coffee machine has:%n" +
+        System.out.printf("%nThe coffee machine has:%n" +
                         "%d ml of water%n" +
                         "%d ml of milk%n" +
                         "%d g of coffee beans%n" +
                         "%d disposable cups%n" +
-                        "$%d of money%n%n",
+                        "$%d of money%n",
                 stockWater, stockMilk, stockCoffeeBeans, stockCups, stockMoney);
         selectMenu();
     }
 
     public static void selectMenu() {
-        String message = "Write action (buy, fill, take, remaining, exit): ";
+        String message = "\nWrite action (buy, fill, take, remaining, exit): ";
         System.out.println(message);
         switch (getValidMenuAction()) {
             case "buy":
@@ -50,7 +50,7 @@ public class CoffeeMachineStage5Of6 {
     }
 
     public static void selectDrink() {
-        String displayedMessage = "What do you want to buy? 1 - espresso, 2 - latte, " +
+        String displayedMessage = "\nWhat do you want to buy? 1 - espresso, 2 - latte, " +
                 "3 - cappuccino, back - to main menu:";
         System.out.println(displayedMessage + "\n");
         switch (getValidSelectDrinkAction()) {
@@ -153,7 +153,7 @@ public class CoffeeMachineStage5Of6 {
     }
 
     public static void fillStock() {
-        String howMuchWater = "Write how many ml of water you want to add:";
+        String howMuchWater = "\nWrite how many ml of water you want to add:";
         String howMuchMilk = "Write how many ml of milk you want to add:";
         String howMuchCoffeeBeans = "Write how many grams of coffee beans you want to add:";
         String howMuchCups = "Write how many disposable cups of coffee you want to add:";
@@ -170,12 +170,12 @@ public class CoffeeMachineStage5Of6 {
 
     public static void takeMoney() {
         stockMoney -= stockMoney;
-        System.out.printf("I gave you $%d%n%n", stockMoney);
+        System.out.printf("%nI gave you $%d%n%n", stockMoney);
         selectMenu();
     }
 
     public static int getValidIntegerStock() {
-        String errorMessage = "You may only add amounts of 0 and above";
+        String errorMessage = "\nYou may only add amounts of 0 and above";
         Scanner scanner = new Scanner(System.in);
         int inputStock = scanner.nextInt();
         while (inputStock < 0) {
@@ -187,7 +187,7 @@ public class CoffeeMachineStage5Of6 {
 
     public static String getValidMenuAction() {
         Scanner scanner = new Scanner(System.in);
-        String errorMessage = "You should enter buy, fill or take";
+        String errorMessage = "\nYou should enter buy, fill, take, remaining or exit";
         while (!scanner.hasNext("(?i)buy|fill|take|remaining|exit")) {
             System.out.println(errorMessage);
             scanner.next();
@@ -207,10 +207,12 @@ public class CoffeeMachineStage5Of6 {
 
     public static void confirmOrder(int orderedAmount, String missingItem) {
         if (orderedAmount == 0) {
-            System.out.printf("Sorry, not enough %s!%n%n",
+            System.out.printf("%nSorry, not enough %s!%n%n",
                     missingItem);
+            selectMenu();
         } else {
-            System.out.println("I have enough resources, making you a coffee!\n");
+            System.out.println("\nI have enough resources, making you a coffee!");
+            selectMenu();
         }
     }
 }
