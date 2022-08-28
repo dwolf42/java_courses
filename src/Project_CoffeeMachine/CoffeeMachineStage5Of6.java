@@ -51,7 +51,8 @@ public class CoffeeMachineStage5Of6 {
     }
 
     public static void selectDrink() {
-        String displayedMessage = "What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino:";
+        String displayedMessage = "What do you want to buy? 1 - espresso, 2 - latte, " +
+                "3 - cappuccino, back - to main menu:";
         System.out.println(displayedMessage);
         switch (getValidIntegerSelectDrink()) {
             case 1:
