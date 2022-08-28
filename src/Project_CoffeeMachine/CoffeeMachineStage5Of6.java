@@ -195,15 +195,14 @@ public class CoffeeMachineStage5Of6 {
         return scanner.nextLine().toLowerCase();
     }
 
-    public static int getValidIntegerSelectDrink() {
+    public static String getValidSelectDrinkAction() {
         Scanner scanner = new Scanner(System.in);
-        String errorMessage = "You should enter numbers 1, 2 or 3";
-        int selectDrink = scanner.nextInt();
-        while (selectDrink < 0 || selectDrink > 3) {
+        String errorMessage = "\nYou should enter numbers 1, 2, 3 or type back - to main menu";
+        while (!scanner.hasNext("(?i)1|2|3|back")) {
             System.out.println(errorMessage);
-            selectDrink = scanner.nextInt();
+            scanner.next();
         }
-        return selectDrink;
+        return scanner.nextLine().toLowerCase();
     }
 
     public static void confirmOrder(int orderedAmount, String missingItem) {
