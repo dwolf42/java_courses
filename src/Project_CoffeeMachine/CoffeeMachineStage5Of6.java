@@ -78,12 +78,13 @@ public class CoffeeMachineStage5Of6 {
         int chargeMoney = 4;
 
         String itemSelected = "Espresso";
+        String missingItem = findMissingItem(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups);
 
-        if (!isInStock(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups)) {
-            confirmOrder(0, itemSelected);
-        } else {
+        if (missingItem.equals("none")) {
             alterStock(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups, chargeMoney);
-            confirmOrder(orderedAmount, itemSelected);
+            confirmOrder(orderedAmount, missingItem);
+        } else {
+            confirmOrder(0, missingItem);
         }
     }
 
@@ -96,12 +97,13 @@ public class CoffeeMachineStage5Of6 {
         int chargeMoney = 7;
 
         String itemSelected = "Latte";
+        String missingItem = findMissingItem(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups);
 
-        if (!isInStock(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups)) {
-            confirmOrder(0, itemSelected);
-        } else {
+        if (missingItem.equals("none")) {
             alterStock(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups, chargeMoney);
-            confirmOrder(orderedAmount, itemSelected);
+            confirmOrder(orderedAmount, missingItem);
+        } else {
+            confirmOrder(0, missingItem);
         }
     }
 
@@ -114,23 +116,33 @@ public class CoffeeMachineStage5Of6 {
         int chargeMoney = 6;
 
         String itemSelected = "Cappuccino";
+        String missingItem = findMissingItem(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups);
 
-        if (!isInStock(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups)) {
-            confirmOrder(0, itemSelected);
-        } else {
+        if (missingItem.equals("none")) {
             alterStock(orderedAmount, costWater, costMilk, costCoffeeBeans, costCups, chargeMoney);
-            confirmOrder(orderedAmount, itemSelected);
+            confirmOrder(orderedAmount, missingItem);
+        } else {
+            confirmOrder(0, missingItem);
         }
     }
 
-    public static boolean isInStock(int orderedAmount, int costWater, int costMilk, int costCoffeeBeans, int costCups) {
-        return orderedAmount * costWater < stockWater &&
-                orderedAmount * costMilk < stockMilk &&
-                orderedAmount * costCoffeeBeans < stockCoffeeBeans &&
-                orderedAmount * costCups < stockCups;
+    public static String findMissingItem(int orderedAmount, int costWater, int costMilk, int costCoffeeBeans,
+                                         int costCups) {
+        if (orderedAmount * costWater > stockWater) {
+            return "water";
+        } else if (orderedAmount * costMilk > stockMilk) {
+            return "milk";
+        } else if (orderedAmount * costCoffeeBeans > stockCoffeeBeans) {
+            return "coffee beans";
+        } else if (orderedAmount * costCups > stockCups) {
+            return "cups";
+        } else {
+            return "none";
+        }
     }
 
-    public static void alterStock(int orderedAmount, int costWater, int costMilk, int costCoffeeBeans, int costCups, int chargeMoney) {
+    public static void alterStock(int orderedAmount, int costWater, int costMilk, int costCoffeeBeans,
+                                  int costCups, int chargeMoney) {
         stockWater -= orderedAmount * costWater;
         stockMilk -= orderedAmount * costMilk;
         stockCoffeeBeans -= orderedAmount * costCoffeeBeans;
@@ -192,15 +204,12 @@ public class CoffeeMachineStage5Of6 {
         return selectDrink;
     }
 
-    public static void confirmOrder(int orderedAmount, String itemSelected) {
+    public static void confirmOrder(int orderedAmount, String missingItem) {
         if (orderedAmount == 0) {
-            System.out.printf("Sorry we are out of stock, your order of %d %s/s is not possible%n%n",
-                    orderedAmount, itemSelected);
-            selectMenu();
+            System.out.printf("Sorry, not enough %s!%n%n",
+                    missingItem);
         } else {
-            System.out.printf("Thank you for your order, please enjoy your %d %s/s%n%n",
-                    orderedAmount, itemSelected);
-            selectMenu();
+            System.out.println("I have enough resources, making you a coffee!\n");
         }
     }
 }
