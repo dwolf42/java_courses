@@ -169,8 +169,8 @@ public class CoffeeMachineStage5Of6 {
     }
 
     public static void takeMoney() {
-        stockMoney -= stockMoney;
         System.out.printf("%nI gave you $%d%n%n", stockMoney);
+        stockMoney -= stockMoney;
         selectMenu();
     }
 
