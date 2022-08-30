@@ -204,8 +204,9 @@ public class CoffeeMachineStage5Of6 {
         String errorMessage = "\nYou should enter numbers 1, 2, 3 or type back - to main menu";
         while (!getSelectDrinkAction.matches(regexPattern)) {
             System.out.println(errorMessage);
+            getSelectDrinkAction = scanner.nextLine().toLowerCase();
         }
-        return scanner.nextLine().toLowerCase();
+        return getSelectDrinkAction;
     }
 
     public static void confirmOrder(int orderedAmount, String missingItem) {
