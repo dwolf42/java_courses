@@ -10,8 +10,9 @@ public class CoffeeMachineStage5Of6 {
     static int stockMoney = 550;
 
     public static void main(String[] args) {
-            displayMachineStatus();
+        selectMenu();
     }
+
 
     public static void displayMachineStatus() {
         System.out.printf("%nThe coffee machine has:%n" +
