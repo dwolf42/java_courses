@@ -170,7 +170,7 @@ public class CoffeeMachineStage5Of6 {
     }
 
     public static void takeMoney() {
-        System.out.printf("%nI gave you $%d%n%n", stockMoney);
+        System.out.printf("%nI gave you $%d%n", stockMoney);
         stockMoney -= stockMoney;
         selectMenu();
     }
@@ -212,7 +212,7 @@ public class CoffeeMachineStage5Of6 {
 
     public static void confirmOrder(int orderedAmount, String missingItem) {
         if (orderedAmount == 0) {
-            System.out.printf("%nSorry, not enough %s!%n%n",
+            System.out.printf("%nSorry, not enough %s!%n",
                     missingItem);
             selectMenu();
         } else {
