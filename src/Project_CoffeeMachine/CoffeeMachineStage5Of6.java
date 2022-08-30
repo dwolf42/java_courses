@@ -199,10 +199,11 @@ public class CoffeeMachineStage5Of6 {
 
     public static String getValidSelectDrinkAction() {
         Scanner scanner = new Scanner(System.in);
+        String getSelectDrinkAction = scanner.nextLine().toLowerCase();
+        String regexPattern = "(?i)1|2|3|back";
         String errorMessage = "\nYou should enter numbers 1, 2, 3 or type back - to main menu";
-        while (!scanner.hasNext("(?i)1|2|3|back")) {
+        while (!getSelectDrinkAction.matches(regexPattern)) {
             System.out.println(errorMessage);
-            scanner.next();
         }
         return scanner.nextLine().toLowerCase();
     }
