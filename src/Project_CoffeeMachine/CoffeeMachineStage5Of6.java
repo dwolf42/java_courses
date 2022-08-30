@@ -187,12 +187,14 @@ public class CoffeeMachineStage5Of6 {
 
     public static String getValidMenuAction() {
         Scanner scanner = new Scanner(System.in);
+        String getMenuAction = scanner.nextLine().toLowerCase();
+        String regexPattern = "(?i)buy|fill|take|remaining|exit";
         String errorMessage = "\nYou should enter buy, fill, take, remaining or exit";
-        while (!scanner.hasNext("(?i)buy|fill|take|remaining|exit")) {
+        while (!getMenuAction.matches(regexPattern)) {
             System.out.println(errorMessage);
-            scanner.next();
+            getMenuAction = scanner.nextLine().toLowerCase();
         }
-        return scanner.nextLine().toLowerCase();
+        return getMenuAction;
     }
 
     public static String getValidSelectDrinkAction() {
