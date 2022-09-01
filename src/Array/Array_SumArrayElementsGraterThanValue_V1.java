@@ -2,7 +2,7 @@ package Array;
 
 import java.util.Scanner;
 
-public class Array_SumArrayElementsGraterThanValue {
+public class Array_SumArrayElementsGraterThanValue_V1 {
     public static void main(String[] args) {
         // Yes, that value is never used.
         // I could write some code in which this variable might be used
