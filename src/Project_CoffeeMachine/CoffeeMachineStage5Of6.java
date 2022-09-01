@@ -10,9 +10,8 @@ public class CoffeeMachineStage5Of6 {
     static int stockMoney = 550;
 
     public static void main(String[] args) {
-        selectMenu();
+            selectMenu();
     }
-
 
     public static void displayMachineStatus() {
         System.out.printf("%nThe coffee machine has:%n" +
@@ -53,7 +52,7 @@ public class CoffeeMachineStage5Of6 {
     public static void selectDrink() {
         String displayedMessage = "\nWhat do you want to buy? 1 - espresso, 2 - latte, " +
                 "3 - cappuccino, back - to main menu:";
-        System.out.println(displayedMessage);
+        System.out.println(displayedMessage + "\n");
         switch (getValidSelectDrinkAction()) {
             case "1":
                 processEspresso(1);
@@ -66,6 +65,7 @@ public class CoffeeMachineStage5Of6 {
                 break;
             case "back":
                 selectMenu();
+                break;
             default:
                 selectDrink();
                 break;
@@ -170,7 +170,7 @@ public class CoffeeMachineStage5Of6 {
     }
 
     public static void takeMoney() {
-        System.out.printf("%nI gave you $%d%n", stockMoney);
+        System.out.printf("%nI gave you $%d%n%n", stockMoney);
         stockMoney -= stockMoney;
         selectMenu();
     }
@@ -212,7 +212,7 @@ public class CoffeeMachineStage5Of6 {
 
     public static void confirmOrder(int orderedAmount, String missingItem) {
         if (orderedAmount == 0) {
-            System.out.printf("%nSorry, not enough %s!%n",
+            System.out.printf("%nSorry, not enough %s!%n%n",
                     missingItem);
             selectMenu();
         } else {
