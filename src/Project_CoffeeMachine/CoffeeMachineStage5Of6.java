@@ -10,7 +10,7 @@ public class CoffeeMachineStage5Of6 {
     static int stockMoney = 550;
 
     public static void main(String[] args) {
-            displayMachineStatus();
+            selectMenu();
     }
 
     public static void displayMachineStatus() {
@@ -65,6 +65,7 @@ public class CoffeeMachineStage5Of6 {
                 break;
             case "back":
                 selectMenu();
+                break;
             default:
                 selectDrink();
                 break;
