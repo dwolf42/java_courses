@@ -11,6 +11,8 @@ public class Char_IsVowelOrNot {
     }
 
     public static boolean isVowel(char ch) {
+        // also return "aeiou".contains(Character.toString(ch).toLowerCase())
+
         switch (Character.toLowerCase(ch)) {
             case 'a':
             case 'e':
