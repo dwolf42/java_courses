@@ -1,4 +1,4 @@
-package OOP;
+package OOP.AlexLee;
 
 public class Example6 implements Example5 {
     public static void main(String[] args) {

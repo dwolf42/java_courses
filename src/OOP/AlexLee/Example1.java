@@ -1,4 +1,4 @@
-package OOP;
+package OOP.AlexLee;
 /*
 - A class is a blueprint for an object -
 - An object is basically everything, your headphones, computer, smartphone etc. -

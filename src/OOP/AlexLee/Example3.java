@@ -1,4 +1,4 @@
-package OOP;
+package OOP.AlexLee;
 
 public class Example3 {
    private String flavor;

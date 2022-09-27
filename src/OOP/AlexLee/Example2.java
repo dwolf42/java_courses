@@ -1,4 +1,4 @@
-package OOP;
+package OOP.AlexLee;
 
 public class Example2 {
     public void sayHi() {

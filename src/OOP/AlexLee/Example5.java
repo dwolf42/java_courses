@@ -1,4 +1,4 @@
-package OOP;
+package OOP.AlexLee;
 
 public interface Example5 {
     final String flavor = "Beef";
