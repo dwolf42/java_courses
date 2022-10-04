@@ -1,9 +1,9 @@
 package OOP.JetBrains.PatientDemo2;
 
-public class PatientDemo {
+public class PatientDemo2 {
     public static void main(String[] args) {
-        Patient patient1 = new Patient("Heinrich", 40, 182.0f);
-        Patient patient2 = new Patient("Mary", 33, 171.5f);
+        Patient2 patient1 = new Patient2("Heinrich", 40, 182.0f);
+        Patient2 patient2 = new Patient2("Mary", 33, 171.5f);
         System.out.println(patient1.age);
         patient1.age = 41;
 
