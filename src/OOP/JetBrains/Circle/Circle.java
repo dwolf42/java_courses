@@ -1,4 +1,4 @@
-package OOP.MyWork.Circle;
+package OOP.JetBrains.Circle;
 
 public class Circle {
     double radius;

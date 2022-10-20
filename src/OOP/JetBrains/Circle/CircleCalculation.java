@@ -1,4 +1,4 @@
-package OOP.MyWork.Circle;
+package OOP.JetBrains.Circle;
 
 public class CircleCalculation {
     public static void main(String[] args) {
