@@ -1,4 +1,4 @@
-package OOP.MyWork;
+package OOP.MyWork.ConstructorExperiments;
 
 public class Class_ConstructorExperiments {
     public static void main(String[] args) {

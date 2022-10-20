@@ -1,4 +1,4 @@
-package OOP.MyWork;
+package OOP.MyWork.ConstructorExperiments;
 
 class Book {
     String title;
