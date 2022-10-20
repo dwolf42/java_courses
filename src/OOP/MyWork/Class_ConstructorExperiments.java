@@ -1,6 +1,6 @@
 package OOP.MyWork;
 
-public class ClassConstructorExperiments {
+public class Class_ConstructorExperiments {
     public static void main(String[] args) {
         String title = "Book of books";
         int yearOfPublishing = 2022;
