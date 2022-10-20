@@ -6,6 +6,7 @@ public class Patient2 {
     int age;
     float height;
 
+    // This is the constructor, it assigns the values to the fields
     public Patient2(String name, int age, float height) {
         this.name = name;
         this.age = age;
