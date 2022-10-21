@@ -1,4 +1,4 @@
-package OOP.JetBrains.InstanceMethods;
+package OOP.JetBrains.InstanceMethods.WokingPeople;
 
 public class Human {
     String name;

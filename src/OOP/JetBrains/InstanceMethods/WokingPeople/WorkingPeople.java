@@ -1,4 +1,4 @@
-package OOP.JetBrains.InstanceMethods;
+package OOP.JetBrains.InstanceMethods.WokingPeople;
 
 public class WorkingPeople {
     public static void main(String[] args) {
