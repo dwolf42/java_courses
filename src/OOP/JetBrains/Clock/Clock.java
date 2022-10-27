@@ -12,23 +12,20 @@ public class Clock {
     int minutes2 = MIN_MINUTES;
 
     void next() {
-        // if hours is 12 && minutes1 5 && minutes2 is 9
-        if ((this.hours == MAX_HOURS && this.minutes1 == MAX_MINUTES1 && this.minutes2 == MAX_MINUTES2)) {
-            this.hours = MIN_HOURS;
-            this.minutes1 = MIN_MINUTES;
-            this.minutes2 = MIN_MINUTES;
-        // if minutes1 is 5 && minutes2 is 9
-        } else if (this.minutes1 == MAX_MINUTES1 && this.minutes2 == MAX_MINUTES2) {
-            this.minutes1 = MIN_MINUTES;
-            this.minutes2 = MIN_MINUTES;
-            this.hours++;
-        // if
-        } else if (this.minutes1 < MAX_MINUTES1 && this.minutes2 == MAX_MINUTES2) {
-            this.minutes1++;
-            this.minutes2 = MIN_MINUTES;
-        } else if (this.minutes1 ==) {} // Needs implementation
-        else {
-            System.out.println("Error");
+        minutes2++;
+        if (minutes2 > MAX_MINUTES2) {
+            minutes2 = MIN_MINUTES;
+            minutes1++;
+        }
+
+        if (minutes1 > MAX_MINUTES1) {
+            minutes1 = MIN_MINUTES;
+            hours++;
+        }
+
+        if (hours > MAX_HOURS) {
+            hours = MIN_HOURS;
         }
     }
+
 }
