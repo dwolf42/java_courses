@@ -11,11 +11,6 @@ public class Clock {
     int minutes1 = MIN_MINUTES;
     int minutes2 = MIN_MINUTES;
 
-    int a = 1;
-    int b = 2;
-    int c = 3;
-
-
     void next() {
         // if hours is 12 && minutes1 5 && minutes2 is 9
         if ((this.hours == MAX_HOURS && this.minutes1 == MAX_MINUTES1 && this.minutes2 == MAX_MINUTES2)) {
