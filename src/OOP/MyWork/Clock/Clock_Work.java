@@ -23,10 +23,14 @@ public class Clock_Work {
         display.setOneMin();
         clock.minutes2 = scanner.nextInt();
 
-        System.out.println("\n The time is: ");
+        System.out.println("");
+        display.currentTime();
+        System.out.printf("%d:%d%d%n", clock.hours, clock.minutes1, clock.minutes2);
+        TimeUnit.SECONDS.sleep(3);
 
         while (true) {
             clock.next();
+            display.currentTime();
             System.out.printf("%d:%d%d%n", clock.hours, clock.minutes1, clock.minutes2);
             TimeUnit.SECONDS.sleep(3);
         }
