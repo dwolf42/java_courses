@@ -22,20 +22,24 @@ public class Display {
         System.out.println(this.whatTime);
     }
 
-    public static void setHrs() {
-        System.out.print("Set hours: ");
+    public void setHrs() {
+        System.out.print(this.setHrs);
     }
 
-    public static void setTenMin() {
-        System.out.print("Set ten minutes");
+    public void setTenMin() {
+        System.out.print(this.setTenMin);
     }
 
-    public static void setOneMin() {
-        System.out.print("Set one minutes");
+    public void setOneMin() {
+        System.out.print(this.setTenMin);
     }
 
-    public static void currentTime() {
-        System.out.print("The time is: ");
+    public void currentTime() {
+        System.out.print(this.setOneMin);
+    }
+
+    public void theTime() {
+        System.out.println(this.theTime);
     }
 
 }
