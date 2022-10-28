@@ -1,4 +1,4 @@
-package OOP.JetBrains.Clock;
+package OOP.MyWork.Clock;
 
 public class Clock {
     private static final int MAX_HOURS = 12;

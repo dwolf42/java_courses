@@ -1,4 +1,4 @@
-package OOP.JetBrains.Clock;
+package OOP.MyWork.Clock;
 import java.util.concurrent.TimeUnit;
 
 public class Clock_Work {
