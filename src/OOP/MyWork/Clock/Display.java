@@ -6,10 +6,10 @@ public class Display {
         System.out.println("What time is it?");
     }
 
-    String setHrs = "Set hours";
-    String setTenMin = "Set ten minutes";
-    String setOneMin = "Set one minutes";
-    String theTime = "The time is";
+    String setHrs = "Set hours: ";
+    String setTenMin = "Set ten minutes: ";
+    String setOneMin = "Set one minutes: ";
+    String theTime = "The time is: ";
 
     public void setHrs() {
         System.out.print(this.setHrs);
