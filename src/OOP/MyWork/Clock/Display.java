@@ -2,7 +2,6 @@ package OOP.MyWork.Clock;
 
 public class Display {
 
-
     public static void whatTime() {
         System.out.println("What time is it?");
     }
