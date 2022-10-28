@@ -7,6 +7,16 @@ public class Clock_Work {
     public static void main(String[] args) throws InterruptedException {
         Scanner scanner = new Scanner(System.in);
         Clock clock = new Clock();
+        Display display = new Display();
+
+        /*
+         ***************************************************************
+         * This part's purpose is educational only
+         * This is used to access the static methods inside the class Display
+         * To invoke a static method we don't need to create an object. We just call the method with the class name.
+         * Display.instanceMethod();
+         ***************************************************************
+         */
 
         System.out.println("What time is it?");
         System.out.print("\nSet hours: ");
