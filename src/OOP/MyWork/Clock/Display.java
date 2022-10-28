@@ -28,8 +28,4 @@ public class Display {
         System.out.print(this.theTime);
     }
 
-    public void theTime() {
-        System.out.println(this.theTime);
-    }
-
 }
