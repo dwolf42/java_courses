@@ -16,6 +16,8 @@ public class Clock_Work {
         System.out.print("\nSet one minutes: ");
         clock.minutes2 = scanner.nextInt();
 
+        System.out.println("\n The time is: ");
+
         while (true) {
             clock.next();
             System.out.printf("%d:%d%d%n", clock.hours, clock.minutes1, clock.minutes2);
