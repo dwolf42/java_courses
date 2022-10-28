@@ -18,7 +18,9 @@ public class Clock_Work {
          ***************************************************************
          */
 
-        System.out.println("What time is it?");
+        // This is used to access the instance methods of the object display, which is an instance of the class Display
+        display.whatTime();
+
         System.out.print("\nSet hours: ");
         clock.hours = scanner.nextInt();
         System.out.print("\nSet the ten minutes: ");
