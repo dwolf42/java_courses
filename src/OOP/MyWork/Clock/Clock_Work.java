@@ -9,17 +9,13 @@ public class Clock_Work {
         Clock clock = new Clock();
         Display display = new Display();
 
-        /*
-         ***************************************************************
-         * This part's purpose is educational only
-         * This is used to access the static methods inside the class Display
+        /* This is used to access the static methods inside the class Display
          * To invoke a static method we don't need to create an object. We just call the method with the class name.
-         * Display.instanceMethod();
-         ***************************************************************
          */
+        Display.whatTime();
 
         // This is used to access the instance methods of the object display, which is an instance of the class Display
-        display.whatTime();
+
 
         System.out.print("\nSet hours: ");
         clock.hours = scanner.nextInt();
