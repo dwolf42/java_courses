@@ -1,4 +1,5 @@
 package OOP.MyWork.Clock;
+
 import java.util.concurrent.TimeUnit;
 import java.util.Scanner;
 
@@ -21,4 +22,5 @@ public class Clock_Work {
             TimeUnit.SECONDS.sleep(3);
         }
     }
+
 }
