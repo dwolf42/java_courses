@@ -25,7 +25,7 @@ public class Display {
     }
 
     public void currentTime() {
-        System.out.print(this.setOneMin);
+        System.out.print(this.theTime);
     }
 
     public void theTime() {
