@@ -16,12 +16,11 @@ public class Clock_Work {
 
         // This is used to access the instance methods of the object display, which is an instance of the class Display
 
-
-        System.out.print("\nSet hours: ");
+        display.setHrs();
         clock.hours = scanner.nextInt();
-        System.out.print("\nSet the ten minutes: ");
+        display.setTenMin();
         clock.minutes1 = scanner.nextInt();
-        System.out.print("\nSet one minutes: ");
+        display.setOneMin();
         clock.minutes2 = scanner.nextInt();
 
         System.out.println("\n The time is: ");
