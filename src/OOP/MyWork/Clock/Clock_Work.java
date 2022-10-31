@@ -25,8 +25,7 @@ public class Clock_Work {
         System.out.print(display.getPrintSetMinutes());
         clock.setMinutes1(scanner.nextInt());
 
-        System.out.println("");
-        System.out.print(display.getPrintTheTime());
+        System.out.print(("\n") + (display.getPrintTheTime()));
         System.out.printf("%d:%d%d%n", clock.getHours(), clock.getMinutes1(), clock.getMinutes2());
         TimeUnit.SECONDS.sleep(3);
 
