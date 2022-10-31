@@ -2,29 +2,29 @@ package OOP.MyWork.Clock;
 
 public class Display {
 
-    public static void whatTime() {
+    public static void printWhatTime() {
         System.out.println("What time is it?");
     }
 
-    String setHrs = "Set hours: ";
-    String setTenMin = "Set ten minutes: ";
-    String setOneMin = "Set one minutes: ";
-    String theTime = "The time is: ";
+    String printSetHours = "Set hours: ";
+    String printSetTenMinutes = "Set ten minutes: ";
+    String printSetOneMinutes = "Set one minutes: ";
+    String printTheTime = "The time is: ";
 
-    public void setHrs() {
-        System.out.print(this.setHrs);
+    public String getPrintSetHours() {
+        return this.printSetHours;
     }
 
-    public void setTenMin() {
-        System.out.print(this.setTenMin);
+    public String getPrintSetTenMinutes() {
+        return this.printSetTenMinutes;
     }
 
-    public void setOneMin() {
-        System.out.print(this.setOneMin);
+    public String getPrintSetOneMinutes() {
+        return this.printSetOneMinutes;
     }
 
-    public void currentTime() {
-        System.out.print(this.theTime);
+    public String getPrintTheTime() {
+        return this.printTheTime;
     }
 
 }
