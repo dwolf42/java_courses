@@ -7,20 +7,15 @@ public class Display {
     }
 
     String printSetHours = "Set hours: ";
-    String printSetTenMinutes = "Set ten minutes: ";
-    String printSetOneMinutes = "Set one minutes: ";
+    String printSetMinutes = "Set minutes: ";
     String printTheTime = "The time is: ";
 
     public String getPrintSetHours() {
         return this.printSetHours;
     }
 
-    public String getPrintSetTenMinutes() {
-        return this.printSetTenMinutes;
-    }
-
-    public String getPrintSetOneMinutes() {
-        return this.printSetOneMinutes;
+    public String getPrintSetMinutes() {
+        return this.printSetMinutes;
     }
 
     public String getPrintTheTime() {

@@ -22,11 +22,8 @@ public class Clock_Work {
         System.out.print(display.getPrintSetHours());
         clock.setHours(scanner.nextInt());
 
-        System.out.print(display.getPrintSetTenMinutes());
+        System.out.print(display.getPrintSetMinutes());
         clock.setMinutes1(scanner.nextInt());
-
-        System.out.print(display.getPrintSetOneMinutes());
-        clock.setMinutes2(scanner.nextInt());
 
         System.out.println("");
         System.out.print(display.getPrintTheTime());

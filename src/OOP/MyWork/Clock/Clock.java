@@ -32,12 +32,13 @@ public class Clock {
         this.hours = hours;
     }
 
-    public void setMinutes1(int minutes1) {
-        this.minutes1 = minutes1;
+    public void setMinutes1(int minutes) {
+        this.minutes1 = (minutes % 100) / 10;
+        setMinutes2(minutes);
     }
 
-    public void setMinutes2(int minutes2) {
-        this.minutes2 = minutes2;
+    public void setMinutes2(int minutesFromSetMinutes1) {
+        this.minutes2 = minutesFromSetMinutes1 % 10;
     }
 
     public int getHours() {
