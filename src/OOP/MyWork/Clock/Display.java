@@ -2,14 +2,17 @@ package OOP.MyWork.Clock;
 
 public class Display {
 
+    // Here I defined the text segments to be printed on screen.
+    private static final String printSetHours = "Set hours: ";
+    private static final String printSetMinutes = "Set minutes: ";
+    private static final String printTheTime = "The time is: ";
+
+    // This is a static method. It doesn't access any fields.
     public static void printWhatTime() {
-        System.out.println("What time is it?");
+        System.out.println("What time is it in 12h:00m format?");
     }
 
-    String printSetHours = "Set hours: ";
-    String printSetMinutes = "Set minutes: ";
-    String printTheTime = "The time is: ";
-
+    // These are instance methods. They are accessing the referring fields.
     public String getPrintSetHours() {
         return this.printSetHours;
     }
