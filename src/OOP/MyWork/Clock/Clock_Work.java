@@ -20,21 +20,23 @@ public class Clock_Work {
          * which is an instance of the class Display
          */
         System.out.print(display.getPrintSetHours());
-        clock.hours = scanner.nextInt();
+        clock.setHours(scanner.nextInt());
+
         System.out.print(display.getPrintSetTenMinutes());
-        clock.minutes1 = scanner.nextInt();
+        clock.setMinutes1(scanner.nextInt());
+
         System.out.print(display.getPrintSetOneMinutes());
-        clock.minutes2 = scanner.nextInt();
+        clock.setMinutes2(scanner.nextInt());
 
         System.out.println("");
         System.out.print(display.getPrintTheTime());
-        System.out.printf("%d:%d%d%n", clock.hours, clock.minutes1, clock.minutes2);
+        System.out.printf("%d:%d%d%n", clock.getHours(), clock.getMinutes1(), clock.getMinutes2());
         TimeUnit.SECONDS.sleep(3);
 
         while (true) {
             clock.next();
             System.out.print(display.getPrintTheTime());
-            System.out.printf("%d:%d%d%n", clock.hours, clock.minutes1, clock.minutes2);
+            System.out.printf("%d:%d%d%n", clock.getHours(), clock.getMinutes1(), clock.getMinutes2());
             TimeUnit.SECONDS.sleep(3);
         }
     }
