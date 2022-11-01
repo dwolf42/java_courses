@@ -29,11 +29,10 @@ public class Clock_Work {
         // Calling the object Clock clock's instance method setHours and passing it the scanned integer.
         clock.setMinutes1(scanner.nextInt());
 
-        // Calling the object Display display's instance method getPrintTheTime(), so it can be printed.
-        // Newline inserted before
-        System.out.print(("\n") + (display.getPrintTheTime()));
-        // Calling the object Clock clock's methods getHours(), getMinutes1() and getMinutes2(), so they can be printed.
-        System.out.printf("%d:%d%d%n", clock.getHours(), clock.getMinutes1(), clock.getMinutes2());
+        // Newline inserted before calling the object Display display's instance method getPrintTheTime(), as well as
+        // the object Clock clock's methods getHours(), getMinutes1() and getMinutes2(), so they can be printed.
+        System.out.printf("\n%s%d:%d%d%n",
+                display.getPrintTheTime(),clock.getHours(), clock.getMinutes1(), clock.getMinutes2());
         /* For testing purposes, set this low, like 1-3 seconds, but remember reverting it
          back to 60 for proper simulation. */
         // Lets the program sleep/wait for x minutes to simulate natural clock behavior.
@@ -44,11 +43,10 @@ public class Clock_Work {
             // Calling the object Clock clock's instance method next(), which increments (increases) hours and minutes
             // according to time passed.
             clock.next();
-            // Calling the object Display display's instance method getPrintTheTime(), so it can be printed.
-            System.out.print(display.getPrintTheTime());
-            // Calling the object Clock clock's methods getHours(), getMinutes1() and
-            // getMinutes2(), so they can be printed.
-            System.out.printf("%d:%d%d%n", clock.getHours(), clock.getMinutes1(), clock.getMinutes2());
+            // Calling the object Display display's instance method getPrintTheTime(), as well as calling the object
+            // Clock clock's methods getHours(), getMinutes1() and getMinutes2(), so they can be printed.
+            System.out.printf("%s%d:%d%d%n",
+                    display.getPrintTheTime(), clock.getHours(), clock.getMinutes1(), clock.getMinutes2());
             // Lets the program sleep/wait for x minutes to simulate natural clock behavior.
             TimeUnit.SECONDS.sleep(3);
         }
