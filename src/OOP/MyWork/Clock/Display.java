@@ -9,7 +9,7 @@ public class Display {
 
     // This is a static method. It doesn't access any fields.
     public static void printWhatTime() {
-        System.out.println("What time is it in 12h:00m format?");
+        System.out.println("What's the time in 12h:00m format?");
     }
 
     // These are instance methods. They are accessing the referring fields.
