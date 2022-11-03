@@ -1,11 +1,11 @@
 package com.github.kabraxis.oop.my_work.constructor_experiments;
 
-class Book {
+public class Book {
     String title;
     int yearOfPublishing;
     String[] authors;
 
-    Book(String title, int yearOfPublishing, String[] authors) {
+    public Book(String title, int yearOfPublishing, String[] authors) {
         this.title = title;
         this.yearOfPublishing = yearOfPublishing;
 
