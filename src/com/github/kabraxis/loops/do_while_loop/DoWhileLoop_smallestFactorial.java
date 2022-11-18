@@ -1,4 +1,4 @@
-package com.github.kabraxis.do_while_loop;
+package com.github.kabraxis.loops.do_while_loop;
 
 import java.util.Scanner;
 

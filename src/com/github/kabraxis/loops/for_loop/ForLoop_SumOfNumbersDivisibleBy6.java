@@ -1,4 +1,4 @@
-package com.github.kabraxis.for_loop;
+package com.github.kabraxis.loops.for_loop;
 
 import java.util.Scanner; // imports the Scanner utility
 
