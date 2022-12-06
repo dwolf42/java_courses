@@ -1,4 +1,4 @@
-package com.github.kabraxis.oop.alex_lee;
+package com.github.kabraxis.oop.alex_lee.basics_of_oop;
 /*
 - A class is a blueprint for an object -
 - An object is basically everything, your headphones, computer, smartphone etc. -
