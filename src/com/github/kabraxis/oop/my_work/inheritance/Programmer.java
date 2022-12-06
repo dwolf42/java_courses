@@ -1,4 +1,6 @@
-package com.github.kabraxis.oop.my_work.people;
+// Inheritance
+
+package com.github.kabraxis.oop.my_work.inheritance;
 
 public class Programmer extends Employee {
     String[] programmingLanguages;
