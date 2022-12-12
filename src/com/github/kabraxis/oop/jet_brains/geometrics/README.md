@@ -1,0 +1,1 @@
+How to access methods inside a class

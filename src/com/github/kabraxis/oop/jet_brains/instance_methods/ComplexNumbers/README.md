@@ -1,0 +1,1 @@
+Instance methods are methods that are instantiated by an object
