@@ -34,9 +34,6 @@ Polymorphism means many forms, so a method could have many forms, like sayName()
 This is also called overloading a method.
 The other type of polymorphism is overwriting a method.
 In Example2 we have a sayHi method, which is overwritten by the sayHi method in Example1.
-
-
-
  */
 
 public class Example1 extends Example2 {
