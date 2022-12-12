@@ -1,6 +1,6 @@
 // Objects point to the same reference always share the same value
 
-package com.github.kabraxis.oop.jet_brains.objects.references;
+package com.github.kabraxis.oop.jet_brains.objects.reference;
 
 public class ObjectReferences {
     public static void main(String[] args) {
