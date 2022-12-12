@@ -1,6 +1,6 @@
 // Inheritance
 
-package com.github.kabraxis.oop.my_work.inheritance;
+package com.github.kabraxis.oop.my_work.inheritance.company;
 
 public class Manager extends Employee {
     protected boolean smile;
