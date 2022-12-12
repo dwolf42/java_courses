@@ -1,6 +1,6 @@
 // Constructor overriding
 
-package com.github.kabraxis.oop.my_work.constructors.constructor_overloading;
+package com.github.kabraxis.oop.my_work.constructor.overloading;
 
 public class RobotFactory {
     public static void main(String[] args) {

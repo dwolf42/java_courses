@@ -1,5 +1,4 @@
-package com.github.kabraxis.oop.my_work.constructor_experiments;
-
+package com.github.kabraxis.oop.my_work.constructor.experiments;
 public class Class_ConstructorExperiments {
     public static void main(String[] args) {
         String title = "Book of books";

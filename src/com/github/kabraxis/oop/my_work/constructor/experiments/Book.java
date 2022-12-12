@@ -1,4 +1,4 @@
-package com.github.kabraxis.oop.my_work.constructor_experiments;
+package com.github.kabraxis.oop.my_work.constructor.experiments;
 
 public class Book {
     String title;
