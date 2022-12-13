@@ -1,4 +1,4 @@
-package com.github.kabraxis.oop.jet_brains.patient_demo2_constructors;
+package com.github.kabraxis.oop.jet_brains.constructors.patient_demo2;
 
 public class PatientDemo2 {
     public static void main(String[] args) {
