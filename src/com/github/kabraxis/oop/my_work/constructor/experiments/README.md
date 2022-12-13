@@ -1,0 +1,1 @@
+An experiment on the usage of class constructors

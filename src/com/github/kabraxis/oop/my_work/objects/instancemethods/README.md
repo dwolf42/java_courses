@@ -1,0 +1,1 @@
+This clock project is a good example about instance methods. I took it from a Hyperskill tutorial and drove it further.
