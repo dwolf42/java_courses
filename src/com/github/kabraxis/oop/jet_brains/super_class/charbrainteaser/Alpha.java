@@ -1,4 +1,4 @@
-package com.github.kabraxis.oop.jet_brains.super_class.superchar;
+package com.github.kabraxis.oop.jet_brains.super_class.charbrainteaser;
 
 class Alpha {
 
