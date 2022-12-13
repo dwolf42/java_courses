@@ -1,5 +1,5 @@
 package com.github.kabraxis.oop.my_work.constructor.experiments;
-public class Class_ConstructorExperiments {
+public class ClassConstructors {
     public static void main(String[] args) {
         String title = "Book of books";
         int yearOfPublishing = 2022;
