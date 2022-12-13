@@ -1,4 +1,4 @@
-package com.github.kabraxis.oop.jet_brains.instance_methods.ComplexNumbers;
+package com.github.kabraxis.oop.jet_brains.instance_methods.complex_numbers;
 
 public class ComplexNumbers {
     public static void main(String[] args) {
