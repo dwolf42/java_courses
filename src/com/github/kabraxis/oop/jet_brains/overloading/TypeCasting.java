@@ -1,6 +1,6 @@
 package com.github.kabraxis.oop.jet_brains.overloading;
 
-public class OverloadingAndCasting {
+public class TypeCasting {
 
         public static void print(short a) {
             System.out.println("short arg: " + a);
