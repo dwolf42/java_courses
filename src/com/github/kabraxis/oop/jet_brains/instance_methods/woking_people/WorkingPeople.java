@@ -1,4 +1,4 @@
-package com.github.kabraxis.oop.jet_brains.instance_methods.WokingPeople;
+package com.github.kabraxis.oop.jet_brains.instance_methods.woking_people;
 
 public class WorkingPeople {
     public static void main(String[] args) {
