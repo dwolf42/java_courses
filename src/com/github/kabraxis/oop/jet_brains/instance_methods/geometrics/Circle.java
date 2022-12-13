@@ -1,4 +1,4 @@
-package com.github.kabraxis.oop.jet_brains.geometrics;
+package com.github.kabraxis.oop.jet_brains.instance_methods.geometrics;
 
 public class Circle {
     double radius;
