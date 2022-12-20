@@ -21,7 +21,7 @@ public class Randomizer {
         return new Random().nextInt(0, Integer.MAX_VALUE);
     }
 
-    public static int dmgRamdom(int strength) {
+    public static int dmgRandom(int strength) {
         return new Random().nextInt(1, strength);
     }
 
