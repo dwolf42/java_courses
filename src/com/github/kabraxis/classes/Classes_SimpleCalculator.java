@@ -69,7 +69,7 @@ public class Classes_SimpleCalculator {
         String operator = scanner.next();
         long num2 = scanner.nextLong();
 
-        switch(operator) {
+        switch (operator) {
             case "^":
                 SimpleCalculator.power(num1, num2);
                 break;
@@ -86,6 +86,7 @@ public class Classes_SimpleCalculator {
                 SimpleCalculator.multiplyTwoNumbers(num1, num2);
                 break;
             default:
+                System.out.println("Unknown operator");
                 break;
         }
     }
