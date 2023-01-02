@@ -1,8 +1,8 @@
 package com.github.kabraxis.project_tictactoe;/*
  * 11.01.2022 - 1:13 p.m. - by Kabraxis Luvos
  */
-import
- java.util.Scanner;
+
+import java.util.Scanner;
 
 public class TicTacToeSuperGT {
 
@@ -124,7 +124,7 @@ public class TicTacToeSuperGT {
             System.out.println();
         }
 
-        for (String s: lowerCastleArt) {
+        for (String s : lowerCastleArt) {
             System.out.println(s);
         }
     }
@@ -134,7 +134,8 @@ public class TicTacToeSuperGT {
     // Keeps asking for the correct input.
     public static int[] getValidCoordinates(char[][] board) {
         Scanner scanner = new Scanner(System.in);
-// Only positive numbers are allowed.
+        // Only positive numbers are allowed.
+        String pattern = "([-+]?\\d+)";
         printTurnMessage();
         String userInputToCheckBeforeSplit = scanner.nextLine();
 
