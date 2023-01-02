@@ -134,8 +134,7 @@ public class TicTacToeSuperGT {
     // Keeps asking for the correct input.
     public static int[] getValidCoordinates(char[][] board) {
         Scanner scanner = new Scanner(System.in);
-        // Only positive numbers are allowed.
-        String pattern = "([-+])?\\d+";
+// Only positive numbers are allowed.
         printTurnMessage();
         String userInputToCheckBeforeSplit = scanner.nextLine();
 
