@@ -1,5 +1,7 @@
 package com.github.kabraxis.oop.jet_brains.enums;
 
+import com.github.kabraxis.oop.jet_brains.getters_settes.gettingfullname.User;
+
 public class Main {
     public static void main(String[] args) {
         // Initialize the variable
@@ -21,11 +23,35 @@ public class Main {
         // Although an enum is a reference type, it can be compared by using .equals and ==
         System.out.println(active.equals(UserStatus.ACTIVE));
         System.out.println(active == UserStatus.ACTIVE);
+
+        // Enums can be used as switch satement
+        switch (active) {
+            case PENDING:
+                System.out.println("Your account is pending.");
+                break;
+            case ACTIVE:
+                System.out.println("Your account has been activated.");
+                break;
+            case BLOCKED:
+                System.out.println("Sorry, your account has been blocked from the system.");
+                break;
+            default:
+                System.out.println("Error");
+                break;
+        }
+
+        for (UserStatus status : UserStatus.values()) {
+            System.out.println(status);
+        }
+
     }
 }
 
 enum UserStatus {
-    PENDING, ACTIVE, BLOCKED
+    PENDING,
+    ACTIVE,
+    BLOCKED;
+
 }
 
 
