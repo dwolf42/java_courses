@@ -1,5 +1,14 @@
 package com.github.kabraxis.project_coffee_machine.final_stage;
 
+enum MachineState {
+    IDLE, // default state, waiting for input
+    SELECT_ACTION, // what do you want to do: buy, fill, take etc.
+    CHOOSE_DRINK, // which drink do you want?
+    COOKING, // cooks your coffee
+    RESTOCK, // refill water, milk, beans, cups
+    WITHDRAW // take all money from the tresor
+}
+
 enum Recipe {
     // Water, Milk, Beans, Cost
     ESPRESSO(250, 0, 16, 4),
@@ -18,7 +27,32 @@ enum Recipe {
         this.cost = cost;
     }
 
-    public static void main(String[] args) {
+    public int getWater() {
+        return water;
+    }
+
+    public int getMilk() {
+        return milk;
+    }
+
+    public int getBeans() {
+        return beans;
+    }
+
+    public int getCost() {
+        return cost;
+    }
+
+    public class CoffeeMachine {
+        static MachineState currentState = MachineState.IDLE;
+
+        private static void run() {
+            currentState = MachineState.SELECT_ACTION;
+        }
+
+        public static void main(String[] args) {
+            run();
+        }
 
     }
 }
