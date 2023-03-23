@@ -3,12 +3,6 @@ package rpg;
 import java.util.Scanner;
 
 public class RPG {
-    private enum Action {
-        ATTACK,
-        DEFEND,
-        CAST_SPELL
-    }
-
     public static void main(String[] args) {
         Character character = new Character("Xanlator", 200, 75, 1, 0, 15, 9, 5);
         Monster monster = new Monster("Mudd Hopper", 50, 7);
@@ -16,19 +10,12 @@ public class RPG {
         chooseAction(character, monster);
     }
 
+    // This is the basis method where the game starts and to which the game may return after an action.
     static void chooseAction(Character character, Monster monster) {
-        // This is the basis from where the game starts and to which the game may return
         Scanner scanner = new Scanner(System.in);
         System.out.println("What are you going to do?");
         System.out.println("1: attack\n2: defend\n3: cast spell\n");
-        String regexPattern = "([-+]?\\d+)";
-        String errorMessage = "Error! Only numbers are allowed.\n1: attack\n2: defend\n3: cast spell\n";
         String action = scanner.nextLine();
-        while (!action.matches(regexPattern)) {
-            System.out.println(errorMessage);
-            action = scanner.nextLine();
-        }
-
         switch (action) {
             case "1":
                 battle(character, monster);
@@ -40,12 +27,14 @@ public class RPG {
                 character.castSpell(character, monster);
                 break;
             default:
-                System.out.println("Fatal error!");
+                System.out.println("\nError! Please only input 1, 2 or 3.");
                 chooseAction(character, monster);
                 break;
         }
     }
 
+    // General battle, where player attacks monster and vice versa, until one may fade.
+    // The HP of both opponents is altered inside this method as well.
     private static void battle(Character character, Monster monster) {
         while (character.getHealthPoints() > 0 && monster.getHealthPoints() > 0) {
             character.attack(character, monster);
