@@ -29,13 +29,16 @@ public class Character {
         }
     }
 
+    // Magic damage can inflict huge amounts of actual damage, if the player chooses to stat int instead of str.
+    // In my imagination a mage isn't physically strong, and because of that I wanted to give the player some kind
+    // of punishment if they stat strength.
     public void castSpell(Character character, Monster monster) {
         // Reduces the monsters HP based on the attacking character's intelligence and MP.
         if (character.getManaPoints() <= 0) {
             System.out.println("You hear a glimmering sound, but nothing happens...");
             RPG.chooseAction(character, monster);
         }
-        monster.setHealthPoints(monster.getHealthPoints() - (character.getIntelligence() * 3));
+        monster.setHealthPoints(monster.getHealthPoints() - ((character.getIntelligence() * 10 / character.getStrength()) + 5));
         character.setManaPoints(character.getManaPoints() - 10);
         System.out.printf("%s's HP: %d\n", monster.getName(), monster.getHealthPoints());
         RPG.chooseAction(character, monster);
