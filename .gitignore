@@ -44,6 +44,6 @@ hs_err_pid*
 *.properties
 *.bin
 *.lock
-/src/com/github/kabraxis/oop/my_work/object_experiment/
+/src/kabraxis/oop/my_work/object_experiment/
 /out/
-/src/com/github/kabraxis/laboratory/TestRandomizers.java
+/src/kabraxis/laboratory/TestRandomizers.java
