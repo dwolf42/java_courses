@@ -33,8 +33,9 @@ public class RPG {
         }
     }
 
-    // General battle, where player attacks monster and vice versa, until one may fade.
-    // The HP of both opponents is altered inside this method as well.
+    // First iteration that handles the general (melee?) fight player vs. monster.
+    // TODO: Add monster vs. player fight.
+    // TODO: Implement more natural behavior, player should have option to choose action after each attack.
     private static void battle(Character character, Monster monster) {
         while (character.getHealthPoints() > 0 && monster.getHealthPoints() > 0) {
             character.attack(character, monster);
@@ -49,4 +50,6 @@ public class RPG {
             System.out.printf("Monster %s wins!", monster.getName());
         }
     }
+
+
 }
