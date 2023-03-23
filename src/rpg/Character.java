@@ -16,11 +16,17 @@ public class Character {
         System.out.printf("%s's HP: %d\n", monster.getName(), monster.getHealthPoints());
     }
 
+    // If the amount of dexterity is too high, it could lead to players seeing negative numbers for reduced damage.
+    // The if/else statement checks for such a szenario.
     public void defend(Character character, Monster monster) {
-        // Reduces the damage taken by the defending character based on their dexterity.
-        character.setHealthPoints(character.getHealthPoints() - (character.getDexterity() - monster.getStrength()));
-        System.out.printf("Your HP: %d\n", character.getHealthPoints());
-        RPG.chooseAction(character, monster);
+        if (character.getDexterity() - monster.getStrength() <= 0) {
+            System.out.printf("Elegantly you evade the hits of %s!", monster.getName());
+            RPG.chooseAction(character, monster);
+        } else {
+            character.setHealthPoints(character.getHealthPoints() - (character.getDexterity() - monster.getStrength()));
+            System.out.printf("Your HP: %d\n", character.getHealthPoints());
+            RPG.chooseAction(character, monster);
+        }
     }
 
     public void castSpell(Character character, Monster monster) {
