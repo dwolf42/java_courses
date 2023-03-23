@@ -8,6 +8,7 @@ public class RPG {
         entitySpawn();
     }
 
+    // This method allows a later implementation for a more individual character creation
     private static void entitySpawn() {
         Character character = new Character("Xanlator", 200, 75, 1, 0, 15, 9, 5);
         Monster monster = new Monster("Mudd Hopper", 50, 7);
@@ -43,8 +44,6 @@ public class RPG {
     }
 
     // First iteration that handles the general (melee?) fight player vs. monster.
-    // TODO: Add monster vs. player fight.
-    // TODO: Implement more natural behavior, player should have option to choose action after each attack.
     private static void battle(Character character, Monster monster) {
         while (character.getHealthPoints() > 0 && monster.getHealthPoints() > 0) {
             character.attack(character, monster);
