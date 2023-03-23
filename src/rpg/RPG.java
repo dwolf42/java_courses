@@ -15,19 +15,24 @@ public class RPG {
     }
 
     // This is the basis method where the game starts and to which the game may return after an action.
-    static void chooseAction(Character character, Monster monster) {
+    public static void chooseAction(Character character, Monster monster) {
+        final int ATTACK = 1;
+        final int DEFEND = 2;
+        final int CAST_SPELL = 3;
+
         Scanner scanner = new Scanner(System.in);
         System.out.println("What are you going to do?");
         System.out.println("1: attack\n2: defend\n3: cast spell\n");
-        String action = scanner.nextLine();
+        int action = scanner.nextInt();
+
         switch (action) {
-            case "1":
+            case ATTACK:
                 battle(character, monster);
                 break;
-            case "2":
+            case DEFEND:
                 character.defend(character, monster);
                 break;
-            case "3":
+            case CAST_SPELL:
                 character.castSpell(character, monster);
                 break;
             default:
