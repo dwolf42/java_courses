@@ -5,22 +5,22 @@ public class Main {
         // Initialize the variable
         UserStatus active = UserStatus.ACTIVE;
         // Access the value by the name() method
-        System.out.println(active.name());
+        System.out.println("active.name(): " + active.name());
 
         // Access enum instance by its name. Is another way to initialize a variable
         UserStatus blocked = UserStatus.valueOf("BLOCKED");
-        System.out.println(blocked);
+        System.out.println("blocked: " + blocked);
 
         // Look at all constants of the enum by values() method as an array
         UserStatus[] statuses = UserStatus.values(); // [PENDING, ACTIVE, BLOCKED]
 
         // Ordinal position of an instance of enum
-        System.out.println(active.ordinal());
-        System.out.println(UserStatus.BLOCKED.ordinal());
+        System.out.println("active.ordinal(): " + active.ordinal());
+        System.out.println("UserStatus.BLOCKED.ordinal(): " + UserStatus.BLOCKED.ordinal());
 
         // Although an enum is a reference type, it can be compared by using .equals and ==
-        System.out.println(active.equals(UserStatus.ACTIVE));
-        System.out.println(active == UserStatus.ACTIVE);
+        System.out.println("active.equals(UserStatus.ACTIVE): " + active.equals(UserStatus.ACTIVE));
+        System.out.println("active == UserStatus.ACTIVE: " + (active == UserStatus.ACTIVE));
 
         // Enums can be used as switch satement
         switch (active) {
@@ -39,7 +39,7 @@ public class Main {
         }
 
         for (UserStatus status : UserStatus.values()) {
-            System.out.println(status);
+            System.out.println("status: " + status);
         }
 
     }
