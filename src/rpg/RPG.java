@@ -4,9 +4,13 @@ import java.util.Scanner;
 
 public class RPG {
     public static void main(String[] args) {
+        System.out.println("The battle begins!\n");
+        entitySpawn();
+    }
+
+    private static void entitySpawn() {
         Character character = new Character("Xanlator", 200, 75, 1, 0, 15, 9, 5);
         Monster monster = new Monster("Mudd Hopper", 50, 7);
-        System.out.println("The battle begins!\n");
         chooseAction(character, monster);
     }
 
@@ -50,6 +54,4 @@ public class RPG {
             System.out.printf("Monster %s wins!", monster.getName());
         }
     }
-
-
 }
