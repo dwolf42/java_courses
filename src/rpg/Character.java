@@ -10,8 +10,8 @@ public class Character {
     private int dexterity;
     private int intelligence;
 
+    // Very basic attacking
     public void attack(Character character, Monster monster) {
-        // Reduces HP of attacked monster, based on characters strength
         monster.setHealthPoints(monster.getHealthPoints() - character.getStrength());
         System.out.printf("%s's HP: %d\n", monster.getName(), monster.getHealthPoints());
     }
@@ -33,7 +33,6 @@ public class Character {
     // In my imagination a mage isn't physically strong, and because of that I wanted to give the player some kind
     // of punishment if they stat strength.
     public void castSpell(Character character, Monster monster) {
-        // Reduces the monsters HP based on the attacking character's intelligence and MP.
         if (character.getManaPoints() <= 0) {
             System.out.println("You hear a glimmering sound, but nothing happens...");
             RPG.chooseAction(character, monster);
@@ -44,6 +43,7 @@ public class Character {
         RPG.chooseAction(character, monster);
     }
 
+    // The section below contains boilerplate code like the constructor and all the getters and setters
     public Character(String name, int healthPoints, int manaPoints, int level, int experiencePoints, int strength,
                      int dexterity, int intelligence) {
         this.name = name;
@@ -89,7 +89,7 @@ public class Character {
         this.level = level;
     }
 
-    public int getExperiencePoint() {
+    public int getExperiencePoints() {
         return experiencePoints;
     }
 
