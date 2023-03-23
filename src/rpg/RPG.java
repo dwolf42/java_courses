@@ -3,9 +3,14 @@ package rpg;
 import java.util.Scanner;
 
 public class RPG {
+    private enum Action {
+        ATTACK,
+        DEFEND,
+        CAST_SPELL
+    }
+
     public static void main(String[] args) {
-        Character character = new Character("Xanlator", 200, 75, 1, 0,
-                15, 9, 5);
+        Character character = new Character("Xanlator", 200, 75, 1, 0, 15, 9, 5);
         Monster monster = new Monster("Mudd Hopper", 50, 7);
         System.out.println("The battle begins!\n");
         chooseAction(character, monster);
@@ -39,7 +44,6 @@ public class RPG {
                 chooseAction(character, monster);
                 break;
         }
-
     }
 
     private static void battle(Character character, Monster monster) {
