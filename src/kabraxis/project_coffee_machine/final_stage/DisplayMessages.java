@@ -13,12 +13,6 @@ public class DisplayMessages {
     public final String SET_MILK = "Input how many ml of milk you want to add: ";
     public final String SET_BEANS = "Input how many grams of coffee beans you want to add: ";
     public final String SET_CUPS = "Input how many disposable cups of coffee you want to add: ";
-    public final String CONFIRM_ORDER = "I have enough resources, making you a coffee!";
+    public final String CONFIRM_ORDER = "I have enough resources, making you a coffee!\n";
 
-    public DisplayMessages() {
-
-    }
-    public static DisplayMessages getMessagesObject() {
-        return messages;
-    }
 }
