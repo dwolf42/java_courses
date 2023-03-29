@@ -73,8 +73,20 @@ public class Main {
                 deLuvos.processInstruction(userInput);
                 break;
             case TAKE_MONEY:
-                System.out.printf("%nI gave you $%d%n", deLuvos.getStockMoney());
-                deLuvos.processInstruction("machineislikemyexprocessingstringinonemethodonly");
+                System.out.println(messages.TAKE_MESSAGE + deLuvos.getStockMoney());
+                deLuvos.processInstruction("iwastootired");
+                break;
+            case REMAINING_STOCK:
+                System.out.printf("%nThe coffee machine has:%n" +
+                                "%d ml of water%n" +
+                                "%d ml of milk%n" +
+                                "%d g of coffee beans%n" +
+                                "%d disposable cups%n" +
+                                "$%d of money%n%n",
+                        deLuvos.getStockWater(), deLuvos.getStockMilk(), deLuvos.getStockCoffeeBeans(),
+                        deLuvos.getStockCups(), deLuvos.getStockMoney());
+                deLuvos.state = MachineState.SELECT;
+                handleState();
                 break;
             default:
                 System.out.println("Error! Shutting down system!");
