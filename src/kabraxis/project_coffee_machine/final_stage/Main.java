@@ -119,7 +119,7 @@ public class Main {
                     handleState();
                     break;
                 case "exit":
-                    System.out.println(messages.ERROR_EXIT);
+                    System.out.println(messages.EXIT_MESSAGE);
                     break;
                 default:
                     System.out.println(messages.ERROR_SELECT_INPUT);
