@@ -17,8 +17,8 @@ public class Main {
     // The handling for SELECT and BUY input are extracted form handleState into handleInput
     // for better maintainability.
     // I know this is a lot of code, but the instructions were clear "CoffeeMachine class only processes string input".
-    // Might me being a moron, might be just a lack of experience why I didn't come up with a more elegant solution for
-    // this - only the universe knows.
+    // Might me being incapable, might be just a lack of experience why I didn't come up with a more elegant
+    // solution for this - who knows. At least it works.
     public static void handleState() {
         switch (deLuvos.state) {
             case SELECT:
@@ -83,8 +83,9 @@ public class Main {
     }
 
     // FILL_MILK, FILL_BEANS FILL_CUPS, and SELECT are set in CoffeeMachine processInstruction.
-    // This is since the user must only enter "fill" once, but for every supply there is an individual
+    // This is because the user must only enter "fill" once, but for every supply there is an individual
     // input/exception handling.
+    // Handling of wrong input has not been required, but what piece of code would that be without it?
     public static void handleInput() {
         if (deLuvos.state == MachineState.SELECT) {
             switch (userInput) {
