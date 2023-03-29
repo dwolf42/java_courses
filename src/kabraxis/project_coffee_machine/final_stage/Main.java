@@ -38,7 +38,7 @@ public class Main {
                 while (!userInput.matches(REGEX_INT_RANGE)) {
                     System.out.println(messages.ERROR_FILL_INPUT);
                     System.out.println(messages.SET_WATER);
-                    userInput = scanner.next().toLowerCase().trim();
+                    userInput = scanner.nextLine().toLowerCase().trim();
                 }
                 deLuvos.processInstruction(userInput);
                 break;
@@ -48,7 +48,7 @@ public class Main {
                 while (!userInput.matches(REGEX_INT_RANGE)) {
                     System.out.println(messages.ERROR_FILL_INPUT);
                     System.out.println(messages.SET_MILK);
-                    userInput = scanner.next().toLowerCase().trim();
+                    userInput = scanner.nextLine().toLowerCase().trim();
                 }
                 deLuvos.processInstruction(userInput);
                 break;
@@ -58,7 +58,7 @@ public class Main {
                 while (!userInput.matches(REGEX_INT_RANGE)) {
                     System.out.println(messages.ERROR_FILL_INPUT);
                     System.out.println(messages.SET_BEANS);
-                    userInput = scanner.next().toLowerCase().trim();
+                    userInput = scanner.nextLine().toLowerCase().trim();
                 }
                 deLuvos.processInstruction(userInput);
                 break;
@@ -68,7 +68,7 @@ public class Main {
                 while (!userInput.matches(REGEX_INT_RANGE)) {
                     System.out.println(messages.ERROR_FILL_INPUT);
                     System.out.println(messages.SET_CUPS);
-                    userInput = scanner.next().toLowerCase().trim();
+                    userInput = scanner.nextLine().toLowerCase().trim();
                 }
                 deLuvos.processInstruction(userInput);
                 break;
