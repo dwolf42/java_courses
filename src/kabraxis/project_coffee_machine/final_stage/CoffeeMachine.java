@@ -50,23 +50,31 @@ public class CoffeeMachine {
                 }
                 break;
             case FILL_WATER:
-                stockWater = Integer.parseInt(userInput);
+                if (!userInput.equals("0")) {
+                    stockWater = Integer.parseInt(userInput);
+                }
                 state = MachineState.FILL_MILK;
                 Main.handleState();
                 break;
             case FILL_MILK:
-                stockWater = Integer.parseInt(userInput);
+                if (!userInput.equals("0")) {
+                    stockMilk = Integer.parseInt(userInput);
+                }
                 state = MachineState.FILL_BEANS;
                 Main.handleState();
                 break;
             case FILL_BEANS:
-                stockWater = Integer.parseInt(userInput);
-                state = MachineState.FILL_CUPS;
+                if (!userInput.equals("0")) {
+                    stockCoffeeBeans = Integer.parseInt(userInput);
+                    state = MachineState.FILL_CUPS;
+                }
                 Main.handleState();
                 break;
             case FILL_CUPS:
-                stockWater = Integer.parseInt(userInput);
-                state = MachineState.SELECT;
+                if (!userInput.equals("0")) {
+                    stockCups = Integer.parseInt(userInput);
+                    state = MachineState.SELECT;
+                }
                 Main.handleState();
                 break;
             case TAKE_MONEY:
