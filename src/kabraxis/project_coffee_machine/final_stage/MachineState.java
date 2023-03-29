@@ -7,5 +7,6 @@ enum MachineState {
     FILL_MILK,
     FILL_BEANS,
     FILL_CUPS,
-    TAKE_MONEY
+    TAKE_MONEY,
+    REMAINING_STOCK,
 }
