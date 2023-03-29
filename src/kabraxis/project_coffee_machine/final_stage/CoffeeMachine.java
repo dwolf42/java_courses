@@ -107,6 +107,7 @@ public class CoffeeMachine {
     }
 
     // Determine if there are plenty of goods to make a certain coffee
+    // Note: In case of multiple missing items, only the occurrence of the first item will be displayed!
     private String findMissingItem() {
         final String water = "water!";
         final String milk = "milk!";
