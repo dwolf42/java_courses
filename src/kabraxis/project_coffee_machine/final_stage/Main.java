@@ -20,6 +20,7 @@ public class Main {
     // Might me being incapable, might be just a lack of experience why I didn't come up with a more elegant
     // solution for this - who knows. At least it works.
     public static void handleState() {
+        Scanner scanner = new Scanner(System.in);
         switch (deLuvos.state) {
             case SELECT:
                 System.out.println(messages.SELECT_MESSAGE);
