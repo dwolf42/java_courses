@@ -3,9 +3,9 @@ package kabraxis.project_coffee_machine.final_stage;
 import java.util.Scanner;
 
 public class Main {
-    // Only allows positive integers from 0-100 (inclusive).
-    static private final String REGEX_INT_RANGE = "^(100|[1-9]?[0-9])$";
-    static private final Scanner scanner = new Scanner(System.in);
+    // Only allows positive integers from 0-1000 (inclusive).
+    static private final String REGEX_INT_RANGE = "^(1000|[1-9]\\d{0,2}|0)$";
+
     static private String userInput;
     static private final CoffeeMachine deLuvos = new CoffeeMachine();
     static private final DisplayMessages messages = new DisplayMessages();
