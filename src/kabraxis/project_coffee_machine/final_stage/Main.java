@@ -115,7 +115,8 @@ public class Main {
                     handleState();
                     break;
                 case "remaining":
-//                remaining();
+                    deLuvos.state = MachineState.REMAINING_STOCK;
+                    handleState();
                     break;
                 case "exit":
                     System.out.println(messages.ERROR_EXIT);
