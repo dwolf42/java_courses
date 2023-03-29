@@ -82,6 +82,9 @@ public class CoffeeMachine {
                 state = MachineState.SELECT;
                 Main.handleState();
                 break;
+            default:
+                System.out.println("Error!");
+                break;
         }
     }
 
