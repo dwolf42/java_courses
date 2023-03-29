@@ -89,7 +89,7 @@ public class Main {
                 handleState();
                 break;
             default:
-                System.out.println("Error! Shutting down system!");
+                System.out.println("Error!");
                 break;
         }
 
