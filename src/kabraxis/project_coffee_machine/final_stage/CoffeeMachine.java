@@ -91,36 +91,56 @@ public class CoffeeMachine {
     private void cookCoffee() {
         DisplayMessages messages = new DisplayMessages();
         String whatsMissing = findMissingItem();
-        if (!whatsMissing.equals("none")) {
-            // String is not in DisplayMessages class, as printf is easier to read.
-            System.out.printf("Sorry, not enough %s!%n%n", whatsMissing);
-            state = MachineState.SELECT;
-            Main.handleState();
+        if (whatsMissing.equals("none")) {
+            stockWater -= drink.getCostWater();
+            stockMilk -= drink.getCostMilk();
+            stockCoffeeBeans -= drink.costBeans();
+            stockCups -= drink.costCups();
+            stockMoney += drink.costMoney();
+            System.out.println(messages.CONFIRM_ORDER);
+        } else {
+            System.out.println(messages.MISSING_ITEM + whatsMissing);
         }
-
-        stockWater -= drink.getCostWater();
-        stockMilk -= drink.getCostMilk();
-        stockCoffeeBeans -= drink.costBeans();
-        stockCups -= drink.costCups();
-        stockMoney += drink.costMoney();
-        System.out.println(messages.CONFIRM_ORDER);
         state = MachineState.SELECT;
         Main.handleState();
+
     }
 
     // Determine if there are plenty of goods to make a certain coffee
     private String findMissingItem() {
-        if (drink.getCostWater() < stockWater) {
-            return "water";
-        } else if (drink.getCostMilk() < stockMilk) {
-            return "milk";
-        } else if (drink.costBeans() < stockCoffeeBeans) {
-            return "coffe beans";
-        } else if (drink.costCups() < stockCups) {
-            return "cups";
+        final String water = "water!";
+        final String milk = "milk!";
+        final String coffeeBeans = "coffee beans!";
+        final String cups = "cups!";
+        final String none = "none";
+
+        if (drink.getCostWater() > stockWater) {
+            return water;
+        } else if (drink.getCostMilk() > stockMilk) {
+            return milk;
+        } else if (drink.costBeans() > stockCoffeeBeans) {
+            return coffeeBeans;
+        } else if (drink.costCups() > stockCups) {
+            return cups;
         }
 
-        return "none";
+        return none;
+    }
+
+    int getStockWater() {
+        return stockWater;
+    }
+
+    int getStockMilk() {
+        return stockMilk;
+    }
+
+    int getStockCoffeeBeans() {
+        return stockCoffeeBeans;
+    }
+
+    int getStockCups() {
+        return stockCups;
     }
 
     int getStockMoney() {
