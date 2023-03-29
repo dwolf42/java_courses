@@ -130,17 +130,9 @@ public class Main {
         if (deLuvos.state == MachineState.BUY) {
             switch (userInput) {
                 case "1":
-                    deLuvos.processInstruction(userInput);
-                    deLuvos.state = MachineState.SELECT;
-                    handleState();
-                    break;
                 case "2":
-                    deLuvos.state = MachineState.SELECT;
-                    handleState();
-                    break;
                 case "3":
-                    deLuvos.state = MachineState.SELECT;
-                    handleState();
+                    deLuvos.processInstruction(userInput);
                     break;
                 case "back":
                     deLuvos.state = MachineState.SELECT;
