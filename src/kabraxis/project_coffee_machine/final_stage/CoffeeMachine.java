@@ -27,6 +27,8 @@ public class CoffeeMachine {
         this.state = MachineState.SELECT;
     }
 
+    // The objective was to have a method in the coffee machine which takes a string as argument, and processes it
+    // depending on the current machine state.
     void processInstruction(String userInput) {
         switch (state) {
             case BUY:
@@ -95,6 +97,7 @@ public class CoffeeMachine {
         Main.handleState();
     }
 
+    // Determine if there are plenty of goods to make a certain coffee
     private String findMissingItem() {
         if (drink.getCostWater() < stockWater) {
             return "water";
