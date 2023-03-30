@@ -66,15 +66,15 @@ public class CoffeeMachine {
             case FILL_BEANS:
                 if (!userInput.equals("0")) {
                     stockCoffeeBeans = Integer.parseInt(userInput);
-                    state = MachineState.FILL_CUPS;
                 }
+                state = MachineState.FILL_CUPS;
                 Main.handleState();
                 break;
             case FILL_CUPS:
                 if (!userInput.equals("0")) {
                     stockCups = Integer.parseInt(userInput);
-                    state = MachineState.SELECT;
                 }
+                state = MachineState.SELECT;
                 Main.handleState();
                 break;
             case TAKE_MONEY:
