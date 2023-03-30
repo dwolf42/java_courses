@@ -3,8 +3,8 @@ package kabraxis.project_coffee_machine.final_stage;
 import java.util.Scanner;
 
 public class Main {
-    // Only allows positive integers from 0-1000 (inclusive).
-    static private final String REGEX_INT_RANGE = "([-+]?\\d+)";
+    // Only allows positive integers from 0 (inclusive).
+    static private final String REGEX_INT_RANGE =s
 
     static private String userInput;
     static private final CoffeeMachine deLuvos = new CoffeeMachine();
