@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     // Only allows positive integers from 0-1000 (inclusive).
-    static private final String REGEX_INT_RANGE = "^(1000|[1-9]\\d{0,2}|0)$";
+    static private final String REGEX_INT_RANGE = "([-+]?\\d+)";
 
     static private String userInput;
     static private final CoffeeMachine deLuvos = new CoffeeMachine();
