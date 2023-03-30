@@ -36,7 +36,6 @@ public class Main {
                 System.out.println(messages.SET_WATER);
                 userInput = scanner.nextLine().toLowerCase().trim();
                 while (!userInput.matches(REGEX_INT_RANGE)) {
-                    System.out.println(messages.ERROR_FILL_INPUT);
                     System.out.println(messages.SET_WATER);
                     userInput = scanner.nextLine().toLowerCase().trim();
                 }
@@ -46,7 +45,6 @@ public class Main {
                 System.out.println(messages.SET_MILK);
                 userInput = scanner.nextLine().toLowerCase().trim();
                 while (!userInput.matches(REGEX_INT_RANGE)) {
-                    System.out.println(messages.ERROR_FILL_INPUT);
                     System.out.println(messages.SET_MILK);
                     userInput = scanner.nextLine().toLowerCase().trim();
                 }
@@ -56,7 +54,6 @@ public class Main {
                 System.out.println(messages.SET_BEANS);
                 userInput = scanner.nextLine().toLowerCase().trim();
                 while (!userInput.matches(REGEX_INT_RANGE)) {
-                    System.out.println(messages.ERROR_FILL_INPUT);
                     System.out.println(messages.SET_BEANS);
                     userInput = scanner.nextLine().toLowerCase().trim();
                 }
@@ -66,7 +63,6 @@ public class Main {
                 System.out.println(messages.SET_CUPS);
                 userInput = scanner.nextLine().toLowerCase().trim();
                 while (!userInput.matches(REGEX_INT_RANGE)) {
-                    System.out.println(messages.ERROR_FILL_INPUT);
                     System.out.println(messages.SET_CUPS);
                     userInput = scanner.nextLine().toLowerCase().trim();
                 }

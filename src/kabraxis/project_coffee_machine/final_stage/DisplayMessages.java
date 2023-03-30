@@ -2,7 +2,6 @@ package kabraxis.project_coffee_machine.final_stage;
 
 public class DisplayMessages {
     public final String ERROR_SELECT_INPUT = "Error! Invalid input.";
-    public final String ERROR_FILL_INPUT = "You may only add amounts of 0 and above";
     public final String EXIT_MESSAGE = "Turning off...";
     public final String SELECT_MESSAGE = "Write action (buy, fill, take, remaining, exit):";
     public final String BUY_MESSAGE = "What do you want to buy? " +
