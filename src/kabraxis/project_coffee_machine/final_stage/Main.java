@@ -19,7 +19,7 @@ public class Main {
     // I know this is a lot of code, but the instructions were clear "CoffeeMachine class only processes string input".
     // Might me being incapable, might be just a lack of experience why I didn't come up with a more elegant
     // solution for this - who knows. At least it works.
-    public static void handleState() {
+    protected static void handleState() {
         Scanner scanner = new Scanner(System.in);
         switch (deLuvos.state) {
             case SELECT:
@@ -95,7 +95,7 @@ public class Main {
     // This is because the user must only enter "fill" once, but for every supply there is an individual
     // input/exception handling.
     // Handling of wrong input has not been required, but what piece of code would that be without it?
-    public static void handleInput() {
+    protected static void handleInput() {
         if (deLuvos.state == MachineState.SELECT) {
             switch (userInput) {
                 case "buy":

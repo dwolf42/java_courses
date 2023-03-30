@@ -13,7 +13,7 @@ enum DrinkTypes {
     private final int cups;
     private final int money;
 
-    DrinkTypes(String name, int water, int milk, int coffeeBeans, int cups, int cost) {
+   DrinkTypes(String name, int water, int milk, int coffeeBeans, int cups, int cost) {
         this.name = name;
         this.water = water;
         this.milk = milk;

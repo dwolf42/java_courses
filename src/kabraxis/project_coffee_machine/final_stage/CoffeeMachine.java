@@ -1,6 +1,6 @@
 package kabraxis.project_coffee_machine.final_stage;
 
-public class CoffeeMachine {
+class CoffeeMachine {
     // This is the default stock of the machine
     private int stockWater;
     private int stockMilk;
@@ -12,7 +12,7 @@ public class CoffeeMachine {
     DrinkTypes drink;
 
     // No-argument constructor to initialize the instance of the class
-    CoffeeMachine() {
+   protected CoffeeMachine() {
         final int stockWater = 400;
         final int stockMilk = 540;
         final int stockCoffeeBeans = 120;
@@ -29,7 +29,7 @@ public class CoffeeMachine {
 
     // The objective was to have a method in the coffee machine which takes a string as argument, and processes it
     // depending on the current machine state.
-    void processInstruction(String userInput) {
+    protected void processInstruction(String userInput) {
         switch (state) {
             case BUY:
                 if (userInput.equals("1")) {
@@ -128,23 +128,23 @@ public class CoffeeMachine {
         return none;
     }
 
-    int getStockWater() {
+    protected int getStockWater() {
         return stockWater;
     }
 
-    int getStockMilk() {
+    protected int getStockMilk() {
         return stockMilk;
     }
 
-    int getStockCoffeeBeans() {
+    protected int getStockCoffeeBeans() {
         return stockCoffeeBeans;
     }
 
-    int getStockCups() {
+    protected int getStockCups() {
         return stockCups;
     }
 
-    int getStockMoney() {
+    protected int getStockMoney() {
         return stockMoney;
     }
 
