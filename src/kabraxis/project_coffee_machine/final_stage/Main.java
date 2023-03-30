@@ -33,37 +33,37 @@ public class Main {
                 handleInput();
                 break;
             case FILL_WATER:
-                System.out.println(messages.SET_WATER);
+                System.out.println(messages.ADD_WATER);
                 userInput = scanner.nextLine().toLowerCase().trim();
                 while (!userInput.matches(REGEX_INT_RANGE)) {
-                    System.out.println(messages.SET_WATER);
+                    System.out.println(messages.ADD_WATER);
                     userInput = scanner.nextLine().toLowerCase().trim();
                 }
                 deLuvos.processInstruction(userInput);
                 break;
             case FILL_MILK:
-                System.out.println(messages.SET_MILK);
+                System.out.println(messages.ADD_MILK);
                 userInput = scanner.nextLine().toLowerCase().trim();
                 while (!userInput.matches(REGEX_INT_RANGE)) {
-                    System.out.println(messages.SET_MILK);
+                    System.out.println(messages.ADD_MILK);
                     userInput = scanner.nextLine().toLowerCase().trim();
                 }
                 deLuvos.processInstruction(userInput);
                 break;
             case FILL_BEANS:
-                System.out.println(messages.SET_BEANS);
+                System.out.println(messages.ADD_BEANS);
                 userInput = scanner.nextLine().toLowerCase().trim();
                 while (!userInput.matches(REGEX_INT_RANGE)) {
-                    System.out.println(messages.SET_BEANS);
+                    System.out.println(messages.ADD_BEANS);
                     userInput = scanner.nextLine().toLowerCase().trim();
                 }
                 deLuvos.processInstruction(userInput);
                 break;
             case FILL_CUPS:
-                System.out.println(messages.SET_CUPS);
+                System.out.println(messages.ADD_CUPS);
                 userInput = scanner.nextLine().toLowerCase().trim();
                 while (!userInput.matches(REGEX_INT_RANGE)) {
-                    System.out.println(messages.SET_CUPS);
+                    System.out.println(messages.ADD_CUPS);
                     userInput = scanner.nextLine().toLowerCase().trim();
                 }
                 deLuvos.processInstruction(userInput);
