@@ -9,11 +9,13 @@ public class Grader {
             for (int j = 0; j < guess.length; j++) {
                 if (secret[i] == guess[j] && i == j) {
                     bulls++;
-                } else if (secret[i] == guess[j]) {
+                }
+
+                if (secret[i] == guess[j] && i != j) {
                     cows++;
                 }
             }
         }
-        return new int[] {bulls, cows};
+        return new int[]{bulls, cows};
     }
 }
