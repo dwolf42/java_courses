@@ -11,15 +11,15 @@ public class Main {
         final int indexBulls = 0;
         final int indexCows = 1;
         final int winBulls = 4;
+        int turn = 1;
         Scanner scanner = new Scanner(System.in);
 //        String secret = scanner.nextLine();
         String secretINP = "9305";
         char[] secret = secretINP.toCharArray();
-        int turn = 1;
         System.out.println("The secret code is prepared: ****.");
         System.out.printf("\nTurn %d. Answer: \n", turn);
 //        String input = scanner.nextLine();
-        String guessINP = "9087";
+        String guessINP = "9955";
         System.out.println(guessINP);
         char[] guess = guessINP.toCharArray();
         Grader grade = new Grader();
@@ -28,10 +28,13 @@ public class Main {
             System.out.printf("Grade: %d bulls.\nCongrats! The secret code is %s.", animalFold[indexBulls], secretINP);
         } else {
             // TODO: implement turn increase + message
-            // TODO: check in java courses project, how I handled the plural "s" to avoid having too many cases for 1 or more cow/bull
             switch(animalFold[indexBulls]) {
                 case 0:
-                    System.out.printf("Grade: %d cow");
+                    System.out.printf("Grade: %d cow(s)", animalFold[indexCows]);
+                    break;
+                default:
+                    System.out.printf("Grade: %d bull(s) %d cow(s)", animalFold[indexBulls], animalFold[indexCows]);
+                    break;
             }
 
             /*
