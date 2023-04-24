@@ -29,7 +29,6 @@ hs_err_pid*
 
 # my ignore
 .idea/*
-.out/*
 .test/*
 .gradle/*
 *.iml
