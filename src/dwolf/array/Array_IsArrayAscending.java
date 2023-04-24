@@ -1,4 +1,4 @@
-package kabraxis.array;
+package dwolf.array;
 
 import java.util.Scanner;
 

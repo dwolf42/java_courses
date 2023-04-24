@@ -43,6 +43,6 @@ hs_err_pid*
 *.properties
 *.bin
 *.lock
-/src/kabraxis/oop/my_work/object_experiment/
+/src/dwolf/oop/my_work/object_experiment/
 /out/
-/src/kabraxis/laboratory/TestRandomizers.java
+/src/dwolf/laboratory/TestRandomizers.java
