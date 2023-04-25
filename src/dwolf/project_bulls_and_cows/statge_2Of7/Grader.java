@@ -11,11 +11,11 @@ public class Grader {
                     bulls++;
                 }
 
-                if (secret[i] == guess[j] && i != j) {
+                if (secret[i] == guess[j]) {
                     cows++;
                 }
             }
         }
-        return new int[]{bulls, cows};
+        return new int[]{bulls, cows >= bulls ? cows - bulls : cows};
     }
 }
