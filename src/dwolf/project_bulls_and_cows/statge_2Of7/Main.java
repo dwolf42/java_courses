@@ -49,19 +49,10 @@ public class Main {
                         break;
                 }
             }
-
-            /*
-            if bulls == 0
-            if bulls < 4
-            if bulls == 1
-            */
         }
-
-
     }
 
 }
-
 
 /*
 Description
@@ -111,5 +102,4 @@ Example 3
 
 > 1267
 Grade: None. The secret code is 9305.
-
 */
