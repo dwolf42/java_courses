@@ -3,6 +3,7 @@ package dwolf.project_bulls_and_cows.statge_2Of7;
 import java.util.Scanner;
 
 public class Main {
+    static int turn = 1;
     public static void main(String[] args) {
         run();
     }
@@ -11,7 +12,6 @@ public class Main {
         final int indexBulls = 0;
         final int indexCows = 1;
         final int winBulls = 4;
-        int turn = 1;
         Scanner scanner = new Scanner(System.in);
 //        String secret = scanner.nextLine();
         String secretINP = "9305";
@@ -31,19 +31,21 @@ public class Main {
             if (animalFold[indexCows] == 0) {
                 System.out.printf("Grade: None. The secret code is %s.\n",
                         secretINP);
+                turn++;
+                run();
             } else {
                 switch (animalFold[indexBulls]) {
                     case 0:
                         System.out.printf("Grade: %d cow(s). The secret code is %s.\n",
                                 animalFold[indexCows], secretINP);
-                        break;
-                    case 4:
-                        System.out.printf("Grade: %d bull(s). The secret code is %s.\n",
-                                animalFold[indexBulls], secretINP);
+                        turn++;
+                        run();
                         break;
                     default:
                         System.out.printf("Grade: %d bull(s) %d cow(s). The secret code is %s.\n",
                                 animalFold[indexBulls], animalFold[indexCows], secretINP);
+                        turn++;
+                        run();
                         break;
                 }
             }
