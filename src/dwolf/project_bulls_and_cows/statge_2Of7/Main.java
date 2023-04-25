@@ -25,7 +25,8 @@ public class Main {
         Grader grade = new Grader();
         int[] animalFold = grade.countCows(secret, guess);
         if (animalFold[indexBulls] == winBulls) {
-            System.out.printf("Grade: %d bulls.\nCongrats! The secret code is %s.", animalFold[indexBulls], secretINP);
+            System.out.printf("Grade: %d bulls.\nCongrats! The secret code is %s.",
+                    animalFold[indexBulls], secretINP);
         } else {
             // TODO: implement turn increase + message
             if (animalFold[indexCows] == 0) {
