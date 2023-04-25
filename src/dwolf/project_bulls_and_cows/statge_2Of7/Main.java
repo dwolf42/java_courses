@@ -30,7 +30,8 @@ public class Main {
                     animalFold[indexBulls], secretINP);
         } else {
             // TODO: implement turn increase + message
-            if (animalFold[indexCows] == 0) {
+            // TODO: need to fix the recursive call issue
+            if (animalFold[indexBulls] == 0 && animalFold[indexCows] == 0) {
                 System.out.printf("Grade: None. The secret code is %s.\n",
                         secretINP);
                 turn++;
