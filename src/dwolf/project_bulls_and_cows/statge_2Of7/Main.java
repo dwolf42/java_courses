@@ -28,13 +28,24 @@ public class Main {
             System.out.printf("Grade: %d bulls.\nCongrats! The secret code is %s.", animalFold[indexBulls], secretINP);
         } else {
             // TODO: implement turn increase + message
-            switch(animalFold[indexBulls]) {
-                case 0:
-                    System.out.printf("Grade: %d cow(s)", animalFold[indexCows]);
-                    break;
-                default:
-                    System.out.printf("Grade: %d bull(s) %d cow(s)", animalFold[indexBulls], animalFold[indexCows]);
-                    break;
+            if (animalFold[indexCows] == 0) {
+                System.out.printf("Grade: None. The secret code is %s.\n",
+                        secretINP);
+            } else {
+                switch (animalFold[indexBulls]) {
+                    case 0:
+                        System.out.printf("Grade: %d cow(s). The secret code is %s.\n",
+                                animalFold[indexCows], secretINP);
+                        break;
+                    case 4:
+                        System.out.printf("Grade: %d bull(s). The secret code is %s.\n",
+                                animalFold[indexBulls], secretINP);
+                        break;
+                    default:
+                        System.out.printf("Grade: %d bull(s) %d cow(s). The secret code is %s.\n",
+                                animalFold[indexBulls], animalFold[indexCows], secretINP);
+                        break;
+                }
             }
 
             /*
