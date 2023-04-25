@@ -13,13 +13,14 @@ public class Main {
         final int indexCows = 1;
         final int winBulls = 4;
         Scanner scanner = new Scanner(System.in);
-//        String secret = scanner.nextLine();
-        String secretINP = "9305";
+
+        String secretINP = scanner.nextLine();
+//        String secretINP = "9305";
         char[] secret = secretINP.toCharArray();
         System.out.println("The secret code is prepared: ****.");
         System.out.printf("\nTurn %d. Answer: \n", turn);
-//        String input = scanner.nextLine();
-        String guessINP = "9955";
+        String guessINP = scanner.nextLine();
+//        String guessINP = "9505";
         System.out.println(guessINP);
         char[] guess = guessINP.toCharArray();
         Grader grade = new Grader();
