@@ -15,11 +15,8 @@ public class Main {
 
     protected static void run() {
         char[] secret = secretINP.toCharArray();
-        System.out.println("The secret code is prepared: ****.");
-        System.out.printf("\nTurn %d. Answer: \n", turn);
-        String guessINP = scanner.nextLine();
-//        String guessINP = "9505";
-        System.out.println(guessINP);
+        // Getting input from a different method seems to prevent from unwanted prompts for input.
+        String guessINP = getInput();
         char[] guess = guessINP.toCharArray();
         Grader grade = new Grader();
         int[] animalFold = grade.countCows(secret, guess);
@@ -35,6 +32,8 @@ public class Main {
                 turn++;
                 run();
             } else {
+                // Decided to go for switch statement, for the sake of code clarity. Too may if-statements would
+                // clutter code and make it harder to read.
                 switch (animalFold[indexBulls]) {
                     case 0:
                         System.out.printf("Grade: %d cow(s). The secret code is %s.\n",
@@ -51,6 +50,11 @@ public class Main {
                 }
             }
         }
+    }
+
+    public static String getInput() {
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextLine();
     }
 
 }
