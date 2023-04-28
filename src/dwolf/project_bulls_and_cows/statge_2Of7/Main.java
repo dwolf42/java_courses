@@ -4,18 +4,16 @@ import java.util.Scanner;
 
 public class Main {
     static int turn = 1;
+    static final int indexBulls = 0;
+    static final int indexCows = 1;
+    static final int winBulls = 4;
+    static String secretINP = "9305";
+
     public static void main(String[] args) {
         run();
     }
 
     protected static void run() {
-        final int indexBulls = 0;
-        final int indexCows = 1;
-        final int winBulls = 4;
-        Scanner scanner = new Scanner(System.in);
-
-        String secretINP = scanner.nextLine();
-//        String secretINP = "9305";
         char[] secret = secretINP.toCharArray();
         System.out.println("The secret code is prepared: ****.");
         System.out.printf("\nTurn %d. Answer: \n", turn);
