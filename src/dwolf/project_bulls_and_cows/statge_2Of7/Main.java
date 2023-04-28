@@ -24,8 +24,6 @@ public class Main {
             System.out.printf("Grade: %d bulls.\nCongrats! The secret code is %s.",
                     animalFold[indexBulls], secretINP);
         } else {
-            // TODO: implement turn increase + message
-            // TODO: need to fix the recursive call issue
             if (animalFold[indexBulls] == 0 && animalFold[indexCows] == 0) {
                 System.out.printf("Grade: None. The secret code is %s.\n",
                         secretINP);
