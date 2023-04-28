@@ -18,4 +18,5 @@ public class Grader {
         }
         return new int[]{bulls, cows >= bulls ? cows - bulls : cows};
     }
+
 }
