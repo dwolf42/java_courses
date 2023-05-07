@@ -1,3 +1,5 @@
+package dwolf.laboratory;
+
 import java.util.Scanner;
 
 public class IfScanner_Experiment {

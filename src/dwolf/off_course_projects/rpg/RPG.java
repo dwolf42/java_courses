@@ -1,4 +1,4 @@
-package rpg;
+package dwolf.off_course_projects.rpg;
 
 import java.util.Scanner;
 

@@ -1,3 +1,5 @@
+package dwolf.laboratory;
+
 // Those two lines are the class, and the main method.
 public class FindMeRandomElement {
     public static void main(String[] args) {

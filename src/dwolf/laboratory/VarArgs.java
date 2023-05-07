@@ -1,3 +1,5 @@
+package dwolf.laboratory;
+
 import java.util.Arrays;
 
 public class VarArgs {

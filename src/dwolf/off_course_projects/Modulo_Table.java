@@ -1,3 +1,5 @@
+package dwolf.off_course_projects;
+
 public class Modulo_Table {
     public static void main(String[] args) {
         horizontalModulo();
