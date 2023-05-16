@@ -1,4 +1,4 @@
-package dwolf.project_tictactoe;/*
+package dwolf.off_course_projects.tictactoe;/*
  * 11.01.2022 - 1:13 p.m. - by Kabraxis Luvos
  */
 

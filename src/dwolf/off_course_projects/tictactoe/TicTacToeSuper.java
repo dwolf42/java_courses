@@ -1,4 +1,4 @@
-package dwolf.project_tictactoe;/*
+package dwolf.off_course_projects.tictactoe;/*
  * 04.07.2020 - 11:02 p.m. - by Snitgit the Gitsnit
  */
 
