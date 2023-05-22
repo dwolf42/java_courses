@@ -17,7 +17,7 @@ public class Main {
     // The handling for SELECT and BUY input are extracted form handleState into handleInput
     // for better maintainability.
     // I know this is a lot of code, but the instructions were clear "CoffeeMachine class only processes string input".
-    // Might me being incapable, might be just a lack of experience why I didn't come up with a more elegant
+    // Might being me incapable, might be just a lack of experience why I didn't come up with a more elegant
     // solution for this - who knows. At least it works.
     protected static void handleState() {
         Scanner scanner = new Scanner(System.in);
