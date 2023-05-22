@@ -15,6 +15,11 @@ public class SecretCode {
             shortenCode();
         }
 
+        // In case the code is too short
+        while (randomCode.length() < getCodeGivenLength()) {
+            extendCode();
+        }
+
         return "0";
     }
 
