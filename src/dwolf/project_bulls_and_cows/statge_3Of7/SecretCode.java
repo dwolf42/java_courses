@@ -3,6 +3,7 @@ package dwolf.project_bulls_and_cows.statge_3Of7;
 public class SecretCode {
     private int codeGivenLength;
     private StringBuilder randomCode;
+    private StringBuilder spareRandomCode;
 
     public String getNewSecretCode() {
         setCodeGivenLength();
@@ -53,6 +54,12 @@ public class SecretCode {
     private void shortenCode() {
         randomCode.delete(getCodeGivenLength(), randomCode.length());
         System.out.println("post shorten code to fit codeGivenLength: " + randomCode);
+    }
+
+    private void extendCode() {
+        int extendFor = getCodeGivenLength() - randomCode.length();
+        spareRandomCode = new StringBuilder(getPseudoRandomNumber());
+
     }
 
     private void setCodeGivenLength() {
