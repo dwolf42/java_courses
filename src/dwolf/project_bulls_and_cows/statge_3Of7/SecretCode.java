@@ -9,7 +9,8 @@ public class SecretCode {
         randomCode = new StringBuilder(getPseudoRandomNumber());
         reverseCode();
         deleteLeadingZero();
-        // TODO: I need to make sure that the code has the desired length of individual digits if the generated code was e.g. 332211
+
+        // In case the code is too long
         if (randomCode.length() > getCodeGivenLength()) {
             shortenCode();
         }
@@ -23,6 +24,7 @@ public class SecretCode {
         System.out.println("post reverse " + randomCode);
     }
 
+    // Is the first digit of the number a zero? It will be deleted.
     private void deleteLeadingZero() {
         while (randomCode.charAt(0) == '0') {
             randomCode.delete(0, 1);
