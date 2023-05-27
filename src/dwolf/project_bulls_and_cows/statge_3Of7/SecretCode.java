@@ -25,35 +25,36 @@ public class SecretCode {
         return randomCode.toString();
     }
 
-    public void reverseCode(StringBuilder randomCode) {
-        System.out.println("pre reverse " + randomCode);
-        randomCode.reverse();
-        System.out.println("post reverse " + randomCode);
+    public void reverseCode(StringBuilder generatedCode) {
+        System.out.println("pre reverse " + generatedCode);
+        generatedCode.reverse();
+        System.out.println("post reverse " + generatedCode);
     }
 
     // Is the first digit of the number a zero? It will be deleted.
-    private void deleteLeadingZero(StringBuilder randomCode) {
-        while (randomCode.charAt(0) == '0') {
-            randomCode.delete(0, 1);
+    private void deleteLeadingZero(StringBuilder generatedCode) {
+        while (generatedCode.charAt(0) == '0') {
+            generatedCode.delete(0, 1);
         }
-        System.out.println("post delete leading zero/s: " + randomCode);
+        System.out.println("post delete leading zero/s: " + generatedCode);
     }
 
-    private void deleteDuplicates(StringBuilder randomCode) {
-        for (int i = 0; i < randomCode.length(); i++) {
-            for (int j = i + 1; j < randomCode.length(); j++) {
-                if (randomCode.charAt(i) == randomCode.charAt(j)) {
-                    randomCode.deleteCharAt(j);
+    // deleteDuplicates and the for-loop in extendCode are both checking if the StringBuilder contains the character
+    private void deleteDuplicates(StringBuilder generatedCode) {
+        for (int i = 0; i < generatedCode.length(); i++) {
+            for (int j = i + 1; j < generatedCode.length(); j++) {
+                if (generatedCode.charAt(i) == generatedCode.charAt(j)) {
+                    generatedCode.deleteCharAt(j);
                 }
             }
         }
 
-        System.out.println("post duplicates elimination: " + randomCode);
+        System.out.println("post duplicates elimination: " + generatedCode);
     }
 
-    private void shortenCode(StringBuilder randomCode) {
-        randomCode.delete(getCodeGivenLength(), randomCode.length());
-        System.out.println("post shorten code to fit codeGivenLength: " + randomCode);
+    private void shortenCode(StringBuilder generatedCode) {
+        generatedCode.delete(getCodeGivenLength(), generatedCode .length());
+        System.out.println("post shorten code to fit codeGivenLength: " + generatedCode);
     }
 
     private void extendCode(StringBuilder randomCode) {
