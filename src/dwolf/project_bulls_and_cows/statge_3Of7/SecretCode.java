@@ -1,24 +1,24 @@
 package dwolf.project_bulls_and_cows.statge_3Of7;
 
 public class SecretCode {
-    private int codeGivenLength;
+    private int codeGivenSize;
     private StringBuilder randomCode;
     private StringBuilder spareRandomCode;
 
     public String getNewSecretCode() {
-        setCodeGivenLength();
+        setCodeGivenSize();
         randomCode = new StringBuilder(getPseudoRandomNumber());
         reverseCode(randomCode);
         deleteLeadingZero(randomCode);
         deleteDuplicates(randomCode);
 
         // In case the code is too long
-        if (randomCode.length() > getCodeGivenLength()) {
+        if (randomCode.length() > getCodeGivenSize()) {
             shortenCode(randomCode);
         }
 
         // In case the code is too short
-        if (randomCode.length() < getCodeGivenLength()) {
+        while (randomCode.length() < getCodeGivenSize()) {
             extendCode(randomCode);
         }
 
@@ -53,27 +53,39 @@ public class SecretCode {
     }
 
     private void shortenCode(StringBuilder generatedCode) {
-        generatedCode.delete(getCodeGivenLength(), generatedCode .length());
-        System.out.println("post shorten code to fit codeGivenLength: " + generatedCode);
+        generatedCode.delete(getCodeGivenSize(), generatedCode.length());
+        System.out.println("post shorten code to fit codeGivenSize: " + generatedCode);
     }
 
-    private void extendCode(StringBuilder randomCode) {
-        int extendFor = getCodeGivenLength() - randomCode.length();
+    // the for-loop in extendCode and deleteDuplicates are both checking if the StringBuilder contains the character
+    private void extendCode(StringBuilder generatedCode) {
+        System.out.println("Runs extendCode");
+        int extendFor = getCodeGivenSize() - generatedCode.length();
         spareRandomCode = new StringBuilder(getPseudoRandomNumber());
-        spareRandomCode.reverse();
+        reverseCode(spareRandomCode);
+        for (int i = 0; i < spareRandomCode.length(); i++) {
+            if (!generatedCode.toString().contains(Character.toString(spareRandomCode.charAt(i)))) {
+                generatedCode.append(spareRandomCode.charAt(i));
+            }
+        }
+
     }
 
-    private void setCodeGivenLength() {
-        codeGivenLength = Integer.parseInt(Main.getInput());
+    private void setCodeGivenSize() {
+        codeGivenSize = Integer.parseInt(Main.getInput());
+        while (codeGivenSize > 10) {
+            System.out.println("Error: can't generate a secret number with a length of 11 because there aren't enough" +
+                    " unique digits.");
+            codeGivenSize = Integer.parseInt(Main.getInput());
+        }
     }
 
-    private int getCodeGivenLength() {
-        return codeGivenLength;
+    private int getCodeGivenSize() {
+        return codeGivenSize;
     }
 
     private String getPseudoRandomNumber() {
-//        return Long.toString(System.nanoTime());
-        return Long.toString(112233L);
+        return Long.toString(System.nanoTime());
     }
 
 }
