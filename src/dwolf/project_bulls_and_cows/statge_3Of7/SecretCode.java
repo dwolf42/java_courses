@@ -54,7 +54,6 @@ public class SecretCode {
 
 
     private void extendCode(StringBuilder generatedCode) {
-        int extendFor = getCodeGivenSize() - generatedCode.length();
         spareRandomCode = new StringBuilder(getPseudoRandomNumber());
         reverseCode(spareRandomCode);
         generatedCode.append(spareRandomCode);
