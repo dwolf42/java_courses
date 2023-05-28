@@ -26,9 +26,7 @@ public class SecretCode {
     }
 
     public void reverseCode(StringBuilder generatedCode) {
-        System.out.println("pre reverse " + generatedCode);
         generatedCode.reverse();
-        System.out.println("post reverse " + generatedCode);
     }
 
     // Is the first digit of the number a zero? It will be deleted.
@@ -36,11 +34,11 @@ public class SecretCode {
         while (generatedCode.charAt(0) == '0') {
             generatedCode.delete(0, 1);
         }
-        System.out.println("post delete leading zero/s: " + generatedCode);
     }
 
-    // deleteDuplicates and the for-loop in extendCode are both checking if the StringBuilder contains the character
+    // eliminate duplicate digits
     private void deleteDuplicates(StringBuilder generatedCode) {
+        // this for-loop and the one of extendCode are both checking if the StringBuilder contains the character
         for (int i = 0; i < generatedCode.length(); i++) {
             for (int j = i + 1; j < generatedCode.length(); j++) {
                 if (generatedCode.charAt(i) == generatedCode.charAt(j)) {
@@ -48,21 +46,19 @@ public class SecretCode {
                 }
             }
         }
-
-        System.out.println("post duplicates elimination: " + generatedCode);
     }
 
     private void shortenCode(StringBuilder generatedCode) {
         generatedCode.delete(getCodeGivenSize(), generatedCode.length());
-        System.out.println("post shorten code to fit codeGivenSize: " + generatedCode);
     }
 
-    // the for-loop in extendCode and deleteDuplicates are both checking if the StringBuilder contains the character
+
     private void extendCode(StringBuilder generatedCode) {
-        System.out.println("Runs extendCode");
         int extendFor = getCodeGivenSize() - generatedCode.length();
         spareRandomCode = new StringBuilder(getPseudoRandomNumber());
         reverseCode(spareRandomCode);
+
+        // this for-loop and the one of deleteDuplicates are both checking if the StringBuilder contains the character
         for (int i = 0; i < spareRandomCode.length(); i++) {
             if (!generatedCode.toString().contains(Character.toString(spareRandomCode.charAt(i)))) {
                 generatedCode.append(spareRandomCode.charAt(i));
@@ -72,7 +68,6 @@ public class SecretCode {
                 break;
             }
         }
-
     }
 
     private void setCodeGivenSize() {

@@ -11,8 +11,7 @@ public class Main {
 
     public static void main(String[] args) {
         SecretCode newCode = new SecretCode();
-        newCode.getNewSecretCode();
-//        run();
+        System.out.println("The random secret number is " + newCode.getNewSecretCode());
     }
 
     protected static void run() {
