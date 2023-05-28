@@ -57,15 +57,11 @@ public class SecretCode {
         int extendFor = getCodeGivenSize() - generatedCode.length();
         spareRandomCode = new StringBuilder(getPseudoRandomNumber());
         reverseCode(spareRandomCode);
+        generatedCode.append(spareRandomCode);
         deleteDuplicates(spareRandomCode);
-        for (int i = 0; i < spareRandomCode.length(); i++) {
-            if (!generatedCode.toString().contains(Character.toString(spareRandomCode.charAt(i)))) {
-                generatedCode.append(spareRandomCode.charAt(i));
-                extendFor--;
-            }
-            if (extendFor < 1) {
-                break;
-            }
+        // In case the code is too long
+        if (randomCode.length() > getCodeGivenSize()) {
+            shortenCode(randomCode);
         }
     }
 
