@@ -66,6 +66,10 @@ public class SecretCode {
         for (int i = 0; i < spareRandomCode.length(); i++) {
             if (!generatedCode.toString().contains(Character.toString(spareRandomCode.charAt(i)))) {
                 generatedCode.append(spareRandomCode.charAt(i));
+                extendFor--;
+            }
+            if (extendFor < 1) {
+                break;
             }
         }
 
