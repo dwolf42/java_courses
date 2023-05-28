@@ -11,7 +11,10 @@ public class Main {
 
     public static void main(String[] args) {
         SecretCode newCode = new SecretCode();
-        System.out.println("The random secret number is " + newCode.getNewSecretCode());
+        // Testing
+        for (int i = 0; i < 50; i++) {
+            System.out.println("The random secret number is " + newCode.getNewSecretCode());
+        }
     }
 
     protected static void run() {

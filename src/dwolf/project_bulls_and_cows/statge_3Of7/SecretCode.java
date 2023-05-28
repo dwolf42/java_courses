@@ -38,7 +38,7 @@ public class SecretCode {
 
     // eliminate duplicate digits
     private void deleteDuplicates(StringBuilder generatedCode) {
-        // this for-loop and the one of extendCode are both checking if the StringBuilder contains the character
+        System.out.println("length: " + generatedCode.length());
         for (int i = 0; i < generatedCode.length(); i++) {
             for (int j = i + 1; j < generatedCode.length(); j++) {
                 if (generatedCode.charAt(i) == generatedCode.charAt(j)) {
@@ -57,8 +57,7 @@ public class SecretCode {
         int extendFor = getCodeGivenSize() - generatedCode.length();
         spareRandomCode = new StringBuilder(getPseudoRandomNumber());
         reverseCode(spareRandomCode);
-
-        // this for-loop and the one of deleteDuplicates are both checking if the StringBuilder contains the character
+        deleteDuplicates(spareRandomCode);
         for (int i = 0; i < spareRandomCode.length(); i++) {
             if (!generatedCode.toString().contains(Character.toString(spareRandomCode.charAt(i)))) {
                 generatedCode.append(spareRandomCode.charAt(i));
@@ -71,7 +70,9 @@ public class SecretCode {
     }
 
     private void setCodeGivenSize() {
-        codeGivenSize = Integer.parseInt(Main.getInput());
+        //Test
+//        codeGivenSize = Integer.parseInt(Main.getInput());
+        codeGivenSize = 5;
         while (codeGivenSize > 10) {
             System.out.println("Error: can't generate a secret number with a length of 11 because there aren't enough" +
                     " unique digits.");
@@ -84,7 +85,9 @@ public class SecretCode {
     }
 
     private String getPseudoRandomNumber() {
-        return Long.toString(System.nanoTime());
+        String rnd = Long.toString(System.nanoTime());
+        System.out.println("rnd: " + rnd);
+        return rnd;
     }
 
 }
