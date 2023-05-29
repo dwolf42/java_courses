@@ -5,7 +5,7 @@ public class SecretCode {
     private StringBuilder randomCode;
     private StringBuilder spareRandomCode;
 
-    public String generateSecretCode() {
+    public String generateSecretCode(int codeGivenSize) {
         setCodeGivenSize();
         randomCode = new StringBuilder(getPseudoRandomNumber());
         reverseCode(randomCode);
