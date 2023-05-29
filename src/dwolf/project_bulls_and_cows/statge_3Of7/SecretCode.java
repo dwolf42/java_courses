@@ -32,11 +32,12 @@ public class SecretCode {
         return code;
     }
 
+    // reverse code
     public void reverseCode(StringBuilder generatedCode) {
         generatedCode.reverse();
     }
 
-    // Is the first digit of the number a zero? It will be deleted.
+    // delete leading zero
     private void deleteLeadingZero(StringBuilder generatedCode) {
         while (generatedCode.charAt(0) == '0') {
             generatedCode.delete(0, 1);
