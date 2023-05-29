@@ -5,10 +5,7 @@ public class SecretCode {
 
     public String generateSecretCode(int codeGivenSize) {
         setCodeGivenSize();
-        StringBuilder randomCode = new StringBuilder(getPseudoRandomNumber());
-        reverseCode(randomCode);
-        deleteLeadingZero(randomCode);
-        deleteDuplicates(randomCode);
+        StringBuilder randomCode = createCode();
 
         // In case the code is too long
         if (randomCode.length() > getCodeGivenSize()) {
@@ -16,11 +13,21 @@ public class SecretCode {
         }
 
         // In case the code is too short
-        while (randomCode.length() < getCodeGivenSize()) {
+        if (randomCode.length() < getCodeGivenSize()) {
             extendCode(randomCode);
         }
 
         return randomCode.toString();
+    }
+
+    private StringBuilder createCode() {
+        StringBuilder code = new StringBuilder(getPseudoRandomNumber());
+
+        reverseCode(code);
+        deleteLeadingZero(code);
+        deleteDuplicates(code);
+
+        return code;
     }
 
     public void reverseCode(StringBuilder generatedCode) {
