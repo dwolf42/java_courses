@@ -13,7 +13,7 @@ public class Main {
         SecretCode newCode = new SecretCode();
         // Testing
         for (int i = 0; i < 50; i++) {
-            System.out.println("The random secret number is " + newCode.generateSecretCode());
+            System.out.println("The random secret number is " + newCode.generateSecretCode(Integer.parseInt(getInput())));
         }
     }
 
