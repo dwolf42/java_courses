@@ -2,12 +2,11 @@ package dwolf.project_bulls_and_cows.statge_3Of7;
 
 public class SecretCode {
     private int codeGivenSize;
-    private StringBuilder randomCode;
     private StringBuilder spareRandomCode;
 
     public String generateSecretCode(int codeGivenSize) {
         setCodeGivenSize();
-        randomCode = new StringBuilder(getPseudoRandomNumber());
+        StringBuilder randomCode = new StringBuilder(getPseudoRandomNumber());
         reverseCode(randomCode);
         deleteLeadingZero(randomCode);
         deleteDuplicates(randomCode);
