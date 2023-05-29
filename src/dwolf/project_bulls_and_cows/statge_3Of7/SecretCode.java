@@ -4,7 +4,15 @@ public class SecretCode {
     private int codeGivenSize;
 
     public String generateSecretCode(int codeGivenSize) {
-        setCodeGivenSize();
+        this.codeGivenSize = codeGivenSize;
+
+        while (this.codeGivenSize > 10) {
+            System.out.println("Error: can't generate a secret number with a length of 11 because there aren't enough" +
+                    " unique digits.");
+            this.codeGivenSize = Integer.parseInt(Main.getInput());
+        }
+
+
         StringBuilder randomCode = createCode();
 
         // In case the code is too long
@@ -66,17 +74,6 @@ public class SecretCode {
         // In case the code is too long
         if (generatedCode.length() > getCodeGivenSize()) {
             shortenCode(generatedCode);
-        }
-    }
-
-    private void setCodeGivenSize() {
-        //Test
-//        codeGivenSize = Integer.parseInt(Main.getInput());
-        codeGivenSize = 5;
-        while (codeGivenSize > 10) {
-            System.out.println("Error: can't generate a secret number with a length of 11 because there aren't enough" +
-                    " unique digits.");
-            codeGivenSize = Integer.parseInt(Main.getInput());
         }
     }
 
