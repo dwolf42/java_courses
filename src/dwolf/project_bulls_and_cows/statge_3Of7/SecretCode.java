@@ -72,7 +72,7 @@ public class SecretCode {
         StringBuilder spareRandomCode = new StringBuilder(getPseudoRandomNumber());
         reverseCode(spareRandomCode);
         generatedCode.append(spareRandomCode);
-        deleteDuplicates(spareRandomCode);
+        deleteDuplicates(generatedCode);
     }
 
     private String getPseudoRandomNumber() {
