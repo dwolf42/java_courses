@@ -77,9 +77,7 @@ public class SecretCode {
     }
 
     private String getPseudoRandomNumber() {
-        String rnd = Long.toString(System.nanoTime());
-        System.out.println("rnd: " + rnd);
-        return rnd;
+        return Long.toString(System.nanoTime());
     }
 
 }
