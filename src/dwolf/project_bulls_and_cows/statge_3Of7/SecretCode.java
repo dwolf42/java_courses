@@ -12,18 +12,12 @@ public class SecretCode {
             this.codeGivenSize = Integer.parseInt(Main.getInput());
         }
 
-
         StringBuilder randomCode = createCode();
 
-        // In case the code is too long
-        if (randomCode.length() > codeGivenSize) {
-            shortenCode(randomCode);
+        while (randomCode.length() != this.codeGivenSize) {
+            adjustCodeLength(randomCode);
         }
 
-        // In case the code is too short
-        if (randomCode.length() < codeGivenSize) {
-            extendCode(randomCode);
-        }
 
         return randomCode.toString();
     }
@@ -58,6 +52,14 @@ public class SecretCode {
                     generatedCode.deleteCharAt(j);
                 }
             }
+        }
+    }
+
+    private void adjustCodeLength(StringBuilder generatedCode) {
+        if (generatedCode.length() > codeGivenSize) {
+            shortenCode(generatedCode);
+        } else {
+            extendCode(generatedCode);
         }
     }
 
