@@ -16,12 +16,12 @@ public class SecretCode {
         StringBuilder randomCode = createCode();
 
         // In case the code is too long
-        if (randomCode.length() > getCodeGivenSize()) {
+        if (randomCode.length() > codeGivenSize) {
             shortenCode(randomCode);
         }
 
         // In case the code is too short
-        if (randomCode.length() < getCodeGivenSize()) {
+        if (randomCode.length() < codeGivenSize) {
             extendCode(randomCode);
         }
 
@@ -62,7 +62,7 @@ public class SecretCode {
     }
 
     private void shortenCode(StringBuilder generatedCode) {
-        generatedCode.delete(getCodeGivenSize(), generatedCode.length());
+        generatedCode.delete(codeGivenSize, generatedCode.length());
     }
 
 
@@ -72,13 +72,9 @@ public class SecretCode {
         generatedCode.append(spareRandomCode);
         deleteDuplicates(spareRandomCode);
         // In case the code is too long
-        if (generatedCode.length() > getCodeGivenSize()) {
+        if (generatedCode.length() > codeGivenSize) {
             shortenCode(generatedCode);
         }
-    }
-
-    private int getCodeGivenSize() {
-        return codeGivenSize;
     }
 
     private String getPseudoRandomNumber() {
