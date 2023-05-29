@@ -69,8 +69,7 @@ public class SecretCode {
 
 
     private void extendCode(StringBuilder generatedCode) {
-        StringBuilder spareRandomCode = new StringBuilder(getPseudoRandomNumber());
-        reverseCode(spareRandomCode);
+        StringBuilder spareRandomCode = createCode();
         generatedCode.append(spareRandomCode);
         deleteDuplicates(generatedCode);
     }
