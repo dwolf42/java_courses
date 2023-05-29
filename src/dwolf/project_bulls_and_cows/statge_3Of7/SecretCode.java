@@ -46,7 +46,6 @@ public class SecretCode {
 
     // eliminate duplicate digits
     private void deleteDuplicates(StringBuilder generatedCode) {
-        System.out.println("length: " + generatedCode.length());
         for (int i = 0; i < generatedCode.length(); i++) {
             for (int j = generatedCode.length() - 1; j > i; j--) {
                 if (generatedCode.charAt(i) == generatedCode.charAt(j)) {
