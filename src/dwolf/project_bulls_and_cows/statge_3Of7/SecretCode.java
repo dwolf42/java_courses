@@ -58,8 +58,8 @@ public class SecretCode {
         generatedCode.append(spareRandomCode);
         deleteDuplicates(spareRandomCode);
         // In case the code is too long
-        if (randomCode.length() > getCodeGivenSize()) {
-            shortenCode(randomCode);
+        if (generatedCode.length() > getCodeGivenSize()) {
+            shortenCode(generatedCode);
         }
     }
 
