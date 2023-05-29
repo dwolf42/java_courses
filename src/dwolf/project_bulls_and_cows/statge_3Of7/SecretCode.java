@@ -73,10 +73,6 @@ public class SecretCode {
         reverseCode(spareRandomCode);
         generatedCode.append(spareRandomCode);
         deleteDuplicates(spareRandomCode);
-        // In case the code is too long
-        if (generatedCode.length() > codeGivenSize) {
-            shortenCode(generatedCode);
-        }
     }
 
     private String getPseudoRandomNumber() {
