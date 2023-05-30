@@ -22,7 +22,7 @@ public class SecretCode {
     }
 
     private StringBuilder createCode() {
-        StringBuilder code = new StringBuilder(getPseudoRandomNumber());
+        StringBuilder code = new StringBuilder(getPseudoRandomNumberString());
 
         reverseCode(code);
         deleteLeadingZero(code);
@@ -70,7 +70,7 @@ public class SecretCode {
         deleteDuplicates(generatedCode);
     }
 
-    private String getPseudoRandomNumber() {
+    private String getPseudoRandomNumberString() {
         return Long.toString(System.nanoTime());
     }
 
