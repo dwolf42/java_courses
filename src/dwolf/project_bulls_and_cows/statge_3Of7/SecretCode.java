@@ -3,7 +3,7 @@ package dwolf.project_bulls_and_cows.statge_3Of7;
 public class SecretCode {
     private int codeGivenSize;
 
-    public String generateSecretCode(int codeGivenSize) {
+    public String getSecretCode(int codeGivenSize) {
         this.codeGivenSize = codeGivenSize;
 
         while (this.codeGivenSize > 10) {
