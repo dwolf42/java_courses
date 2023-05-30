@@ -7,8 +7,9 @@ public class SecretCode {
         this.codeGivenSize = codeGivenSize;
 
         while (this.codeGivenSize > 10) {
-            System.out.println("Error: can't generate a secret number with a length of 11 because there aren't enough" +
-                    " unique digits.");
+            System.out.printf("\nError: can't generate a secret number with a length of %d because " +
+                    "there aren't enough unique digits.", codeGivenSize);
+
             this.codeGivenSize = Integer.parseInt(Main.getInput());
         }
 
