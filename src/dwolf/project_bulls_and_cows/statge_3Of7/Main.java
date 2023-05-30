@@ -11,9 +11,8 @@ public class Main {
 
     public static void main(String[] args) {
         SecretCode newCode = new SecretCode();
-        System.out.println("The random secret number is "
-                + newCode.getSecretCode(Integer.parseInt(getInput())));
-
+        System.out.printf("\nThe random secret number is %s",
+                newCode.getSecretCode(Integer.parseInt(getInput())));
     }
 
     protected static void run() {
