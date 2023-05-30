@@ -1,3 +1,5 @@
+package dwolf.project_bulls_and_cows.statge_3Of7;
+
 /**
  * ~~Class description~~
  * This class has the task of generating a new secret code of a user-given length, which than has to be guessed in the
@@ -42,8 +44,6 @@
  * Error: can't generate a secret number with a length of 11 because there aren't enough unique digits.
  * <p>
  */
-
-package dwolf.project_bulls_and_cows.statge_3Of7;
 
 public class SecretCode {
     private int codeGivenSize;
@@ -115,7 +115,6 @@ public class SecretCode {
     private void shortenCode(StringBuilder generatedCode) {
         generatedCode.delete(codeGivenSize, generatedCode.length());
     }
-
 
     private void extendCode(StringBuilder generatedCode) {
         StringBuilder spareRandomCode = createCode();
