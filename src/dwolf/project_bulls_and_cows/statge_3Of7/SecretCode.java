@@ -18,7 +18,6 @@ public class SecretCode {
             adjustCodeLength(randomCode);
         }
 
-
         return randomCode.toString();
     }
 
@@ -32,19 +31,16 @@ public class SecretCode {
         return code;
     }
 
-    // reverse code
     public void reverseCode(StringBuilder generatedCode) {
         generatedCode.reverse();
     }
 
-    // delete leading zero
     private void deleteLeadingZero(StringBuilder generatedCode) {
         while (generatedCode.charAt(0) == '0') {
             generatedCode.delete(0, 1);
         }
     }
 
-    // eliminate duplicate digits
     private void deleteDuplicates(StringBuilder generatedCode) {
         for (int i = 0; i < generatedCode.length(); i++) {
             for (int j = generatedCode.length() - 1; j > i; j--) {
