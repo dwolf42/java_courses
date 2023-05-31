@@ -63,7 +63,7 @@ public class Main {
                 turn);
 
         char[] secret = secretINP.toCharArray();
-        // Getting input from a different method seems to prevent from unwanted prompts for input.
+        // needed to show secret code while in development
         String guessINP = getInput();
         char[] guess = guessINP.toCharArray();
         Grader grade = new Grader();
