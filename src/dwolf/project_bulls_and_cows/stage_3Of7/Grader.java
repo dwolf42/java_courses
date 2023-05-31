@@ -1,6 +1,6 @@
 package dwolf.project_bulls_and_cows.stage_3Of7;
 
-public class Grader {
+class Grader {
     private int bulls = 0;
     private int cows = 0;
 

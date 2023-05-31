@@ -52,7 +52,7 @@ public class Main {
         }
     }
 
-    public static String getInput() {
+    protected static String getInput() {
         Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();
     }
