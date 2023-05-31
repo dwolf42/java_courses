@@ -64,9 +64,7 @@ public class Main {
                 turn);
 
         char[] secret = secretINP.toCharArray();
-        // needed to show secret code while in development
-        String guessINP = getInput();
-        char[] guess = guessINP.toCharArray();
+        char[] guess = getInput().toCharArray();
         Grader grade = new Grader();
         int[] animalFold = grade.countCows(secret, guess);
         if (animalFold[indexBulls] == winBulls) {
@@ -74,8 +72,7 @@ public class Main {
                     animalFold[indexBulls], secretINP);
         } else {
             if (animalFold[indexBulls] == 0 && animalFold[indexCows] == 0) {
-                System.out.printf("Grade: None. The secret code is %s.\n",
-                        secretINP);
+                System.out.println("Grade: None.");
                 turn++;
                 run();
             } else {
@@ -83,14 +80,14 @@ public class Main {
                 // clutter code and make it harder to read.
                 switch (animalFold[indexBulls]) {
                     case 0:
-                        System.out.printf("Grade: %d cow(s). The secret code is %s.\n",
-                                animalFold[indexCows], secretINP);
+                        System.out.printf("Grade: %d cow(s).\n",
+                                animalFold[indexCows]);
                         turn++;
                         run();
                         break;
                     default:
-                        System.out.printf("Grade: %d bull(s) %d cow(s). The secret code is %s.\n",
-                                animalFold[indexBulls], animalFold[indexCows], secretINP);
+                        System.out.printf("Grade: %d bull(s) %d cow(s).\n",
+                                animalFold[indexBulls], animalFold[indexCows]);
                         turn++;
                         run();
                         break;
