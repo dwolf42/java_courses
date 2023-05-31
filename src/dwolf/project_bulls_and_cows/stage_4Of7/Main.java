@@ -50,8 +50,9 @@ public class Main {
     }
 
     protected static void run() {
-        SecretCode newCode = new SecretCode();
-        secretINP = newCode.getSecretCode(Integer.parseInt(getInput()));
+        // Anonymous object, since it's only used here
+        secretINP = new SecretCode().getSecretCode(Integer.parseInt(getInput()));
+
         char[] secret = secretINP.toCharArray();
         // Getting input from a different method seems to prevent from unwanted prompts for input.
         String guessINP = getInput();
