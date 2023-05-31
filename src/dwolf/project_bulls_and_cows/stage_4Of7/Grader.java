@@ -1,5 +1,8 @@
 package dwolf.project_bulls_and_cows.stage_4Of7;
 
+/**
+ * Secret code vs. guessed code comparison is the only task for this class.
+ */
 class Grader {
     private int bulls = 0;
     private int cows = 0;

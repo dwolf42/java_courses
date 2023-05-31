@@ -4,7 +4,7 @@ package dwolf.project_bulls_and_cows.stage_4Of7;
  * ~~Class description~~
  * This class has the task of generating a new secret code of a user-given length, which than has to be guessed in the
  * Bulls and Cows game. In the process, System.nanoTime is utilized to generate a pseudo-random number as a string.
- * The secret code's length must not exceed a length of 10, since longer numbers would lack uniqueness of numbers.
+ * The secret code's length must not exceed a length of 10, since longer numbers would lack uniqueness.
  */
 
 class SecretCode {

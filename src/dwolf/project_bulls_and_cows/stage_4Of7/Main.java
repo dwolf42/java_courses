@@ -3,6 +3,14 @@ package dwolf.project_bulls_and_cows.stage_4Of7;
 import java.util.Scanner;
 
 /**
+ * ~~Class description~~
+ * Here the game gets initialized and executed. User input will be taken.
+ * WARNING: There is no input safety check!
+ * Wrong input, like letters instead of numbers will crash the application.
+ * The user prompts are located in this class, as well as the determination if the user won the game or another turn is
+ * required.
+ * <p>
+ * <p>
  * ~~Task description~~
  * In this stage, you should combine all the previous parts into a simple playable version of the "Bulls and Cows" game.
  * First, prompt the player to input the length of the secret code. The length will determine the difficulty level for
