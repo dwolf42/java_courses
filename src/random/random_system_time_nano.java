@@ -1,6 +1,7 @@
 package random;
 
-import dwolf.project_bulls_and_cows.stage_4Of7.Main;
+import java.util.Scanner;
+
 
 /**
  * ~~Class description~~
@@ -20,7 +21,7 @@ class random_system_time_nano {
             System.out.printf("Error: can't generate a random number with a length of %d because " +
                     "there aren't enough unique digits.\n", codeGivenSize);
 
-            this.codeGivenSize = Integer.parseInt(Main.getInput());
+            this.codeGivenSize = new Scanner(System.in).nextInt();
         }
 
         StringBuilder randomCode = createCode();
