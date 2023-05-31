@@ -43,7 +43,7 @@ public class Main {
     static final int indexBulls = 0;
     static final int indexCows = 1;
     static int winBulls;
-    static String secretINP;
+    static String secretCode;
 
     public static void main(String[] args) {
         initialize();
@@ -52,8 +52,8 @@ public class Main {
     protected static void initialize() {
         // Anonymous object, since it's only used here
         System.out.println("Please, enter the secret code's length:");
-        secretINP = new SecretCode().getSecretCode(Integer.parseInt(getInput()));
-        winBulls = secretINP.length();
+        secretCode = new SecretCode().getSecretCode(Integer.parseInt(getInput()));
+        winBulls = secretCode.length();
         System.out.println("Okay, let's start the game!");
 
         run();
@@ -63,13 +63,13 @@ public class Main {
         System.out.printf("Turn %d: \n",
                 turn);
 
-        char[] secret = secretINP.toCharArray();
+        char[] secret = secretCode.toCharArray();
         char[] guess = getInput().toCharArray();
         Grader grade = new Grader();
         int[] animalFold = grade.countCows(secret, guess);
         if (animalFold[indexBulls] == winBulls) {
             System.out.printf("Grade: %d bulls.\nCongrats! The secret code is %s.",
-                    animalFold[indexBulls], secretINP);
+                    animalFold[indexBulls], secretCode);
         } else {
             if (animalFold[indexBulls] == 0 && animalFold[indexCows] == 0) {
                 System.out.println("Grade: None.");
