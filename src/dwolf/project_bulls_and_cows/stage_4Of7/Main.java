@@ -51,7 +51,11 @@ public class Main {
 
     protected static void run() {
         // Anonymous object, since it's only used here
+        System.out.println("Please, enter the secret code's length:");
         secretINP = new SecretCode().getSecretCode(Integer.parseInt(getInput()));
+        System.out.println("Okay, let's start the game!");
+        System.out.printf("Turn %d: \n",
+                turn);
 
         char[] secret = secretINP.toCharArray();
         // Getting input from a different method seems to prevent from unwanted prompts for input.
