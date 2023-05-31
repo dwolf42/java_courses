@@ -50,7 +50,7 @@ class SecretCode {
     // Create getSecretCode and createCode are separated from each other to maintain re-usability.
     // This way, adjustCodeLength can be utilized createCode to generate an additional secret code,
     // if the first one is too small.
-    public String getSecretCode(int codeGivenSize) {
+    protected String getSecretCode(int codeGivenSize) {
         this.codeGivenSize = codeGivenSize;
 
         while (this.codeGivenSize > 10) {
@@ -81,7 +81,7 @@ class SecretCode {
         return code;
     }
 
-    public void reverseCode(StringBuilder generatedCode) {
+    private void reverseCode(StringBuilder generatedCode) {
         generatedCode.reverse();
     }
 
