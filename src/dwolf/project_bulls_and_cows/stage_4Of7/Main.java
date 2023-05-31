@@ -65,8 +65,8 @@ public class Main {
 
         char[] secret = secretCode.toCharArray();
         char[] guess = getInput().toCharArray();
-        Grader grade = new Grader();
-        int[] animalFold = grade.countCows(secret, guess);
+        // Anonymous object, since it's only used here.
+        int[] animalFold = new Grader().countCows(secret, guess);
         if (animalFold[indexBulls] == winBulls) {
             System.out.printf("Grade: %d bulls.\nCongrats! The secret code is %s.",
                     animalFold[indexBulls], secretCode);
