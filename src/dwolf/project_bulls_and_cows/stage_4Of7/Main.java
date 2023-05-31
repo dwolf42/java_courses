@@ -42,7 +42,7 @@ public class Main {
     static int turn = 1;
     static final int indexBulls = 0;
     static final int indexCows = 1;
-    static final int winBulls = 4;
+    static int winBulls;
     static String secretINP;
 
     public static void main(String[] args) {
@@ -53,6 +53,7 @@ public class Main {
         // Anonymous object, since it's only used here
         System.out.println("Please, enter the secret code's length:");
         secretINP = new SecretCode().getSecretCode(Integer.parseInt(getInput()));
+        winBulls = secretINP.length();
         System.out.println("Okay, let's start the game!");
 
         run();
