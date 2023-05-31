@@ -22,14 +22,16 @@ package dwolf.project_bulls_and_cows.stage_3Of7;
  * call System.nanoTime() again and try to generate the secret code again until you get a satisfactory result.
  * You can use the Character.getNumericValue(char a) method to get an integer representation of a number!
  * <p>
- * Objective
+ * <p>
+ * ~~Objective~~
  * In this stage, your program should generate a pseudo-random number of a given length with unique digits and print it.
  * If the length is greater than 10, the program should print a message containing the word Error. The secret code may
  * contain any digits from 0 to 9 but only once. The secret code shouldn't start with a digit 0: for the first digit of
  * the secret code, use digits from 1 to 9.
  * Don't delete your previous work, just move your code to a separate method. You will need it in the future stages.
  * <p>
- * Examples
+ * <p>
+ * ~~Examples~~
  * The greater-than symbol followed by a space > represents the user input. Note that it's not part of the input.
  * Example 1
  * > 5
