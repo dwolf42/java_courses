@@ -1,4 +1,4 @@
-package dwolf.project_bulls_and_cows.statge_2Of7;
+package dwolf.project_bulls_and_cows.stage_3Of7;
 
 public class Grader {
     private int bulls = 0;
