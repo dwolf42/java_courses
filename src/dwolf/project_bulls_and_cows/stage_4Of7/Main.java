@@ -46,14 +46,19 @@ public class Main {
     static String secretINP;
 
     public static void main(String[] args) {
-        run();
+        initialize();
     }
 
-    protected static void run() {
+    protected static void initialize() {
         // Anonymous object, since it's only used here
         System.out.println("Please, enter the secret code's length:");
         secretINP = new SecretCode().getSecretCode(Integer.parseInt(getInput()));
         System.out.println("Okay, let's start the game!");
+
+        run();
+    }
+
+    protected static void run() {
         System.out.printf("Turn %d: \n",
                 turn);
 
