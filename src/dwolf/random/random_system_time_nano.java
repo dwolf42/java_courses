@@ -1,4 +1,4 @@
-package random;
+package dwolf.random;
 
 import java.util.Scanner;
 

@@ -1,8 +1,7 @@
-package random;
+package dwolf.random;
 
 import java.util.Arrays;
 import java.util.Random;
-import java.util.Scanner;
 
 /**
  * ~~Class description~~
