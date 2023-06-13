@@ -18,11 +18,13 @@ import java.util.Arrays;
 
 class random_seed {
     public static void main(String[] args) {
-        int a_SeedStart = 7;
-        int b_SeedEnd = 9;
+        Scanner scanner = new Scanner(System.in);
+        int a_SeedStart = scanner.nextInt();
+        int b_SeedEnd = scanner.nextInt();
         int totalSeeds = (b_SeedEnd - a_SeedStart) + 1;
-        int k_Range = 100;
-        int n_Numbers = 4;
+        int n_Numbers = scanner.nextInt();
+        int k_Range = scanner.nextInt();
+        Random rnd;
 
         // Holds all seeds from a_SeedStart to b_SeedEnd
         int[] seeds = new int[totalSeeds];
