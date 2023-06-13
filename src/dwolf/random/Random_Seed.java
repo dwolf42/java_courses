@@ -18,6 +18,9 @@ import java.util.Arrays;
 
 class Random_Seed {
     public static void main(String[] args) {
+        // Scanner is used to get the input numbers as a string, and is than processed further by another instance of
+        // Scanner. This is a sleeker alternative approach than using .split() and going the "array-way".
+        // Please note: variable names start with the letters from the task description for a better comprehensibility.
         Scanner scanner = new Scanner(System.in);
         int a_SeedStart = scanner.nextInt();
         int b_SeedEnd = scanner.nextInt();
@@ -26,16 +29,16 @@ class Random_Seed {
         int k_Range = scanner.nextInt();
         Random rnd;
 
-        // Holds all seeds from a_SeedStart to b_SeedEnd
+        // All seeds are in this array, so the index of the lowest maximum can be better traced to its seed.
         int[] seeds = new int[totalSeeds];
 
-        // Contains the random generated sequences
+        // Temporarily stores the sequences, in order to sort and extract the maximum number from it.
         int[] sequence = new int[n_Numbers];
 
-        // The maximum value of each sequence are stored here
+        // The maximum value of each sequence are stored here, to be compared to the others.
         int[] maxInSequence = new int[totalSeeds];
 
-        // Each seed is stored in seeds[]
+        // Populating seeds[]
         for (int i = 0; i < seeds.length; i++) {
             seeds[i] = a_SeedStart;
             a_SeedStart++;
