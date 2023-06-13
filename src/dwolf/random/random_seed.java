@@ -26,23 +26,31 @@ class random_seed {
 
         // Holds all seeds from a_SeedStart to b_SeedEnd
         int[] seeds = new int[totalSeeds];
+
+        // Contains the random generated sequences
         int[] sequence = new int[n_Numbers];
+
+        // The maximum value of each sequence are stored here
         int[] maxInSequence = new int[totalSeeds];
 
+        // Each seed is stored in seeds[]
         for (int i = 0; i < seeds.length; i++) {
             seeds[i] = a_SeedStart;
             a_SeedStart++;
         }
-        a_SeedStart = seeds[0];
+
+        // Populating sequence[] with random numbers generated using seeds[], from 0 to k_Range (excluding)
         for (int i = 0; i < seeds.length; i++) {
             for (int j = 0; j < sequence.length; j++) {
                 sequence[j] = new Random(seeds[i]).nextInt(k_Range);
 
             }
             Arrays.sort(sequence);
-            maxInSequence[i] = sequence[sequence.length - 1];
+            // .sort() works in ascending order
+            maxInSequence[i] = sequence[/*sequence.length - 1*/0];
         }
 
+        // Determine the smallest number and its corresponding index
         int smallestValue = maxInSequence[0];
         int smallestIndex = 0;
         for (int i = 0; i < maxInSequence.length; i++) {
