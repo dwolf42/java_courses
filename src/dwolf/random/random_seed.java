@@ -41,8 +41,9 @@ class random_seed {
 
         // Populating sequence[] with random numbers generated using seeds[], from 0 to k_Range (excluding)
         for (int i = 0; i < seeds.length; i++) {
+            rnd = new Random(seeds[i]);
             for (int j = 0; j < sequence.length; j++) {
-                sequence[j] = new Random(seeds[i]).nextInt(k_Range);
+                sequence[j] = rnd.nextInt(k_Range);
 
             }
             Arrays.sort(sequence);
