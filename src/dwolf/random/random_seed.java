@@ -50,7 +50,7 @@ class random_seed {
             }
             Arrays.sort(sequence);
             // .sort() works in ascending order
-            maxInSequence[i] = sequence[/*sequence.length - 1*/0];
+            maxInSequence[i] = sequence[sequence.length - 1];
         }
 
         // Determine the smallest number and its corresponding index
