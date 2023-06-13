@@ -22,6 +22,8 @@ class Random_Seed {
         // Scanner. This is a sleeker alternative approach than using .split() and going the "array-way".
         // Please note: variable names start with the letters from the task description for a better comprehensibility.
         Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine();
+        scanner = new Scanner(input);
         int a_SeedStart = scanner.nextInt();
         int b_SeedEnd = scanner.nextInt();
         int totalSeeds = (b_SeedEnd - a_SeedStart) + 1;
