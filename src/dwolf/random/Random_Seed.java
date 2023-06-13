@@ -66,7 +66,7 @@ class Random_Seed {
             }
         }
 
-        System.out.println(smallestIndex);
+        System.out.println(seeds[smallestIndex]);
         System.out.println(smallestValue);
 
     }
