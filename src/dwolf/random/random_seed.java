@@ -62,6 +62,10 @@ class random_seed {
                 smallestIndex = i;
             }
         }
+
+        System.out.println(smallestIndex);
+        System.out.println(smallestValue);
+
     }
 }
 /**
