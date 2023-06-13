@@ -16,7 +16,7 @@ import java.util.Arrays;
  * Footnotes marked by (*), please see Task description at the document's end.
  */
 
-class random_seed {
+class Random_Seed {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int a_SeedStart = scanner.nextInt();

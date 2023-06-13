@@ -10,7 +10,7 @@ import java.util.Scanner;
  * The random number's length must not exceed a length of 10, since longer numbers would lack uniqueness.
  */
 
-class random_system_time_nano {
+class Random_SystemTimeNano {
     private int codeGivenSize;
 
     // Create getSecretCode and createCode are separated from each other to maintain re-usability.

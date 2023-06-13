@@ -11,7 +11,7 @@ import java.util.Random;
  */
 
 
-public class random_random_class {
+public class Random_RandomClass {
     public static void main(String[] args) {
         Random random = new Random();
         System.out.println("Double: " + random.nextDouble());
