@@ -1,6 +1,6 @@
-# patient_demo
+# print_formatted
 
-A class is a blueprint for an object, it determines what properties an object derived from the class must have.
+Some exercises about formatted output using printf().
 
 ---
 ## Prerequisites to run my Java programs

@@ -18,7 +18,7 @@ Sample Output 2:
 PrOgRaMmInG
  */
 
-package dwolf.string.stringbuilder;
+package dwolf.string.string_builder;
 
 import java.util.Scanner;
 

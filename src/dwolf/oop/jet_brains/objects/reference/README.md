@@ -1,6 +1,6 @@
-# patient_demo
+# ojects
 
-A class is a blueprint for an object, it determines what properties an object derived from the class must have.
+What happens to values of objects that are altered and sharing the same reference.
 
 ---
 ## Prerequisites to run my Java programs

@@ -1,6 +1,6 @@
-# patient_demo
+# do_while_loop
 
-A class is a blueprint for an object, it determines what properties an object derived from the class must have.
+Some exercises about do-while loops.
 
 ---
 ## Prerequisites to run my Java programs

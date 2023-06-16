@@ -1,4 +1,4 @@
-package dwolf.off_course_projects;
+package dwolf.off_course_projects.modulo;
 
 public class Modulo_Table {
     public static void main(String[] args) {

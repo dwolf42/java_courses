@@ -1,6 +1,6 @@
-# patient_demo
+# instance_methods
 
-A class is a blueprint for an object, it determines what properties an object derived from the class must have.
+Some exercises about instance methods.
 
 ---
 ## Prerequisites to run my Java programs

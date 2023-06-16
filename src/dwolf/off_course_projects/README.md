@@ -1,6 +1,6 @@
-# patient_demo
+# off_course_projects
 
-A class is a blueprint for an object, it determines what properties an object derived from the class must have.
+Here are some projects I did or still doing outside any course.
 
 ---
 ## Prerequisites to run my Java programs

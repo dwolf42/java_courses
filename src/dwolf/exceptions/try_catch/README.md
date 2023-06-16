@@ -1,6 +1,6 @@
-# patient_demo
+# try_catch
 
-A class is a blueprint for an object, it determines what properties an object derived from the class must have.
+Some exercises about try catch.
 
 ---
 ## Prerequisites to run my Java programs

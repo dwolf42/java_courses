@@ -1,6 +1,10 @@
-# patient_demo
+# you are now entering the laboratry!
 
-A class is a blueprint for an object, it determines what properties an object derived from the class must have.
+Anything can happen in here...
+We've got Pusheen, whos Pusheen the limits of lab-security.
+You may also encounter her russian brother Bosheen, who's Bosheen the limits of nuclear-security.
+
+some programs might or might not run an intended.
 
 ---
 ## Prerequisites to run my Java programs

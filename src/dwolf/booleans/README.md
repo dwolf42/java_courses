@@ -1,6 +1,6 @@
-# patient_demo
+# booleans
 
-A class is a blueprint for an object, it determines what properties an object derived from the class must have.
+Some exercises about boolean.
 
 ---
 ## Prerequisites to run my Java programs

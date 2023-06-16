@@ -1,6 +1,6 @@
-# patient_demo
+# access_modifier_protected
 
-A class is a blueprint for an object, it determines what properties an object derived from the class must have.
+Some exercises about protected access modifier.
 
 ---
 ## Prerequisites to run my Java programs

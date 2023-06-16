@@ -1,4 +1,4 @@
-package dwolf.string.stringbuilder;
+package dwolf.string.string_builder;
 
 public class StringBuilder_BasicFunctionality {
     public static void main(String[] args) {

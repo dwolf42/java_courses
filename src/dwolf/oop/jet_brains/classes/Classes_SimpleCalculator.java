@@ -1,4 +1,4 @@
-package dwolf.classes;
+package dwolf.oop.jet_brains.classes;
 
 class SimpleCalculator {
 

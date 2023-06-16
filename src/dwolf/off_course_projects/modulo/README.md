@@ -1,6 +1,7 @@
-# patient_demo
+# modulo
 
-A class is a blueprint for an object, it determines what properties an object derived from the class must have.
+A fun project to have a table in order to see how modulo behaves.
+You either may read it horizontal (left -> right), or vertical (top -> down).
 
 ---
 ## Prerequisites to run my Java programs

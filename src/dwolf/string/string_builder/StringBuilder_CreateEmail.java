@@ -6,7 +6,7 @@ Return the result. It's guaranteed that input strings will not be empty.
 Use StringBuilder to solve the problem.
  */
 
-package dwolf.string.stringbuilder;
+package dwolf.string.string_builder;
 
 import java.util.Scanner;
 

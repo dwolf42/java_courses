@@ -18,7 +18,7 @@ import java.util.Arrays;
 
 class Random_Seed {
     public static void main(String[] args) {
-        // Scanner is used to get the input numbers as a string, and is than processed further by another instance of
+        // Scanner is used to get the input numbers as a string, and is then processed further by another instance of
         // Scanner. This is a sleeker alternative approach than using .split() and going the "array-way".
         // Please note: variable names start with the letters from the task description for a better comprehensibility.
         Scanner scanner = new Scanner(System.in);
