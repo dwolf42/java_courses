@@ -22,24 +22,26 @@ public class RPG {
         final int CAST_SPELL = 3;
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("What are you going to do?");
-        System.out.println("1: attack\n2: defend\n3: cast spell\n");
-        int action = scanner.nextInt();
 
-        switch (action) {
-            case ATTACK:
-                battle(character, monster);
-                break;
-            case DEFEND:
-                character.defend(character, monster);
-                break;
-            case CAST_SPELL:
-                character.castSpell(character, monster);
-                break;
-            default:
-                System.out.println("\nError! Please only input 1, 2 or 3.");
-                chooseAction(character, monster);
-                break;
+        while (true) {
+            System.out.println("What are you going to do?");
+            System.out.println("1: attack\n2: defend\n3: cast spell\n");
+            int action = scanner.nextInt();
+
+            switch (action) {
+                case ATTACK:
+                    battle(character, monster);
+                    return;
+                case DEFEND:
+                    character.defend(character, monster);
+                    return;
+                case CAST_SPELL:
+                    character.castSpell(character, monster);
+                    return;
+                default:
+                    System.out.println("\nError! Please only input 1, 2 or 3.");
+                    break;
+            }
         }
     }
 
