@@ -4,6 +4,7 @@ The classic Bulls and Cows game, where you must guess a secret number.
 At the end of each round, you will get your results as
 Bulls (number is correct and at the right spot) or
 Cows (number is correct but on the wrong spot).
+
 ---
 ## Prerequisites to run my Java programs
 

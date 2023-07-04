@@ -1,5 +1,3 @@
-![java-courses](https://drive.google.com/uc?export=view&id=1Q99dsZ_IgwbMe5wQgZnSgfIPbXxQXwih)
-
 # java_courses
 
 An overview, sorted by topics, of the projects and learning tasks that I have
