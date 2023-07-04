@@ -31,8 +31,12 @@ enum Action {
     }
 
     // This is a method that takes an int as input and returns the 'Action' constant associated with that integer.
-    // It does this by iterating over all 'Action' constants (using 'values(), which returns an array of all constants)
+    // It does this by iterating over all 'Action' constants (using 'values()', which returns an array of all constants)
     // and checking if their 'value' is equal to 'i'. If it finds a match, it returns that constant, or 'null' if not.
+    // The method must be 'static', as it operates on a class level, independent of individual instances.
+    // We can access the non-static methods 'values()' and 'getValue()' since 'values()' provides an instance
+    // of 'Action'. This is due to the fact that 'values()' is short for 'Action.values()'.
+    // This short version can only be used inside an enum class!
     static Action fromInt(int i) {
         for (Action action : values()) {
             if (action.getValue() == i) {
