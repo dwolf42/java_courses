@@ -1,8 +1,8 @@
 # rpg
---Development paused
 
-A small project to exercise OOP fundamentals.
-Basically the foundation of an RPG game.
+A project to exercise OOP fundamentals.
+I really love RPG games, which is the reason why I chose to write a simple RPG myself. It represents my idea of the
+basic functions of such a game, like attacking, defending and casting spells.
 
 ---
 ## Prerequisites to run my Java programs
