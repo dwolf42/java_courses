@@ -1,5 +1,6 @@
 package dwolf.off_course_projects.rpg;
 
+// Enums with associated values make the code more readable, and dynamic for futur additions.
 enum Action {
     ATTACK(1),
     DEFEND(2),

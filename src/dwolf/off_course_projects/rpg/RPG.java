@@ -17,30 +17,34 @@ public class RPG {
 
     // This is the basis method where the game starts and to which the game may return after an action.
     public static void chooseAction(Character character, Monster monster) {
-        final int ATTACK = 1;
-        final int DEFEND = 2;
-        final int CAST_SPELL = 3;
-
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
             System.out.println("What are you going to do?");
-            System.out.println("1: attack\n2: defend\n3: cast spell\n");
-            int action = scanner.nextInt();
+            System.out.println("1: attack\n2: defend\n3: cast spell");
+            int input = scanner.nextInt();
 
-            switch (action) {
-                case ATTACK:
-                    battle(character, monster);
-                    return;
-                case DEFEND:
-                    character.defend(character, monster);
-                    return;
-                case CAST_SPELL:
-                    character.castSpell(character, monster);
-                    return;
-                default:
-                    System.out.println("\nError! Please only input 1, 2 or 3.");
-                    break;
+            Action action = Action.fromInt(input);
+
+            if (action == null) {
+                System.out.printf("\nWhoops! Please only input numbers from %d to %d.\n\n",
+                        Action.values()[0].getNumber(),
+                        Action.values()[Action.values().length -1].getNumber());
+            } else {
+                switch (action) {
+                    case ATTACK:
+                        battle(character, monster);
+                        return;
+                    case DEFEND:
+                        character.defend(character, monster);
+                        return;
+                    case CAST_SPELL:
+                        character.castSpell(character, monster);
+                        return;
+                    default:
+                        System.out.println("\nError! Please only input 1, 2 or 3.");
+                        break;
+                }
             }
         }
     }
