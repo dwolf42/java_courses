@@ -11,14 +11,15 @@ public class Character {
     private int intelligence;
 
     // Very basic attacking
-    public void attack(Character character, Monster monster) {
+    void attack(Character character, Monster monster) {
+        // Reduces HP of attacked monster, based on character strength
         monster.setHealthPoints(monster.getHealthPoints() - character.getStrength());
         System.out.printf("%s's HP: %d\n", monster.getName(), monster.getHealthPoints());
     }
 
     // If the amount of dexterity is too high, it could lead to players seeing negative numbers for reduced damage.
     // The if/else statement checks for such a szenario.
-    public void defend(Character character, Monster monster) {
+    void defend(Character character, Monster monster) {
         if (character.getDexterity() - monster.getStrength() <= 0) {
             System.out.printf("Elegantly you evade the hits of %s!", monster.getName());
             RPG.chooseAction(character, monster);
@@ -32,7 +33,7 @@ public class Character {
     // Magic damage can inflict huge amounts of actual damage, if the player chooses to stat int instead of str.
     // In my imagination a mage isn't physically strong, and because of that I wanted to give the player some kind
     // of punishment if they stat strength.
-    public void castSpell(Character character, Monster monster) {
+    void castSpell(Character character, Monster monster) {
         if (character.getManaPoints() <= 0) {
             System.out.println("You hear a glimmering sound, but nothing happens...");
             RPG.chooseAction(character, monster);
@@ -44,7 +45,7 @@ public class Character {
     }
 
     // The section below contains boilerplate code like the constructor and all the getters and setters
-    public Character(String name, int healthPoints, int manaPoints, int level, int experiencePoints, int strength,
+    Character(String name, int healthPoints, int manaPoints, int level, int experiencePoints, int strength,
                      int dexterity, int intelligence) {
         this.name = name;
         this.healthPoints = healthPoints;
@@ -57,67 +58,67 @@ public class Character {
 
     }
 
-    public String getName() {
+    String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    void setName(String name) {
         this.name = name;
     }
 
-    public int getHealthPoints() {
+    int getHealthPoints() {
         return healthPoints;
     }
 
-    public void setHealthPoints(int healthPoints) {
+    void setHealthPoints(int healthPoints) {
         this.healthPoints = healthPoints;
     }
 
-    public int getManaPoints() {
+    int getManaPoints() {
         return manaPoints;
     }
 
-    public void setManaPoints(int manaPoints) {
+    void setManaPoints(int manaPoints) {
         this.manaPoints = manaPoints;
     }
 
-    public int getLevel() {
+    int getLevel() {
         return level;
     }
 
-    public void setLevel(int level) {
+    void setLevel(int level) {
         this.level = level;
     }
 
-    public int getExperiencePoints() {
+    int getExperiencePoints() {
         return experiencePoints;
     }
 
-    public void setExperiencePoints(int experiencePoints) {
+    void setExperiencePoints(int experiencePoints) {
         this.experiencePoints = experiencePoints;
     }
 
-    public int getStrength() {
+    int getStrength() {
         return strength;
     }
 
-    public void setStrength(int strength) {
+    void setStrength(int strength) {
         this.strength = strength;
     }
 
-    public int getDexterity() {
+    int getDexterity() {
         return dexterity;
     }
 
-    public void setDexterity(int dexterity) {
+    void setDexterity(int dexterity) {
         this.dexterity = dexterity;
     }
 
-    public int getIntelligence() {
+    int getIntelligence() {
         return intelligence;
     }
 
-    public void setIntelligence(int intelligence) {
+    void setIntelligence(int intelligence) {
         this.intelligence = intelligence;
     }
 }

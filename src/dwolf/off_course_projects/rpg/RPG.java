@@ -2,7 +2,7 @@ package dwolf.off_course_projects.rpg;
 
 import java.util.Scanner;
 
-public class RPG {
+class RPG {
     public static void main(String[] args) {
         System.out.println("The battle begins!\n");
         entitySpawn();
@@ -16,8 +16,8 @@ public class RPG {
     }
 
     // This is the basis method where the game starts and to which the game may return after an action.
-    public static void chooseAction(Character character, Monster monster) {
-        Scanner scanner = new Scanner(System.in);
+    static void chooseAction(Character character, Monster monster) {
+       Scanner scanner = new Scanner(System.in);
 
         while (true) {
             System.out.println("What are you going to do?");
@@ -29,7 +29,7 @@ public class RPG {
             if (action == null) {
                 System.out.printf("\nWhoops! Please only input numbers from %d to %d.\n\n",
                         Action.values()[0].getNumber(),
-                        Action.values()[Action.values().length -1].getNumber());
+                        Action.values()[Action.values().length - 1].getNumber());
             } else {
                 switch (action) {
                     case ATTACK:
