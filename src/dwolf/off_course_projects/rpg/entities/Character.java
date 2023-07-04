@@ -1,4 +1,6 @@
-package dwolf.off_course_projects.rpg;
+package dwolf.off_course_projects.rpg.entities;
+
+import dwolf.off_course_projects.rpg.RPG;
 
 public class Character {
     private String name;
@@ -11,7 +13,7 @@ public class Character {
     private int intelligence;
 
     // Very basic attacking
-    void attack(Character character, Monster monster) {
+    public void attack(Character character, Monster monster) {
         // Reduces HP of attacked monster, based on character strength
         monster.setHealthPoints(monster.getHealthPoints() - character.getStrength());
         System.out.printf("%s's HP: %d\n", monster.getName(), monster.getHealthPoints());
@@ -19,7 +21,7 @@ public class Character {
 
     // If the amount of dexterity is too high, it could lead to players seeing negative numbers for reduced damage.
     // The if/else statement checks for such a szenario.
-    void defend(Character character, Monster monster) {
+    public void defend(Character character, Monster monster) {
         if (character.getDexterity() - monster.getStrength() <= 0) {
             System.out.printf("Elegantly you evade the hits of %s!", monster.getName());
             RPG.chooseAction(character, monster);
@@ -33,7 +35,7 @@ public class Character {
     // Magic damage can inflict huge amounts of actual damage, if the player chooses to stat int instead of str.
     // In my imagination a mage isn't physically strong, and because of that I wanted to give the player some kind
     // of punishment if they stat strength.
-    void castSpell(Character character, Monster monster) {
+    public void castSpell(Character character, Monster monster) {
         if (character.getManaPoints() <= 0) {
             System.out.println("You hear a glimmering sound, but nothing happens...");
             RPG.chooseAction(character, monster);
@@ -45,7 +47,7 @@ public class Character {
     }
 
     // The section below contains boilerplate code like the constructor and all the getters and setters
-    Character(String name, int healthPoints, int manaPoints, int level, int experiencePoints, int strength,
+    public Character(String name, int healthPoints, int manaPoints, int level, int experiencePoints, int strength,
                      int dexterity, int intelligence) {
         this.name = name;
         this.healthPoints = healthPoints;
@@ -58,67 +60,67 @@ public class Character {
 
     }
 
-    String getName() {
+    public String getName() {
         return name;
     }
 
-    void setName(String name) {
+    protected void setName(String name) {
         this.name = name;
     }
 
-    int getHealthPoints() {
+    public int getHealthPoints() {
         return healthPoints;
     }
 
-    void setHealthPoints(int healthPoints) {
+    public void setHealthPoints(int healthPoints) {
         this.healthPoints = healthPoints;
     }
 
-    int getManaPoints() {
+    protected int getManaPoints() {
         return manaPoints;
     }
 
-    void setManaPoints(int manaPoints) {
+    protected void setManaPoints(int manaPoints) {
         this.manaPoints = manaPoints;
     }
 
-    int getLevel() {
+    protected int getLevel() {
         return level;
     }
 
-    void setLevel(int level) {
+    protected void setLevel(int level) {
         this.level = level;
     }
 
-    int getExperiencePoints() {
+    protected int getExperiencePoints() {
         return experiencePoints;
     }
 
-    void setExperiencePoints(int experiencePoints) {
+    protected void setExperiencePoints(int experiencePoints) {
         this.experiencePoints = experiencePoints;
     }
 
-    int getStrength() {
+    protected int getStrength() {
         return strength;
     }
 
-    void setStrength(int strength) {
+    protected void setStrength(int strength) {
         this.strength = strength;
     }
 
-    int getDexterity() {
+    protected int getDexterity() {
         return dexterity;
     }
 
-    void setDexterity(int dexterity) {
+    protected void setDexterity(int dexterity) {
         this.dexterity = dexterity;
     }
 
-    int getIntelligence() {
+    protected int getIntelligence() {
         return intelligence;
     }
 
-    void setIntelligence(int intelligence) {
+    protected void setIntelligence(int intelligence) {
         this.intelligence = intelligence;
     }
 }

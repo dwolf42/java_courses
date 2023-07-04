@@ -1,8 +1,12 @@
 package dwolf.off_course_projects.rpg;
 
+import dwolf.off_course_projects.rpg.entities.Action;
+import dwolf.off_course_projects.rpg.entities.Character;
+import dwolf.off_course_projects.rpg.entities.Monster;
+
 import java.util.Scanner;
 
-class RPG {
+public class RPG {
     public static void main(String[] args) {
         System.out.println("The battle begins!\n");
         entitySpawn();
@@ -16,7 +20,7 @@ class RPG {
     }
 
     // This is the basis method where the game starts and to which the game may return after an action.
-    static void chooseAction(Character character, Monster monster) {
+    public static void chooseAction(Character character, Monster monster) {
        Scanner scanner = new Scanner(System.in);
 
         while (true) {

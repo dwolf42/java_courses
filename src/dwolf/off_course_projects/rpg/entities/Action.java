@@ -1,7 +1,7 @@
-package dwolf.off_course_projects.rpg;
+package dwolf.off_course_projects.rpg.entities;
 
 // Enums with associated values make the code more readable, and dynamic for futur additions.
-enum Action {
+public enum Action {
     ATTACK(1),
     DEFEND(2),
     CAST_SPELL(3);
@@ -12,11 +12,11 @@ enum Action {
         this.number = number;
     }
 
-    int getNumber() {
+    public int getNumber() {
         return number;
     }
 
-    static Action fromInt(int i) {
+    public static Action fromInt(int i) {
         for (Action action : Action.values()) {
             if (action.getNumber() == i) {
                 return action;

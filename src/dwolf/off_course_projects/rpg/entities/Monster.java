@@ -1,4 +1,4 @@
-package dwolf.off_course_projects.rpg;
+package dwolf.off_course_projects.rpg.entities;
 
 public class Monster {
     private String name;
@@ -6,40 +6,40 @@ public class Monster {
     private int strength;
 
     // Very basic attacking
-    void attack(Character character, Monster monster) {
+    public void attack(Character character, Monster monster) {
         // Reduces HP of attacked character, based on monsters strength
         character.setHealthPoints(character.getHealthPoints() - monster.getStrength());
         System.out.printf("Your HP: %d\n", character.getHealthPoints());
     }
 
     // The section below contains boilerplate code like the constructor and all the getters and setters
-    Monster(String name, int healthPoints, int strength) {
+    public Monster(String name, int healthPoints, int strength) {
         this.name = name;
         this.healthPoints = healthPoints;
         this.strength = strength;
     }
 
-    String getName() {
+    public String getName() {
         return name;
     }
 
-    void setName(String name) {
+    protected void setName(String name) {
         this.name = name;
     }
 
-    int getHealthPoints() {
+    public int getHealthPoints() {
         return healthPoints;
     }
 
-    void setHealthPoints(int healthPoints) {
+    public void setHealthPoints(int healthPoints) {
         this.healthPoints = healthPoints;
     }
 
-    int getStrength() {
+    public int getStrength() {
         return strength;
     }
 
-    void setStrength(int strength) {
+    protected void setStrength(int strength) {
         this.strength = strength;
     }
 }
