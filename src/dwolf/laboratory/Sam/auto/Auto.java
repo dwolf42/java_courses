@@ -1,4 +1,4 @@
-package Sam.auto;
+package dwolf.laboratory.Sam.auto;
 
 public class Auto {
     int fenster;
