@@ -18,6 +18,5 @@ public class AngleBetweenVectors {
         double radians = Math.acos(dotProduct / (magnitudeU * magnitudeV));
         int degrees = (int)(Math.toDegrees(radians));
         System.out.println(degrees);
-
     }
 }
