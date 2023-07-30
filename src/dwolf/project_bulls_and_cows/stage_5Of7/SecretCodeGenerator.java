@@ -28,7 +28,7 @@ class SecretCodeGenerator {
         return randomCode.toString();
     }
 
-    // Creates a new secret code which will be customized as the task requests.
+    // Creates a new secret code of codeGivenLength, and only contains unique numbers.
     // Code length is not affected, so there are more digits to choose if a second code for spare numbers is needed.
     private StringBuilder createCode() {
         StringBuilder code = new StringBuilder(getPseudoRandomNumberString());
