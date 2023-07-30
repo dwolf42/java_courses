@@ -66,9 +66,7 @@ public class Main {
     protected static void initialize() {
         System.out.println("Please, enter the secret code's length:");
         // Anonymous object, since it's only used here.
-        // String input ins parsed to int, since SecretCode().getSecretCode() requires int, for
-        // further detail: See getInput()
-        secretCode = new SecretCode().getSecretCode(Integer.parseInt(getInput()));
+        secretCode = new SecretCodeGenerator().getSecretCode(Integer.parseInt(getInput()));
         winBulls = secretCode.length();
         System.out.println("Okay, let's start the game!");
 

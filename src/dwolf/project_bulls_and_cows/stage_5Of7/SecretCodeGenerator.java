@@ -1,13 +1,14 @@
 package dwolf.project_bulls_and_cows.stage_5Of7;
 
+import java.util.Random;
+
 /**
  * ~~Class description~~
  * This class has the task of generating a new secret code of a user-given length, which than has to be guessed in the
- * Bulls and Cows game. In the process, System.nanoTime is utilized to generate a pseudo-random number as a string.
- * The secret code's length must not exceed a length of 10, since longer numbers would lack uniqueness.
+ * Bulls and Cows game.
  */
 
-class SecretCode {
+class SecretCodeGenerator {
     private int codeGivenSize;
 
     // Create getSecretCode and createCode are separated from each other to maintain re-usability.
@@ -19,7 +20,6 @@ class SecretCode {
         while (this.codeGivenSize > 10) {
             System.out.printf("Error: can't generate a secret number with a length of %d because " +
                     "there aren't enough unique digits.\n", codeGivenSize);
-
             this.codeGivenSize = Integer.parseInt(Main.getInput());
         }
 
@@ -37,15 +37,10 @@ class SecretCode {
     private StringBuilder createCode() {
         StringBuilder code = new StringBuilder(getPseudoRandomNumberString());
 
-        reverseCode(code);
         deleteLeadingZero(code);
         deleteDuplicates(code);
 
         return code;
-    }
-
-    private void reverseCode(StringBuilder generatedCode) {
-        generatedCode.reverse();
     }
 
     private void deleteLeadingZero(StringBuilder generatedCode) {
@@ -79,13 +74,19 @@ class SecretCode {
     }
 
     private void extendCode(StringBuilder generatedCode) {
+        System.out.println("in extendCode: " + generatedCode);
         StringBuilder spareRandomCode = createCode();
         generatedCode.append(spareRandomCode);
         deleteDuplicates(generatedCode);
     }
 
     private String getPseudoRandomNumberString() {
-        return Long.toString(System.nanoTime());
+        int minValue = (int) Math.pow(10, this.codeGivenSize - 1); // Calculate maximum value based on codeGivenSize.
+        int maxValue = (int) Math.pow(10, this.codeGivenSize) - 1; // Calculate minimum value based on codeGivenSize.
+        Random random = new Random();
+        int randomNumber = random.nextInt(maxValue - minValue + 1) + minValue; // Generate random number in range
+        System.out.println(randomNumber);
+        return String.valueOf(randomNumber);
     }
 
 }
