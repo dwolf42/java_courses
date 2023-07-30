@@ -16,19 +16,15 @@ class SecretCodeGenerator {
     // if the first one is too small.
     protected String getSecretCode(int codeGivenSize) {
         this.codeGivenSize = codeGivenSize;
-
         while (this.codeGivenSize > 10) {
             System.out.printf("Error: can't generate a secret number with a length of %d because " +
                     "there aren't enough unique digits.\n", codeGivenSize);
             this.codeGivenSize = Integer.parseInt(Main.getInput());
         }
-
         StringBuilder randomCode = createCode();
-
         while (randomCode.length() != this.codeGivenSize) {
             adjustCodeLength(randomCode);
         }
-
         return randomCode.toString();
     }
 
@@ -36,10 +32,7 @@ class SecretCodeGenerator {
     // Code length is not affected, so there are more digits to choose if a second code for spare numbers is needed.
     private StringBuilder createCode() {
         StringBuilder code = new StringBuilder(getPseudoRandomNumberString());
-
-        deleteLeadingZero(code);
         deleteDuplicates(code);
-
         return code;
     }
 
