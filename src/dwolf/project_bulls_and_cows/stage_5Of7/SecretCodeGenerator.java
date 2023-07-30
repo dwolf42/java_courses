@@ -23,7 +23,7 @@ class SecretCodeGenerator {
         }
         StringBuilder randomCode = createCode();
         while (randomCode.length() != this.codeGivenSize) {
-            adjustCodeLength(randomCode);
+            assureCodeLength(randomCode);
         }
         return randomCode.toString();
     }
@@ -54,7 +54,7 @@ class SecretCodeGenerator {
         }
     }
 
-    private void adjustCodeLength(StringBuilder generatedCode) {
+    private void assureCodeLength(StringBuilder generatedCode) {
         if (generatedCode.length() > codeGivenSize) {
             shortenCode(generatedCode);
         } else {
