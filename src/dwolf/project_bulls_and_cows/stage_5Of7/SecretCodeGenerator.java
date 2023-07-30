@@ -61,7 +61,6 @@ class SecretCodeGenerator {
     }
 
     private void extendCode(StringBuilder generatedCode) {
-        System.out.println("in extendCode: " + generatedCode);
         StringBuilder spareRandomCode = createCode();
         generatedCode.append(spareRandomCode);
         deleteDuplicates(generatedCode);
