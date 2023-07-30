@@ -36,12 +36,6 @@ class SecretCodeGenerator {
         return code;
     }
 
-    private void deleteLeadingZero(StringBuilder generatedCode) {
-        while (generatedCode.charAt(0) == '0') {
-            generatedCode.delete(0, 1);
-        }
-    }
-
     // Inner loop compares all the other characters to the character of the outer loop.
     // It runs backwards to prevent skipping indices after deletion.
     private void deleteDuplicates(StringBuilder generatedCode) {
