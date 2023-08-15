@@ -16,17 +16,16 @@ class SecretCodeGenerator {
 
     private String secretCode = "";
 
-    public String getSecretCode(int codeGivenLength) {
+    public String getSecretCode(int codeLength, int codeComplexity) {
 
-        secretCode = String.valueOf(alphanumeric[getRandomIntFromSeed(codeGivenLength)]);
+        secretCode = String.valueOf(alphanumeric[getRandomIntFromSeed(codeComplexity)]);
 
-        while (secretCode.length() != codeGivenLength) {
-            int index = getRandomIntFromSeed(codeGivenLength);
+        while (secretCode.length() != codeLength) {
+            int index = getRandomIntFromSeed(codeComplexity);
             if (!secretCode.contains(String.valueOf(alphanumeric[index]))) {
                 secretCode += String.valueOf(alphanumeric[index]);
             }
         }
-
         return secretCode;
     }
 
