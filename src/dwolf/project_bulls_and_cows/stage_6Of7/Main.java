@@ -55,7 +55,7 @@ public class Main {
 
     // How many bulls are required to win is determined by the length of the code the user wants to guess.
     static int codeLength;
-    static int codeComplexity;
+//    static int codeComplexity;
     static String secretCode;
 
     public static void main(String[] args) {
@@ -63,8 +63,10 @@ public class Main {
     }
 
     protected static void initialize() {
+        SecretCodeGenerator scg = new SecretCodeGenerator();
         codeLength = askCodeLength();
-        codeComplexity = askCodeComplexity();
+
+        secretCode = scg.getSecretCode(codeLength, askCodeComplexity());
 
     }
     protected static int askCodeLength() {
@@ -78,8 +80,8 @@ public class Main {
         int complexity = Integer.parseInt(getInput());
 
         while (complexity > 36) {
-            System.out.println("Error: can't generate a secret with a length above 37 because there aren't enough unique" +
-                    " characters.");
+            System.out.println("Error: can't generate a secret with a length above 36 because there aren't enough" +
+                    " unique characters.");
             System.out.println("Please enter a number not greater than 36.");
             System.out.println("Input the number of possible symbols in the code:");
             complexity = Integer.parseInt(getInput());
