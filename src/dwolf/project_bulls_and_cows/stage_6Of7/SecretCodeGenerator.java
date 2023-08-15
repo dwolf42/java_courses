@@ -37,5 +37,11 @@ class SecretCodeGenerator {
         return new Random().nextInt(seed);
     }
 
+    public char[] getAlphanumeric() {
+        char[] alphanumericCopy = new char[alphanumeric.length];
+        System.arraycopy(alphanumeric, 0, alphanumericCopy, 0, alphanumericCopy.length);
+        return alphanumericCopy;
+    }
+
 
 }
