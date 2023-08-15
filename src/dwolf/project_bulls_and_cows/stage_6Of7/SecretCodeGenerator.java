@@ -14,23 +14,22 @@ class SecretCodeGenerator {
             'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
             'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
 
-    private String secretCode = "";
-
     public String getSecretCode(int codeLength, int codeComplexity) {
         // The complexity of the code should never be below 10, otherwise the algorithm will crash
         if (codeComplexity < 10) {
             codeComplexity = 10;
         }
 
-        secretCode = String.valueOf(alphanumeric[getRandomIntFromSeed(codeComplexity)]);
+        StringBuilder secretCode = new StringBuilder();
+        secretCode.append(alphanumeric[getRandomIntFromSeed(codeComplexity)]);
 
         while (secretCode.length() != codeLength) {
             int index = getRandomIntFromSeed(codeComplexity);
-            if (!secretCode.contains(String.valueOf(alphanumeric[index]))) {
-                secretCode += String.valueOf(alphanumeric[index]);
+            if (secretCode.indexOf(String.valueOf(alphanumeric[index])) == -1) {
+                secretCode.append(alphanumeric[index]);
             }
         }
-        return secretCode;
+        return String.valueOf(secretCode);
     }
 
     // Result excludes upper boundary/seed value itself
