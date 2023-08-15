@@ -55,19 +55,20 @@ public class Main {
 
     // How many bulls are required to win is determined by the length of the code the user wants to guess.
     static int codeLength;
-//    static int codeComplexity;
+    static int codeComplexity;
     static String secretCode;
+    static SecretCodeGenerator scg;
 
     public static void main(String[] args) {
         initialize();
     }
 
     protected static void initialize() {
-        SecretCodeGenerator scg = new SecretCodeGenerator();
+        scg = new SecretCodeGenerator();
         codeLength = askCodeLength();
-
-        secretCode = scg.getSecretCode(codeLength, askCodeComplexity());
-
+        codeComplexity = askCodeComplexity();
+        secretCode = scg.getSecretCode(codeLength, codeComplexity);
+        run();
     }
     protected static int askCodeLength() {
         System.out.println("Input the length of the secret code:");
@@ -94,6 +95,16 @@ public class Main {
     // evaluates these against each other.
     // This method could have been broken down further, but I wanted to keep things simple.
     protected static void run() {
+        System.out.print("The secret code is prepared: ");
+
+        for(int i = 0; i < codeLength; i++) {
+            System.out.print("*");
+        }
+
+        System.out.println(codeComplexity < 11 ? " (0-9)" : " (0-9, " + scg.getAlphanumeric()[10] + "-" +
+                scg.getAlphanumeric()[codeComplexity - 1] + ").");
+        System.out.println("Okay, let's start a game!");
+
         System.out.printf("Turn %d: \n",
                 turn);
 
