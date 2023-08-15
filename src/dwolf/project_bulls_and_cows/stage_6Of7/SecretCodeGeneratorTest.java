@@ -20,7 +20,7 @@ class SecretCodeGeneratorTest {
     @Test
     void testGetSecretCode() {
         SecretCodeGenerator gen = new SecretCodeGenerator();
-        System.out.println(gen.getSecretCode(4, 11));
+        System.out.println(gen.getSecretCode(4, 0));
 
     }
 

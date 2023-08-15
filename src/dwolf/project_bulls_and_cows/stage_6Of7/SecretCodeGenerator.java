@@ -17,6 +17,10 @@ class SecretCodeGenerator {
     private String secretCode = "";
 
     public String getSecretCode(int codeLength, int codeComplexity) {
+        // The complexity of the code should never be below 10, otherwise the algorithm will crash
+        if (codeComplexity < 10) {
+            codeComplexity = 10;
+        }
 
         secretCode = String.valueOf(alphanumeric[getRandomIntFromSeed(codeComplexity)]);
 
