@@ -67,8 +67,8 @@ class SecretCodeGenerator {
     }
 
     private String getPseudoRandomNumberString() {
-        int minValue = (int) Math.pow(10, this.codeGivenSize - 1); // Calculate maximum value based on codeGivenSize.
-        int maxValue = (int) Math.pow(10, this.codeGivenSize) - 1; // Calculate minimum value based on codeGivenSize.
+        int minValue = (int) Math.pow(10, this.codeGivenSize - 1); // Calculate minimum value based on codeGivenSize.
+        int maxValue = (int) Math.pow(10, this.codeGivenSize) - 1; // Calculate maximum value based on codeGivenSize.
         Random random = new Random();
         int randomNumber = random.nextInt(maxValue - minValue + 1) + minValue; // Generate random number in range
         System.out.println(randomNumber);

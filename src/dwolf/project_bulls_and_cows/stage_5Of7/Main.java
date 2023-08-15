@@ -85,7 +85,7 @@ public class Main {
         char[] guess = getInput().toCharArray();
 
         // Anonymous object, since it's only used here.
-        // animalFold[] is where the code saves how many bulls and cows are correctly guesses.
+        // animalFold[] is where the code saves how many bulls and cows are correctly guessed.
         int[] animalFold = new Grader().countCows(secret, guess);
 
         if (animalFold[indexBulls] == winBulls) {
@@ -97,7 +97,7 @@ public class Main {
                 turn++;
                 run();
             } else {
-                // Decided to go for switch statement, for the sake of code clarity. Too may if-statements would
+                // I decided to use switch statement, for the sake of code clarity. Too may if-statements would
                 // clutter code and make it harder to read.
                 switch (animalFold[indexBulls]) {
                     case 0:
