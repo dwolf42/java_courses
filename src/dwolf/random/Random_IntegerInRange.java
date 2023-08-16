@@ -12,11 +12,12 @@ public class Random_IntegerInRange {
         }
 
     }
+
     // Including boundary
     // The random number I receive from Random is always from 0-30.
     // When I receive 4 the lower value will be added, which is 54.
     // By adding the lower boundary, I can never get a smaller value than lower!
-    private static int randomNumberInRange(int upper, int lower) {
+    public static int randomNumberInRange(int upper, int lower) {
         return new Random().nextInt(upper - lower + 1) + lower;
     }
 }
