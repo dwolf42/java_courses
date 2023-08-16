@@ -59,11 +59,7 @@ public class Main {
     static String secretCode;
     static SecretCodeGenerator scg;
 
-    public static void main(String[] args) {
-        initialize();
-    }
-
-    protected static void initialize() {
+    public Main() {
         scg = new SecretCodeGenerator();
         codeLength = askCodeLength();
         codeComplexity = askCodeComplexity();
@@ -78,6 +74,14 @@ public class Main {
         System.out.println(codeComplexity < 11 ? " (0-9)" : " (0-9, " + scg.getAlphanumeric()[10] + "-" +
                 scg.getAlphanumeric()[codeComplexity - 1] + ").");
         System.out.println("Okay, let's start a game!");
+    }
+
+    public static void main(String[] args) {
+        initialize();
+    }
+
+    protected static void initialize() {
+
 
         run();
     }
