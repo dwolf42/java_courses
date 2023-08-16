@@ -63,7 +63,6 @@ public class Engine {
         codeLength = askCodeLength();
         codeComplexity = askCodeComplexity();
         secretCode = generator.getSecretCode(codeLength, codeComplexity);
-        System.out.println("Secret code: " + secretCode);
         System.out.print("The secret code is prepared: ");
 
         for (int i = 0; i < codeLength; i++) {
@@ -123,13 +122,13 @@ public class Engine {
             int cows = grader.getCows();
 
             if (bulls == codeLength) {
-                System.out.printf("Grade: %d bulls.\nCongrats! The secret code is %s.", codeLength, secretCode);
+                System.out.printf("Grade: %d bulls.\nCongratulations! You guessed the secret code.", codeLength);
                 return;
             }
 
             StringBuilder gradeMsg = getStringBuilder(bulls, cows);
 
-            System.out.println("Grade: " + gradeMsg + ".");
+            System.out.println("Grade: " + gradeMsg);
             turn++;
         }
     }
@@ -139,13 +138,21 @@ public class Engine {
         StringBuilder gradeMsg = new StringBuilder();
 
         if (bulls > 0) {
-            gradeMsg.append(String.format("%d bull(s)", bulls));
+            if (bulls == 1) {
+                gradeMsg.append(String.format("%d bull", bulls));
+            } else {
+                gradeMsg.append(String.format("%d bulls", bulls));
+            }
         }
         if (cows > 0) {
             if (!gradeMsg.isEmpty()) {
-                gradeMsg.append(" ");
-            } // Add space if we already have bulls
-            gradeMsg.append(String.format("%d cow(s)", cows));
+                gradeMsg.append(" "); // Add space if we already have bulls
+            }
+            if (cows == 1) {
+                gradeMsg.append(String.format("%d cow", cows));
+            } else {
+                gradeMsg.append(String.format("%d cows", cows));
+            }
         }
         if (gradeMsg.isEmpty()) {
             gradeMsg.append("None");

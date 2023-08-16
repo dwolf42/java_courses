@@ -12,6 +12,9 @@ class Grader {
     // A bull is, if the guessed number is at the same position of the generated number.
     // Whereas a cow is, if the guessed number is part of the generated number, but only at the wrong place.
     protected void gradeGuess(String secretCode, String guess) {
+        // Reset bulls and cows ever guess. This flushes results of previous turn.
+        bulls = 0;
+        cows = 0;
         for (int i = 0; i < secretCode.length(); i++) {
             for (int j = 0; j < guess.length(); j++) {
                 if (secretCode.charAt(i) == guess.charAt(j) && i == j) {

@@ -94,12 +94,20 @@ class GraderTest {
 
     @Test
     void testGradeAmount2() {
-        String testSecretCode = "51bc";
-        String testGuess = "5100";
+        String testSecretCode = "34ba";
+        String testGuess = "4000";
         grade.gradeGuess(testSecretCode, testGuess);
         int bulls = grade.getBulls();
+        System.out.println("bulls" + bulls);
         int cows = grade.getCows();
-        assertEquals(2, bulls);
+        System.out.println("cows" + cows);
+        testGuess = "0400";
+        grade.gradeGuess(testSecretCode, testGuess);
+        bulls = grade.getBulls();
+        System.out.println("bulls" + bulls);
+        cows = grade.getCows();
+        System.out.println("cows" + cows);
+        assertEquals(1, bulls);
         assertEquals(0, cows);
     }
 
