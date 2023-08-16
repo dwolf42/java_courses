@@ -12,19 +12,19 @@ public class Engine {
     static final int indexCows = 1;
 
     // How many bulls are required to win is determined by the length of the code the user wants to guess.
-    static int codeLength;
-    static int codeComplexity;
-    static String secretCode;
-    static SecretCodeGenerator scg;
+    int codeLength;
+    int codeComplexity;
+    String secretCode;
+    SecretCodeGenerator generator;
 
     public Engine() {
-        scg = new SecretCodeGenerator();
+        generator = new SecretCodeGenerator();
     }
 
     public void startGame() {
         codeLength = askCodeLength();
         codeComplexity = askCodeComplexity();
-        secretCode = scg.getSecretCode(codeLength, codeComplexity);
+        secretCode = generator.getSecretCode(codeLength, codeComplexity);
 
         System.out.print("The secret code is prepared: ");
 
@@ -32,11 +32,11 @@ public class Engine {
             System.out.print("*");
         }
 
-        System.out.println(codeComplexity < 11 ? " (0-9)" : " (0-9, " + scg.getAlphanumeric()[10] + "-" +
-                scg.getAlphanumeric()[codeComplexity - 1] + ").");
+        System.out.println(codeComplexity < 11 ? " (0-9)" : " (0-9, " + generator.getAlphanumeric()[10] + "-" +
+                generator.getAlphanumeric()[codeComplexity - 1] + ").");
         System.out.println("Okay, let's start a game!");
 
-        play();
+        gameLoop();
     }
     protected static int askCodeLength() {
         System.out.println("Input the length of the secret code:");
