@@ -64,7 +64,8 @@ public class Engine {
     // This method could have been broken down further, but I wanted to keep things simple.
     // TODO: run() is way to big, complex, and has too many responsibilities. It must be broken down.
     //  Also the method is lacking testability.
-    protected static void play() {
+    protected void gameLoop() {
+
 
         System.out.printf("Turn %d: \n",
                 turn);
@@ -84,7 +85,7 @@ public class Engine {
             if (animalFold[indexBulls] == 0 && animalFold[indexCows] == 0) {
                 System.out.println("Grade: None.");
                 turn++;
-                play();
+                gameLoop();
             } else {
                 // I decided to use switch statement, for the sake of code clarity. Too may if-statements would
                 // clutter code and make it harder to read.
@@ -93,13 +94,13 @@ public class Engine {
                         System.out.printf("Grade: %d cow(s).\n",
                                 animalFold[indexCows]);
                         turn++;
-                        play();
+                        gameLoop();
                         break;
                     default:
                         System.out.printf("Grade: %d bull(s) %d cow(s).\n",
                                 animalFold[indexBulls], animalFold[indexCows]);
                         turn++;
-                        play();
+                        gameLoop();
                         break;
                 }
             }
