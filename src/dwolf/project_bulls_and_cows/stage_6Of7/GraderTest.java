@@ -14,9 +14,57 @@ class GraderTest {
     }
 
     @Test
-    void testGradeGuess() {
+    void testGradeGuessAllCows() {
         String testSecretCode = "3210";
         String testGuess = "0132";
+        grade.gradeGuess(testSecretCode, testGuess);
+        int bulls = grade.getBulls();
+        int cows = grade.getCows();
+        assertTrue(bulls >= 0 && bulls <= testSecretCode.length(),
+                String.format("Bulls result '%d' is larger than expected", bulls));
+        assertTrue(cows >= 0 && cows <= testSecretCode.length(),
+                String.format("Cows result '%d' is larger than expected", cows));
+        assertFalse(bulls == testSecretCode.length() && cows > 0,
+                String.format("Cows value '%d' is higher than 0 if there are length: '%d' bulls bulls: %d",
+                        cows, testSecretCode.length(), bulls));
+    }
+
+    @Test
+    void testGradeGuessAllBulls() {
+        String testSecretCode = "3210";
+        String testGuess = "3210";
+        grade.gradeGuess(testSecretCode, testGuess);
+        int bulls = grade.getBulls();
+        int cows = grade.getCows();
+        assertTrue(bulls >= 0 && bulls <= testSecretCode.length(),
+                String.format("Bulls result '%d' is larger than expected", bulls));
+        assertTrue(cows >= 0 && cows <= testSecretCode.length(),
+                String.format("Cows result '%d' is larger than expected", cows));
+        assertTrue(bulls == testSecretCode.length() && cows > 0,
+                String.format("Cows value '%d' is higher than 0 if there are length: '%d' bulls bulls: %d",
+                        cows, testSecretCode.length(), bulls));
+    }
+
+    @Test
+    void testGradeGuessNoHit() {
+        String testSecretCode = "3210";
+        String testGuess = "7777";
+        grade.gradeGuess(testSecretCode, testGuess);
+        int bulls = grade.getBulls();
+        int cows = grade.getCows();
+        assertTrue(bulls >= 0 && bulls <= testSecretCode.length(),
+                String.format("Bulls result '%d' is larger than expected", bulls));
+        assertTrue(cows >= 0 && cows <= testSecretCode.length(),
+                String.format("Cows result '%d' is larger than expected", cows));
+        assertFalse(bulls == testSecretCode.length() && cows > 0,
+                String.format("Cows value '%d' is higher than 0 if there are length: '%d' bulls bulls: %d",
+                        cows, testSecretCode.length(), bulls));
+    }
+
+    @Test
+    void testGradeGuessOneHitEach() {
+        String testSecretCode = "3210";
+        String testGuess = "3707";
         grade.gradeGuess(testSecretCode, testGuess);
         int bulls = grade.getBulls();
         int cows = grade.getCows();
