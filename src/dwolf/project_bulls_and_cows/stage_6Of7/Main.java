@@ -68,6 +68,17 @@ public class Main {
         codeLength = askCodeLength();
         codeComplexity = askCodeComplexity();
         secretCode = scg.getSecretCode(codeLength, codeComplexity);
+
+        System.out.print("The secret code is prepared: ");
+
+        for(int i = 0; i < codeLength; i++) {
+            System.out.print("*");
+        }
+
+        System.out.println(codeComplexity < 11 ? " (0-9)" : " (0-9, " + scg.getAlphanumeric()[10] + "-" +
+                scg.getAlphanumeric()[codeComplexity - 1] + ").");
+        System.out.println("Okay, let's start a game!");
+
         run();
     }
     protected static int askCodeLength() {
@@ -97,15 +108,6 @@ public class Main {
     // TODO: run() is way to big, complex, and has too many responsibilities. It must be broken down.
     //  Also the method is lacking testability.
     protected static void run() {
-        System.out.print("The secret code is prepared: ");
-
-        for(int i = 0; i < codeLength; i++) {
-            System.out.print("*");
-        }
-
-        System.out.println(codeComplexity < 11 ? " (0-9)" : " (0-9, " + scg.getAlphanumeric()[10] + "-" +
-                scg.getAlphanumeric()[codeComplexity - 1] + ").");
-        System.out.println("Okay, let's start a game!");
 
         System.out.printf("Turn %d: \n",
                 turn);
