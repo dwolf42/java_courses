@@ -94,6 +94,8 @@ public class Main {
     // Manages the game logic. Generated secret code, and the users guess are pre-processed here, before Grader()
     // evaluates these against each other.
     // This method could have been broken down further, but I wanted to keep things simple.
+    // TODO: run() is way to big, complex, and has too many responsibilities. It must be broken down.
+    //  Also the method is lacking testability.
     protected static void run() {
         System.out.print("The secret code is prepared: ");
 
