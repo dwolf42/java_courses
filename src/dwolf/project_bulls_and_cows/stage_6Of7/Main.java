@@ -77,14 +77,9 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        initialize();
-    }
-
-    protected static void initialize() {
-
-
         run();
     }
+
     protected static int askCodeLength() {
         System.out.println("Input the length of the secret code:");
         return Integer.parseInt(getInput());
