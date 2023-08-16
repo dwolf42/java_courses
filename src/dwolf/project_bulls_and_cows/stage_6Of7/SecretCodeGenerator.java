@@ -7,10 +7,10 @@ import java.util.Random;
  * This class has the task of generating a new secret code of a user-given length, which than has to be guessed in the
  * Bulls and Cows game.
  */
-
 class SecretCodeGenerator {
 
-    private final char[] alphanumeric = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+    // Set of possible characters
+    private final char[] alphanumericArray = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
             'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
             'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
 
@@ -21,12 +21,12 @@ class SecretCodeGenerator {
         }
 
         StringBuilder secretCode = new StringBuilder();
-        secretCode.append(alphanumeric[getRandomIntFromSeed(codeComplexity)]);
+        secretCode.append(alphanumericArray[getRandomIntFromSeed(codeComplexity)]);
 
         while (secretCode.length() != codeLength) {
             int index = getRandomIntFromSeed(codeComplexity);
-            if (secretCode.indexOf(String.valueOf(alphanumeric[index])) == -1) {
-                secretCode.append(alphanumeric[index]);
+            if (secretCode.indexOf(String.valueOf(alphanumericArray[index])) == -1) {
+                secretCode.append(alphanumericArray[index]);
             }
         }
         return String.valueOf(secretCode);
@@ -37,9 +37,9 @@ class SecretCodeGenerator {
         return new Random().nextInt(seed);
     }
 
-    public char[] getAlphanumeric() {
-        char[] alphanumericCopy = new char[alphanumeric.length];
-        System.arraycopy(alphanumeric, 0, alphanumericCopy, 0, alphanumericCopy.length);
+    public char[] getAlphanumericArray() {
+        char[] alphanumericCopy = new char[alphanumericArray.length];
+        System.arraycopy(alphanumericArray, 0, alphanumericCopy, 0, alphanumericCopy.length);
         return alphanumericCopy;
     }
 

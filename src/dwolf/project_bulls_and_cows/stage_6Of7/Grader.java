@@ -1,14 +1,14 @@
 package dwolf.project_bulls_and_cows.stage_6Of7;
 
 /**
- * Secret code vs. guessed code comparison is the only task for this class.
+ *  * ~~Class description~~
+ * Secret code vs. guessed code comparison.
  */
 class Grader {
 
     private int bulls;
     private int cows;
 
-    // FIXME: bulls are count as cows, which is wrong
     // A bull is, if the guessed number is at the same position of the generated number.
     // Whereas a cow is, if the guessed number is part of the generated number, but only at the wrong place.
     protected void gradeGuess(String secretCode, String guess) {
@@ -22,6 +22,11 @@ class Grader {
                 }
             }
         }
+
+        // Prevent counting bulls as cows
+        if (cows >= bulls) {
+            cows -= bulls;
+        }
     }
 
     public int getBulls() {
@@ -32,7 +37,4 @@ class Grader {
         return cows;
     }
 
-    protected int[] countCows(char[] secretCode, char[] guess) {
-        return new int[]{bulls, cows >= bulls ? cows - bulls : cows};
-    }
 }

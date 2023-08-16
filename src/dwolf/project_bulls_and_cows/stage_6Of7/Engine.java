@@ -2,44 +2,98 @@ package dwolf.project_bulls_and_cows.stage_6Of7;
 
 import java.util.Scanner;
 
+/**
+ * ~~Class description~~
+ * The game gets initialized and executed here. User input will be taken.
+ * WARNING: There is no input safety check!
+ * Wrong input, like letters instead of numbers will likely crash the application.
+ * The user prompts are located in this class, as well as the determination if the user won the game or another turn is
+ * required.
+ * <p>
+ * <p>
+ * ~~Task description~~
+ * Some players need a challenge, so let's make the secret code in the game harder to guess. Add support for more than 10
+ * symbols by adding letters. Now, the secret code can contain the numbers 0-9 and the lowercase Latin characters a-z.
+ * The new maximum length for the code is 36. Note that the length of the secret word may not match the number of possible
+ * characters in the secret code, so you should request input twice: once for the secret code length and once for the
+ * number of possible characters.
+ * <p>
+ * ~~Objectives~~
+ * In this step, your program should:
+ * <p>
+ * 1. Ask for the length of the secret code.
+ * 2. Ask for the range of possible characters in the secret code.
+ * 3. Generate a secret code using numbers and characters. This time, you should also print the secret code using *
+ * characters and print, which characters were used to generate the secret code.
+ * 4. Function as a fully playable game.
+ * <p>
+ * <p>
+ * ~~Example~~
+ * The greater-than symbol followed by a space > represents the user input. Note that it's not part of the input.
+ * <p>
+ * Input the length of the secret code:
+ * > 4
+ * Input the number of possible symbols in the code:
+ * > 16
+ * The secret is prepared: **** (0-9, a-f).
+ * Okay, let's start a game!
+ * Turn 1:
+ * > 1a34
+ * Grade: 1 bull and 1 cow
+ * Turn 2:
+ * > b354
+ * Grade: 2 bulls and 1 cow
+ * Turn 3:
+ * > 93b4
+ * Grade: 4 bulls
+ * Congratulations! You guessed the secret code.
+ */
 public class Engine {
-    // Game starts at turn 1
     int turn = 1;
-    int currentBulls = 0;
     int codeLength;
     int codeComplexity;
     String secretCode;
     SecretCodeGenerator generator;
 
-    public Engine() {
+    Engine() {
         generator = new SecretCodeGenerator();
     }
 
-    public void startGame() {
+    void startGame() {
         codeLength = askCodeLength();
         codeComplexity = askCodeComplexity();
         secretCode = generator.getSecretCode(codeLength, codeComplexity);
-
+        System.out.println("Secret code: " + secretCode);
         System.out.print("The secret code is prepared: ");
 
         for (int i = 0; i < codeLength; i++) {
             System.out.print("*");
         }
 
-        System.out.println(codeComplexity < 11 ? " (0-9)" : " (0-9, " + generator.getAlphanumeric()[10] + "-" +
-                generator.getAlphanumeric()[codeComplexity - 1] + ").");
+        System.out.println(codeComplexity < 11 ? " (0-9)" : " (0-9, " + generator.getAlphanumericArray()[10] + "-" +
+                generator.getAlphanumericArray()[codeComplexity - 1] + ").");
         System.out.println("Okay, let's start a game!");
 
         gameLoop();
     }
 
-    protected int askCodeLength() {
+    private int askCodeLength() {
         System.out.println("Input the length of the secret code:");
-        return Integer.parseInt(getInput());
+
+        int length = Integer.parseInt(getInput());
+
+        while (length > 36) {
+            System.out.println("Error: can't generate a secret with a length above 36 because there aren't enough" +
+                    " unique characters.");
+            System.out.println("Please enter a number not greater than 36.");
+            System.out.println("Input the number of possible symbols in the code:");
+            length = Integer.parseInt(getInput());
+        }
+
+        return length;
     }
 
-    // Starts the game, by getting a new secret code and setting win condition.
-    protected int askCodeComplexity() {
+    private int askCodeComplexity() {
         System.out.println("Input the number of possible symbols in the code:");
 
         int complexity = Integer.parseInt(getInput());
@@ -55,56 +109,52 @@ public class Engine {
         return complexity;
     }
 
-    // Manages the game logic. Generated secret code, and the users guess are pre-processed here, before Grader()
-    // evaluates these against each other.
-    // This method could have been broken down further, but I wanted to keep things simple.
-    // TODO: run() is way to big, complex, and has too many responsibilities. It must be broken down.
-    //  Also the method is lacking testability.
-    protected void gameLoop() {
+    private void gameLoop() {
         Grader grader = new Grader();
         String guess;
 
-        while (currentBulls != codeLength) {
+        while (true) {
             System.out.printf("Turn %d: \n",
                     turn);
             guess = getInput();
             grader.gradeGuess(secretCode, guess);
 
-            if (animalFold[indexBulls] == codeLength) {
+            int bulls = grader.getBulls();
+            int cows = grader.getCows();
 
-            } else {
-                if (animalFold[indexBulls] == 0 && animalFold[indexCows] == 0) {
-                    System.out.println("Grade: None.");
-                    turn++;
-                    gameLoop();
-                } else {
-                    // I decided to use switch statement, for the sake of code clarity. Too may if-statements would
-                    // clutter code and make it harder to read.
-                    switch (animalFold[indexBulls]) {
-                        case 0:
-                            System.out.printf("Grade: %d cow(s).\n",
-                                    animalFold[indexCows]);
-                            turn++;
-                            gameLoop();
-                            break;
-                        default:
-                            System.out.printf("Grade: %d bull(s) %d cow(s).\n",
-                                    animalFold[indexBulls], animalFold[indexCows]);
-                            turn++;
-                            gameLoop();
-                            break;
-                    }
-                }
+            if (bulls == codeLength) {
+                System.out.printf("Grade: %d bulls.\nCongrats! The secret code is %s.", codeLength, secretCode);
+                return;
             }
+
+            StringBuilder gradeMsg = getStringBuilder(bulls, cows);
+
+            System.out.println("Grade: " + gradeMsg + ".");
+            turn++;
         }
-        System.out.printf("Grade: %d bulls.\nCongrats! The secret code is %s.",
-                animalFold[indexBulls], secretCode);
     }
 
-    // I wanted to have only one method responsible to get user input. As the whole evaluation of the secret code vs.
-    // guessed code is done by string processing, all inputs are taken as string.
-    // WARNING: There is no input safety, in order to save time by focusing on the main task objectives.
-    protected String getInput() {
+    // Determine the grading message based on the number of bulls and cows.
+    private static StringBuilder getStringBuilder(int bulls, int cows) {
+        StringBuilder gradeMsg = new StringBuilder();
+
+        if (bulls > 0) {
+            gradeMsg.append(String.format("%d bull(s)", bulls));
+        }
+        if (cows > 0) {
+            if (!gradeMsg.isEmpty()) {
+                gradeMsg.append(" ");
+            } // Add space if we already have bulls
+            gradeMsg.append(String.format("%d cow(s)", cows));
+        }
+        if (gradeMsg.isEmpty()) {
+            gradeMsg.append("None");
+        }
+        return gradeMsg;
+    }
+
+    private String getInput() {
         return new Scanner(System.in).nextLine();
     }
+
 }
