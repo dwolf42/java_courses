@@ -4,12 +4,12 @@ import java.util.Scanner;
 
 public class Engine {
     // Game starts at turn 1
-    static int turn = 1;
+    int turn = 1;
 
     // The amount of bulls and cows are stored in an array. These are the indices that describe where in animalFold[]
     // the corresponding values are stored.
-    static final int indexBulls = 0;
-    static final int indexCows = 1;
+    final int indexBulls = 0;
+    final int indexCows = 1;
 
     // How many bulls are required to win is determined by the length of the code the user wants to guess.
     int codeLength;
@@ -28,7 +28,7 @@ public class Engine {
 
         System.out.print("The secret code is prepared: ");
 
-        for(int i = 0; i < codeLength; i++) {
+        for (int i = 0; i < codeLength; i++) {
             System.out.print("*");
         }
 
@@ -38,12 +38,14 @@ public class Engine {
 
         gameLoop();
     }
-    protected static int askCodeLength() {
+
+    protected int askCodeLength() {
         System.out.println("Input the length of the secret code:");
         return Integer.parseInt(getInput());
     }
+
     // Starts the game, by getting a new secret code and setting win condition.
-    protected static int askCodeComplexity() {
+    protected int askCodeComplexity() {
         System.out.println("Input the number of possible symbols in the code:");
 
         int complexity = Integer.parseInt(getInput());
@@ -102,7 +104,7 @@ public class Engine {
     // I wanted to have only one method responsible to get user input. As the whole evaluation of the secret code vs.
     // guessed code is done by string processing, all inputs are taken as string.
     // WARNING: There is no input safety, in order to save time by focusing on the main task objectives.
-    protected static String getInput() {
+    protected String getInput() {
         return new Scanner(System.in).nextLine();
     }
 }
