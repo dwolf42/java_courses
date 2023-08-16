@@ -70,14 +70,6 @@ public class Engine {
         System.out.printf("Turn %d: \n",
                 turn);
 
-        // Evaluation of secret code vs. guess is done by string processing, which I found easier to implement.
-        char[] secret = secretCode.toCharArray();
-        char[] guess = getInput().toCharArray();
-
-        // Anonymous object, since it's only used here.
-        // animalFold[] is where the code saves how many bulls and cows are correctly guessed.
-        int[] animalFold = new Grader().countCows(secret, guess);
-
         if (animalFold[indexBulls] == codeLength) {
             System.out.printf("Grade: %d bulls.\nCongrats! The secret code is %s.",
                     animalFold[indexBulls], secretCode);
