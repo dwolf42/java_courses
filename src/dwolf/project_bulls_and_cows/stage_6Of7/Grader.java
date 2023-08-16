@@ -8,6 +8,7 @@ class Grader {
     private int bulls;
     private int cows;
 
+    // FIXME: bulls are count as cows, which is wrong
     // A bull is, if the guessed number is at the same position of the generated number.
     // Whereas a cow is, if the guessed number is part of the generated number, but only at the wrong place.
     protected void gradeGuess(String secretCode, String guess) {
