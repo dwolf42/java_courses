@@ -8,7 +8,6 @@ class Grader {
     private int bulls;
     private int cows;
 
-
     // A bull is, if the guessed number is at the same position of the generated number.
     // Whereas a cow is, if the guessed number is part of the generated number, but only at the wrong place.
     protected void gradeGuess(String secretCode, String guess) {
@@ -22,11 +21,6 @@ class Grader {
                 }
             }
         }
-
-        // Returns a new array, index 0 equals to bulls, index 1 equals to cows detected in user's guess.
-        // The evaluation for cows is: if cows >= bulls, then the value of cows is return cows - bulls, else return
-        // the value of cows directly.
-        // This is required, so bulls won't get count as cows.
     }
 
     public int getBulls() {
