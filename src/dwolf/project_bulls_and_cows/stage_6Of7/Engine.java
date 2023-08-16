@@ -5,13 +5,7 @@ import java.util.Scanner;
 public class Engine {
     // Game starts at turn 1
     int turn = 1;
-
-    // The amount of bulls and cows are stored in an array. These are the indices that describe where in animalFold[]
-    // the corresponding values are stored.
-    final int indexBulls = 0;
-    final int indexCows = 1;
-
-    // How many bulls are required to win is determined by the length of the code the user wants to guess.
+    int currentBulls = 0;
     int codeLength;
     int codeComplexity;
     String secretCode;
@@ -67,38 +61,44 @@ public class Engine {
     // TODO: run() is way to big, complex, and has too many responsibilities. It must be broken down.
     //  Also the method is lacking testability.
     protected void gameLoop() {
+        Grader grader = new Grader();
+        String guess;
 
+        while (currentBulls != codeLength) {
+            System.out.printf("Turn %d: \n",
+                    turn);
+            guess = getInput();
+            grader.gradeGuess(secretCode, guess);
 
-        System.out.printf("Turn %d: \n",
-                turn);
+            if (animalFold[indexBulls] == codeLength) {
 
-        if (animalFold[indexBulls] == codeLength) {
-            System.out.printf("Grade: %d bulls.\nCongrats! The secret code is %s.",
-                    animalFold[indexBulls], secretCode);
-        } else {
-            if (animalFold[indexBulls] == 0 && animalFold[indexCows] == 0) {
-                System.out.println("Grade: None.");
-                turn++;
-                gameLoop();
             } else {
-                // I decided to use switch statement, for the sake of code clarity. Too may if-statements would
-                // clutter code and make it harder to read.
-                switch (animalFold[indexBulls]) {
-                    case 0:
-                        System.out.printf("Grade: %d cow(s).\n",
-                                animalFold[indexCows]);
-                        turn++;
-                        gameLoop();
-                        break;
-                    default:
-                        System.out.printf("Grade: %d bull(s) %d cow(s).\n",
-                                animalFold[indexBulls], animalFold[indexCows]);
-                        turn++;
-                        gameLoop();
-                        break;
+                if (animalFold[indexBulls] == 0 && animalFold[indexCows] == 0) {
+                    System.out.println("Grade: None.");
+                    turn++;
+                    gameLoop();
+                } else {
+                    // I decided to use switch statement, for the sake of code clarity. Too may if-statements would
+                    // clutter code and make it harder to read.
+                    switch (animalFold[indexBulls]) {
+                        case 0:
+                            System.out.printf("Grade: %d cow(s).\n",
+                                    animalFold[indexCows]);
+                            turn++;
+                            gameLoop();
+                            break;
+                        default:
+                            System.out.printf("Grade: %d bull(s) %d cow(s).\n",
+                                    animalFold[indexBulls], animalFold[indexCows]);
+                            turn++;
+                            gameLoop();
+                            break;
+                    }
                 }
             }
         }
+        System.out.printf("Grade: %d bulls.\nCongrats! The secret code is %s.",
+                animalFold[indexBulls], secretCode);
     }
 
     // I wanted to have only one method responsible to get user input. As the whole evaluation of the secret code vs.
