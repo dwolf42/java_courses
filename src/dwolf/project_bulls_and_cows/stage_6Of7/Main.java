@@ -91,7 +91,7 @@ public class Main {
         return complexity;
     }
 
-    // Manages the game logic. Generated secret code and the users guess are pre-processed here, before Grader()
+    // Manages the game logic. Generated secret code, and the users guess are pre-processed here, before Grader()
     // evaluates these against each other.
     // This method could have been broken down further, but I wanted to keep things simple.
     protected static void run() {
