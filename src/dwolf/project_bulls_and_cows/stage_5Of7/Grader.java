@@ -7,8 +7,8 @@ class Grader {
     private int bulls = 0;
     private int cows = 0;
 
-    // A bull is, if the guessed number is at the same position of the generated number.
-    // Whereas a cow is, if the guessed number is part of the generated number, but only at the wrong place.
+    // A bull is, if the guessed character is equal and at the same position as in the secret code.
+    // Whereas a cow is, if the guessed character is part of the secret code, but only at the wrong place.
     protected int[] countCows(char[] secret, char[] guess) {
         for (int i = 0; i < secret.length; i++) {
             for (int j = 0; j < guess.length; j++) {
