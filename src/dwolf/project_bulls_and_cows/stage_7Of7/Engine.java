@@ -77,6 +77,7 @@ import java.util.Scanner;
  * Congratulations! You guessed the secret code.
  */
 public class Engine {
+    final int MIN_CODE_LENGTH = 1;
     final int MAX_SYMBOLS = 36;
     final String VALID_SYMBOLS = "^[a-z0-9]+$";
     final String NUMBERS_ONLY = "\\d+";
@@ -112,6 +113,7 @@ public class Engine {
         String input = askInputReturnString();
         exitForInputNotNumbers(input);
         int length = Integer.parseInt(input);
+        exitForCodeLengthBelowMinimum(length);
         exitForCodeLengthExceedMaxSymbols(length);
         return length;
     }
@@ -218,6 +220,13 @@ public class Engine {
     private void exitForInputNotNumbers(String input) {
         if (!input.matches(NUMBERS_ONLY)) {
             System.out.printf("Error: \"%s\" isn't a valid number.", input);
+            System.exit(0);
+        }
+    }
+
+    private void exitForCodeLengthBelowMinimum(int length) {
+        if (length < MIN_CODE_LENGTH) {
+            System.out.println("Error: code length must be at least 1");
             System.exit(0);
         }
     }
