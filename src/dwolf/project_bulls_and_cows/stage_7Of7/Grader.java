@@ -1,7 +1,7 @@
 package dwolf.project_bulls_and_cows.stage_7Of7;
 
 /**
- *  * ~~Class description~~
+ * ~~Class description~~
  * Secret code vs. guessed code comparison.
  */
 class Grader {
