@@ -12,9 +12,7 @@ class Grader {
     // A bull is, if the guessed character is equal and at the same position as in the secret code.
     // Whereas a cow is, if the guessed character is part of the secret code, but only at the wrong place.
     protected void gradeGuess(String secretCode, String guess) {
-        // Reset bulls and cows ever guess. This flushes results of previous turn.
-        bulls = 0;
-        cows = 0;
+        resetScoresToAvoidCarryover();
         for (int i = 0; i < secretCode.length(); i++) {
             for (int j = 0; j < guess.length(); j++) {
                 if (secretCode.charAt(i) == guess.charAt(j) && i == j) {
@@ -30,6 +28,11 @@ class Grader {
         if (cows >= bulls) {
             cows -= bulls;
         }
+    }
+
+    private void resetScoresToAvoidCarryover() {
+        bulls = 0;
+        cows = 0;
     }
 
     public int getBulls() {
