@@ -216,7 +216,7 @@ public class Engine {
     }
 
     private void exitForInputNotNumbers(String input) {
-        if (!input.matches(NUMBERS_ONLY )) {
+        if (!input.matches(NUMBERS_ONLY)) {
             System.out.printf("Error: \"%s\" isn't a valid number.", input);
             System.exit(0);
         }
