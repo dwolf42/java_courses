@@ -78,7 +78,8 @@ import java.util.Scanner;
  */
 public class Engine {
     final int MAX_SYMBOLS = 36;
-    final String VALID_SYMBOLS = "([a-z][0-9])";
+    final String VALID_SYMBOLS = "^[a-z0-9]+$";
+    final String NUMBERS_ONLY = "\\d+";
     int turn = 1;
     int codeLength;
     int codeComplexity;
@@ -214,7 +215,7 @@ public class Engine {
     }
 
     private void exitForInputNotNumbers(String input) {
-        if (!input.matches(VALID_SYMBOLS)) {
+        if (!input.matches(NUMBERS_ONLY )) {
             System.out.printf("Error: \"%s\" isn't a valid number.", input);
             System.exit(0);
         }
