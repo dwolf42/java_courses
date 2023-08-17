@@ -37,11 +37,6 @@ class Grader {
                 }
             }
         }
-
-        // Prevent counting bulls as cows
-        if (cows >= bulls) {
-            cows -= bulls;
-        }
     }
 
     private void resetScoresToAvoidCarryover() {
