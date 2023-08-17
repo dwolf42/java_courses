@@ -122,6 +122,7 @@ public class Engine {
         exitForInputNotNumbers(input);
         int complexity = Integer.parseInt(input);
         exitForCodeComplexityNotEqualCodeLength(complexity);
+        exitForCodeLengthExceedMaxSymbols(complexity);
         return complexity;
     }
 
