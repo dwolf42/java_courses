@@ -6,6 +6,7 @@ public class FieldsMethods {
         System.out.println(ChargeLevel.HIGH.getSections());
         System.out.println(ChargeLevel.findChargeLevelByNumberOfSections(4));
         System.out.println(ChargeLevel.findChargeLevelByColor("red"));
+        System.out.println(ChargeLevel.valueOf("FULL"));
     }
 
 }
