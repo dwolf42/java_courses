@@ -3,7 +3,7 @@ package dwolf.enums.fields_methods;
 public enum ChargeLevel {
     FULL(4, "green"),
     HIGH(3, "green"),
-    MEDUIUM(2, "yellow"),
+    MEDIUM(2, "yellow"),
     LOW(1, "red");
 
     private final int sections;
