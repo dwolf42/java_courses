@@ -1,4 +1,4 @@
-package dwolf.files;
+package dwolf.files.read;
 
 import java.io.File;
 import java.io.FileNotFoundException;
