@@ -1,4 +1,4 @@
-package dwolf.files.write;
+package dwolf.inputoutput.files.write;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -7,7 +7,7 @@ import java.io.PrintWriter;
 
 public class TheFileWriterPrintWriterClasses {
     public static void main(String[] args) throws IOException {
-        writePrintWriter();
+
     }
 
     public static void writeFileWriter() {
