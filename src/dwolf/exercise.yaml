@@ -1,0 +1,14 @@
+weekend:
+  saturday:
+    - order cleaning
+    - order a pizza
+    - watch new series
+  sunday:
+    - go to yoga
+    - hang out with a friend
+  monday: |
+    order cleaning
+    order a pizza
+    watch new series
+
+#!!str "hello World" # this should be a string
