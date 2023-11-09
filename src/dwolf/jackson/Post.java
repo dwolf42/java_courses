@@ -1,7 +1,7 @@
 package dwolf.jackson;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.util.Arrays;
 import java.util.Date;
@@ -22,7 +22,7 @@ public class Post {
         this.likes = likes;
         this.comments = comments;
     }
-    public static void main(String[] args) {
+    public static void main(String[] args) throws JsonProcessingException {
         Post post = new Post(
                 1,
                 new Date(),
