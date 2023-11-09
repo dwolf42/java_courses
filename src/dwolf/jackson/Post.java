@@ -1,6 +1,7 @@
 package dwolf.jackson;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
 import java.util.Arrays;
 import java.util.Date;
