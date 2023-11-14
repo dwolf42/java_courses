@@ -1,4 +1,4 @@
-package dwolf.oop.my_work.clock;
+package dwolf.oop.my_work.objects.instancemethods;
 
 public class Clock {
 
@@ -16,7 +16,7 @@ public class Clock {
     private int minutes2 = MIN_MINUTES; // These are the one minutes.
 
     // When this method gets called it increases the values of hours, minutes1 and minutes2
-    void next() {
+    public void next() {
         // The value of minutes2 is always increased by 1.
         this.minutes2++;
         // If minutes2 is now higher than MAX_MINUTES2, which is 9, the value of minutes2 will be reset

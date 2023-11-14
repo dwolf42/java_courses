@@ -1,4 +1,4 @@
-package dwolf.oop.my_work.clock;
+package dwolf.oop.my_work.objects.instancemethods;
 
 public class Display {
 
