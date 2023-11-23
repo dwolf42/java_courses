@@ -1,6 +1,6 @@
 package dwolf.laboratory;
 
-public class StringBuilder_ReverseNoDuplicates {
+class StringBuilder_ReverseNoDuplicates {
     static long num = 8852332509400L;
     static StringBuilder str;
     static StringBuilder code;
