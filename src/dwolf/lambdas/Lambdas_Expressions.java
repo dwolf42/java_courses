@@ -1,4 +1,4 @@
-package dwolf.lamdas;
+package dwolf.lambdas;
 
 import java.util.function.BiFunction;
 import java.util.function.Function;

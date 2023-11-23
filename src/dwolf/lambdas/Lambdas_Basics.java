@@ -1,4 +1,4 @@
-package dwolf.lamdas;
+package dwolf.lambdas;
 
 import java.util.function.BiFunction;
 import java.util.function.Function;
@@ -6,7 +6,7 @@ import java.util.function.Function;
 public class Lambdas_Basics {
     public static void main(String[] args) {
 
-        // Is basically a method in which I must input a value to get a value
+        // Is basically a method in which we must input a value to get a value
         // Adds 1 to a number, returns the result
         Function<Integer, Integer> adder1 = x -> x + 1;
         System.out.println(adder1.apply(5));
