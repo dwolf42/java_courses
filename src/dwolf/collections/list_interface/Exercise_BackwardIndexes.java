@@ -1,4 +1,4 @@
-package dwolf.collections.lists;
+package dwolf.collections.list_interface;
 
 import java.util.List;
 import java.util.Arrays;

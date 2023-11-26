@@ -1,4 +1,4 @@
-package dwolf.set_interface;
+package dwolf.collections.set_interface;
 
 import java.util.HashSet;
 import java.util.List;
