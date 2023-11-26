@@ -12,15 +12,12 @@ import java.util.*;
 class SetUtils {
 
     public static Set<Integer> getSetFromString(String str) {
-// String -> gesplittet werden -> to Integer -> Arrays.asList
-
         SortedSet<String> strToSet = new TreeSet<>(
                 Arrays.asList(
                         str.split(" ")
                 ));
 
         SortedSet<Integer> strToInteger = new TreeSet<>();
-
         for (String s : strToSet) {
             strToInteger.add(Integer.valueOf(s));
         }
@@ -29,7 +26,7 @@ class SetUtils {
     }
 
     public static void removeAllNumbersGreaterThan10(Set<Integer> set) {
-        // write your code here
+       set.removeIf(n -> n > 10);
     }
 
 }
