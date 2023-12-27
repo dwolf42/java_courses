@@ -1,11 +1,12 @@
 package dwolf.packages.experiment1;
 
-import dwolf.oop.my_work.clock.Display;
+import dwolf.oop.my_work.objects.instancemethods.Clock;
+import dwolf.oop.my_work.objects.instancemethods.Display;
 
 public class Packages_Experiment1 {
     public static void main(String[] args) {
         java.util.Scanner scanner = new java.util.Scanner(System.in);
-        dwolf.oop.my_work.clock.Clock clock1 = new dwolf.oop.my_work.clock.Clock();
+        Clock clock1 = new Clock();
 
         Display display1 = new Display();
 

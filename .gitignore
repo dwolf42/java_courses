@@ -47,3 +47,6 @@ hs_err_pid*
 /out/
 /src/dwolf/laboratory/TestRandomizers.java
 /src/dwolf/project_bulls_and_cows/stage_5Of7/BestSolution.java
+
+# Exceptions
+!JSON-java.jar

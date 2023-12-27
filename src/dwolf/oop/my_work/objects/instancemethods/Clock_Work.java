@@ -1,4 +1,4 @@
-package dwolf.oop.my_work.clock;
+package dwolf.oop.my_work.objects.instancemethods;
 
 import java.util.concurrent.TimeUnit;
 import java.util.Scanner;
