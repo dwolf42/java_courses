@@ -5,13 +5,15 @@ package dwolf.project_battleship.model;
  * is responsible for all data and its related logic
  * */
 
-public class GridModel implements GameModelInterface {
+class GridModel implements GameModelInterface {
     private Character row;
     private Character column;
+    private State cellState;
 
-    public GridModel(Character row, Character column) {
+    GridModel(Character row, Character column, State cellState) {
         this.row = row;
         this.column = column;
+        this.cellState = cellState;
     }
 
     @Override
@@ -32,5 +34,15 @@ public class GridModel implements GameModelInterface {
     @Override
     public void setColumn(Character column) {
         this.column = column;
+    }
+
+    @Override
+    public State getCellState() {
+        return cellState;
+    }
+
+    @Override
+    public void setCellState(State cellState) {
+        this.cellState = cellState;
     }
 }

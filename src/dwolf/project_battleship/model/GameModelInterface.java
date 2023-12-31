@@ -5,4 +5,6 @@ public interface GameModelInterface {
     void setRow(Character row);
     Character getColumn();
     void setColumn(Character column);
+    State getCellState();
+    void setCellState(State cellState);
 }

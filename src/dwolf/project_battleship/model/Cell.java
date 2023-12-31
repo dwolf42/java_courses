@@ -1,37 +1,37 @@
 package dwolf.project_battleship.model;
 
 public class Cell {
-    private int x;
-    private int y;
-    private State state;
+    private int row;
+    private int col;
+    private State cellState;
 
-    public Cell(int x, int y, State state) {
-        this.x = x;
-        this.y = y;
-        this.state = state;
+    public Cell(int row, int col, State cellState) {
+        this.row = row;
+        this.col = col;
+        this.cellState = cellState;
     }
 
-    public int getX() {
-        return x;
+    public int getRow() {
+        return row;
     }
 
-    public void setX(int x) {
-        this.x = x;
+    public void setRow(int row) {
+        this.row = row;
     }
 
-    public int getY() {
-        return y;
+    public int getCol() {
+        return col;
     }
 
-    public void setY(int y) {
-        this.y = y;
+    public void setCol(int col) {
+        this.col = col;
     }
 
-    public State getState() {
-        return state;
+    public State getCellState() {
+        return cellState;
     }
 
-    public void setState(State state) {
-        this.state = state;
+    public void setCellState(State cellState) {
+        this.cellState = cellState;
     }
 }
