@@ -1,6 +1,6 @@
 package dwolf.project_battleship.model;
 
-public enum State {
+enum CellState {
     HIT('X'),
     MISS('M'),
     OCEAN('~'),
@@ -8,7 +8,7 @@ public enum State {
 
     private final Character value;
 
-    State(Character value) {
+    CellState(Character value) {
         this.value = value;
     }
 
@@ -16,8 +16,8 @@ public enum State {
         return value;
     }
 
-    static State fromCharacter(Character c) {
-        for (State state : values()) {
+    static CellState fromCharacter(Character c) {
+        for (CellState state : values()) {
             if (state.getValue() == c) {
                 return state;
             }

@@ -3,35 +3,35 @@ package dwolf.project_battleship.model;
 public class Cell {
     private int row;
     private int col;
-    private State cellState;
+    private CellState cellState;
 
-    public Cell(int row, int col, State cellState) {
+     Cell(int row, int col, CellState cellState) {
         this.row = row;
         this.col = col;
         this.cellState = cellState;
     }
 
-    public int getRow() {
+     int getRow() {
         return row;
     }
 
-    public void setRow(int row) {
+     void setRow(int row) {
         this.row = row;
     }
 
-    public int getCol() {
+     int getCol() {
         return col;
     }
 
-    public void setCol(int col) {
+     void setCol(int col) {
         this.col = col;
     }
 
-    public State getCellState() {
+     CellState getCellState() {
         return cellState;
     }
 
-    public void setCellState(State cellState) {
+     void setCellState(CellState cellState) {
         this.cellState = cellState;
     }
 }
