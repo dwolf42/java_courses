@@ -6,12 +6,12 @@ package dwolf.project_battleship.controller;
 *
 * */
 
-import dwolf.project_battleship.model.OceanModel;
+import dwolf.project_battleship.model.GridModel;
 
 public class GameInputController {
-    OceanModel ocean;
+    GridModel ocean;
 
-    public GameInputController(OceanModel ocean) {
+    public GameInputController(GridModel ocean) {
         this.ocean = ocean;
     }
 }
