@@ -20,10 +20,6 @@ public class Grid {
         }
     }
 
-    public void tests() {
-        System.out.println(cell.);
-    }
-
      public Set<Cell> getCell() {
         return cell;
     }

@@ -1,27 +1,32 @@
 package dwolf.project_battleship.model;
 
-enum CellState {
-    HIT('X'),
-    MISS('M'),
-    OCEAN('~'),
-    SHIP('O');
+public enum CellState {
+    HIT("X"),
+    MISS("M"),
+    OCEAN("~"),
+    SHIP("O");
 
-    private final Character value;
+    private final String symbol;
 
-    CellState(Character value) {
-        this.value = value;
+   CellState(String symbol) {
+        this.symbol = symbol;
     }
 
-    Character getValue() {
-        return value;
+    private String getSymbol() {
+        return symbol;
     }
 
-    static CellState fromCharacter(Character c) {
+   public CellState fromSymbol(String c) {
         for (CellState state : values()) {
-            if (state.getValue() == c) {
+            if (state.getSymbol().equals(c)) {
                 return state;
             }
         }
         return null;
+    }
+
+    @Override
+    public String toString() {
+       return symbol;
     }
 }
