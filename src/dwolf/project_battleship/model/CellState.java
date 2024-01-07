@@ -4,11 +4,21 @@ public enum CellState {
     HIT("X"),
     MISS("M"),
     OCEAN("~"),
-    SHIP("O");
+    SHIP("O"),
+    A("A"),
+    B("B"),
+    C("C"),
+    D("D"),
+    E("E"),
+    F("F"),
+    G("G"),
+    H("H"),
+    I("I"),
+    J("J");
 
     private final String symbol;
 
-   CellState(String symbol) {
+    CellState(String symbol) {
         this.symbol = symbol;
     }
 
@@ -16,7 +26,7 @@ public enum CellState {
         return symbol;
     }
 
-   public CellState fromSymbol(String c) {
+    public static CellState fromSymbol(String c) {
         for (CellState state : values()) {
             if (state.getSymbol().equals(c)) {
                 return state;
@@ -27,6 +37,6 @@ public enum CellState {
 
     @Override
     public String toString() {
-       return symbol;
+        return symbol;
     }
 }
