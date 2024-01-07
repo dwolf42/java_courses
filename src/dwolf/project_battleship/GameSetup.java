@@ -29,13 +29,18 @@ public class GameSetup {
             cells.get(rowIndicatorCharPosition).
                     setCellState(CellState.
                             fromSymbol(
-                                    String.valueOf(rowIndicatorCharPosition)));
+                                    String.valueOf(rowIndicatorChar)));
             rowIndicatorChar++;
             // 000B 11
         }
 
-        for (int iterator = 0; iterator <= 120; iterator++) {
-            System.out.print(cells.get(iterator) + " ");
+        int lineBreak = 0;
+        for (int iterator = 0; iterator <= 120; iterator++, lineBreak++) {
+            System.out.print(cells.get(iterator).getCellState() + " ");
+            if (lineBreak == 10) {
+                System.out.println();
+                lineBreak = -1;
+            }
         }
         /*
            0      1      2    3      4     5     6    7     8     9     10
