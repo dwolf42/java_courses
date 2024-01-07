@@ -11,8 +11,11 @@ How will you show a user their gameplay grid?
 * */
 package dwolf.project_battleship;
 
+import dwolf.project_battleship.view.GameView;
+
 public class GameSetup {
     public static void main(String[] args) {
-
+        GameView.board();
     }
+
 }
