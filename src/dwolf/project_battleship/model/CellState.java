@@ -4,17 +4,7 @@ public enum CellState {
     HIT("X"),
     MISS("M"),
     OCEAN("~"),
-    SHIP("O"),
-    A("A"),
-    B("B"),
-    C("C"),
-    D("D"),
-    E("E"),
-    F("F"),
-    G("G"),
-    H("H"),
-    I("I"),
-    J("J");
+    SHIP("O");
 
     private final String symbol;
 

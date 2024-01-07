@@ -2,18 +2,18 @@ package dwolf.project_battleship.model;
 
 public class Cell {
 
-    private CellState cellState;
+    private String cellState;
 
-    public Cell(CellState cellState) {
+    public Cell(String cellState) {
 
         this.cellState = cellState;
     }
 
-    public CellState getCellState() {
+    public String getCellState() {
         return cellState;
     }
 
-    public void setCellState(CellState cellState) {
+    public void setCellState(String cellState) {
         this.cellState = cellState;
     }
 }

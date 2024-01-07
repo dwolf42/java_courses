@@ -11,37 +11,10 @@ How will you show a user their gameplay grid?
 * */
 package dwolf.project_battleship;
 
-import dwolf.project_battleship.model.Cell;
-import dwolf.project_battleship.model.CellState;
-
-import java.util.ArrayList;
-import java.util.List;
-
 public class GameSetup {
     public static void main(String[] args) {
-        List<Cell> cells = new ArrayList<>();
-        for (int cellNumber = 0; cellNumber <= 120; cellNumber++) {
-            cells.add(new Cell(CellState.OCEAN));
-        }
+        // instantiate Ocean, call GameView.board and print Ocean
 
-        char rowIndicatorChar = 'A';
-        for (int rowIndicatorCharPosition = 11; rowIndicatorCharPosition <= 110; rowIndicatorCharPosition += 11) {
-            cells.get(rowIndicatorCharPosition).
-                    setCellState(CellState.
-                            fromSymbol(
-                                    String.valueOf(rowIndicatorChar)));
-            rowIndicatorChar++;
-            // 000B 11
-        }
-
-        int lineBreak = 0;
-        for (int iterator = 0; iterator <= 120; iterator++, lineBreak++) {
-            System.out.print(cells.get(iterator).getCellState() + " ");
-            if (lineBreak == 10) {
-                System.out.println();
-                lineBreak = -1;
-            }
-        }
         /*
            0      1      2    3      4     5     6    7     8     9     10
         0 [   0][   1][   2][   3][   4][   5][   6][   7][   8][   9][  10]
