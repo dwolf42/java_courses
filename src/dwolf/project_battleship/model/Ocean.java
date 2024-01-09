@@ -5,30 +5,27 @@ package dwolf.project_battleship.model;
  * is responsible for all data and its related logic
  * */
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Ocean {
-    private List<Cell> grid;
+    private Cell[][] grid;
 
-    public Ocean(int row, int col) {
-        grid = new ArrayList<>();
-        floodGrid();
-        letterGrid();
-    }
+    public Ocean() {
+        final int row = 9;
+        final int col = 9;
+        grid = new Cell[row][col];
 
-    private void floodGrid() {
-        for (int cellNumber = 0; cellNumber <= 120; cellNumber++) {
-            grid.add(new Cell(CellState.OCEAN.toString()));
+        for (int i = 0; i <= row; i++) {
+            for (int j = 0; j <= col; j++) {
+                grid[i][j] = new Cell(CellState.OCEAN);
+            }
         }
     }
 
-    private void letterGrid() {
-        char rowIndicatorChar = 'A';
-        for (int rowIndicatorCharPosition = 11; rowIndicatorCharPosition <= 110; rowIndicatorCharPosition += 11) {
-            grid.get(rowIndicatorCharPosition).
-                    setCellState(String.valueOf(rowIndicatorChar));
-            rowIndicatorChar++;
-        }
+    public CellState getGridCellState(int i, int j) {
+        return grid[i][j].getCellState();
     }
+
+    public void setGridCellState(int i, int j, Cell cellstate) {
+        this.grid[i][j].setCellState(cellstate);
+    }
+
 }
