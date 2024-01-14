@@ -1,10 +1,10 @@
 package dwolf.project_battleship.model;
 
-public class Cell {
+public class CellModel {
 
     private CellState cellState;
 
-    public Cell(CellState cellState) {
+    public CellModel(CellState cellState) {
         this.cellState = cellState;
     }
 
