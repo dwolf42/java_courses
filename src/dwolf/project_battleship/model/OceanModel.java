@@ -8,11 +8,11 @@ package dwolf.project_battleship.model;
 public class OceanModel {
     private CellModel[][] ocean;
 
-    public OceanModel(int row, int col) {
+    public OceanModel(int row, int col, CellState cellState) {
         ocean = new CellModel[row][col];
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
-                ocean[i][j] = new CellModel(CellState.OCEAN);
+                ocean[i][j] = new CellModel(cellState);
             }
         }
     }
