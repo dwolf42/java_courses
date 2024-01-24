@@ -8,9 +8,7 @@ package dwolf.project_battleship.model;
 public class OceanModel {
     private CellModel[][] ocean;
 
-    public OceanModel() {
-        final int row = 9;
-        final int col = 9;
+    public OceanModel(int row, int col) {
         ocean = new CellModel[row][col];
 
         for (int i = 0; i <= row; i++) {
