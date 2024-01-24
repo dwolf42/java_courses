@@ -6,11 +6,17 @@ package dwolf.project_battleship.view;
  * handling user interaction
  * */
 
+import dwolf.project_battleship.model.OceanModel;
+import dwolf.project_battleship.model.CellModel;
+
 public class GameView {
-    public static void board() {
+    public static void board(OceanModel oceanModel) {
+        CellModel[][] ocean = oceanModel.getOcean();
+
+        // Add numbers 1-10 for column enumeration above game board
         System.out.print("  ");
-        for (int i = 0; i < 10; i++) {
-            if (i < 9) {
+        for (int i = 0; i < ocean.length; i++) {
+            if (i < ocean.length - 1) {
                 System.out.print(i + 1 + " ");
             } else {
                 System.out.print(i + 1);
@@ -18,14 +24,15 @@ public class GameView {
         }
         System.out.println();
 
-        char a = 'A';
-        for (int i = 0; i <= 9; i++) {
-            for (int j = 0; j <= 10; j++) {
+        // Add characters A-J for row enumeration left of game board
+        char ch = 'A';
+        for (int i = 0; i < ocean.length; i++) {
+            for (int j = 0; j < ocean[i].length; j++) {
                 if (j == 0) {
-                    System.out.print(a + " ");
-                    a++;
+                    System.out.print(ch + " ");
+                    ch++;
                 } else {
-                    System.out.print('~');
+                    System.out.print(ocean[i][j].getCellState());
                     System.out.print(' ');
                 }
             }

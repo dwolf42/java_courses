@@ -19,18 +19,20 @@
  *
  * But depending on your design there can be more or different things your board can do
  * */
-package dwolf.project_battleship;
+package dwolf.project_battleship.setup;
 
 import dwolf.project_battleship.model.CellState;
 import dwolf.project_battleship.model.OceanModel;
+import dwolf.project_battleship.view.GameView;
 
 public class GameSetup {
-    public static void main(String[] args) {
+    public void initialize() {
         // instantiate Ocean, call GameView.board and print Ocean
-        final int initialRows = 10;
-        final int initialCols = 10;
+        final int initialRows = 11;
+        final int initialCols = 11;
         final CellState initialCellState = CellState.OCEAN;
-        OceanModel ocean = new OceanModel(initialRows, initialCols, initialCellState);
+        GameView.board(
+                new OceanModel(initialRows, initialCols, initialCellState));
     }
 
 }
