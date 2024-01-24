@@ -62,14 +62,14 @@ public class ExampleCharStream {
             int numberOfChars2 = reader2.read(chars2);
             System.out.println("chars2 = " + Arrays.toString(chars2));
             System.out.println("numberOfChars2 = " + numberOfChars2);
-        } catch (FileNotFoundException es){
+        } catch (FileNotFoundException es) {
             es.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         try (Scanner scanner = new Scanner(new File("\\development\\java\\filehandling\\HelloWorld.java"))) {
-            while(scanner.hasNext()) {
+            while (scanner.hasNext()) {
                 System.out.print(scanner.nextLine());
             }
         } catch (FileNotFoundException ess) {
