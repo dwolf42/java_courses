@@ -21,8 +21,9 @@ public class OceanModel {
         return ocean[i][j].getCellState();
     }
 
-    public void setOceanCellState(int i, int j, CellModel cellstate) {
-        this.ocean[i][j].setCellState(CellState.OCEAN);
+    public void setOceanCellState(int i, int j, CellState cellState) {
+        ocean[i][j].setCellState(cellState);
     }
+
 
 }
