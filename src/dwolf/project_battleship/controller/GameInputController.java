@@ -13,5 +13,5 @@ public class GameInputController {
 
     public GameInputController(OceanModel ocean) {
         this.ocean = ocean;
-    }
+   }
 }
