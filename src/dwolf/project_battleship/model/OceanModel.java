@@ -10,9 +10,8 @@ public class OceanModel {
 
     public OceanModel(int row, int col) {
         ocean = new CellModel[row][col];
-
-        for (int i = 0; i <= row; i++) {
-            for (int j = 0; j <= col; j++) {
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
                 ocean[i][j] = new CellModel(CellState.OCEAN);
             }
         }
