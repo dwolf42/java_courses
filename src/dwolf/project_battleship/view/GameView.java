@@ -27,18 +27,13 @@ public class GameView {
         // Add characters A-J for row enumeration left of game board
         char ch = 'A';
         for (int i = 0; i < ocean.length; i++) {
-            for (int j = 0; j < ocean[i].length; j++) {
-                if (j == 0) {
-                    System.out.print(ch + " ");
-                    ch++;
-                } else {
-                    System.out.print(ocean[i][j].getCellState());
-                    System.out.print(' ');
-                }
+            System.out.print(ch + " ");
+            ch++;
+            for (int j = 0; j < ocean[i].length ; j++) {
+                    System.out.print(ocean[i][j].getCellState() + " ");
             }
             System.out.println();
         }
-
     }
 
 }
