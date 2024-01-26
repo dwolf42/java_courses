@@ -28,8 +28,8 @@ import dwolf.project_battleship.view.GameView;
 public class GameSetup {
     public void initialize() {
         // instantiate Ocean, call GameView.board and print Ocean
-        final int initialRows = 11;
-        final int initialCols = 11;
+        final int initialRows = 10;
+        final int initialCols = 10;
         final CellState initialCellState = CellState.OCEAN;
         GameView.board(
                 new OceanModel(initialRows, initialCols, initialCellState));
