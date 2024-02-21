@@ -32,7 +32,8 @@ public class GameSetup {
         final int initialCols = 10;
         final CellState initialCellState = CellState.OCEAN;
         GameView.board(
-                new OceanModel(initialRows, initialCols, initialCellState));
+                new OceanModel(initialRows, initialCols, initialCellState)
+        );
     }
 
 }
