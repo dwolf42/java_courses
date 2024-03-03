@@ -26,7 +26,7 @@ import dwolf.project_battleship.model.OceanModel;
 import dwolf.project_battleship.view.GameView;
 
 public class GameSetup {
-    public void initialize() {
+    public static void initialize() {
         // instantiate Ocean, call GameView.board and print Ocean
         final int initialRows = 10;
         final int initialCols = 10;
