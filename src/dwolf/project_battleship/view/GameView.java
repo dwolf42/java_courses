@@ -6,12 +6,11 @@ package dwolf.project_battleship.view;
  * handling user interaction
  * */
 
-import dwolf.project_battleship.model.OceanModel;
-import dwolf.project_battleship.model.CellModel;
+
 
 public class GameView {
-    public static void board(OceanModel oceanModel) {
-        CellModel[][] ocean = oceanModel.getOcean();
+    public static void board() {
+int[][] ocean = new int[6][6];
 
         // Add numbers 1-10 above game board for column enumeration
         System.out.print("  ");
@@ -30,7 +29,7 @@ public class GameView {
             System.out.print(ch + " ");
             ch++;
             for (int j = 0; j < ocean[i].length ; j++) {
-                    System.out.print(ocean[i][j].getCellState() + " ");
+                    System.out.print(ocean[i][j] + " ");
             }
             System.out.println();
         }
