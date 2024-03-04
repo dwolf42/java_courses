@@ -14,8 +14,7 @@ public class RadarController {
     CellModel cellModel;
 
     public RadarController() {
-        int[] arr = new int[5];
-        arr[0] = 1;
+
     }
 
 
