@@ -13,9 +13,9 @@ public class GameView {
     public static void board(OceanModel oceanModel) {
         CellModel[][] ocean = oceanModel.getOcean();
 
-        // Add numbers 1-10  above game board for column enumeration
+        // Add numbers 1-10 above game board for column enumeration
         System.out.print("  ");
-        for (int i = 0; i < ocean.length; i++) {
+        for (int i = 0  ; i < ocean.length; i++) {
             if (i < ocean.length - 1) {
                 System.out.print(i + 1 + " ");
             } else {
