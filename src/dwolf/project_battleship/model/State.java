@@ -1,7 +1,7 @@
 package dwolf.project_battleship.model;
 
 
-public enum Cell {
+public enum State {
     HIT("X"),
     MISS("M"),
     WATER("~"),
@@ -9,7 +9,7 @@ public enum Cell {
 
     private final String symbol;
 
-    Cell(String symbol) {
+    State(String symbol) {
         this.symbol = symbol;
     }
 
@@ -17,8 +17,8 @@ public enum Cell {
         return symbol;
     }
 
-    public static Cell fromSymbol(String c) {
-        for (Cell state : values()) {
+    public static State fromSymbol(String c) {
+        for (State state : values()) {
             if (state.getSymbol().equals(c)) {
                 return state;
             }
