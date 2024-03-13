@@ -1,14 +1,15 @@
 package dwolf.project_battleship.model;
 
-public enum CellState {
+
+public enum Cell {
     HIT("X"),
     MISS("M"),
-    OCEAN("~"),
+    WATER("~"),
     SHIP("O");
 
     private final String symbol;
 
-    CellState(String symbol) {
+    Cell(String symbol) {
         this.symbol = symbol;
     }
 
@@ -16,8 +17,8 @@ public enum CellState {
         return symbol;
     }
 
-    public static CellState fromSymbol(String c) {
-        for (CellState state : values()) {
+    public static Cell fromSymbol(String c) {
+        for (Cell state : values()) {
             if (state.getSymbol().equals(c)) {
                 return state;
             }
