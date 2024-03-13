@@ -1,2 +1,4 @@
-package dwolf.project_battleship.model;public class Quadrant {
+package dwolf.project_battleship.model;
+
+public class Quadrant {
 }
