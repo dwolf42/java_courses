@@ -15,7 +15,7 @@ import dwolf.project_battleship.controller.Navigation;
 public class Main {
     public static void main(String[] args) {
         Navigation navigation = new Navigation();
-        navigation.initialize();
+        navigation.run();
     }
 
 }
