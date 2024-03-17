@@ -8,7 +8,7 @@ package dwolf.project_battleship.view;
 
 
 
-public class GameView {
+public class Radar {
     public static void board() {
 int[][] ocean = new int[6][6];
 
