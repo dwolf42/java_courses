@@ -14,8 +14,8 @@ public class Radar {
 
         // Add numbers 1-10 above game board for column enumeration
         System.out.print("  ");
-        for (int i = 0  ; i < ocean.length; i++) {
-            if (i < ocean.length - 1) {
+        for (int i = 0  ; i < quadrant.length; i++) {
+            if (i < quadrant.length - 1) {
                 System.out.print(i + 1 + " ");
             } else {
                 System.out.print(i + 1);
@@ -25,11 +25,11 @@ public class Radar {
 
         // Add characters A-J left of game board for row enumeration
         char ch = 'A';
-        for (int i = 0; i < ocean.length; i++) {
+        for (int i = 0; i < quadrant.length; i++) {
             System.out.print(ch + " ");
             ch++;
-            for (int j = 0; j < ocean[i].length ; j++) {
-                    System.out.print(ocean[i][j] + " ");
+            for (int j = 0; j < quadrant[i].length ; j++) {
+                    System.out.print(quadrant[i][j] + " ");
             }
             System.out.println();
         }
