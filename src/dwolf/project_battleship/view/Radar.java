@@ -7,10 +7,10 @@ package dwolf.project_battleship.view;
  * */
 
 
+import dwolf.project_battleship.model.State;
 
 public class Radar {
-    public static void board() {
-int[][] ocean = new int[6][6];
+    public void detect(State[][] quadrant) {
 
         // Add numbers 1-10 above game board for column enumeration
         System.out.print("  ");
