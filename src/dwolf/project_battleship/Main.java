@@ -12,9 +12,9 @@ import dwolf.project_battleship.model.Ocean;/*
 
 public class Main {
     public static void main(String[] args) {
-        final int xLatitude = 10;
-        final int yLongitude = 10;
-        Ocean ocean = new Ocean(xLatitude, yLongitude);
+        int row = 10;
+        int col = 10;
+        Ocean ocean = new Ocean(row, col);
 
     }
 
