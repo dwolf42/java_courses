@@ -3,23 +3,24 @@ package dwolf.project_battleship.model;
 public class Ocean {
     State[][] quadrant;
 
-    public Ocean(int xLatitude, int yLongitude) {
-        quadrant = new State[xLatitude][yLongitude];
-        for (int i = 0; i < xLatitude; i++) {
-            for (int j = 0; j < yLongitude; j++) {
+    public Ocean(int row, int col) {
+        quadrant = new State[row][col];
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
                 quadrant[i][j] = State.WATER;
             }
         }
 
     }
 
-    public State[][] getOcean() {
-
+    public State[][] getQuadrant() {
+        return quadrant;
     }
 
-    public void scape() {
-        State state = State.WATER;
-        System.out.println(state);
+    public void setQuadrant(State[][] quadrant) {
+        this.quadrant = quadrant;
+    }
+
 
 
         /*
@@ -39,6 +40,6 @@ public class Ocean {
          *
          * */
 
-    }
+
 
 }
