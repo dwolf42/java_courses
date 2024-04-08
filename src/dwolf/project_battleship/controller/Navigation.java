@@ -1,14 +1,39 @@
 package dwolf.project_battleship.controller;
 
 import dwolf.project_battleship.model.Ocean;
+import dwolf.project_battleship.model.State;
 import dwolf.project_battleship.view.Radar;
 
 public class Navigation {
-    public void initialize() {
+    private Ocean ocean;
+    private Radar radar;
+    private boolean gameover = false;
+
+    public Navigation() {
         int row = 10;
         int col = 10;
-        Ocean ocean = new Ocean(row, col);
-        Radar radar = new Radar();
+        State state = State.WATER;
+        ocean = new Ocean(row, col, state);
+        radar = new Radar();
+        radar.detect(ocean.getQuadrant());
+        placeShips();
+        run();
+    }
+
+   public void run() {
+
+        while (!gameover) {
+
+
+        }
+    }
+
+    private void placeShips() {
+        // TODO:
+        //  There is a method required to take/process ship-objects to avoid boilerplate like that:
+        ocean.setQuadrant(3, 3, State.SHIP);
+        ocean.setQuadrant(3, 4, State.SHIP);
+        ocean.setQuadrant(3, 5, State.SHIP);
         radar.detect(ocean.getQuadrant());
     }
 }

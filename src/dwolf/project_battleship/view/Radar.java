@@ -13,13 +13,8 @@ public class Radar {
     public void detect(State[][] quadrant) {
 
         // Add numbers 1-10 above game board for column enumeration
-        System.out.print("  ");
-        for (int i = 0  ; i < quadrant.length; i++) {
-            if (i < quadrant.length - 1) {
-                System.out.print(i + 1 + " ");
-            } else {
-                System.out.print(i + 1);
-            }
+        for (int i = 0; i < quadrant.length; i++) {
+            System.out.print((i == 0 ? "  " : " ") + (i + 1));
         }
         System.out.println();
 
@@ -28,11 +23,12 @@ public class Radar {
         for (int i = 0; i < quadrant.length; i++) {
             System.out.print(ch + " ");
             ch++;
-            for (int j = 0; j < quadrant[i].length ; j++) {
-                    System.out.print(quadrant[i][j] + " ");
+            for (int j = 0; j < quadrant[i].length; j++) {
+                System.out.print(quadrant[i][j] + " ");
             }
             System.out.println();
         }
+        System.out.println();
     }
 
 }
