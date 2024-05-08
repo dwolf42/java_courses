@@ -12,8 +12,9 @@ public class Navigation {
     public Navigation() {
         int row = 10;
         int col = 10;
-        State state = State.WATER;
-        ocean = new Ocean(row, col, state);
+        State coordinateState = State.WATER;
+
+        ocean = new Ocean(row, col, coordinateState);
         radar = new Radar();
         radar.detect(ocean.getQuadrant());
         placeShips();

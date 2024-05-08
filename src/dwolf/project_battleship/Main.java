@@ -14,6 +14,15 @@ import dwolf.project_battleship.controller.Navigation;
 
 public class Main {
     public static void main(String[] args) {
+        int x1 = 0;
+        int x2 = 0;
+        int y1 = 4;
+        int y2 = 2;
+        int xdiff = Math.abs(x1 - x2); // 0
+        int ydiff = Math.abs(y1 - y2); // 2
+
+        System.out.println(!(xdiff == 0 ^ ydiff == 0));
+
         Navigation navigation = new Navigation();
         navigation.run();
     }
