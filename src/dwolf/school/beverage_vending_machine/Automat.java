@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public class Automat {
     private ArrayList<Schacht> schaechte = new ArrayList<>();
-    Scanner scanner = new Scanner(System.in);
     String name;
     double preis;
     int maxAnzahl;
@@ -19,7 +18,7 @@ public class Automat {
             System.out.println("  1  Neuen Schacht anlegen");
             System.out.println("  2  Schächte verwalten");
             System.out.println("  3  Etwas kaufen");
-            menuPunkt = scanner.nextInt();
+            menuPunkt = new Scanner(System.in).nextInt();
 
             switch (menuPunkt) {
                 case 1:
@@ -38,28 +37,26 @@ public class Automat {
 
     // Objekt Schacht erzeugen
     private void neuerSchacht() {
-        Scanner scanner = new Scanner(System.in);
-
         // Name
         System.out.println("Welches Getränk soll in dem Schacht angeboten werden?");
-        name = scanner.nextLine();
+        name = new Scanner(System.in).nextLine();
 
         // Preis
         do {
             System.out.println("Welchen Preis soll eine Flasche" + name + " kosten?");
-            preis = scanner.nextDouble();
+            preis = new Scanner(System.in).nextDouble();
         } while (preis <= 0);
 
         // Max Anzahl
         do {
             System.out.println("Wie hoch ist die maximale Anzahl " + name + " im Schacht?");
-            maxAnzahl = scanner.nextInt();
+            maxAnzahl = new Scanner(System.in).nextInt();
         } while (maxAnzahl <= 0);
 
         // Anzahl
         do {
             System.out.println("Wie viel Stück von " + name + " sollen in den Schacht gefüllt werden?");
-            anzahl = scanner.nextInt();
+            anzahl = new Scanner(System.in).nextInt();
         } while (anzahl > maxAnzahl || anzahl <= 0);
 
         schaechte.add(new Schacht(name, preis, anzahl, maxAnzahl));
@@ -118,7 +115,7 @@ public class Automat {
             case 3:
                 System.out.println("Geben Sie einen neuen Namen ein: ");
                 try {
-                    schaechte.get(zuVerwaltenderSchacht).setName(scanner.nextLine());
+                    schaechte.get(zuVerwaltenderSchacht).setName(new Scanner(System.in).nextLine());
                 } catch (Exception ex) {
                     System.out.println(ex.getMessage());
                 }
