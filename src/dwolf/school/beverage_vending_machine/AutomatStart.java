@@ -6,6 +6,6 @@ public class AutomatStart {
 
     public static void main(String[] args) {
         Automat getraenkeAutomat =  new Automat();
-        getraenkeAutomat.initSchacht();
+        getraenkeAutomat.runAutomat();
     }
 }

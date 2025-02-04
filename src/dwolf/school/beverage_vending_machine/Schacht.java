@@ -17,9 +17,9 @@ public class Schacht {
         return anzahl;
     }
 
-    private void setAnzahl(int anzahl) {
-        if(this.anzahl + anzahl > this.maxAnzahl) {
-            throw new Error ("Füllmenge passt nicht in den Schacht");
+    public void setAnzahl(int anzahl) {
+        if (this.anzahl + anzahl > this.maxAnzahl) {
+            throw new Error("Füllmenge passt nicht in den Schacht");
         } else {
             this.anzahl += anzahl;
         }
@@ -38,9 +38,12 @@ public class Schacht {
     }
 
 
-
     public void setName(String name) {
-       this.name = name;
+        if (this.anzahl != 0) {
+            throw new Error("Der Schacht ist nicht leer");
+        } else {
+            this.name = name;
+        }
     }
 
     public void setMaxAnzahl(int maxAnzahl) {
@@ -52,7 +55,7 @@ public class Schacht {
     }
 
     public boolean rausnehmen() {
-        if(this.anzahl > 0) {
+        if (this.anzahl > 0) {
             this.anzahl--;
             return true;
         } else {
