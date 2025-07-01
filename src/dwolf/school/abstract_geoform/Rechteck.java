@@ -1,12 +1,13 @@
 package dwolf.school.abstract_geoform;
 
-public class Rechteck implements GeoForm {
+public class Rechteck extends GeoForm {
     protected double breite;
 
     protected double hoehe;
 
     public Rechteck(double breite, double hoehe) {
-
+        this.breite = breite;
+        this.hoehe = hoehe;
     }
 
     public double getUmfang() {
