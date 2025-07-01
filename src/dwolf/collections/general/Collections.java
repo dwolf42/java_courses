@@ -1,4 +1,4 @@
-package dwolf.collections;
+package dwolf.collections.general;
 
 import java.util.ArrayList;
 import java.util.Collection;
