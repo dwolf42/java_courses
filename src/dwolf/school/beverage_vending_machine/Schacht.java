@@ -1,4 +1,4 @@
-﻿package dwolf.school.beverage_vending_machine;
+package dwolf.school.beverage_vending_machine;
 
 public class Schacht {
     private String name;
