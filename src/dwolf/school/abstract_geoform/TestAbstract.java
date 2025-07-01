@@ -5,12 +5,12 @@ import java.util.Scanner;
 public class TestAbstract {
 	private final static int MAX = 10;
 	
-	// Array aller Geometrischen Figuren
+	// Array aller geometrischen Figuren
 	private GeoForm[] figuren = new GeoForm[MAX];
 	
 	// Array von Hilfsobjekten zur Erzeugung der unterschiedlichen Figur-Typen
-	private GeoFormCreator[] creator = {   new RechteckCreator("Rechteck")
-										 // ,new KreisCreator("Kreis") 
+	private GeoFormCreator[] creator = {   new RechteckCreator("Rechteck"),
+			                               new KreisCreator("Kreis")
 									   };
 	
 	// Ausgeben aller Figuren des figuren-Arrays
@@ -26,7 +26,7 @@ public class TestAbstract {
 			if (figuren[i] != null) {
 				System.out.println("Nummer: " + i + " " + "Typ:    "
 						+ figuren[i].getTyp());
-				System.out.println("Fl�che: " + figuren[i].getFlaeche());
+				System.out.println("Fläche: " + figuren[i].getFlaeche());
 				System.out.println("Umfang: " + figuren[i].getUmfang());
 			}
 		}
@@ -62,7 +62,7 @@ public class TestAbstract {
 	public void loeschenFigur() {
 		int nr;
 		Scanner ein = new Scanner(System.in);
-		System.out.println("Geben Sie die Nummer der zu l�schenden Figur ein");
+		System.out.println("Geben Sie die Nummer der zu löschenden Figur ein");
 		nr = ein.nextInt();
 		if (nr >= 0 && nr < figuren.length && figuren[nr] != null)
 			figuren[nr] = null;
@@ -74,12 +74,12 @@ public class TestAbstract {
 		Scanner ein = new Scanner(System.in);
 		do {
 			System.out.println();
-			System.out.println("Mit diesem Programm k�nnen Sie ");
+			System.out.println("Mit diesem Programm können Sie ");
 			System.out.println("Geometrische Figuren verwalten");
-			System.out.println("W�hlen Sie:");
+			System.out.println("Wählen Sie:");
 			System.out.println("  a  ausgeben aller Figuren");
-			System.out.println("  n  neue Figur einf�gen");
-			System.out.println("  l  eine Figur l�schen");
+			System.out.println("  n  neue Figur einfügen");
+			System.out.println("  l  eine Figur löschen");
 			System.out.println("  e  das Programm beenden ");
 
 			auswahl = ein.nextLine().toLowerCase().charAt(0);
