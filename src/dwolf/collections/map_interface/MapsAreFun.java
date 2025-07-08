@@ -1,10 +1,16 @@
 package dwolf.collections.map_interface;
 
 import java.util.HashMap;
+import java.util.TreeMap;
 import java.util.Map;
 
 public class MapsAreFun {
     public static void main(String[] args) {
+       regularMap();
+       treeMap();
+    }
+
+    public static void regularMap() {
         // Creatin a HashMap object
         Map<String, Integer> students = new HashMap<>();
 
@@ -35,4 +41,9 @@ public class MapsAreFun {
         int size = students.size();
         System.out.println("Number of students in the HashMap: " + size);
     }
+
+    public static void treeMap() {
+       Map<String, Integer> students = new TreeMap();
+    }
+
 }
