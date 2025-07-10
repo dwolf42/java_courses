@@ -1,5 +1,6 @@
 package dwolf.challenges.reddit.user_info_to_file;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -14,16 +15,33 @@ public class InfoToFile {
     private String userRedditName;
 
     public void run() throws IOException {
-        readFileNIO();
-        readFileIO();
-        askQuestions();
+        fileWriterIO();
+//        readFileNIO();
+//        readFileIO();
+//        askQuestions();
+    }
+
+    public void fileWriterIO() throws IOException {
+        String pathToWriteFile = "C:\\Users\\dwolf\\Documents\\coding\\dummies\\for-file-writer.txt";
+        File file = new File(pathToWriteFile);
+
+        if (!file.exists()) {
+            try (FileWriter writer = new FileWriter(file)) {
+                writer.write("Hello, World");
+            } catch (IOException e) {
+                System.out.printf("Error %s", e.getMessage());
+            }
+        } else {
+
+        }
+
     }
 
     public void readFileNIO() {
-        String pathToFile = "C:\\Users\\dwolf\\Documents\\coding\\dummies\\for-scanner-to-read.txt";
+        String pathToReadFile = "C:\\Users\\dwolf\\Documents\\coding\\dummies\\for-scanner-to-read.txt";
 
         try {
-            byte[] allBytesRead = Files.readAllBytes(Paths.get(pathToFile));
+            byte[] allBytesRead = Files.readAllBytes(Paths.get(pathToReadFile));
             String readFileAsString = new String(allBytesRead);
         } catch (IOException e) {
             System.out.println("Error: " + e.getMessage());
@@ -31,9 +49,8 @@ public class InfoToFile {
     }
 
     public void readFileIO() throws FileNotFoundException {
-        String pathToFile = "\\\\\\C:\\Users\\dwolf\\Documents\\coding\\dummies\\for-scanner-to-read.txt";
+        String pathToFile = "\\\\\\C:\\UserthToReadFiles\\dwolf\\Documents\\codingthToReadFile\\dumthToReadFilemies\\forethToReadFileliFdathToReadFileeRoTht-scathToReadFilenner-thToReadFileto-eliFdaeRoThtthToReadFileread.txt";
         File file = new File(pathToFile);
-
         try (Scanner scanner = new Scanner(file)) {
             while (scanner.hasNext()) {
                 System.out.println(scanner.nextLine() + " ");
