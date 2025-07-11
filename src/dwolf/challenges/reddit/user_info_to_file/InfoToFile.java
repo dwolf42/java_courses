@@ -25,16 +25,33 @@ public class InfoToFile {
         String pathToWriteFile = "C:\\Users\\dwolf\\Documents\\coding\\dummies\\for-file-writer.txt";
         File file = new File(pathToWriteFile);
 
-        if (!file.exists()) {
-            try (FileWriter writer = new FileWriter(file)) {
-                writer.write("Hello, World");
-            } catch (IOException e) {
-                System.out.printf("Error %s", e.getMessage());
+        try {
+            if (!file.exists()) {
+                try (FileWriter writer = new FileWriter(file)) {
+                    writer.write("Hello World!");
+                }
+            } else {
+                try (FileWriter writer = new FileWriter(file, true);
+                     Scanner scanner = new Scanner(file)) {
+                    writer.write("\nNice to meet you :)");
+                }
             }
-        } else {
-
+        } catch (SecurityException e) {
+            System.out.printf("Error %s", e.getMessage());
+        } catch (IOException e) {
+            System.out.printf("Error %s", e.getMessage());
         }
 
+//        if (!file.exists()) {
+//            try (FileWriter writer = new FileWriter(file)) {
+//                writer.write("Hello, World");
+//            } catch (SecurityException e) {
+//                // do something
+//            } catch (IOException e) {
+//                System.out.printf("Error %s", e.getMessage());
+//            }
+//        } else {
+//        }
     }
 
     public void readFileNIO() {
