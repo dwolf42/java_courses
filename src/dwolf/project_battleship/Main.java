@@ -1,30 +1,40 @@
 package dwolf.project_battleship;
 
-/*
-Basically, and ocean consists of quadrants, like 1x1 meters.
-* Each quadrant can have a state, like being water, a ship, a hit ship, or a miss.
-* In order to know where each quadrant is located on the ocean, it has individual coordinates, like 1,3, 2,5 etc.
-* The state is the lowest level of the hierarchy, but contains the most valuable variable.
-* The quadrant is the next higher level in the hierarchy,
-*
-*
-* */
-
-import dwolf.project_battleship.controller.Navigation;
+import java.util.Scanner;
+import java.util.Map;
+import java.util.LinkedHashMap;
 
 public class Main {
-    public static void main(String[] args) {
-        int x1 = 0;
-        int x2 = 0;
-        int y1 = 4;
-        int y2 = 2;
-        int xdiff = Math.abs(x1 - x2); // 0
-        int ydiff = Math.abs(y1 - y2); // 2
+   public static void main(String[] args) {
+        // 65 = A => 0
+        // 66 = B => 1
+        // 74 = J
+        Map<String, Integer> lettersToIndex = new LinkedHashMap<>();
+        lettersToIndex.put("A", 0);
+        lettersToIndex.put("B", 1);
+        lettersToIndex.put("C", 2);
+        lettersToIndex.put("D", 3);
+        lettersToIndex.put("E", 4);
+        lettersToIndex.put("F", 5);
+        lettersToIndex.put("G", 6);
+        lettersToIndex.put("H", 7);
+        lettersToIndex.put("I", 8);
+        lettersToIndex.put("J", 9);
 
-        System.out.println(!(xdiff == 0 ^ ydiff == 0));
+//        lettersToIndex.forEach((key, value) -> {
+//             System.out.println(key);
+//        });
 
-        Navigation navigation = new Navigation();
-        navigation.run();
-    }
+        Scanner scanner = new Scanner(System.in);
+        String userInput = scanner.nextLine(); // F14
+        String castUpper = userInput.toUpperCase();
+        // String userInput = "F14";
+        char letterPart = castUpper.charAt(0);
+        int letterToInt = letterPart;
+        int row = letterToInt - 65;
+        System.out.println(letterPart);
+        System.out.println(letterToInt);
+        System.out.println(row);
 
+   }
 }
