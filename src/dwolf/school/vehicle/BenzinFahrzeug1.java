@@ -1,8 +1,8 @@
 package dwolf.school.vehicle;
 
-public class BenzinFahrzeug extends Fahrzeug {
+public class BenzinFahrzeug1 extends Fahrzeug1 {
 
-        BenzinFahrzeug(String typ, double verbrauch) {
+        BenzinFahrzeug1(String typ, double verbrauch) {
             super(typ + "-Benzinfahrzeug", verbrauch);
         }
 
@@ -14,6 +14,6 @@ public class BenzinFahrzeug extends Fahrzeug {
             return getType();
         }
         public double berechneFahrtkosten(double km) {
-            return getVerbrauch() / 100 * km * Fahrzeug.getBenzinpreis();
+            return getVerbrauch() / 100 * km * Fahrzeug1.getBenzinpreis();
         }
     }

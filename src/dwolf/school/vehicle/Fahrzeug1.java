@@ -1,6 +1,6 @@
 package dwolf.school.vehicle;
 
-public class Fahrzeug {
+public class Fahrzeug1 {
 
     // a) Attributes
     private static double benzinpreis;
@@ -9,7 +9,7 @@ public class Fahrzeug {
     protected double verbrauch;
 
     // a) Constructor
-    public Fahrzeug(String fahrzeugTyp, double verbrauch) {
+    public Fahrzeug1(String fahrzeugTyp, double verbrauch) {
         this.fahrzeugTyp = fahrzeugTyp;
         this.verbrauch = verbrauch;
     }
@@ -20,7 +20,7 @@ public class Fahrzeug {
     }
 
     public static void setBenzinpreis(double benzinpreis) {
-        Fahrzeug.benzinpreis = benzinpreis;
+        Fahrzeug1.benzinpreis = benzinpreis;
     }
 
     // c) Getter only, as changing is now allowed
@@ -42,7 +42,7 @@ public class Fahrzeug {
     }
 
     public static void setDieselpreis(double dieselpreis) {
-        Fahrzeug.dieselpreis = dieselpreis;
+        Fahrzeug1.dieselpreis = dieselpreis;
     }
 
 
