@@ -12,17 +12,20 @@ public class InfoToFile {
     private String userName;
     private int userAge;
     private String userRedditName;
+    String pathToFile;
 
+    public InfoToFile() {
+        pathToFile = "C:\\Users\\dwolf\\Documents\\coding\\dummies\\InfoToFile.txt";
+    }
     public void run() {
         askQuestions();
         fileWriterIO();
-//        readFileNIO();
-//        readFileIO();
+        readFileIO();
+        readFileNIO();
     }
 
     public void fileWriterIO() {
-        String pathToWriteFile = "C:\\Users\\dwolf\\Documents\\coding\\dummies\\for-file-writer.txt";
-        File file = new File(pathToWriteFile.trim());
+        File file = new File(pathToFile.trim());
 
         System.out.println("Writing data to file...");
 
@@ -37,34 +40,8 @@ public class InfoToFile {
             System.out.printf("Error writing: %s", e.getMessage());
             return;
         }
-        System.out.println("Writing complete.");
+        System.out.println("Writing complete.\n");
     }
-
-    public void readFileNIO() {
-        String pathToReadFile = "C:\\Users\\dwolf\\Documents\\coding\\dummies\\for-scanner-to-read.txt";
-
-        try {
-            byte[] allBytesRead = Files.readAllBytes(Paths.get(pathToReadFile.trim()));
-            String readFileAsString = new String(allBytesRead);
-        } catch (IOException e) {
-            System.out.println("Error: " + e.getMessage());
-        }
-    }
-
-    public void readFileIO() {
-        String pathToFile = "\\\\\\C:\\UserthToReadFiles\\dwolf\\Documents\\codingthToReadFile\\dumthToReadFilemies\\forethToReadFileliFdathToReadFileeRoTht-scathToReadFilenner-thToReadFileto-eliFdaeRoThtthToReadFileread.txt";
-        File file = new File(pathToFile.trim());
-        try (Scanner scanner = new Scanner(file)) {
-            while (scanner.hasNext()) {
-                System.out.println(scanner.nextLine() + " ");
-            }
-        } catch (FileNotFoundException e) {
-            System.out.println("Error: " + e.getMessage());
-            System.out.println("No file found: " + pathToFile.trim());
-        }
-        System.out.println();
-    }
-
     public void askQuestions() {
         System.out.println("Hi, my name is Brandigasco.");
         System.out.println("What is your name...?");
@@ -104,4 +81,35 @@ public class InfoToFile {
                 + "and your username is " + userRedditName);
         System.out.println();
     }
+
+    public void readFileIO() {
+        File file = new File(pathToFile.trim());
+        System.out.println("Reading file...\n");
+
+        try (Scanner scanner = new Scanner(file)) {
+            while (scanner.hasNext()) {
+                System.out.println(scanner.nextLine() + " ");
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("Error: " + e.getMessage());
+            return;
+        }
+        System.out.println();
+    }
+
+    public void readFileNIO() {
+        System.out.println("Reading file...\n");
+
+        try {
+            byte[] allBytesRead = Files.readAllBytes(Paths.get(pathToFile.trim()));
+            String readFileAsString = new String(allBytesRead);
+            System.out.println(readFileAsString);
+        } catch (IOException e) {
+            System.out.println("Error: " + e.getMessage());
+            return;
+        }
+        System.out.println();
+    }
+
+
 }
