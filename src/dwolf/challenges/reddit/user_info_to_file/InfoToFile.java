@@ -18,7 +18,7 @@ public class InfoToFile {
 
     public InfoToFile() {
 //        pathToFile = "C:\\Users\\dwolf\\Documents\\coding\\dummies\\InfoToFile.txt";
-        pathToFile = null;
+        pathToFile = null; // for science
     }
 
     public void run() {
@@ -32,9 +32,10 @@ public class InfoToFile {
         File file;
         try {
             file = new File(pathToFile);
-        } catch (NullPointerException msg) {
-            System.err.printf("Caught NullPointerException: %s\n", msg.getMessage());
+        } catch (NullPointerException npe) {
+            System.err.printf("Caught NullPointerException: %s\n", npe.getMessage());
             System.err.println("Invalid file path.");
+            obtainStackTrace(npe);
             return;
         }
 
@@ -46,8 +47,8 @@ public class InfoToFile {
             writer.write("userAge = \"" + userAge + "\";");
             writer.write("\n");
             writer.write("userRedditName = \"" + userRedditName + "\";");
-        } catch (IOException msg) {
-            System.err.printf("Caught IOException: %s\n", msg.getMessage());
+        } catch (IOException ioe) {
+            System.err.printf("Caught IOException: %s\n", ioe.getMessage());
             System.err.println("Invalid file.");
             return;
         }
@@ -66,7 +67,7 @@ public class InfoToFile {
         do {
             try {
                 userAge = scanner.nextInt();
-            } catch (InputMismatchException msg) {
+            } catch (InputMismatchException ime) {
                 // No e.getMessage() since it's always 'null'
                 System.out.println("Error: Only input numbers, please.");
                 // Flush all tokens except for the newline character for the scanner to be able to scan again
@@ -97,20 +98,23 @@ public class InfoToFile {
 
         try {
             file = new File(pathToFile);
-        } catch (NullPointerException msg) {
-            System.err.printf("Caught NullPointerException: %s\n", msg.getMessage());
+        } catch (NullPointerException npe) {
+            System.err.printf("Caught NullPointerException: %s\n", npe.getMessage());
             System.err.println("Invalid file path.");
+            for (StackTraceElement element : npe.getStackTrace()) {
+                System.err.println(element);
+            }
+            System.err.println();
             return;
         }
-
         System.out.println("Reading file...\n");
 
         try (Scanner scanner = new Scanner(file)) {
             while (scanner.hasNext()) {
                 System.out.printf("%s \n", scanner.nextLine());
             }
-        } catch (FileNotFoundException msg) {
-            System.out.printf("Caught FileNotFoundException: %s\n", msg.getMessage());
+        } catch (FileNotFoundException fnfe) {
+            System.out.printf("Caught FileNotFoundException: %s\n", fnfe.getMessage());
             return;
         }
         // Formatting
@@ -122,22 +126,34 @@ public class InfoToFile {
 
         try {
             checkedPath = Paths.get(pathToFile);
-        } catch (NullPointerException msg) {
-            System.err.printf("Caught NullpointerException: %s", msg.getMessage());
+        } catch (NullPointerException npe) {
+            System.err.printf("Caught NullPointerException: %s\n", npe.getMessage());
+            System.err.println("Invalid file path.");
+            for (StackTraceElement element : npe.getStackTrace()) {
+                System.err.println(element);
+            }
+            System.err.println();
             return;
         }
 
         System.out.println("Reading file...\n");
 
         try {
-            byte[] allBytesRead = Files.readAllBytes(checkedPath));
+            byte[] allBytesRead = Files.readAllBytes(checkedPath);
             String readFileAsString = new String(allBytesRead);
             System.out.println(readFileAsString);
-        } catch (IOException msg) {
-            System.out.printf("Caught IOException: %s\n", msg.getMessage());
+        } catch (IOException ioe) {
+            System.out.printf("Caught IOException: %s\n", ioe.getMessage());
             return;
         }
         System.out.println();
     }
 
+    // As .getStackTrace() returns a StackTraceElement[]
+    public void obtainStackTrace(Throwable throwable) {
+        for (StackTraceElement element : throwable.getStackTrace()) {
+            System.err.println(element);
+        }
+        System.err.println();
+    }
 }
