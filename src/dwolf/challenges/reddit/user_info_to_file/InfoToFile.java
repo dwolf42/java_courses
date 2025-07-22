@@ -17,27 +17,37 @@ public class InfoToFile {
     String pathToFile;
 
     public InfoToFile() {
-//        pathToFile = "C:\\Users\\dwolf\\Documents\\coding\\dummies\\InfoToFile.txt";
-        pathToFile = null; // for science
-    }
 
-    public void run() {
-        askQuestions();
-        fileWriterIO();
-        readFileIO();
-        readFileNIO();
-    }
+        final String OSTYPE = System.getProperty("os.name");
+        final String OSUSERNAME = System.getProperty("user.name");
+        final String OSWINDOWS = "Windows";
 
-    public void fileWriterIO() {
-        File file;
-        try {
-            file = new File(pathToFile);
-        } catch (NullPointerException npe) {
-            System.err.printf("Caught NullPointerException: %s\n", npe.getMessage());
-            System.err.println("Invalid file path.");
-            obtainStackTrace(npe);
-            return;
+        // For ease of use and to maintain this program's purpose, System.file.seperator or similar was not used
+        if (OSTYPE.contains(OSWINDOWS)) {
+            pathToFile = String.format("C:\\Users\\%s\\Documents\\coding\\dummies\\InfoToFile.txt", OSUSERNAME);
+        } else {
+            pathToFile = String.format("/home/%s/Documents/dev/dummies/InfoToFile.txt", OSUSERNAME);
         }
+    }
+
+    public void runInfoToFile() {
+
+        if (pathToFile != null) {
+            try {
+                askQuestions();
+                useFileWriterIO();
+                useReadFileIO();
+                useReadFileNIO();
+            } catch (Exception ex) {
+                System.err.println("Placeholder");
+            }
+        } else {
+            System.err.println("Invalid file path. Terminating program.");
+        }
+    }
+
+    public void useFileWriterIO() {
+        File file = new File(pathToFile);
 
         System.out.println("Writing data to file...");
 
@@ -93,7 +103,7 @@ public class InfoToFile {
         System.out.println();
     }
 
-    public void readFileIO() {
+    public void useReadFileIO() {
         File file;
 
         try {
@@ -121,25 +131,13 @@ public class InfoToFile {
         System.out.println();
     }
 
-    public void readFileNIO() {
-        Path checkedPath;
-
-        try {
-            checkedPath = Paths.get(pathToFile);
-        } catch (NullPointerException npe) {
-            System.err.printf("Caught NullPointerException: %s\n", npe.getMessage());
-            System.err.println("Invalid file path.");
-            for (StackTraceElement element : npe.getStackTrace()) {
-                System.err.println(element);
-            }
-            System.err.println();
-            return;
-        }
+    public void useReadFileNIO() {
+        Path pathsToFile = Paths.get(pathToFile);
 
         System.out.println("Reading file...\n");
 
         try {
-            byte[] allBytesRead = Files.readAllBytes(checkedPath);
+            byte[] allBytesRead = Files.readAllBytes(pathsToFile);
             String readFileAsString = new String(allBytesRead);
             System.out.println(readFileAsString);
         } catch (IOException ioe) {
