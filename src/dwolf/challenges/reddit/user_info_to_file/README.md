@@ -13,6 +13,15 @@ For extra credit, have the program log this information in a file to be accessed
 https://www.reddit.com/r/dailyprogrammer/comments/pih8x/easy_challenge_1/
 
 ---
+## Requirements specifically to this program
+
+Please ensure the presence of the following directroy path, related to your operating system
+
+**Windows:** `C:\Users\YOUR_USER_NAME\Documents\coding\dummies\`
+
+**Unix-Like:** `/home/%s/Documents/dev/dummies/`
+
+---
 ## Prerequisites to run my Java programs
 
 At this point I assume you already have installed the JDK
