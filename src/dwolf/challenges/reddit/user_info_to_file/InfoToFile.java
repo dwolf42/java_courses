@@ -18,15 +18,15 @@ public class InfoToFile {
 
     public InfoToFile() {
 
-        final String OSTYPE = System.getProperty("os.name");
-        final String OSUSERNAME = System.getProperty("user.name");
-        final String OSWINDOWS = "Windows";
+        final String OS_TYPE = System.getProperty("os.name");
+        final String OS_USERNAME = System.getProperty("user.name");
+        final String OS_WINDOWS = "Windows";
 
-        // For ease of use and to maintain this program's purpose, System.file.seperator or similar was not used
-        if (OSTYPE.contains(OSWINDOWS)) {
-            pathToFile = String.format("C:\\Users\\%s\\Documents\\coding\\dummies\\InfoToFile.txt", OSUSERNAME);
+        // For ease of use and maintaining this program's purpose, System.file.seperator or similar was not used
+        if (OS_TYPE.contains(OS_WINDOWS)) {
+            pathToFile = String.format("C:\\Users\\%s\\Documents\\coding\\dummies\\InfoToFile.txt", OS_USERNAME);
         } else {
-            pathToFile = String.format("/home/%s/Documents/dev/dummies/InfoToFile.txt", OSUSERNAME);
+            pathToFile = String.format("/home/%s/Documents/dev/dummies/InfoToFile.txt", OS_USERNAME);
         }
     }
 
