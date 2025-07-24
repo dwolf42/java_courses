@@ -31,14 +31,15 @@ public class InfoToFile {
     }
 
     public void runInfoToFile() {
-
         if (pathToFile != null) {
             try {
                 askQuestions();
                 useFileWriterIO();
                 useReadFileIO();
                 useReadFileNIO();
-            } catch (Exception ex) {
+            } catch (IOException ex) {
+                System.err.printf("Error: %s\n", ex.getMessage());
+                ex.printStackTrace();
                 System.err.println("Placeholder");
             }
         } else {
@@ -103,47 +104,28 @@ public class InfoToFile {
         System.out.println();
     }
 
-    public void useReadFileIO() {
-        File file;
+    public void useReadFileIO() throws FileNotFoundException {
+        File file = new File(pathToFile);
 
-        try {
-            file = new File(pathToFile);
-        } catch (NullPointerException npe) {
-            System.err.printf("Caught NullPointerException: %s\n", npe.getMessage());
-            System.err.println("Invalid file path.");
-            for (StackTraceElement element : npe.getStackTrace()) {
-                System.err.println(element);
-            }
-            System.err.println();
-            return;
-        }
         System.out.println("Reading file...\n");
 
-        try (Scanner scanner = new Scanner(file)) {
-            while (scanner.hasNext()) {
-                System.out.printf("%s \n", scanner.nextLine());
-            }
-        } catch (FileNotFoundException fnfe) {
-            System.out.printf("Caught FileNotFoundException: %s\n", fnfe.getMessage());
-            return;
+        Scanner scanner = new Scanner(file);
+        while (scanner.hasNext()) {
+            System.out.printf("%s \n", scanner.nextLine());
         }
+
         // Formatting
         System.out.println();
     }
 
-    public void useReadFileNIO() {
+    public void useReadFileNIO() throws IOException {
         Path pathsToFile = Paths.get(pathToFile);
 
         System.out.println("Reading file...\n");
 
-        try {
-            byte[] allBytesRead = Files.readAllBytes(pathsToFile);
-            String readFileAsString = new String(allBytesRead);
-            System.out.println(readFileAsString);
-        } catch (IOException ioe) {
-            System.out.printf("Caught IOException: %s\n", ioe.getMessage());
-            return;
-        }
+        byte[] allBytesRead = Files.readAllBytes(pathsToFile);
+        String readFileAsString = new String(allBytesRead);
+        System.out.println(readFileAsString);
         System.out.println();
     }
 
