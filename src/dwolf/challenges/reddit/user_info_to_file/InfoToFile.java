@@ -128,12 +128,4 @@ public class InfoToFile {
         System.out.println(readFileAsString);
         System.out.println();
     }
-
-    // As .getStackTrace() returns a StackTraceElement[]
-    public void obtainStackTrace(Throwable throwable) {
-        for (StackTraceElement element : throwable.getStackTrace()) {
-            System.err.println(element);
-        }
-        System.err.println();
-    }
 }
