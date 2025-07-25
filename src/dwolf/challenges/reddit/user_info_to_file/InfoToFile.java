@@ -17,7 +17,6 @@ public class InfoToFile {
     String pathToFile;
 
     public InfoToFile() {
-
         final String OS_TYPE = System.getProperty("os.name");
         final String OS_USERNAME = System.getProperty("user.name");
         final String OS_WINDOWS = "Windows";
@@ -31,38 +30,38 @@ public class InfoToFile {
     }
 
     public void runInfoToFile() {
-        if (pathToFile != null) {
-            try {
-                askQuestions();
-                useFileWriterIO();
-                useReadFileIO();
-                useReadFileNIO();
-            } catch (IOException ex) {
-                System.err.printf("Error: %s\n", ex.getMessage());
-                ex.printStackTrace();
-                System.err.println("Placeholder");
-            }
-        } else {
+        if (pathToFile == null) {
             System.err.println("Invalid file path. Terminating program.");
+            return;
+        }
+
+        try {
+            askQuestions();
+            useFileWriterIO();
+            useReadFileIO();
+            useReadFileNIO();
+        } catch (IOException ex) {
+            System.err.printf("Error: %s\n", ex.getMessage());
+            ex.printStackTrace();
         }
     }
 
-    public void useFileWriterIO() {
+    public void useFileWriterIO() throws IOException {
         File file = new File(pathToFile);
 
         System.out.println("Writing data to file...");
 
         try (FileWriter writer = new FileWriter(file)) {
+
             writer.write("userName = \"" + userName + "\";");
             writer.write("\n");
             writer.write("userAge = \"" + userAge + "\";");
             writer.write("\n");
             writer.write("userRedditName = \"" + userRedditName + "\";");
         } catch (IOException ioe) {
-            System.err.printf("Caught IOException: %s\n", ioe.getMessage());
-            System.err.println("Invalid file.");
-            return;
+            throw new IOException(ioe);
         }
+
         System.out.println("Writing complete.\n");
     }
 
