@@ -27,31 +27,58 @@ public class BattleshipGame {
 
     public void run() {
         printMap(gameMap);
-        obtainCoords();
+        promptAndValidateCoords();
     }
 
-    private int[] obtainCoords() {
+    private int[] promptAndValidateCoords() {
+        final String COORDS_REGEX = "^[A-Ja-j](10|[1-9])\\s[A-Ja-j](10|[1-9])$";
         Scanner scanner = new Scanner(System.in);
         String userInput = scanner.nextLine();
-        String castUpper = userInput.toUpperCase();
 
-        int[] coords = new int[4];
+        while (!userInput.matches(COORDS_REGEX)) {
+            System.out.println("Error, please only enter coordinates according to the game map.");
+            userInput = scanner.nextLine();
+        }
 
-        char letterPart = castUpper.charAt(0);
-        int letterToInt = letterPart;
-        coords[0] = letterToInt - 65;
+        // Captial letters reduces overhead
+        userInput = userInput.toUpperCase();
 
-        char numPart = userInput.charAt(1);
-        coords[1] = Character.getNumericValue(numPart) - 1;
+        // Alphanumeric user input must be translated to array indexes, so the ship parts can be placed on the game map
+        int[] arrayIndexesOfUserInput = new int[4];
+        String[] splitUserInput = userInput.split(" ");
+        /*
+        The decimal representations of the letters A to J are the numbers 65 to 74.
+        Subtracting the number 65 from each of these results in the indexes i = 0 to 9 in a two-dimensional array.
+        Within the same array, the numbers 1 to 10 correspond to the indexes j = 0 to 9.
+        Thus, the number 1 must be subtracted from the parsed number in each case.
+        */
+        arrayIndexesOfUserInput[0] = (int) splitUserInput[0].charAt(0) - 65;
+        arrayIndexesOfUserInput[1] = Integer.parseInt(splitUserInput[0].substring(1)) - 1;
+        arrayIndexesOfUserInput[2] = (int) splitUserInput[1].charAt(0) - 65;
+        arrayIndexesOfUserInput[3] = Integer.parseInt(splitUserInput[1].substring(1)) - 1;
 
-        letterPart = castUpper.charAt(3);
-        letterToInt = letterPart;
-        coords[2] = letterToInt - 65;
+//        char tempCharOfString;
+//        int tempDecimalOfChar;
+//
+//        for (int i = 0; i < userInput.length(); i++) {
+//            if (i % 2 == 0) {
+//                tempCharOfString = userInput.charAt(i);
+//                tempDecimalOfChar = tempCharOfString;
+//                arrayIndexesOfUserInput[i] = tempDecimalOfChar - 65;
+//                continue;
+//            }
+//            tempCharOfString = userInput.charAt(i);
+//            arrayIndexesOfUserInput[i] = Character.getNumericValue(tempCharOfString) - 1;
+//        }
 
-        numPart = userInput.charAt(4);
-        coords[3] = Character.getNumericValue(numPart) - 1;
-
-        return coords;
+//        charOfString = userInputUpperCase.charAt(3);
+//        decimalOfChar = charOfString;
+//        arrayIndexesOfUserInput[2] = decimalOfChar - 65;
+//
+//        firstDigit = userInput.charAt(4);
+//        arrayIndexesOfUserInput[3] = Character.getNumericValue(firstDigit) - 1;
+//
+        return arrayIndexesOfUserInput;
     }
 
     private void printMap(char[][] gameMap) {
