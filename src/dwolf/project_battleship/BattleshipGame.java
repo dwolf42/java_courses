@@ -30,6 +30,11 @@ public class BattleshipGame {
         promptAndValidateCoords();
     }
 
+    // TODO: refactor promptAndValidateCoords in two methods, one to prompt for input, one to validate it.
+    // TODO: Currently, the coords only get checked for being inside the game map. Add diagonal check!
+    // TODO: add method to calculate ship size
+    // TODO: add method to extrapolate the coords in between user input coords: D5 ... D9
+
     private int[] promptAndValidateCoords() {
         // Used to allow only letters A to J, a whitespace and numbers 1 to 10 as input.
         final String COORDS_REGEX = "^[A-Ja-j](10|[1-9])\\s[A-Ja-j](10|[1-9])$";
@@ -81,5 +86,24 @@ public class BattleshipGame {
             System.out.println();
         }
     }
+}
 
+
+private int calculateShipSize(int[] validCoords) {
+
+}
+
+// User input consists only of start/end coords of a ship, from which the coords of the ship parts in between must
+// be extrapolated
+private int[] calculateBodyCoords() {
+    return new int[1];
+}
+private int calculateShipSize(int[] validCoords) {
+
+}
+
+// User input consists only of start/end coords of a ship, from which the coords of the ship parts in between must
+// be extrapolated
+private int[] calculateBodyCoords() {
+    return new int[1];
 }
