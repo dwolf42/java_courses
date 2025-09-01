@@ -31,6 +31,7 @@ public class BattleshipGame {
     }
 
     private int[] promptAndValidateCoords() {
+        // Used to allow only letters A to J, a whitespace and numbers 1 to 10 as input.
         final String COORDS_REGEX = "^[A-Ja-j](10|[1-9])\\s[A-Ja-j](10|[1-9])$";
         Scanner scanner = new Scanner(System.in);
         String userInput = scanner.nextLine();
@@ -62,13 +63,13 @@ public class BattleshipGame {
     }
 
     private void printMap(char[][] gameMap) {
-        // Add numbers 1-10 above game board for column enumeration
+        // User will see the numbers 1 to 10 above game board for column enumeration
         for (int i = 0; i < gameMap.length; i++) {
             System.out.print((i == 0 ? "  " : " ") + (i + 1));
         }
         System.out.println();
 
-        // Add characters A-J left of game board for row enumeration
+        // User will see the characters A to J left of game board for row enumeration
         // Using numbers as incrementor instead of characters to utilize the array's length as limit
         char ch = 'A';
         for (int i = 0; i < gameMap.length; i++) {
