@@ -27,7 +27,7 @@ public class BattleshipGame {
 
     public void run() {
         printMap(gameMap);
-        promptAndValidateCoords();
+        scanAndFilterInput();
     }
 
     // TODO: refactor promptAndValidateCoords in two methods, one to prompt for input, one to validate it.
@@ -35,19 +35,29 @@ public class BattleshipGame {
     // TODO: add method to calculate ship size
     // TODO: add method to extrapolate the coords in between user input coords: D5 ... D9
 
-    private int[] promptAndValidateCoords() {
+    // rename to filter
+
+    private int[] scanAndFilterInput() {
         // Used to allow only letters A to J, a whitespace and numbers 1 to 10 as input.
-        final String COORDS_REGEX = "^[A-Ja-j](10|[1-9])\\s[A-Ja-j](10|[1-9])$";
+        final String COORDS_REGEX = "^[A-J](10|[1-9])\\s[A-J](10|[1-9])$";
         Scanner scanner = new Scanner(System.in);
         String userInput = scanner.nextLine();
+
+        // Capital letters reduce overhead
+        userInput = userInput.toUpperCase();
 
         while (!userInput.matches(COORDS_REGEX)) {
             System.out.println("Error, please only enter coordinates according to the game map.");
             userInput = scanner.nextLine();
         }
 
-        // Capital letters reduces overhead
-        userInput = userInput.toUpperCase();
+
+        return arrayIndexesOfUserInput;
+    }
+
+    private boolean is
+
+    private int[] transform() {
 
         // Alphanumeric user input must be translated to array indexes, so the ship parts can be placed on the game map
         int[] arrayIndexesOfUserInput = new int[4];
@@ -63,8 +73,6 @@ public class BattleshipGame {
             arrayIndexesOfUserInput[i * 2] = (int) splitUserInput[i].charAt(0) - 65;
             arrayIndexesOfUserInput[i * 2 + 1] = Integer.parseInt(splitUserInput[i].substring(1)) - 1;
         }
-
-        return arrayIndexesOfUserInput;
     }
 
     private void printMap(char[][] gameMap) {
@@ -86,24 +94,33 @@ public class BattleshipGame {
             System.out.println();
         }
     }
-}
 
 
-private int calculateShipSize(int[] validCoords) {
+    private int calculateShipSize(int[] validCoords) {
+        return 1;
+    }
 
-}
-
-// User input consists only of start/end coords of a ship, from which the coords of the ship parts in between must
+    // User input consists only of start/end coords of a ship, from which the coords of the ship parts in between must
 // be extrapolated
-private int[] calculateBodyCoords() {
-    return new int[1];
-}
-private int calculateShipSize(int[] validCoords) {
+    private int[] calculateBodyCoords() {
+        return new int[1];
+    }
+
 
 }
-
-// User input consists only of start/end coords of a ship, from which the coords of the ship parts in between must
-// be extrapolated
-private int[] calculateBodyCoords() {
-    return new int[1];
-}
+/*     y 1    2    3
+ * x A [(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)]
+ *   B [(~)][(~)][(~)][(~)][(~)][(~)][(O)][(~)][(~)][(~)]
+ *     [(~)][(~)][(~)][(~)][(~)][(~)][(O)][(X)][(~)][(~)]
+ *     [(~)][(~)][(~)][(~)][(~)][(~)][(O)][(M)][(~)][(~)]
+ *     [(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)]
+ *     [(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)]
+ *     [(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)]
+ *     [(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)]
+ *     [(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)]
+ *     [(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)]
+ *
+ *
+ *
+ *
+ * */
