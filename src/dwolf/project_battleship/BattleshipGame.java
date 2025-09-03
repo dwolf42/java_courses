@@ -38,42 +38,56 @@ public class BattleshipGame {
     // rename to filter
 
     private int[] scanAndFilterInput() {
-        // Used to allow only letters A to J, a whitespace and numbers 1 to 10 as input.
-        final String COORDS_REGEX = "^[A-J](10|[1-9])\\s[A-J](10|[1-9])$";
+        // Restricting other inputs then letters A to J, 1x whitespace and numbers 1 to 10 prevents coordinates
+        // which are outside the game map
+        final String VALID_ALPHANUM_INPUT = "^[A-J](10|[1-9])\\s[A-J](10|[1-9])$";
+
+        boolean isValidInput = false;
         Scanner scanner = new Scanner(System.in);
-        String userInput = scanner.nextLine();
+        String userInput = " ";
 
-        // Capital letters reduce overhead
-        userInput = userInput.toUpperCase();
+        // Alphanumeric user input must be translated to array indexes for ship placement in a 2D-array
+        int[] arrayIndexesOfUserInput = new int[4];
 
-        while (!userInput.matches(COORDS_REGEX)) {
+        // Allows easier translatioin of user input to array indexes
+        //  0  1   2  3 <- indexes
+        // [B][10][D][10] <- example user input
+        String[] splitUserInput = {};
+
+        while (!isValidInput) {
+            // userInput = scanner.nextLine();
+            userInput = "B10 C10";
+            userInput = userInput.toUpperCase();
+
+            if (userInput.matches(VALID_ALPHANUM_INPUT)) {
+                splitUserInput = userInput.split(" ");
+
+                 /*
+                 The decimal representations of the letters A to J are the numbers 65 to 74.
+                 Subtracting the number 65 from each of these results in the indexes i = 0 to 9 in a two-dimensional array.
+                 Within the same array, the numbers 1 to 10 correspond to the indexes j = 0 to 9.
+                 Thus, the number 1 must be subtracted from the parsed number in each case.
+                 */
+                for (int i = 0; i < splitUserInput.length; i++) {
+                    arrayIndexesOfUserInput[i * 2] = (int) splitUserInput[i].charAt(0) - 65;
+                    arrayIndexesOfUserInput[i * 2 + 1] = Integer.parseInt(splitUserInput[i].substring(1)) - 1;
+                }
+// check whether input is only horizontal or diagonal
+
+                if (
+                        (arrayIndexesOfUserInput[0] == arrayIndexesOfUserInput[2]) ^
+                (arrayIndexesOfUserInput[1] == arrayIndexesOfUserInput[3])
+                ){
+                    isValidInput = true;
+                }
+            }
             System.out.println("Error, please only enter coordinates according to the game map.");
-            userInput = scanner.nextLine();
-        }
 
+        }
 
         return arrayIndexesOfUserInput;
     }
 
-    private boolean is
-
-    private int[] transform() {
-
-        // Alphanumeric user input must be translated to array indexes, so the ship parts can be placed on the game map
-        int[] arrayIndexesOfUserInput = new int[4];
-        String[] splitUserInput = userInput.split(" ");
-
-        /*
-        The decimal representations of the letters A to J are the numbers 65 to 74.
-        Subtracting the number 65 from each of these results in the indexes i = 0 to 9 in a two-dimensional array.
-        Within the same array, the numbers 1 to 10 correspond to the indexes j = 0 to 9.
-        Thus, the number 1 must be subtracted from the parsed number in each case.
-        */
-        for (int i = 0; i < splitUserInput.length; i++) {
-            arrayIndexesOfUserInput[i * 2] = (int) splitUserInput[i].charAt(0) - 65;
-            arrayIndexesOfUserInput[i * 2 + 1] = Integer.parseInt(splitUserInput[i].substring(1)) - 1;
-        }
-    }
 
     private void printMap(char[][] gameMap) {
         // User will see the numbers 1 to 10 above game board for column enumeration
