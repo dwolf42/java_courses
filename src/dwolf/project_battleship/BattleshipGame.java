@@ -30,18 +30,18 @@ public class BattleshipGame {
         scanAndFilterInput();
     }
 
-    // TODO: refactor promptAndValidateCoords in two methods, one to prompt for input, one to validate it.
-    // TODO: Currently, the coords only get checked for being inside the game map. Add diagonal check!
     // TODO: add method to calculate ship size
     // TODO: add method to extrapolate the coords in between user input coords: D5 ... D9
 
-    // rename to filter
-
+    /**
+     * Prompts the user for the coordinates on which they want to place the front and tail for a ship.
+     *
+     * @return the valid index coordinate pairs of a ship's front and tail
+     */
     private int[] scanAndFilterInput() {
         // Restricting other inputs then letters A to J, 1x whitespace and numbers 1 to 10 prevents coordinates
         // which are outside the game map
         final String VALID_ALPHANUM_INPUT = "^[A-J](10|[1-9])\\s[A-J](10|[1-9])$";
-
         boolean isValidInput = false;
         Scanner scanner = new Scanner(System.in);
         String userInput = " ";
@@ -49,14 +49,14 @@ public class BattleshipGame {
         // Alphanumeric user input must be translated to array indexes for ship placement in a 2D-array
         int[] arrayIndexesOfUserInput = new int[4];
 
-        // Allows easier translatioin of user input to array indexes
+        // Allows easier translatioin of user input to array indexes, as processing the whole string
+        // would require checks if the number part of the input as n or n + 1 digits.
         //  0  1   2  3 <- indexes
         // [B][10][D][10] <- example user input
         String[] splitUserInput = {};
 
         while (!isValidInput) {
-            // userInput = scanner.nextLine();
-            userInput = "B10 C10";
+            userInput = scanner.nextLine();
             userInput = userInput.toUpperCase();
 
             if (userInput.matches(VALID_ALPHANUM_INPUT)) {
@@ -72,17 +72,16 @@ public class BattleshipGame {
                     arrayIndexesOfUserInput[i * 2] = (int) splitUserInput[i].charAt(0) - 65;
                     arrayIndexesOfUserInput[i * 2 + 1] = Integer.parseInt(splitUserInput[i].substring(1)) - 1;
                 }
-// check whether input is only horizontal or diagonal
 
+                // Valid ship placement is only horizontal or vertical
                 if (
                         (arrayIndexesOfUserInput[0] == arrayIndexesOfUserInput[2]) ^
-                (arrayIndexesOfUserInput[1] == arrayIndexesOfUserInput[3])
-                ){
+                                (arrayIndexesOfUserInput[1] == arrayIndexesOfUserInput[3])
+                ) {
                     isValidInput = true;
                 }
             }
             System.out.println("Error, please only enter coordinates according to the game map.");
-
         }
 
         return arrayIndexesOfUserInput;
