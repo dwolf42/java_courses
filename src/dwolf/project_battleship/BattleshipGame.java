@@ -27,44 +27,63 @@ public class BattleshipGame {
 
     public void run() {
         printMap(gameMap);
-        promptAndValidateCoords();
+        int[] shipFrontTalePositions = obtainValidShipFrontTailPositionsArray();
     }
 
-    // TODO: refactor promptAndValidateCoords in two methods, one to prompt for input, one to validate it.
-    // TODO: Currently, the coords only get checked for being inside the game map. Add diagonal check!
-    // TODO: add method to calculate ship size
-    // TODO: add method to extrapolate the coords in between user input coords: D5 ... D9
-
-    private int[] promptAndValidateCoords() {
-        // Used to allow only letters A to J, a whitespace and numbers 1 to 10 as input.
-        final String COORDS_REGEX = "^[A-Ja-j](10|[1-9])\\s[A-Ja-j](10|[1-9])$";
+    /**
+     * Prompts the user for the coordinates on which they want to place the front and tail for a ship.
+     *
+     * @return the valid index coordinate pairs of a ship's front and tail
+     */
+    private int[] obtainValidShipFrontTailPositionsArray() {
+        // Restricting other inputs then letters A to J, 1x whitespace and numbers 1 to 10 prevents coordinates
+        // which are outside the game map
+        final String VALID_ALPHANUM_INPUT = "^[A-J](10|[1-9])\\s[A-J](10|[1-9])$";
+        boolean isValidInput = false;
         Scanner scanner = new Scanner(System.in);
-        String userInput = scanner.nextLine();
+        String userInput = " ";
 
-        while (!userInput.matches(COORDS_REGEX)) {
-            System.out.println("Error, please only enter coordinates according to the game map.");
+        // Splitting allows easier translatioin of user input to array indexes, as processing the whole string
+        // would require checks if the number part of the input as n or n + 1 digits.
+        //  0  1   2  3 <- indexes
+        // [B][10][D][10] <- example user input
+        String[] splitUserInput = {};
+
+        // Alphanumeric user input must be translated to array indexes for ship placement in a 2D-array
+        int[] validShipFrontTailPositionsArray = new int[4];
+
+        while (!isValidInput) {
             userInput = scanner.nextLine();
+            userInput = userInput.toUpperCase();
+
+            if (userInput.matches(VALID_ALPHANUM_INPUT)) {
+                splitUserInput = userInput.split(" ");
+
+                 /*
+                 The decimal representations of the letters A to J are the numbers 65 to 74.
+                 Subtracting the number 65 from each of these results in the indexes i = 0 to 9 in a two-dimensional array.
+                 Within the same array, the numbers 1 to 10 correspond to the indexes j = 0 to 9.
+                 Thus, the number 1 must be subtracted from the parsed number in each case.
+                 */
+                for (int i = 0; i < splitUserInput.length; i++) {
+                    validShipFrontTailPositionsArray[i * 2] = (int) splitUserInput[i].charAt(0) - 65;
+                    validShipFrontTailPositionsArray[i * 2 + 1] = Integer.parseInt(splitUserInput[i].substring(1)) - 1;
+                }
+
+                // Valid ship placement is only horizontal or vertical on the game map
+                if (
+                        (validShipFrontTailPositionsArray[0] == validShipFrontTailPositionsArray[2]) ^
+                                (validShipFrontTailPositionsArray[1] == validShipFrontTailPositionsArray[3])
+                ) {
+
+                    isValidInput = true;
+                    continue;
+                }
+            }
+            System.out.println("Error, please only enter coordinates according to the game map.");
         }
 
-        // Capital letters reduces overhead
-        userInput = userInput.toUpperCase();
-
-        // Alphanumeric user input must be translated to array indexes, so the ship parts can be placed on the game map
-        int[] arrayIndexesOfUserInput = new int[4];
-        String[] splitUserInput = userInput.split(" ");
-
-        /*
-        The decimal representations of the letters A to J are the numbers 65 to 74.
-        Subtracting the number 65 from each of these results in the indexes i = 0 to 9 in a two-dimensional array.
-        Within the same array, the numbers 1 to 10 correspond to the indexes j = 0 to 9.
-        Thus, the number 1 must be subtracted from the parsed number in each case.
-        */
-        for (int i = 0; i < splitUserInput.length; i++) {
-            arrayIndexesOfUserInput[i * 2] = (int) splitUserInput[i].charAt(0) - 65;
-            arrayIndexesOfUserInput[i * 2 + 1] = Integer.parseInt(splitUserInput[i].substring(1)) - 1;
-        }
-
-        return arrayIndexesOfUserInput;
+        return validShipFrontTailPositionsArray;
     }
 
     private void printMap(char[][] gameMap) {
@@ -86,24 +105,26 @@ public class BattleshipGame {
             System.out.println();
         }
     }
-}
 
-
-private int calculateShipSize(int[] validCoords) {
 
 }
 
-// User input consists only of start/end coords of a ship, from which the coords of the ship parts in between must
-// be extrapolated
-private int[] calculateBodyCoords() {
-    return new int[1];
-}
-private int calculateShipSize(int[] validCoords) {
-
-}
-
-// User input consists only of start/end coords of a ship, from which the coords of the ship parts in between must
-// be extrapolated
-private int[] calculateBodyCoords() {
-    return new int[1];
-}
+/*
+ *            //////////// Example Game Map /////////////////
+ *              1    2    3    4    5    6    7    8    9    10
+ *        (j->) 0    1    2    3    4    5    6    7    8    9
+ *       A 0  [(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)]
+ *       B 1  [(~)][(~)][(~)][(~)][(~)][(~)][(O)][(~)][(~)][(~)]
+ *       C 2  [(~)][(~)][(~)][(~)][(~)][(~)][(O)][(X)][(~)][(~)]
+ *       D 3  [(~)][(~)][(~)][(~)][(~)][(~)][(O)][(M)][(~)][(~)]
+ *       E 4  [(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)]
+ *       F 5  [(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)]
+ *       G 6  [(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)]
+ *       H 7  [(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)]
+ *       I 8  [(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)]
+ *       J 9  [(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)]
+ *
+ *
+ *
+ *
+ */
