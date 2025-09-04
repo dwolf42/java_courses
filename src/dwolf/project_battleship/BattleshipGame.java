@@ -77,6 +77,7 @@ public class BattleshipGame {
                 ) {
 
                     isValidInput = true;
+                    continue;
                 }
             }
             System.out.println("Error, please only enter coordinates according to the game map.");
