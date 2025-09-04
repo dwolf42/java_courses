@@ -27,18 +27,15 @@ public class BattleshipGame {
 
     public void run() {
         printMap(gameMap);
-        scanAndFilterInput();
+        int[] shipFrontTalePositions = obtainValidShipFrontTailPositionsArray();
     }
-
-    // TODO: add method to calculate ship size
-    // TODO: add method to extrapolate the coords in between user input coords: D5 ... D9
 
     /**
      * Prompts the user for the coordinates on which they want to place the front and tail for a ship.
      *
      * @return the valid index coordinate pairs of a ship's front and tail
      */
-    private int[] scanAndFilterInput() {
+    private int[] obtainValidShipFrontTailPositionsArray() {
         // Restricting other inputs then letters A to J, 1x whitespace and numbers 1 to 10 prevents coordinates
         // which are outside the game map
         final String VALID_ALPHANUM_INPUT = "^[A-J](10|[1-9])\\s[A-J](10|[1-9])$";
@@ -46,14 +43,14 @@ public class BattleshipGame {
         Scanner scanner = new Scanner(System.in);
         String userInput = " ";
 
-        // Alphanumeric user input must be translated to array indexes for ship placement in a 2D-array
-        int[] arrayIndexesOfUserInput = new int[4];
-
-        // Allows easier translatioin of user input to array indexes, as processing the whole string
+        // Splitting allows easier translatioin of user input to array indexes, as processing the whole string
         // would require checks if the number part of the input as n or n + 1 digits.
         //  0  1   2  3 <- indexes
         // [B][10][D][10] <- example user input
         String[] splitUserInput = {};
+
+        // Alphanumeric user input must be translated to array indexes for ship placement in a 2D-array
+        int[] validShipFrontTailPositionsArray = new int[4];
 
         while (!isValidInput) {
             userInput = scanner.nextLine();
@@ -69,24 +66,24 @@ public class BattleshipGame {
                  Thus, the number 1 must be subtracted from the parsed number in each case.
                  */
                 for (int i = 0; i < splitUserInput.length; i++) {
-                    arrayIndexesOfUserInput[i * 2] = (int) splitUserInput[i].charAt(0) - 65;
-                    arrayIndexesOfUserInput[i * 2 + 1] = Integer.parseInt(splitUserInput[i].substring(1)) - 1;
+                    validShipFrontTailPositionsArray[i * 2] = (int) splitUserInput[i].charAt(0) - 65;
+                    validShipFrontTailPositionsArray[i * 2 + 1] = Integer.parseInt(splitUserInput[i].substring(1)) - 1;
                 }
 
-                // Valid ship placement is only horizontal or vertical
+                // Valid ship placement is only horizontal or vertical on the game map
                 if (
-                        (arrayIndexesOfUserInput[0] == arrayIndexesOfUserInput[2]) ^
-                                (arrayIndexesOfUserInput[1] == arrayIndexesOfUserInput[3])
+                        (validShipFrontTailPositionsArray[0] == validShipFrontTailPositionsArray[2]) ^
+                                (validShipFrontTailPositionsArray[1] == validShipFrontTailPositionsArray[3])
                 ) {
+
                     isValidInput = true;
                 }
             }
             System.out.println("Error, please only enter coordinates according to the game map.");
         }
 
-        return arrayIndexesOfUserInput;
+        return validShipFrontTailPositionsArray;
     }
-
 
     private void printMap(char[][] gameMap) {
         // User will see the numbers 1 to 10 above game board for column enumeration
@@ -109,31 +106,24 @@ public class BattleshipGame {
     }
 
 
-    private int calculateShipSize(int[] validCoords) {
-        return 1;
-    }
-
-    // User input consists only of start/end coords of a ship, from which the coords of the ship parts in between must
-// be extrapolated
-    private int[] calculateBodyCoords() {
-        return new int[1];
-    }
-
-
 }
-/*     y 1    2    3
- * x A [(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)]
- *   B [(~)][(~)][(~)][(~)][(~)][(~)][(O)][(~)][(~)][(~)]
- *     [(~)][(~)][(~)][(~)][(~)][(~)][(O)][(X)][(~)][(~)]
- *     [(~)][(~)][(~)][(~)][(~)][(~)][(O)][(M)][(~)][(~)]
- *     [(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)]
- *     [(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)]
- *     [(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)]
- *     [(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)]
- *     [(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)]
- *     [(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)]
+
+/*
+ *            //////////// Example Game Map /////////////////
+ *              1    2    3    4    5    6    7    8    9    10
+ *        (j->) 0    1    2    3    4    5    6    7    8    9
+ *       A 0  [(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)]
+ *       B 1  [(~)][(~)][(~)][(~)][(~)][(~)][(O)][(~)][(~)][(~)]
+ *       C 2  [(~)][(~)][(~)][(~)][(~)][(~)][(O)][(X)][(~)][(~)]
+ *       D 3  [(~)][(~)][(~)][(~)][(~)][(~)][(O)][(M)][(~)][(~)]
+ *       E 4  [(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)]
+ *       F 5  [(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)]
+ *       G 6  [(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)]
+ *       H 7  [(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)]
+ *       I 8  [(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)]
+ *       J 9  [(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)]
  *
  *
  *
  *
- * */
+ */
