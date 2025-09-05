@@ -15,18 +15,8 @@ public class BattleshipGame {
     // 73 = I => 8
     // 74 = J => 9
 
-    private char[][] gameMap;
-
-    public BattleshipGame() {
-        gameMap = new char[10][10];
-
-        for (char[] location : gameMap) {
-            Arrays.fill(location, '~');
-        }
-    }
-
     public void run() {
-        printMap(gameMap);
+        MapPrinter.printMap();
         int[] shipFrontTalePositions = obtainValidShipFrontTailPositionsArray();
     }
 
@@ -87,44 +77,8 @@ public class BattleshipGame {
     }
 
     private void printMap(char[][] gameMap) {
-        // User will see the numbers 1 to 10 above game board for column enumeration
-        for (int i = 0; i < gameMap.length; i++) {
-            System.out.print((i == 0 ? "  " : " ") + (i + 1));
-        }
-        System.out.println();
-
-        // User will see the characters A to J left of game board for row enumeration
-        // Using numbers as incrementor instead of characters to utilize the array's length as limit
-        char ch = 'A';
-        for (int i = 0; i < gameMap.length; i++) {
-            System.out.print(ch + " ");
-            ch++;
-            for (int j = 0; j < gameMap[i].length; j++) {
-                System.out.print(gameMap[i][j] + " ");
-            }
-            System.out.println();
-        }
     }
 
 
 }
 
-/*
- *            //////////// Example Game Map /////////////////
- *              1    2    3    4    5    6    7    8    9    10
- *        (j->) 0    1    2    3    4    5    6    7    8    9
- *       A 0  [(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)]
- *       B 1  [(~)][(~)][(~)][(~)][(~)][(~)][(O)][(~)][(~)][(~)]
- *       C 2  [(~)][(~)][(~)][(~)][(~)][(~)][(O)][(X)][(~)][(~)]
- *       D 3  [(~)][(~)][(~)][(~)][(~)][(~)][(O)][(M)][(~)][(~)]
- *       E 4  [(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)]
- *       F 5  [(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)]
- *       G 6  [(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)]
- *       H 7  [(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)]
- *       I 8  [(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)]
- *       J 9  [(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)][(~)]
- *
- *
- *
- *
- */
