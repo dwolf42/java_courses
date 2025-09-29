@@ -1,11 +1,11 @@
-package dwolf.school.fintness_center;
+package dwolf.school.fitness_center;
 
-public class FintessCenter {
+public class FitnessCenter {
     private String name;
     private Kunde[] kunden;
 
 
-    public FintessCenter(String name) {
+    public FitnessCenter(String name) {
         super();
         this.name = name;
         kunden = new Kunde[10];
@@ -27,7 +27,7 @@ public class FintessCenter {
     }
 
     public Kunde loescheKunde(String id) {
-        return Kunde;
+        return null;
     }
 
     public void print() {
