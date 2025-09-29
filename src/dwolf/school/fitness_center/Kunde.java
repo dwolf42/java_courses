@@ -1,4 +1,4 @@
-package dwolf.school.fintness_center;
+package dwolf.school.fitness_center;
 
 public class Kunde {
     private String id;

@@ -1,4 +1,4 @@
-package dwolf.school.fintness_center;
+package dwolf.school.fitness_center;
 
 public class WertKarte {
     private double guthaben = 50;
