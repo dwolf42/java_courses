@@ -1,4 +1,4 @@
-﻿package dwolf.array;
+package dwolf.array;
 
 public class Array_TwoDimensional_Understanding_Structure_And_Proper_Printing {
     public static void main(String[] args) {
