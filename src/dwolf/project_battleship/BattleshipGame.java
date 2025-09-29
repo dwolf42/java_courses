@@ -3,7 +3,7 @@ package dwolf.project_battleship;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class BattleshipGame {
+class BattleshipGame {
     // 65 = A => 0
     // 66 = B => 1
     // 67 = C => 2
@@ -15,9 +15,24 @@ public class BattleshipGame {
     // 73 = I => 8
     // 74 = J => 9
 
+    private char[][] gameMap;
+
+    BattleshipGame() {
+        gameMap = new char[10][10];
+
+        for (char[] location : gameMap) {
+            Arrays.fill(location, '~');
+        }
+    }
+
     public void run() {
-        MapPrinter.printMap();
+        MapHandler.printMap(gameMap);
         int[] shipFrontTalePositions = obtainValidShipFrontTailPositionsArray();
+        gameMap = MapHandler.updateMap(gameMap, shipFrontTalePositions);
+        MapHandler.printMap(gameMap);
+        int[] arr = {4, 4};
+        MapHandler.updateMap(gameMap, arr, 'M');
+        MapHandler.printMap(gameMap);
     }
 
     /**
@@ -33,8 +48,8 @@ public class BattleshipGame {
         Scanner scanner = new Scanner(System.in);
         String userInput = " ";
 
-        // Splitting allows easier translatioin of user input to array indexes, as processing the whole string
-        // would require checks if the number part of the input as n or n + 1 digits.
+        // Splitting allows easier translation of user input to array indexes, as processing the whole string
+        // would require checks if the number part of the input has n or n + 1 digits.
         //  0  1   2  3 <- indexes
         // [B][10][D][10] <- example user input
         String[] splitUserInput = {};
@@ -51,13 +66,14 @@ public class BattleshipGame {
 
                  /*
                  The decimal representations of the letters A to J are the numbers 65 to 74.
-                 Subtracting the number 65 from each of these results in the indexes i = 0 to 9 in a two-dimensional array.
+                 Subtracting the number 65 from each of these results in the indexes i = 0 to 9 in a 2D-array.
                  Within the same array, the numbers 1 to 10 correspond to the indexes j = 0 to 9.
                  Thus, the number 1 must be subtracted from the parsed number in each case.
                  */
                 for (int i = 0; i < splitUserInput.length; i++) {
                     validShipFrontTailPositionsArray[i * 2] = (int) splitUserInput[i].charAt(0) - 65;
-                    validShipFrontTailPositionsArray[i * 2 + 1] = Integer.parseInt(splitUserInput[i].substring(1)) - 1;
+                    validShipFrontTailPositionsArray[i * 2 + 1] = Integer.parseInt(
+                            splitUserInput[i].substring(1)) - 1;
                 }
 
                 // Valid ship placement is only horizontal or vertical on the game map
@@ -75,10 +91,6 @@ public class BattleshipGame {
 
         return validShipFrontTailPositionsArray;
     }
-
-    private void printMap(char[][] gameMap) {
-    }
-
 
 }
 
