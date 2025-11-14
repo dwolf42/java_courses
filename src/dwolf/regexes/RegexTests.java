@@ -1,10 +1,9 @@
 package dwolf.regexes;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-class Main {
+class RegexTests {
 	public static void main(String[] args) {
 		final String PASSWORD_PATTERN = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)[A-Za-z\\d]{8,20}$";
 		Map<String, String> pwlist = new HashMap<>();
