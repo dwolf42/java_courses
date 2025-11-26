@@ -22,10 +22,35 @@ class Breed {
     }
 }
 
+class Owner {
+	private String name;
+	private Breed breed;
+
+	public Owner(String name, Breed breed) {
+		this.name = name;
+		this.breed = breed;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Breed getBreed() {
+		return breed;
+	}
+
+	public void setBreed(Breed breed) {
+		this.breed = breed;
+	}
+}
 abstract class Animal {
     private String animalName;
     private Breed breed;
-    private Owner owner;
+    private Owner  owner;
     private static int uniqueNumericIndetifier = 1;
 
     public Animal(String animalName, Breed breed, Owner owner) {
