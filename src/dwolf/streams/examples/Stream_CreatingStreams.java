@@ -1,13 +1,11 @@
-package dwolf.streams;
+package dwolf.streams.examples;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.params.provider.Arguments.of;
-
-public class StreamsAreFun {
+public class Stream_CreatingStreams {
     public static void main(String[] args) {
         List<Integer> numbers = List.of(1, 4, 7, 6, 2, 9, 7, 8);
         long count = numbers.stream()

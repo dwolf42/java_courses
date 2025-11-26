@@ -1,9 +1,8 @@
 package dwolf.streams.examples;
 
-import java.util.HashMap;
 import java.util.List;
 
-class StreamExercise {
+class Stream_FunctionalDataProcessing_LoopVsStream {
 	public static void main(String[] args) {
 		// Task: Count numbers greater than 5
 		List<Integer> numbers = List.of(1, 4, 7, 6, 2, 9, 7, 8);
