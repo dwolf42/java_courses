@@ -1,10 +1,6 @@
-package dwolf.project_battleship;
+package dwolf.project_battleship.stage_Pre;
 
-import java.util.Arrays;
-import java.util.Scanner;
-
-public class BattleshipStart {
-
+class BattleshipStart {
     public static void main(String[] args) {
         BattleshipGame bg = new BattleshipGame();
         bg.run();

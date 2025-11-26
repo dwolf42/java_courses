@@ -1,7 +1,6 @@
-package dwolf.project_battleship;
+package dwolf.project_battleship.stage_Pre;
 
 /**
- * <blockquote><pre>
  *       //////////////////// Example Game Map //////////////////
  *       ~ water
  *       M miss
@@ -19,16 +18,15 @@ package dwolf.project_battleship;
  *       H 7  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~
  *       I 8  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~
  *       J 9  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~
- * </pre></blockquote><p>
  */
 
-public class MapHandler {
+class MapHandler {
     static void printMap(char[][] gameMap) {
         // User will see the numbers 1 to 10 above game board for column enumeration
-        // Ofcourse this could be represented using a string, but also missing all the fun
+        // Of course this could be represented using a string, but also missing all the fun
         for (int i = 0; i < gameMap.length; i++) {
             System.out.print(
-                    (i == 0 ? "  " : " ") // Alligns the numbers to the collumns
+                    (i == 0 ? "  " : " ") // Aligns the numbers to the columns
                             + (i + 1));
         }
         System.out.println();

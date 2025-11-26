@@ -1,4 +1,4 @@
-package dwolf.project_battleship;
+package dwolf.project_battleship.stage_Pre;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -52,7 +52,7 @@ class BattleshipGame {
         // would require checks if the number part of the input has n or n + 1 digits.
         //  0  1   2  3 <- indexes
         // [B][10][D][10] <- example user input
-        String[] splitUserInput = {};
+        String[] splitUserInput;
 
         // Alphanumeric user input must be translated to array indexes for ship placement in a 2D-array
         int[] validShipFrontTailPositionsArray = new int[4];
