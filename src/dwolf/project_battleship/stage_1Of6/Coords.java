@@ -19,10 +19,9 @@ class Coords {
     private void extractCoords() {
         String[] splittedCoords = askedCoords.split(" ");
         this.x1Coord = (int) splittedCoords[0].charAt(0) - 65;
-        // FIXME: throws Index 2 ouf of bound for length 2
-        this.x2Coord = (int) splittedCoords[2].charAt(0) - 65;
-        this.y1Coord = Integer.parseInt(splittedCoords[1].substring(1)) - 1;
-        this.y2Coord = Integer.parseInt(splittedCoords[3].substring(1)) - 1;
+		this.y1Coord = Integer.parseInt(splittedCoords[0].substring(1)) - 1;
+        this.x2Coord = (int) splittedCoords[1].charAt(0) - 65;
+        this.y2Coord = Integer.parseInt(splittedCoords[1].substring(1)) - 1;
     }
 
     public int getX1Coord() {
