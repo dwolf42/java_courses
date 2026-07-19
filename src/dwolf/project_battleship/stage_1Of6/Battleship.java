@@ -3,7 +3,9 @@ import java.util.Arrays;
 
 public class Battleship {
     public Battleship() {
-        System.out.println(Integer.parseInt("G"));
+  //      String g = "G";
+  //      int gg = Integer.parseInt(g);
+  //      System.out.println(gg);
         System.out.print(" ");
         for (int i = 1; i <= 10; i++) {
             System.out.print(" ");
@@ -33,6 +35,7 @@ public class Battleship {
     // Subtracting 65 from the int rep. will result in the correct index.
     int x1 = (int) inputParts[0].charAt(0) - 65;
     String y1Part = inputParts[0].substring(1);
+    System.out.println("y1: " y1Part);
     int y1 = Integer.parseInt(y1Part) - 1;
     
     int x2 = (int) inputParts[1].charAt(1) - 65;
