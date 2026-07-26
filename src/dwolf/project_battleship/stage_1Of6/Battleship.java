@@ -37,6 +37,37 @@ public class Battleship {
     int x2 = (int) inputParts[1].charAt(0) - 65;
     String y2Part = inputParts[1].substring(1);
     int y2 = Integer.parseInt(y2Part) - 1;
+
+    boolean isX1InBoundries = x1 >= 0 && x1 <=9;
+    boolean isY1InBoundries = y1 >= 0 && y1 <=9;
+
+    boolean isX2InBoundries = x2 >= 0 && x2 <=9;
+    boolean isY2InBoundries = y2 >= 0 && y2 <=9;
+
+
+
+
+    /*
+     *
+     *       //////////////////// Example Game Map //////////////////
+     *       ~ water
+     *       M miss
+     *       O ship
+     *       X hit
+     *            1  2  3  4  5  6  7  8  9  10
+     *            0  1  2  3  4  5  6  7  8  9
+     *       A 0  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~
+     *       B 1  ~  M  ~  M  ~  ~  O  ~  ~  ~
+     *       C 2  ~  ~  M  ~  ~  ~  O  ~  ~  ~
+     *       D 3  ~  ~  ~  M  ~  ~  O  ~  ~  ~
+     *       E 4  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~
+     *       F 5  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~
+     *       G 6  ~  ~  O  O  X  O  O  ~  ~  ~
+     *       H 7  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~
+     *       I 8  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~
+     *       J 9  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~
+     */
+
     }
 
     public static void main(String[] args) {
