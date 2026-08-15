@@ -22,14 +22,16 @@ public class Battleship {
         }
 
         System.out.println("Enter the coordinates of the ship:");
-        String usrInput = " "; 
-        Scanner scanner = new Scanner(System.in);
-        usrInput = scanner.nextLine().toUpperCase();
+        String usrInput = "D2 D10";
+        //        String usrInput = " "; 
+        //        Scanner scanner = new Scanner(System.in);
+        //        usrInput = scanner.nextLine().toUpperCase();
         String[] inputParts = usrInput.split(" ");
 
-        // The ASCII character code (int representation) for 'A' is 65
-        // The first index of an array is 0.
-        // Subtracting 65 from the int rep. will result in the correct index.
+        /* The ASCII character code (int representation) for 'A' is 65
+         * The first index of an array is 0.
+         * Because of this, subtracting 65 from the int representation will result in the correct index.
+         */
         int x1 = (int) inputParts[0].charAt(0) - 65;
         String y1Part = inputParts[0].substring(1);
         int y1 = Integer.parseInt(y1Part) - 1;
@@ -62,27 +64,57 @@ public class Battleship {
                 !isY1InBoundries || !isY2InBoundries || !isHoriOrVerti) {
             System.out.println("Error");
                 }
-        /*
-         *
-         *       //////////////////// Example Game Map //////////////////
-         *       ~ water
-         *       M miss
-         *       O ship
-         *       X hit
-         *            1  2  3  4  5  6  7  8  9  10
-         *            0  1  2  3  4  5  6  7  8  9
-         *       A 0  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~
-         *       B 1  ~  M  ~  M  ~  ~  O  ~  ~  ~
-         *       C 2  ~  ~  M  ~  ~  ~  O  ~  ~  ~
-         *       D 3  ~  ~  ~  M  ~  ~  O  ~  ~  ~
-         *       E 4  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~
-         *       F 5  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~
-         *       G 6  ~  ~  O  O  X  O  O  ~  ~  ~
-         *       H 7  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~
-         *       I 8  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~
-         *       J 9  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~
-         */
 
+        /*
+         * 3,1 3,9
+         * 3,9 3,1
+         *
+         *  
+         * 3,1
+         * 3,9
+         * 
+         * 1,3
+         * 9,3
+         *
+         * if x1 == x2 then x1 is fixed
+         * if y1 < y2 then y is to increment
+         * else y decrement
+         *
+         * if y1 == y2 then y1 is fiyed
+         * if x1 < x2 then x is to increment
+         * else x decrement
+         *
+         * D
+         * increment
+         *
+         * */
+
+        char fixedChar = ' '; 
+        char variableChar = ' ';
+        boolean increment = true;
+
+        if (x1 == x2) {
+            fixedChar = (char) (x1 + 65);
+            if (y1 < y2) {
+                variableChar = (char) (y1 + 65);
+                increment = true; 
+            } else {
+                variableChar = (char) (y2 + 65);
+                increment = false; 
+            }
+        }
+
+        if (y1 == y2) {
+            fixedChar = (char) (y1 + 65);
+            if (x1 < x2) {
+                variableChar = (char) (x1 + 65);
+                increment = true;
+            } else {
+                variableChar = (char) (x2 + 65);
+                increment = false;
+            }
+
+        }
     }
 
     public static void main(String[] args) {
@@ -90,3 +122,25 @@ public class Battleship {
     }
 
 }
+
+
+/*
+ *
+ *       //////////////////// Example Game Map //////////////////
+ *       ~ water
+ *       M miss
+ *       O ship
+ *       X hit
+ *            1  2  3  4  5  6  7  8  9  10
+ *            0  1  2  3  4  5  6  7  8  9
+ *       A 0  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~
+ *       B 1  ~  M  ~  M  ~  ~  O  ~  ~  ~
+ *       C 2  ~  ~  M  ~  ~  ~  O  ~  ~  ~
+ *       D 3  ~  ~  ~  M  ~  ~  O  ~  ~  ~
+ *       E 4  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~
+ *       F 5  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~
+ *       G 6  ~  ~  O  O  X  O  O  ~  ~  ~
+ *       H 7  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~
+ *       I 8  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~
+ *       J 9  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~
+ */
