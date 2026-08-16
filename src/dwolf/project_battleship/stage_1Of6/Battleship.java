@@ -22,7 +22,7 @@ public class Battleship {
         }
 
         System.out.println("Enter the coordinates of the ship:");
-        String usrInput = "D2 D10";
+        String usrInput = "D2 D7";
         //        String usrInput = " "; 
         //        Scanner scanner = new Scanner(System.in);
         //        usrInput = scanner.nextLine().toUpperCase();
@@ -51,6 +51,8 @@ public class Battleship {
 
         System.out.println("x1: " + x1);
         System.out.println("y1: " + y1);
+    
+        System.out.println(" ");
         System.out.println("x2: " + x2);
         System.out.println("y2: " + y2);
 
@@ -62,7 +64,8 @@ public class Battleship {
 
         if (!isX1InBoundries || !isY1InBoundries ||
                 !isY1InBoundries || !isY2InBoundries || !isHoriOrVerti) {
-            System.out.println("Error");
+            System.out.println("Error!");
+            return;
                 }
 
         /*
@@ -92,6 +95,16 @@ public class Battleship {
         char fixedChar = ' '; 
         char variableChar = ' ';
         boolean increment = true;
+        int length = 0;
+
+        if (x1 != x2) {
+            length = Math.abs(x1 - x2) + 1;
+        } else {
+            length = Math.abs(y1 - y2) +1;
+        }
+
+
+        System.out.println("Length: " + length);
 
         if (x1 == x2) {
             fixedChar = (char) (x1 + 65);
