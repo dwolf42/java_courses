@@ -3,26 +3,10 @@ import java.util.Arrays;
 
 public class Battleship {
     public Battleship() {
-        System.out.print(" ");
-        for (int i = 1; i <= 10; i++) {
-            System.out.print(" ");
-            System.out.print(i);
-        }
-        System.out.println();
-
-        char rowLetter = 'A';
-
-        for (int i = 0; i <= 9; i++) {
-            System.out.print(rowLetter);
-            for (int j = 0; j <= 9; j++) {
-                System.out.print(" " + "~"); 
-            }
-            System.out.println();
-            rowLetter++;
-        }
+        printBoard();
 
         System.out.println("Enter the coordinates of the ship:");
-        String usrInput = "D2 D7";
+        String usrInput = "D2 D8";
         //        String usrInput = " "; 
         //        Scanner scanner = new Scanner(System.in);
         //        usrInput = scanner.nextLine().toUpperCase();
@@ -46,12 +30,12 @@ public class Battleship {
         boolean isX2InBoundries = x2 >= 0 && x2 <=9;
         boolean isY2InBoundries = y2 >= 0 && y2 <=9;
 
-        boolean isHoriOrVerti = x1 == x2 || y1 == y2;
+        boolean isHoriOrVerti = x1 == x2 ^ y1 == y2;
 
 
         System.out.println("x1: " + x1);
         System.out.println("y1: " + y1);
-    
+
         System.out.println(" ");
         System.out.println("x2: " + x2);
         System.out.println("y2: " + y2);
@@ -94,26 +78,25 @@ public class Battleship {
 
         char fixedChar = ' '; 
         char variableChar = ' ';
-        boolean increment = true;
+        boolean isIncrement = true;
         int length = 0;
 
-        if (x1 != x2) {
-            length = Math.abs(x1 - x2) + 1;
+        if (x1 == x2) {
+            length = Math.abs(y1 - y2) + 1;
+
         } else {
-            length = Math.abs(y1 - y2) +1;
+            length = Math.abs(x1 - x2) + 1;
         }
-
-
         System.out.println("Length: " + length);
 
         if (x1 == x2) {
             fixedChar = (char) (x1 + 65);
             if (y1 < y2) {
                 variableChar = (char) (y1 + 65);
-                increment = true; 
+                isIncrement = true; 
             } else {
                 variableChar = (char) (y2 + 65);
-                increment = false; 
+                isIncrement = false; 
             }
         }
 
@@ -121,12 +104,32 @@ public class Battleship {
             fixedChar = (char) (y1 + 65);
             if (x1 < x2) {
                 variableChar = (char) (x1 + 65);
-                increment = true;
+                isIncrement = true;
             } else {
                 variableChar = (char) (x2 + 65);
-                increment = false;
+                isIncrement = false;
             }
 
+        }
+    }
+
+    private void printBoard() {
+        System.out.print(" ");
+        for (int i = 1; i <= 10; i++) {
+            System.out.print(" ");
+            System.out.print(i);
+        }
+        System.out.println();
+
+        char rowLetter = 'A';
+
+        for (int i = 0; i <= 9; i++) {
+            System.out.print(rowLetter);
+            for (int j = 0; j <= 9; j++) {
+                System.out.print(" " + "~"); 
+            }
+            System.out.println();
+            rowLetter++;
         }
     }
 
