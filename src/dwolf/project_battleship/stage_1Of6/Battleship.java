@@ -1,141 +1,141 @@
-import java.util.Scanner;
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-public class Battleship {
-    public Battleship() {
-        printBoard();
+class Battleship {
+	public Battleship() {
+		printBoard();
 
-        System.out.println("Enter the coordinates of the ship:");
-        String usrInput = "D2 D8";
-        //        String usrInput = " "; 
-        //        Scanner scanner = new Scanner(System.in);
-        //        usrInput = scanner.nextLine().toUpperCase();
-        String[] inputParts = usrInput.split(" ");
+		System.out.println("Enter the coordinates of the ship:");
+		String userInput = "D2 D8";
+		//        String userInput = " ";
+		//        Scanner scanner = new Scanner(System.in);
+		//        userInput = scanner.nextLine().toUpperCase();
+		final String VALID_USER_INPUT_PATTERN = "^[A-J](10|[1-9])\\s[A-J](10|[1-9])$";
+		Pattern pattern = Pattern.compile(VALID_USER_INPUT_PATTERN);
+		Matcher matcher = pattern.matcher(userInput);
+		if (!matcher.matches()) {
+			System.out.println("Error!");
+			return;
+		}
 
-        /* The ASCII character code (int representation) for 'A' is 65
-         * The first index of an array is 0.
-         * Because of this, subtracting 65 from the int representation will result in the correct index.
-         */
-        int x1 = (int) inputParts[0].charAt(0) - 65;
-        String y1Part = inputParts[0].substring(1);
-        int y1 = Integer.parseInt(y1Part) - 1;
+		ArrayList<Integer> indexes = inputToIndexes(userInput);
 
-        int x2 = (int) inputParts[1].charAt(0) - 65;
-        String y2Part = inputParts[1].substring(1);
-        int y2 = Integer.parseInt(y2Part) - 1;
+		boolean isHoriOrVerti = indexes.get(0).equals(indexes.get(2)) ^ indexes.get(1).equals(indexes.get(3));
 
-        boolean isX1InBoundries = x1 >= 0 && x1 <=9;
-        boolean isY1InBoundries = y1 >= 0 && y1 <=9;
+		/*
+		 * 3,1 3,9
+		 * 3,9 3,1
+		 *
+		 *
+		 * 3,1
+		 * 3,9
+		 *
+		 * 1,3
+		 * 9,3
+		 *
+		 * if row1 == row2 then row1 is fixed
+		 * if col1 < col2 then y is to increment
+		 * else y decrement
+		 *
+		 * if col1 == col2 then col1 is fiyed
+		 * if row1 < row2 then x is to increment
+		 * else x decrement
+		 *
+		 * D
+		 * increment
+		 *
+		 * */
 
-        boolean isX2InBoundries = x2 >= 0 && x2 <=9;
-        boolean isY2InBoundries = y2 >= 0 && y2 <=9;
+		char fixedChar = ' ';
+		char variableChar = ' ';
+		boolean isIncrement = true;
+		int length = 0;
 
-        boolean isHoriOrVerti = x1 == x2 ^ y1 == y2;
+		if (row1 == row2) {
+			length = Math.abs(col1 - col2) + 1;
 
+		} else {
+			length = Math.abs(row1 - row2) + 1;
+		}
+		System.out.println("Length: " + length);
 
-        System.out.println("x1: " + x1);
-        System.out.println("y1: " + y1);
+		if (row1 == row2) {
+			fixedChar = (char) (row1 + 65);
+			if (col1 < col2) {
+				variableChar = (char) (col1 + 65);
+				isIncrement = true;
+			} else {
+				variableChar = (char) (col2 + 65);
+				isIncrement = false;
+			}
+		}
 
-        System.out.println(" ");
-        System.out.println("x2: " + x2);
-        System.out.println("y2: " + y2);
+		if (col1 == col2) {
+			fixedChar = (char) (col1 + 65);
+			if (row1 < row2) {
+				variableChar = (char) (row1 + 65);
+				isIncrement = true;
+			} else {
+				variableChar = (char) (row2 + 65);
+				isIncrement = false;
+			}
 
-        System.out.println("isX1InBoundries: " + isX1InBoundries);
-        System.out.println("isY1InBoundries: " + isY1InBoundries);
-        System.out.println("isX2InBoundries: " + isX2InBoundries);
-        System.out.println("isY2InBoundries: " + isY2InBoundries);
-        System.out.println("isHoriOrVerti: " + isHoriOrVerti);
+		}
+	}
 
-        if (!isX1InBoundries || !isY1InBoundries ||
-                !isY1InBoundries || !isY2InBoundries || !isHoriOrVerti) {
-            System.out.println("Error!");
-            return;
-                }
+	private ArrayList<Integer> inputToIndexes(String userInput) {
 
-        /*
-         * 3,1 3,9
-         * 3,9 3,1
-         *
-         *  
-         * 3,1
-         * 3,9
-         * 
-         * 1,3
-         * 9,3
-         *
-         * if x1 == x2 then x1 is fixed
-         * if y1 < y2 then y is to increment
-         * else y decrement
-         *
-         * if y1 == y2 then y1 is fiyed
-         * if x1 < x2 then x is to increment
-         * else x decrement
-         *
-         * D
-         * increment
-         *
-         * */
+		String[] inputParts = userInput.split(" ");
+		ArrayList<Integer> indexes = new ArrayList<>();
 
-        char fixedChar = ' '; 
-        char variableChar = ' ';
-        boolean isIncrement = true;
-        int length = 0;
+		/* The ASCII character code (int representation) for 'A' is 65
+		 * The first index of an array is 0.
+		 * Because of this, subtracting 65 from the int representation will result in the correct index.
+		 */
+		int tempNum;
+		String tempStr;
 
-        if (x1 == x2) {
-            length = Math.abs(y1 - y2) + 1;
+		tempNum = (int) inputParts[0].charAt(0) - 65;
+		indexes.add(tempNum);
 
-        } else {
-            length = Math.abs(x1 - x2) + 1;
-        }
-        System.out.println("Length: " + length);
+		tempStr = inputParts[0].substring(1);
+		tempNum = Integer.parseInt(tempStr) - 1;
+		indexes.add(tempNum);
 
-        if (x1 == x2) {
-            fixedChar = (char) (x1 + 65);
-            if (y1 < y2) {
-                variableChar = (char) (y1 + 65);
-                isIncrement = true; 
-            } else {
-                variableChar = (char) (y2 + 65);
-                isIncrement = false; 
-            }
-        }
+		tempNum = (int) inputParts[1].charAt(0) - 65;
+		indexes.add(tempNum);
 
-        if (y1 == y2) {
-            fixedChar = (char) (y1 + 65);
-            if (x1 < x2) {
-                variableChar = (char) (x1 + 65);
-                isIncrement = true;
-            } else {
-                variableChar = (char) (x2 + 65);
-                isIncrement = false;
-            }
+		tempStr = inputParts[1].substring(1);
+		tempNum = Integer.parseInt(tempStr) - 1;
+		indexes.add(tempNum);
 
-        }
-    }
+		return indexes;
+	}
 
-    private void printBoard() {
-        System.out.print(" ");
-        for (int i = 1; i <= 10; i++) {
-            System.out.print(" ");
-            System.out.print(i);
-        }
-        System.out.println();
+	private void printBoard() {
+		System.out.print(" ");
+		for (int i = 1; i <= 10; i++) {
+			System.out.print(" ");
+			System.out.print(i);
+		}
+		System.out.println();
 
-        char rowLetter = 'A';
+		char rowLetter = 'A';
 
-        for (int i = 0; i <= 9; i++) {
-            System.out.print(rowLetter);
-            for (int j = 0; j <= 9; j++) {
-                System.out.print(" " + "~"); 
-            }
-            System.out.println();
-            rowLetter++;
-        }
-    }
+		for (int i = 0; i <= 9; i++) {
+			System.out.print(rowLetter);
+			for (int j = 0; j <= 9; j++) {
+				System.out.print(" " + "~");
+			}
+			System.out.println();
+			rowLetter++;
+		}
+	}
 
-    public static void main(String[] args) {
-        new Battleship();
-    }
+	public static void main(String[] args) {
+		new Battleship();
+	}
 
 }
 
