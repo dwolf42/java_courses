@@ -1,39 +1,44 @@
+package dwolf.project_battleship.stage_1Of6;
+
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.IntStream;
+import java.util.Scanner;
 
 class Battleship {
 	public Battleship() {
 		printBoard();
-
 		System.out.println("Enter the coordinates of the ship:");
 		String userInput = "D2 D8";
+		Scanner scanner = new Scanner(System.in);
 		//        String userInput = " ";
-		//        Scanner scanner = new Scanner(System.in);
 		//        userInput = scanner.nextLine().toUpperCase();
 		final String VALID_USER_INPUT_PATTERN = "^[A-J](10|[1-9])\\s[A-J](10|[1-9])$";
 		Pattern pattern = Pattern.compile(VALID_USER_INPUT_PATTERN);
 		Matcher matcher = pattern.matcher(userInput);
+
 		if (!matcher.matches()) {
-			System.out.println("Error!");
-			return;
+			errorMessageAndQuit(scanner);
 		}
 
-		ArrayList<Integer> indexes = inputToIndexes(userInput);
+		/* The ASCII character code (int representation) for 'A' is 65
+		 * The first index of an array is 0.
+		 * Because of this, subtracting 65 from the int representation will result in the correct index.
+		 */
 
-		boolean isHoriOrVerti = indexes.get(0).equals(indexes.get(2)) ^ indexes.get(1).equals(indexes.get(3));
+		int row1 = (int) userInput.split(" ")[0].charAt(0) - 65;
+		String tempStr = userInput.split(" ")[0].substring(1);
+		int col1 = Integer.parseInt(tempStr) - 1;
+
+		int row2 = (int) userInput.split(" ")[1].charAt(0) - 65;
+		tempStr = userInput.split(" ")[1].substring(1);
+		int col2 = Integer.parseInt(tempStr) - 1;
+
+		boolean isHorizontal = row1 == row2 ^ col1 == col2; // false = vertical
+
 
 		/*
-		 * 3,1 3,9
-		 * 3,9 3,1
-		 *
-		 *
-		 * 3,1
-		 * 3,9
-		 *
-		 * 1,3
-		 * 9,3
-		 *
 		 * if row1 == row2 then row1 is fixed
 		 * if col1 < col2 then y is to increment
 		 * else y decrement
@@ -44,6 +49,14 @@ class Battleship {
 		 *
 		 * D
 		 * increment
+		 *
+		 * row1 fixed
+		 * 3,4 3,5 3,6 3,7
+		 * 3,7 3,6 3,5 3,4
+		 *
+		 * col1 fixed
+		 * 1,9 2,9 3,9 4,9
+		 * 4,9 3,9 2,9 1,9
 		 *
 		 * */
 
@@ -84,35 +97,6 @@ class Battleship {
 		}
 	}
 
-	private ArrayList<Integer> inputToIndexes(String userInput) {
-
-		String[] inputParts = userInput.split(" ");
-		ArrayList<Integer> indexes = new ArrayList<>();
-
-		/* The ASCII character code (int representation) for 'A' is 65
-		 * The first index of an array is 0.
-		 * Because of this, subtracting 65 from the int representation will result in the correct index.
-		 */
-		int tempNum;
-		String tempStr;
-
-		tempNum = (int) inputParts[0].charAt(0) - 65;
-		indexes.add(tempNum);
-
-		tempStr = inputParts[0].substring(1);
-		tempNum = Integer.parseInt(tempStr) - 1;
-		indexes.add(tempNum);
-
-		tempNum = (int) inputParts[1].charAt(0) - 65;
-		indexes.add(tempNum);
-
-		tempStr = inputParts[1].substring(1);
-		tempNum = Integer.parseInt(tempStr) - 1;
-		indexes.add(tempNum);
-
-		return indexes;
-	}
-
 	private void printBoard() {
 		System.out.print(" ");
 		for (int i = 1; i <= 10; i++) {
@@ -131,6 +115,12 @@ class Battleship {
 			System.out.println();
 			rowLetter++;
 		}
+	}
+
+	private void errorMessageAndQuit(Scanner scanner) {
+		scanner.close();
+		System.out.println("Error!");
+		System.exit(0);
 	}
 
 	public static void main(String[] args) {
