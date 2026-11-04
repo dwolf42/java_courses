@@ -1,14 +1,12 @@
 package dwolf.project_battleship.stage_1Of6;
 
-import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.IntStream;
-import java.util.Scanner;
 
-class Battleship {
-	public Battleship() {
-		printBoard();
+public class Battleship {
+	public void launch() {
+		System.out.print(renderBoard());
 		System.out.println("Enter the coordinates of the ship:");
 		String userInput = "D2 D8";
 		Scanner scanner = new Scanner(System.in);
@@ -97,24 +95,25 @@ class Battleship {
 		}
 	}
 
-	private void printBoard() {
-		System.out.print(" ");
+	public String renderBoard() {
+		StringBuilder board = new StringBuilder();
+
+		board.append(" ");
 		for (int i = 1; i <= 10; i++) {
-			System.out.print(" ");
-			System.out.print(i);
+			board.append(" ").append(i);
 		}
-		System.out.println();
+		board.append("\n");
 
 		char rowLetter = 'A';
-
 		for (int i = 0; i <= 9; i++) {
-			System.out.print(rowLetter);
+			board.append(rowLetter);
 			for (int j = 0; j <= 9; j++) {
-				System.out.print(" " + "~");
+				board.append(" ~");
 			}
-			System.out.println();
+			board.append("\n");
 			rowLetter++;
 		}
+		return board.toString();
 	}
 
 	private void errorMessageAndQuit(Scanner scanner) {
@@ -124,7 +123,8 @@ class Battleship {
 	}
 
 	public static void main(String[] args) {
-		new Battleship();
+		Battleship bs = new Battleship();
+		bs.launch();
 	}
 
 }
